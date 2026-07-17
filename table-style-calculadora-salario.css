@@ -1,0 +1,203 @@
+/*.table-content {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--p-small--font-size);
+  color: var(--colors--text-primary);
+  line-height: var(--p-small--line-height);
+  letter-spacing: var(--p-small--letter-spacing);
+  text-align: left;
+  table-layout: auto;
+}
+
+thead {
+}
+
+thead tr {
+  background-color: transparent;
+  font-size: var(--p-small--font-size);
+  color: var(--colors--text-tertiary);
+  padding: 0px;
+  letter-spacing: var(--p-small--letter-spacing);
+  line-height: var(--p-small--line-height);
+}
+
+thead th {
+  font-weight: 500 !important;
+  min-width: 8rem;
+}
+
+tbody {
+  position: relative;
+}
+
+tbody::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--colors--border-secondary);
+  border-radius: 8px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+th,
+td {
+  padding: 12px;
+  min-width: 8rem;
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--colors--border-secondary);
+}
+
+tbody tr:last-of-type {
+  border-bottom: none;
+}
+
+.is-selected td {
+  font-weight: 600;
+  background-color: #eff4ff;
+}
+
+.is-selected:first-child td:first-child {
+  border-top-left-radius: 0.5rem;
+}
+.is-selected:first-child td:last-child {
+  border-top-right-radius: 0.5rem;
+}
+
+.is-selected:last-child td:first-child {
+  border-bottom-left-radius: 0.5rem;
+}
+.is-selected:last-child td:last-child {
+  border-bottom-right-radius: 0.5rem;
+}
+*/
+
+.table-content {
+  overflow-x: auto; /* Enables horizontal scrolling */
+  display: block; /* Prevents table from collapsing */
+  width: 100%;
+  padding-left: 1px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--p-small--font-size);
+  color: var(--colors--text-primary);
+  line-height: var(--p-small--line-height);
+  letter-spacing: var(--p-small--letter-spacing);
+  text-align: left;
+  table-layout: auto; /* Allows flexibility in column sizing */
+}
+
+thead {
+  display: table;
+  width: 100%;
+  table-layout: auto;
+}
+
+thead tr {
+  background-color: transparent;
+  font-size: var(--p-small--font-size);
+  color: var(--colors--text-tertiary);
+  padding: 0px;
+  letter-spacing: var(--p-small--letter-spacing);
+  line-height: var(--p-small--line-height);
+}
+
+thead th {
+  font-weight: 500 !important;
+  max-width: 188px;
+  min-width: 188px;
+  width: 188px;
+}
+
+tbody {
+  display: table;
+  width: 100%;
+  table-layout: auto;
+  position: relative;
+}
+
+tbody::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1px;
+  right: -0.5px;
+  border: 1px solid var(--colors--border-secondary);
+  border-radius: 8px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+th,
+td {
+  padding: 12px;
+  white-space: nowrap;
+  max-width: 188px;
+  min-width: 188px;
+  width: 188px;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--colors--border-secondary);
+}
+
+tbody tr:last-of-type {
+  border-bottom: none;
+}
+
+/* Then style only the selected row */
+.is-selected td {
+  font-weight: 600;
+  background-color: #f2f4f7;
+  border-top: 1px solid #e9ecf1;
+  border-bottom: 1px solid #e9ecf1;
+  box-sizing: border-box;
+  margin-left: 1px;
+}
+
+/* Left border only on first cell */
+.is-selected td:first-child {
+  border-left: 1px solid #e9ecf1;
+}
+
+/* Right border only on last cell */
+.is-selected td:last-child {
+  border-right: 1px solid #e9ecf1;
+}
+
+/* Border radius for corners */
+.is-selected:first-child td:first-child {
+  border-top-left-radius: 0.5rem;
+}
+.is-selected:first-child td:last-child {
+  border-top-right-radius: 0.5rem;
+}
+.is-selected:last-child td:first-child {
+  border-bottom-left-radius: 0.5rem;
+}
+.is-selected:last-child td:last-child {
+  border-bottom-right-radius: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .table-content thead {
+    display: block !important;
+  }
+
+  .table-content tbody {
+    display: block !important;
+  }
+}

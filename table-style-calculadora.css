@@ -1,0 +1,93 @@
+.table-content {
+  overflow-x: auto; /* Enables horizontal scrolling */
+  display: block; /* Prevents table from collapsing */
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--p-small--font-size);
+  color: var(--colors--text-primary);
+  line-height: var(--p-small--line-height);
+  letter-spacing: var(--p-small--letter-spacing);
+  text-align: left;
+  table-layout: auto; /* Allows flexibility in column sizing */
+}
+
+thead {
+  display: table;
+  width: 100%;
+  table-layout: auto;
+}
+
+thead tr {
+  background-color: transparent;
+  font-size: var(--p-small--font-size);
+  color: var(--colors--text-tertiary);
+  padding: 0px;
+  letter-spacing: var(--p-small--letter-spacing);
+  line-height: var(--p-small--line-height);
+}
+
+thead th {
+  font-weight: 500 !important;
+  min-width: 12rem; /* Ensures columns are at least 12rem */
+}
+
+/* Default: First column max-width of 4rem for larger screens */
+thead th:first-child,
+tbody td:first-child {
+  max-width: 7rem;
+  min-width: 7rem;
+  width: 7rem;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table-content tbody tr:last-child {
+  font-weight: 600;
+}
+
+tbody {
+  display: table;
+  width: 100%;
+  table-layout: auto;
+  position: relative;
+}
+
+tbody::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--colors--border-secondary);
+  border-radius: 8px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+th,
+td {
+  padding: 12px;
+  min-width: 12rem; /* Ensures a minimum column width */
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* On screens ≤ 767px, apply a max-width of 6rem to the first column */
+@media screen and (max-width: 767px) {
+  thead th:first-child,
+  tbody td:first-child {
+    max-width: 6rem;
+    min-width: 6rem;
+  }
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--colors--border-secondary);
+}
+
+tbody tr:last-of-type {
+  border-bottom: none;
+}
