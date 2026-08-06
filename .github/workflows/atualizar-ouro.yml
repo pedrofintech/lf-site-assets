@@ -1,0 +1,50 @@
+name: Atualizar dados do ouro
+
+on:
+  schedule:
+    - cron: '20 7 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Buscar cotacao e cambio e escrever ouro-dados.json
+        shell: python
+        run: |
+          import json, urllib.request, datetime
+
+          def get(url):
+              req = urllib.request.Request(url, headers={"User-Agent": "lf-site-assets-action"})
+              with urllib.request.urlopen(req, timeout=20) as r:
+                  return json.load(r)
+
+          xau = float(get("https://api.gold-api.com/price/XAU")["price"])
+          fx = float(get("https://api.frankfurter.dev/v1/latest?base=USD&symbols=EUR")["rates"]["EUR"])
+          assert 500 < xau < 50000, "spot fora do plausivel"
+          assert 0.4 < fx < 2, "cambio fora do plausivel"
+
+          agora = datetime.datetime.now(datetime.timezone.utc)
+          dados = {
+              "xauUsd": round(xau, 2),
+              "usdEur": round(fx, 4),
+              "eurG": round(xau * fx / 31.1034768, 2),
+              "data": agora.strftime("%Y-%m-%d"),
+              "atualizadoEm": agora.strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "fonte": "api.gold-api.com + api.frankfurter.dev (BCE)"
+          }
+          with open("ouro-dados.json", "w") as f:
+              f.write(json.dumps(dados, ensure_ascii=False, indent=2) + "\n")
+
+      - name: Commit e push se houver alteracoes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ouro-dados.json
+          git diff --cached --quiet || (git commit -m "Atualizar cotacao do ouro ($(date -u +%F))" && git push)
+
