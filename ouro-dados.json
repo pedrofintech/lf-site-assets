@@ -1,9 +1,8 @@
 {
-  "xauUsd": 4286.8,
-  "usdEur": 0.8655,
-  "eurG": 119.29,
-  "data": "2026-08-06",
-  "atualizadoEm": "2026-08-06T15:45:00Z",
+  "xauUsd": 4296.8,
+  "usdEur": 0.8664,
+  "eurG": 119.69,
+  "data": "2026-08-07",
+  "atualizadoEm": "2026-08-07T08:31:43Z",
   "fonte": "api.gold-api.com + api.frankfurter.dev (BCE)"
 }
-
