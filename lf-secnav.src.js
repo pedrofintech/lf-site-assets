@@ -1,9 +1,10 @@
-/* LF secnav v14: barra de seccoes sticky em mobile para artigos LiteraciaFinanceira.pt.
+/* LF secnav v15: barra de seccoes sticky em mobile para artigos LiteraciaFinanceira.pt.
    Config em window.LF_SECNAV (definida no head da pagina). Servido via jsDelivr. */
 (function () {
   var CFG = window.LF_SECNAV || {};
   var slug = (location.pathname.split('/').filter(Boolean).pop() || '').toLowerCase();
-  if (location.search.indexOf('secnav') === -1 && (CFG.slugs || []).indexOf(slug) === -1) return;
+  var enabled = CFG.all === true || location.search.indexOf('secnav') > -1 || (CFG.slugs || []).indexOf(slug) > -1;
+  if (!enabled || (CFG.exclude || []).indexOf(slug) > -1) return;
   if (!window.matchMedia || !window.matchMedia('(max-width: 991px)').matches) return;
 
   function ready(fn) {
@@ -19,14 +20,33 @@
 
     var GAP = 20;
 
+    /* Versao curta do H2 para a barra. Regras (por ordem):
+       corta em ":", "?", "(", " - " e " vs" (mantem o "vs");
+       tira prefixos tipo "E os", "Afinal,", "Como", "O que e";
+       tira sufixos tipo "da Saxo", "na Trading 212", "em Portugal", "em 2026";
+       trunca aos 24 caracteres na ultima palavra. */
+    var MAX = 28;
+    function cap(t) { return t && !/^[a-z][A-Z]/.test(t) ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
     function shorten(t) {
-      t = t.replace(/\s+/g, ' ').trim();
-      var c = t.split(/[:?(]/)[0].trim();
+      t = t.replace(/[\u201c\u201d"']/g, '').replace(/\s+/g, ' ').trim();
+      var c = t.split(/:|\?|\(|\s[-\u2013\u2014]\s/)[0].trim();
       if (c.length > 3) t = c;
-      if (t.length <= 24) return t;
-      var s = t.slice(0, 24), p = s.lastIndexOf(' ');
-      if (p > 10) s = s.slice(0, p);
-      return s.trim() + '\u2026';
+      t = t.replace(/^(e|mas|afinal|ent\u00e3o|agora)[,\s]+/i, '');
+      t = t.replace(/^(o que \u00e9|o que s\u00e3o|quais s\u00e3o|qual \u00e9|como funciona|como funcionam)(\s+(uns|umas|um|uma|os|as|o|a))?\s+/i, '');
+      t = t.replace(/^(os|as|o|a)\s+/i, '');
+      t = t.replace(/\s+em\s+20\d\d$/i, '');
+      if (t.length > MAX) t = t.replace(/\s+(em|no|na)\s+portugal$/i, '');
+      var brand = /\s+(da|do|na|no|de|com a|com o|pela|pelo)\s+([A-Za-z][\w.&-]*(?:\s(?:212|Bank|Markets|Brokers|Republic|Invest|Investing|Broker|Republic))?)$/;
+      if (t.length > MAX && brand.test(t)) {
+        var t2 = t.replace(brand, ' $2');
+        t = t2.length <= MAX ? t2 : t.replace(brand, '');
+      }
+      t = t.replace(/\s+(vs\.?)$/i, '').trim().replace(/[.,;]+$/, '');
+      if (t.length > MAX) {
+        var cut = t.slice(0, MAX), sp = cut.lastIndexOf(' ');
+        t = (sp > 10 ? cut.slice(0, sp) : cut).trim() + '\u2026';
+      }
+      return cap(t) || 'Sec\u00e7\u00e3o';
     }
 
     /* ---------- navbar (fixa-se ao fazer scroll) ---------- */
