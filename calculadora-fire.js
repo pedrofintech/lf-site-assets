@@ -43,7 +43,13 @@ $(document).ready(function () {
     const adjustedTotalData = [];
     const realTotalData = [];
 
+    var anosSimulados = 0;
     while (montanteTotal < valorFire) {
+      anosSimulados++;
+      if (anosSimulados > 100) {
+        alert("Com estes valores não chegas ao objetivo em 100 anos. Aumenta o reforço mensal ou a rentabilidade esperada.");
+        return;
+      }
       // Calcular juros do capital inicial
       const jurosCapitalInicial = montanteInicial * taxaRentabilidadeAnual;
 

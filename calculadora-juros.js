@@ -26,6 +26,10 @@ document.getElementById("calcular").addEventListener("click", function (e) {
   const periodYears = parseInt(
     document.querySelector('[data-type="period-years"]').value
   );
+  if (!(periodYears >= 1)) {
+    alert("Indica o prazo em anos (mínimo 1) para calcular.");
+    return;
+  }
 
   const annualYield = parseFormattedNumber(
     document.querySelector('[data-type="yield"]').value
@@ -256,7 +260,7 @@ document.getElementById("calcular").addEventListener("click", function (e) {
   } em investimentos</b> e <b>${
     lastConsoleRow
       ? lastConsoleRow["Juros Acumulados"]
-      : formatCurrency(totalJurosAcumuladosFinal)
+      : formatCurrency(accumulatedInterest)
   } em juros acumulados</b>.
   `;
   document.querySelector("[resume-text]").innerHTML = resumeText;

@@ -66,9 +66,11 @@ $(document).ready(function () {
       $('[data-type="period-emprestimo"]').val() * 12
     );
     const n_prazoAnos = $('[data-type="period-emprestimo"]').val();
-    const TAN_taxaAnualNominal = roundTo2(
-      toNumber($('[data-type="yield"]').val()) / 100
-    );
+    const TAN_taxaAnualNominal = toNumber($('[data-type="yield"]').val()) / 100; // sem roundTo2: 3,5% tem de ficar 0,035
+    if (!(TAN_taxaAnualNominal > 0)) {
+      alert("Indica a taxa de juro anual (TAN) para calcular.");
+      return;
+    }
     const C0_comissoesIniciais = toInt(
       $('[data-type="comissoes-iniciais"]').val().replace(/\./g, "")
     );
