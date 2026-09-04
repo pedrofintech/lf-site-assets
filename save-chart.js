@@ -1,4 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Carrega o html2canvas so no primeiro clique (evita ~200 KB de parse no load).
+  function ensureHtml2Canvas() {
+    if (window.html2canvas) return Promise.resolve(window.html2canvas);
+    if (window.__h2cPromise) return window.__h2cPromise;
+    window.__h2cPromise = new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js";
+      s.onload = function () {
+        resolve(window.html2canvas);
+      };
+      s.onerror = function () {
+        window.__h2cPromise = null;
+        reject(new Error("html2canvas failed to load"));
+      };
+      document.head.appendChild(s);
+    });
+    return window.__h2cPromise;
+  }
+
   // Function to convert SVG to a Base64 Image
   function svgToBase64(svgElement, callback) {
     const svgData = new XMLSerializer().serializeToString(svgElement);
@@ -48,13 +68,19 @@ document.addEventListener("DOMContentLoaded", function () {
       wrapper.appendChild(cloned);
       document.body.appendChild(wrapper);
 
-      html2canvas(wrapper, { backgroundColor: null }).then((canvas) => {
-        const link = document.createElement("a");
-        link.href = canvas.toDataURL("image/png", 1.0);
-        link.download = "simulacao-salario-liquido.png";
-        link.click();
-        document.body.removeChild(wrapper);
-      });
+      ensureHtml2Canvas()
+        .then((html2canvas) => html2canvas(wrapper, { backgroundColor: null }))
+        .then((canvas) => {
+          const link = document.createElement("a");
+          link.href = canvas.toDataURL("image/png", 1.0);
+          link.download = "simulacao-salario-liquido.png";
+          link.click();
+          document.body.removeChild(wrapper);
+        })
+        .catch((err) => {
+          console.error(err);
+          document.body.removeChild(wrapper);
+        });
 
       return;
     }

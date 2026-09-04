@@ -1,9 +1,21 @@
 $("#calcular").on("click", function () {
-  gsap.to(window, {
-    duration: 1,
-    scrollTo: { y: "[results-anchor]", offsetY: 100 },
-    ease: "power1.inOut",
-  });
+  // Scroll nativo para os resultados (sem dependencia do GSAP/ScrollToPlugin).
+  // Usa o Lenis quando existe (desktop) para nao competir com o smooth scroll dele.
+  var anchor = document.querySelector("[results-anchor]");
+  if (anchor) {
+    var top = anchor.getBoundingClientRect().top + window.pageYOffset - 100;
+    if (top < 0) top = 0;
+
+    if (window.lenis && typeof window.lenis.scrollTo === "function") {
+      window.lenis.scrollTo(top);
+    } else {
+      try {
+        window.scrollTo({ top: top, behavior: "smooth" });
+      } catch (e) {
+        window.scrollTo(0, top);
+      }
+    }
+  }
 
   $(".placeholder-results_wrapper").css("display", "none");
 

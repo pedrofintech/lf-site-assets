@@ -318,6 +318,8 @@ document.getElementById("calcular").addEventListener("click", function (e) {
         ],
       },
       options: {
+        // Sem animacao: corta ~1s de trabalho na main thread apos o clique (INP).
+        animation: false,
         responsive: true,
         maintainAspectRatio: false,
         layout: { padding: { top: window.innerWidth < 768 ? 20 : 10 } },

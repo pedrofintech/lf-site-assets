@@ -1638,6 +1638,8 @@ $(document).ready(function () {
           ],
         },
         options: {
+          // Sem animacao: corta ~1s de trabalho na main thread apos o clique (INP).
+          animation: false,
           responsive: true,
           plugins: {
             legend: {

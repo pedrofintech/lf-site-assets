@@ -55,6 +55,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 */
 
+  // Carrega o html2canvas so no primeiro clique (evita ~200 KB de parse no load).
+  function ensureHtml2Canvas() {
+    if (window.html2canvas) return Promise.resolve(window.html2canvas);
+    if (window.__h2cPromise) return window.__h2cPromise;
+    window.__h2cPromise = new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js";
+      s.onload = function () {
+        resolve(window.html2canvas);
+      };
+      s.onerror = function () {
+        window.__h2cPromise = null;
+        reject(new Error("html2canvas failed to load"));
+      };
+      document.head.appendChild(s);
+    });
+    return window.__h2cPromise;
+  }
+
   async function downloadDivAsImage(divSelector, filename, padding = 30) {
     const targetDiv = document.querySelector(divSelector);
     if (!targetDiv) return console.error("Div not found:", divSelector);
@@ -72,6 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
       maxDim / Math.max(rect.width + padding * 2, 1),
       maxDim / Math.max(rect.height + padding * 2, 1)
     );
+
+    await ensureHtml2Canvas();
 
     const canvas = await html2canvas(targetDiv, {
       backgroundColor: "#fff",
