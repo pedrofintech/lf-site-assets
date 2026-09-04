@@ -79,6 +79,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const targetDiv = document.querySelector(divSelector);
     if (!targetDiv) return console.error("Div not found:", divSelector);
 
+    // Arranca o download do html2canvas ja, em paralelo com o settle de
+    // layout/fontes abaixo — assim o primeiro clique nao paga as duas esperas
+    // em serie.
+    const h2cReady = ensureHtml2Canvas();
+
     // Wait for layout/fonts to settle
     if (document.fonts?.ready) await document.fonts.ready;
     await new Promise((r) =>
@@ -93,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
       maxDim / Math.max(rect.height + padding * 2, 1)
     );
 
-    await ensureHtml2Canvas();
+    await h2cReady;
 
     const canvas = await html2canvas(targetDiv, {
       backgroundColor: "#fff",
