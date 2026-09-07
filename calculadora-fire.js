@@ -1,3 +1,22 @@
+// INP (7 set 2026): o clique em Calcular pinta primeiro os resultados (valor
+// FIRE, idade, ano, texto) e so depois do paint seguinte cria ou atualiza o
+// grafico. Os calculos sao os da versao 56a2874 (com o limite de 100 anos do
+// QA 11b7020), sem alteracoes - mudou apenas a ordem em que o DOM e
+// atualizado. Animacao do grafico desligada como nas outras calculadoras.
+
+// Corre fn depois do proximo paint. Um clique novo antes de fn correr cancela
+// o anterior, para nunca desenhar resultados desatualizados.
+var lfFireRenderToken = 0;
+function lfFireAfterPaint(fn) {
+  var token = ++lfFireRenderToken;
+  requestAnimationFrame(function () {
+    setTimeout(function () {
+      if (token !== lfFireRenderToken) return;
+      fn();
+    }, 0);
+  });
+}
+
 $(document).ready(function () {
   $("#calcular").on("click", function (e) {
     e.preventDefault();
@@ -95,21 +114,9 @@ $(document).ready(function () {
       idade++;
     }
 
-    // Console log com detalhes por ano
-    /*console.table(
-      historico.map((item) => ({
-        Ano: item.ano,
-        Idade: item.idade,
-        "Juros do Capital Inicial (€)": item.jurosCapitalInicial,
-        "Juros dos Reforços (€)": item.jurosReforcos,
-        "Reforços (€)": item.reforcosAno,
-        "Total de Juros (€)": item.totalJuros,
-        "Montante Total (€)": item.montanteTotal,
-        "Valor Líquido Mensal (€)": item.valorLiquidoMensal,
-      }))
-    );*/
-
-    // Atualizar valores no HTML
+    // ---------------------------------------------------------------------
+    // Fase 1 (frame do clique): valores no HTML.
+    // ---------------------------------------------------------------------
     const retirementAge = idade;
     const retirementYear =
       new Date().getFullYear() + (retirementAge - idadeAtual);
@@ -122,307 +129,199 @@ $(document).ready(function () {
       `Estás a ${yearsToRetirement} anos da tua reforma antecipada, aos ${retirementAge} anos.`
     );
 
-    // ———————————————————————————————
-    // ———————————————————————————————
-    // ———————————————————————————————
-    // ———————————————————————————————
+    // ---------------------------------------------------------------------
+    // Fase 2 (depois do paint seguinte): criar ou atualizar o grafico. E aqui
+    // que esta o trabalho pesado (Chart.js), por isso sai do frame que o INP
+    // mede.
+    // ---------------------------------------------------------------------
+    lfFireAfterPaint(function () {
+      const ctx = document.getElementById("resultsChart").getContext("2d");
 
-    // Criar ou atualizar o gráfico
-    const ctx = document.getElementById("resultsChart").getContext("2d");
-
-    if (window.chartInstance) {
-      window.chartInstance.data.labels = years;
-      window.chartInstance.data.datasets[0].data = interestData;
-      window.chartInstance.data.datasets[1].data = adjustedTotalData;
-      window.chartInstance.update();
-    } else {
-      window.chartInstance = new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: years,
-          datasets: [
-            {
-              label: "Juros Acumulados",
-              data: interestData,
-              backgroundColor: "#2970FF",
-              stack: "Stack 0",
-            },
-            {
-              label: "Total de Investimentos",
-              data: adjustedTotalData,
-              backgroundColor: "#FD8D2B",
-              stack: "Stack 0",
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          layout: { padding: { top: window.innerWidth < 768 ? 20 : 10 } },
-          plugins: {
-            legend: {
-              position: "bottom",
-              labels: {
-                usePointStyle: true,
-                pointStyle: "circle",
-                padding: 20,
-                color: "#3A4454",
-                font: {
-                  family: "Inter",
-                  size: 12,
-                  weight: "500",
-                  letterSpacing: "-0.0125em",
+      if (window.chartInstance) {
+        window.chartInstance.data.labels = years;
+        window.chartInstance.data.datasets[0].data = interestData;
+        window.chartInstance.data.datasets[1].data = adjustedTotalData;
+        window.chartInstance.update();
+      } else {
+        window.chartInstance = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: years,
+            datasets: [
+              {
+                label: "Juros Acumulados",
+                data: interestData,
+                backgroundColor: "#2970FF",
+                stack: "Stack 0",
+              },
+              {
+                label: "Total de Investimentos",
+                data: adjustedTotalData,
+                backgroundColor: "#FD8D2B",
+                stack: "Stack 0",
+              },
+            ],
+          },
+          options: {
+            // Sem animacao, como nas outras calculadoras (INP).
+            animation: false,
+            responsive: true,
+            maintainAspectRatio: false,
+            // Telemoveis a 3x desenhavam 2,25x mais pixels sem ganho visivel.
+            devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+            // Nao redesenhar o grafico dentro do frame de um resize (teclado,
+            // rotacao, troca de aba).
+            resizeDelay: 200,
+            layout: { padding: { top: window.innerWidth < 768 ? 20 : 10 } },
+            plugins: {
+              legend: {
+                position: "bottom",
+                labels: {
+                  usePointStyle: true,
+                  pointStyle: "circle",
+                  padding: 20,
+                  color: "#3A4454",
+                  font: {
+                    family: "Inter",
+                    size: 12,
+                    weight: "500",
+                    letterSpacing: "-0.0125em",
+                  },
+                  generateLabels: function (chart) {
+                    return chart.data.datasets.map((dataset, index) => {
+                      const meta = chart.getDatasetMeta(index);
+                      return {
+                        text: dataset.label,
+                        fillStyle: dataset.backgroundColor,
+                        strokeStyle: dataset.backgroundColor,
+                        lineWidth: 0,
+                        hidden: meta.hidden,
+                        datasetIndex: index,
+                        fontColor: meta.hidden
+                          ? "rgba(58, 68, 84, 0.5)"
+                          : "#3A4454",
+                        textDecoration: "none",
+                        opacity: meta.hidden ? 0.5 : 1,
+                      };
+                    });
+                  },
                 },
-                generateLabels: function (chart) {
-                  return chart.data.datasets.map((dataset, index) => {
-                    const meta = chart.getDatasetMeta(index);
+                onClick: function (e, legendItem, legend) {
+                  const datasetIndex = legendItem.datasetIndex;
+                  const meta = legend.chart.getDatasetMeta(datasetIndex);
+                  meta.hidden = meta.hidden === null ? true : !meta.hidden;
+                  legend.chart.update();
+                },
+                onHover: (event) => {
+                  event.chart.canvas.style.cursor = "pointer";
+                },
+                onLeave: (event) => {
+                  event.chart.canvas.style.cursor = "default";
+                },
+              },
+              tooltip: {
+                displayColors: true,
+                position: "nearest",
+                backgroundColor: "#121721",
+                cornerRadius: 8,
+                padding: 12,
+                titleFont: {
+                  family: "Inter",
+                  size: 11,
+                  weight: "500",
+                  color: "#CED5DF",
+                },
+                bodyFont: {
+                  family: "Inter",
+                  size: 11,
+                  weight: "500",
+                  color: "#E6E6E6",
+                },
+                callbacks: {
+                  title: (t) =>
+                    t[0].dataIndex + 1 === 1
+                      ? "1 ano"
+                      : `${t[0].dataIndex + 1} anos`,
+                  label: (c) => formatCurrency(c.raw),
+                  labelColor: function (context) {
                     return {
-                      text: dataset.label,
-                      fillStyle: dataset.backgroundColor,
-                      strokeStyle: dataset.backgroundColor,
-                      lineWidth: 0,
-                      hidden: meta.hidden,
-                      datasetIndex: index,
-                      fontColor: meta.hidden
-                        ? "rgba(58, 68, 84, 0.5)"
-                        : "#3A4454",
-                      textDecoration: "none",
-                      opacity: meta.hidden ? 0.5 : 1,
+                      backgroundColor: context.dataset.backgroundColor,
+                      borderColor: context.dataset.backgroundColor,
+                      borderWidth: 0,
+                      borderRadius: 50,
                     };
-                  });
+                  },
                 },
+                usePointStyle: true,
+                bodySpacing: 5,
+                boxPadding: 3,
               },
-              onClick: function (e, legendItem, legend) {
-                const datasetIndex = legendItem.datasetIndex;
-                const meta = legend.chart.getDatasetMeta(datasetIndex);
-                meta.hidden = meta.hidden === null ? true : !meta.hidden;
-                legend.chart.update();
-              },
-              onHover: (event) => {
-                event.chart.canvas.style.cursor = "pointer";
-              },
-              onLeave: (event) => {
-                event.chart.canvas.style.cursor = "default";
-              },
-            },
-            tooltip: {
-              displayColors: true,
-              position: "nearest",
-              backgroundColor: "#121721",
-              cornerRadius: 8,
-              padding: 12,
-              titleFont: {
-                family: "Inter",
-                size: 11,
-                weight: "500",
-                color: "#CED5DF",
-              },
-              bodyFont: {
-                family: "Inter",
-                size: 11,
-                weight: "500",
-                color: "#E6E6E6",
-              },
-              callbacks: {
-                title: (t) =>
-                  t[0].dataIndex + 1 === 1
-                    ? "1 ano"
-                    : `${t[0].dataIndex + 1} anos`,
-                label: (c) => formatCurrency(c.raw),
-                labelColor: function (context) {
-                  return {
-                    backgroundColor: context.dataset.backgroundColor,
-                    borderColor: context.dataset.backgroundColor,
-                    borderWidth: 0,
-                    borderRadius: 50,
-                  };
-                },
-              },
-              usePointStyle: true,
-              bodySpacing: 5,
-              boxPadding: 3,
-            },
-            title: {
-              display: true,
-              text: "Capital total",
-              align: "start",
-              color: "#3A4454",
-              font: {
-                family: "Inter",
-                size: 13,
-                weight: "500",
-                letterSpacing: "-0.0125em",
-              },
-              padding: { top: 0, bottom: 25 },
-            },
-          },
-          scales: {
-            x: {
-              stacked: true,
               title: {
                 display: true,
-                text: "Anos",
-                align: "end",
+                text: "Capital total",
+                align: "start",
                 color: "#3A4454",
                 font: {
                   family: "Inter",
-                  size: 13, // Matched size from first chart
+                  size: 13,
                   weight: "500",
                   letterSpacing: "-0.0125em",
                 },
-                padding: { top: 10 },
-              },
-              ticks: {
-                color: "#4F5969",
-                font: {
-                  family: "Inter",
-                  size: 10, // Matched size from first chart
-                  weight: "500",
-                  letterSpacing: "-0.0125em",
-                },
-              },
-              grid: { drawOnChartArea: false },
-            },
-            y: {
-              stacked: true,
-              title: {
-                display: false, // Removed the vertical title (Montante €) just like "Capital total" in first chart
-              },
-              ticks: {
-                color: "#4F5969",
-                font: {
-                  family: "Inter",
-                  size: 10, // Matched size from first chart
-                  weight: "500",
-                  letterSpacing: "-0.0125em",
-                },
-                callback: (v) =>
-                  v >= 1_000_000
-                    ? `${(v / 1_000_000).toFixed(1).replace(".0", "")}M`
-                    : v >= 1_000
-                    ? `${(v / 1_000).toFixed(1).replace(".0", "")}m`
-                    : v,
+                padding: { top: 0, bottom: 25 },
               },
             },
-          },
-        },
-      });
-    }
-
-    /*
-    // Criar ou atualizar o gráfico
-    const ctx = document.getElementById("resultsChart").getContext("2d");
-
-    if (window.chartInstance) {
-      window.chartInstance.data.labels = years;
-      window.chartInstance.data.datasets[0].data = interestData;
-      window.chartInstance.data.datasets[1].data = adjustedTotalData;
-      window.chartInstance.update();
-    } else {
-      window.chartInstance = new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: years,
-          datasets: [
-            {
-              label: "Juros Acumulados",
-              data: interestData,
-              backgroundColor: "#2970FF",
-              stack: "Stack 0",
-            },
-            {
-              label: "Total de Investimentos",
-              data: adjustedTotalData,
-              backgroundColor: "rgba(253, 141, 43, 1)",
-              stack: "Stack 0",
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            tooltip: {
-              callbacks: {
-                label: function (tooltipItem) {
-                  const datasetLabel = tooltipItem.dataset.label;
-                  const index = tooltipItem.dataIndex;
-
-                  if (datasetLabel === "Montante Total (€)") {
-                    return `${datasetLabel}: ${formatCurrency(
-                      realTotalData[index]
-                    )}`;
-                  }
-
-                  return `${datasetLabel}: ${formatCurrency(tooltipItem.raw)}`;
+            scales: {
+              x: {
+                stacked: true,
+                title: {
+                  display: true,
+                  text: "Anos",
+                  align: "end",
+                  color: "#3A4454",
+                  font: {
+                    family: "Inter",
+                    size: 13, // Matched size from first chart
+                    weight: "500",
+                    letterSpacing: "-0.0125em",
+                  },
+                  padding: { top: 10 },
                 },
+                ticks: {
+                  color: "#4F5969",
+                  font: {
+                    family: "Inter",
+                    size: 10, // Matched size from first chart
+                    weight: "500",
+                    letterSpacing: "-0.0125em",
+                  },
+                },
+                grid: { drawOnChartArea: false },
               },
-            },
-            legend: {
-              position: "bottom",
-              labels: {
-                color: "#202432",
-                font: {
-                  family: "Inter",
-                  size: 14,
-                  weight: "bold",
+              y: {
+                stacked: true,
+                title: {
+                  display: false, // Removed the vertical title (Montante €) just like "Capital total" in first chart
                 },
-                usePointStyle: true, // Habilitar o uso de ponto personalizado
-                pointStyle: "circle", // Definir o estilo do ponto como círculo
-              },
-              onClick: null, // Disable legend interaction
-            },
-          },
-          scales: {
-            x: {
-              stacked: true,
-              title: {
-                display: true,
-                text: "Anos",
-                color: "#202432",
-                font: {
-                  family: "Inter",
-                  size: 16,
-                  weight: "600",
-                },
-              },
-              ticks: {
-                color: "#202432",
-                font: {
-                  family: "Inter",
-                  size: 12,
-                },
-              },
-            },
-            y: {
-              stacked: true,
-              ticks: {
-                callback: function (value) {
-                  return formatCurrency(value);
-                },
-                color: "#202432",
-                font: {
-                  family: "Inter",
-                  size: 12,
-                },
-              },
-              title: {
-                display: true,
-                text: "Montante (€)",
-                color: "#202432",
-                font: {
-                  family: "Inter",
-                  size: 16,
-                  weight: "600",
+                ticks: {
+                  color: "#4F5969",
+                  font: {
+                    family: "Inter",
+                    size: 10, // Matched size from first chart
+                    weight: "500",
+                    letterSpacing: "-0.0125em",
+                  },
+                  callback: (v) =>
+                    v >= 1_000_000
+                      ? `${(v / 1_000_000).toFixed(1).replace(".0", "")}M`
+                      : v >= 1_000
+                      ? `${(v / 1_000).toFixed(1).replace(".0", "")}m`
+                      : v,
                 },
               },
             },
           },
-        },
-      });
-    }*/
-
-    //——————————————————————————
-    //——————————————————————————
-    //——————————————————————————
+        });
+      }
+    });
   });
 });

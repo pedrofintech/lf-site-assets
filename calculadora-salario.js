@@ -930,6 +930,24 @@ const taxTables = [
   },
 ];
 
+// INP (7 set 2026): o clique em Calcular pinta primeiro o cartao de resultados
+// (valores + linhas visiveis) e so depois do paint seguinte constroi o grafico
+// e a tabela de escaloes. Os calculos sao os da versao 56a2874, sem
+// alteracoes - mudou apenas a ordem em que o DOM e atualizado.
+
+// Corre fn depois do proximo paint. Um clique novo antes de fn correr cancela
+// o anterior, para nunca desenhar resultados desatualizados.
+var lfSalarioRenderToken = 0;
+function lfSalarioAfterPaint(fn) {
+  var token = ++lfSalarioRenderToken;
+  requestAnimationFrame(function () {
+    setTimeout(function () {
+      if (token !== lfSalarioRenderToken) return;
+      fn();
+    }, 0);
+  });
+}
+
 $(document).ready(function () {
   $("#calcular").on("click", function (e) {
     e.preventDefault();
@@ -1611,146 +1629,7 @@ $(document).ready(function () {
       $("[outros-rendimentos-result]").text(formatEuro(D26_outrosRendIsentos));
       $("[ret-retribuicao-extra-result]").text(formatEuro(D44_retIRSextra));
 
-      // GRAPH
-      const ctx = document.querySelector(".graph-canvas").getContext("2d");
-
-      // Destroy previous chart if it exists
-      if (myDonutChart) {
-        myDonutChart.destroy();
-      }
-
-      // Create new chart
-      myDonutChart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          datasets: [
-            {
-              data: [
-                T2D50_salario_liquido,
-                D47_contribuicaoSS,
-                T2D43_retIRSrendimentos,
-                T2D45_retIRSduodecimos,
-              ],
-              backgroundColor: ["#FD8D2B", "#FEC84B", "#31AF89", "#2970FF"],
-              borderWidth: 0,
-              cutout: "80%",
-            },
-          ],
-        },
-        options: {
-          // Sem animacao: corta ~1s de trabalho na main thread apos o clique (INP).
-          animation: false,
-          responsive: true,
-          plugins: {
-            legend: {
-              display: false,
-            },
-          },
-        },
-      });
-
-      //CREATE TABLE
-      //———————————————————————————————————————————————
-      //———————————————————————————————————————————————
-      //———————————————————————————————————————————————
-      //$("[morada-fiscal-result]").text(D16_morada);
-      //$("[tabela-description-result]").text(selectedTable.maritalStatus);
-      const tabelaTextValues = `
-      <div class="tabela-irs-title_wrapper">
-      <span class="text-size-small text-weight-medium" morada-fiscal-result="">${D16_morada}</span>
-      <span class="text-weight-medium">·</span>
-      <span class="text-color-tertiary text-size-small" tabela-description-result="">${selectedTable.maritalStatus}</span>
-      </div>
-        `;
-      document.querySelector(".tabela-irs-values-content").innerHTML =
-        tabelaTextValues;
-      //console.log(selectedRow);
-
-      function formatEuro(value) {
-        if (typeof value === "number") {
-          return (
-            value
-              .toFixed(2)
-              .replace(".", ",")
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "€"
-          );
-        } else if (!isNaN(parseFloat(value))) {
-          const num = parseFloat(value);
-          return (
-            num
-              .toFixed(2)
-              .replace(".", ",")
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "€"
-          );
-        }
-        return value;
-      }
-
-      function formatPercent(value) {
-        if (typeof value === "number") {
-          return value.toFixed(2).replace(".", ",") + "%";
-        } else if (!isNaN(parseFloat(value))) {
-          return parseFloat(value).toFixed(2).replace(".", ",") + "%";
-        }
-        return value;
-      }
-
-      // TABELA
-      //———————————————————————————————————————————————
-      //———————————————————————————————————————————————
-      //———————————————————————————————————————————————
-      let tableContent = "";
-      const brackets = selectedTable.salaryBrackets;
-      const lastIndex = brackets.length - 1;
-
-      brackets.forEach((row, index) => {
-        //console.log(row.deduction + " ————————— ");
-
-        const isLast = index === lastIndex;
-        const label = isLast
-          ? `mais de ${formatEuro(brackets[index - 1].max)}`
-          : `até ${formatEuro(row.max)}`;
-
-        const rowClass = row === selectedRow ? "is-selected" : "";
-
-        tableContent += `
-      <tr class="${rowClass}">
-        <td>${label}</td>
-        <td>${
-          row.rate !== null
-            ? (row.rate * 100).toFixed(2).replace(".", ",") + "%"
-            : "-"
-        }</td>
-        <td>${
-          typeof row.deduction === "number"
-            ? formatEuro(row.deduction)
-            : row.deduction.replace(/\./g, ",")
-        }</td>
-        <td>${
-          row.taxaEfetiva !== null
-            ? (row.taxaEfetiva * 100).toFixed(2).replace(".", ",") + "%"
-            : "-"
-        }</td>
-      </tr>
-    `;
-      });
-
-      const tableElement = document.querySelector(".table-wrapper");
-      tableElement.innerHTML = `
-    <table>
-      <thead>
-        <tr>
-          <th>Remuneração mensal (R)</th>
-          <th>Taxa marginal máx.</th>
-          <th>Parcela a abater</th>
-          <th>Taxa efectiva</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${tableContent}
-      </tbody>
-    </table>
-  `;
+      // Linhas do cartao de resultados (fase 1, ficam no frame do clique).
       //———————————————————————————————————————————————
       //———————————————————————————————————————————————
       //———————————————————————————————————————————————
@@ -1781,6 +1660,156 @@ $(document).ready(function () {
       } else {
         $("[retribuicao-extra-row-data]").css("display", "flex");
       }
+
+      function formatEuro(value) {
+        if (typeof value === "number") {
+          return (
+            value
+              .toFixed(2)
+              .replace(".", ",")
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "€"
+          );
+        } else if (!isNaN(parseFloat(value))) {
+          const num = parseFloat(value);
+          return (
+            num
+              .toFixed(2)
+              .replace(".", ",")
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "€"
+          );
+        }
+        return value;
+      }
+
+      function formatPercent(value) {
+        if (typeof value === "number") {
+          return value.toFixed(2).replace(".", ",") + "%";
+        } else if (!isNaN(parseFloat(value))) {
+          return parseFloat(value).toFixed(2).replace(".", ",") + "%";
+        }
+        return value;
+      }
+
+      // Fase 2 (depois do paint seguinte): grafico e tabela de escaloes. E aqui
+      // que esta o trabalho pesado (Chart.js + innerHTML da tabela), por isso
+      // sai do frame que o INP mede.
+      lfSalarioAfterPaint(function () {
+        // GRAPH
+        const ctx = document.querySelector(".graph-canvas").getContext("2d");
+
+        // Destroy previous chart if it exists
+        if (myDonutChart) {
+          myDonutChart.destroy();
+        }
+
+        // Create new chart
+        myDonutChart = new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            datasets: [
+              {
+                data: [
+                  T2D50_salario_liquido,
+                  D47_contribuicaoSS,
+                  T2D43_retIRSrendimentos,
+                  T2D45_retIRSduodecimos,
+                ],
+                backgroundColor: ["#FD8D2B", "#FEC84B", "#31AF89", "#2970FF"],
+                borderWidth: 0,
+                cutout: "80%",
+              },
+            ],
+          },
+          options: {
+            // Sem animacao: corta ~1s de trabalho na main thread apos o clique (INP).
+            animation: false,
+            responsive: true,
+            // Telemoveis a 3x desenhavam 2,25x mais pixels sem ganho visivel.
+            devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+            // Nao redesenhar o grafico dentro do frame de um resize.
+            resizeDelay: 200,
+            plugins: {
+              legend: {
+                display: false,
+              },
+            },
+          },
+        });
+
+        //CREATE TABLE
+        //———————————————————————————————————————————————
+        //———————————————————————————————————————————————
+        //———————————————————————————————————————————————
+        //$("[morada-fiscal-result]").text(D16_morada);
+        //$("[tabela-description-result]").text(selectedTable.maritalStatus);
+        const tabelaTextValues = `
+        <div class="tabela-irs-title_wrapper">
+        <span class="text-size-small text-weight-medium" morada-fiscal-result="">${D16_morada}</span>
+        <span class="text-weight-medium">·</span>
+        <span class="text-color-tertiary text-size-small" tabela-description-result="">${selectedTable.maritalStatus}</span>
+        </div>
+          `;
+        document.querySelector(".tabela-irs-values-content").innerHTML =
+          tabelaTextValues;
+        //console.log(selectedRow);
+
+        // TABELA
+        //———————————————————————————————————————————————
+        //———————————————————————————————————————————————
+        //———————————————————————————————————————————————
+        let tableContent = "";
+        const brackets = selectedTable.salaryBrackets;
+        const lastIndex = brackets.length - 1;
+
+        brackets.forEach((row, index) => {
+          //console.log(row.deduction + " ————————— ");
+
+          const isLast = index === lastIndex;
+          const label = isLast
+            ? `mais de ${formatEuro(brackets[index - 1].max)}`
+            : `até ${formatEuro(row.max)}`;
+
+          const rowClass = row === selectedRow ? "is-selected" : "";
+
+          tableContent += `
+        <tr class="${rowClass}">
+          <td>${label}</td>
+          <td>${
+            row.rate !== null
+              ? (row.rate * 100).toFixed(2).replace(".", ",") + "%"
+              : "-"
+          }</td>
+          <td>${
+            typeof row.deduction === "number"
+              ? formatEuro(row.deduction)
+              : row.deduction.replace(/\./g, ",")
+          }</td>
+          <td>${
+            row.taxaEfetiva !== null
+              ? (row.taxaEfetiva * 100).toFixed(2).replace(".", ",") + "%"
+              : "-"
+          }</td>
+        </tr>
+      `;
+        });
+
+        const tableElement = document.querySelector(".table-wrapper");
+        tableElement.innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>Remuneração mensal (R)</th>
+            <th>Taxa marginal máx.</th>
+            <th>Parcela a abater</th>
+            <th>Taxa efectiva</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${tableContent}
+        </tbody>
+      </table>
+    `;
+      });
     }
     applyValues();
 

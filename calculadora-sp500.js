@@ -32,22 +32,29 @@ $('input[name="radio-sp"]').on("change", function () {
 
 //CALCULAR
 
+// INP (7 set 2026): o clique em Calcular pinta primeiro o cartao de resultados
+// (numeros + texto) e so depois do paint seguinte constroi o grafico. Os
+// calculos sao os da versao 56a2874, sem alteracoes - mudou apenas a ordem em
+// que o DOM e atualizado.
+
+// Corre fn depois do proximo paint. Um clique novo antes de fn correr cancela
+// o anterior, para nunca desenhar resultados desatualizados.
+var lfSp500RenderToken = 0;
+function lfSp500AfterPaint(fn) {
+  var token = ++lfSp500RenderToken;
+  requestAnimationFrame(function () {
+    setTimeout(function () {
+      if (token !== lfSp500RenderToken) return;
+      fn();
+    }, 0);
+  });
+}
+
 document.getElementById("calcular").addEventListener("click", function (e) {
   e.preventDefault();
 
   $(".all-results_wrapper").css("display", "flex");
 
-  /*const parseFormattedNumber = (value) =>
-    parseFloat(value.replace(/\./g, "").replace(",", ".")) || 0;
-
-  const formatCurrency = (value) => {
-    return (
-      value
-        .toFixed(2)
-        .replace(".", ",")
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "$"
-    );
-  };*/
   const parseFormattedNumber = (value) =>
     parseFloat(
       value
@@ -235,53 +242,9 @@ document.getElementById("calcular").addEventListener("click", function (e) {
 
   //console.table(consoleTableData);
 
-  // Atualizar tabela HTML
-  let filteredTableData = tableData.filter((_, index) => {
-    if (frequency === "Trimestral") {
-      return (index + 1) % 4 === 0;
-    } else if (frequency === "Mensal") {
-      return (index + 1) % 12 === 0;
-    } else {
-      return true;
-    }
-  });
-
-  /*
-
-  let tableContent = "";
-  filteredTableData.forEach((row, index) => {
-    const consoleRow = consoleTableData.find(
-      (consoleData) => consoleData.Periodo === row.Periodo
-    );
-
-    tableContent += `
-          <tr>
-            <td>${index + 1}</td>
-            <td>${consoleRow["Total de Depósitos"]}</td>
-            <td>${consoleRow["Juros Acumulados"]}</td>
-            <td>${formatCurrency(row["Montante Total"])}</td>
-          </tr>
-        `;
-  });
-
-  const tableElement = document.querySelector(".table-content");
-  tableElement.innerHTML = `
-        <table>
-          <thead>
-            <tr>
-              <th>Período</th>
-              <th>Total de investimentos</th>
-              <th>Juros acumulados</th>
-              <th>Montante total</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${tableContent}
-          </tbody>
-        </table>
-      `;*/
-
-  // Atualizar valores finais no HTML
+  // ---------------------------------------------------------------------
+  // Fase 1 (frame do clique): valores finais e texto de resumo.
+  // ---------------------------------------------------------------------
   const lastConsoleRow = consoleTableData[consoleTableData.length - 1];
 
   document.querySelector("[capital-final-value]").textContent =
@@ -315,171 +278,172 @@ document.getElementById("calcular").addEventListener("click", function (e) {
       ? lastConsoleRow["Juros Acumulados"]
       : formatCurrency(accumulatedInterest)
   } em rentabilidade total acumulada</b>.
-    `;
+  `;
   document.querySelector("[resume-text]").innerHTML = resumeText;
 
-  // Gerar ou atualizar o gráfico
-  const ctx = document.getElementById("resultsChart").getContext("2d");
+  // ---------------------------------------------------------------------
+  // Fase 2 (depois do paint seguinte): grafico. E aqui que esta o trabalho
+  // pesado (Chart.js), por isso sai do frame que o INP mede.
+  // ---------------------------------------------------------------------
+  lfSp500AfterPaint(function () {
+    // Atualizar tabela HTML
+    let filteredTableData = tableData.filter((_, index) => {
+      if (frequency === "Trimestral") {
+        return (index + 1) % 4 === 0;
+      } else if (frequency === "Mensal") {
+        return (index + 1) % 12 === 0;
+      } else {
+        return true;
+      }
+    });
 
-  // Extrair os valores corretos da console table, garantindo que apenas os períodos finais de cada ano sejam considerados
-  const filteredConsoleTableData = consoleTableData.filter((_, index) => {
-    if (frequency === "Trimestral") {
-      return (index + 1) % 4 === 0; // Apenas a cada 4 trimestres (fim do ano)
-    } else if (frequency === "Mensal") {
-      return (index + 1) % 12 === 0; // Apenas a cada 12 meses (fim do ano)
-    } else {
-      return true; // Anual mantém todos os valores corretamente
-    }
-  });
+    
+    // Gerar ou atualizar o gráfico
 
-  const jurosAcumuladosGraphData = filteredConsoleTableData.map((row) =>
-    parseFormattedNumber(row["Juros Acumulados"])
-  );
-  const montanteTotalGraphData = filteredConsoleTableData.map(
-    (row) =>
-      parseFormattedNumber(row["Montante Total"]) -
+    // Extrair os valores corretos da console table, garantindo que apenas os períodos finais de cada ano sejam considerados
+    const filteredConsoleTableData = consoleTableData.filter((_, index) => {
+      if (frequency === "Trimestral") {
+        return (index + 1) % 4 === 0; // Apenas a cada 4 trimestres (fim do ano)
+      } else if (frequency === "Mensal") {
+        return (index + 1) % 12 === 0; // Apenas a cada 12 meses (fim do ano)
+      } else {
+        return true; // Anual mantém todos os valores corretamente
+      }
+    });
+
+    const jurosAcumuladosGraphData = filteredConsoleTableData.map((row) =>
       parseFormattedNumber(row["Juros Acumulados"])
-  );
+    );
+    const montanteTotalGraphData = filteredConsoleTableData.map(
+      (row) =>
+        parseFormattedNumber(row["Montante Total"]) -
+        parseFormattedNumber(row["Juros Acumulados"])
+    );
 
-  // ———————————————————————————————————————————————
-  // ———————————————————————————————————————————————
-  // ———————————————————————————————————————————————
-  const updateChart = () => {
-    const labels = filteredConsoleTableData.map((_, i) => i + 1);
+    const updateChart = () => {
+      const labels = filteredConsoleTableData.map((_, i) => i + 1);
 
-    if (window.chartInstance) window.chartInstance.destroy();
+      if (window.chartInstance) window.chartInstance.destroy();
 
-    const ctx = document.getElementById("resultsChart").getContext("2d");
+      const ctx = document.getElementById("resultsChart").getContext("2d");
 
-    window.chartInstance = new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels,
-        datasets: [
-          {
-            label: "Total de investimentos",
-            data: montanteTotalGraphData,
-            backgroundColor: "#FD8D2B",
-            stack: "Stack 0",
-          },
-          {
-            label: "Rentabilidade total acumulada",
-            data: jurosAcumuladosGraphData,
-            backgroundColor: "#2970FF",
-            stack: "Stack 0",
-          },
-        ],
-      },
-      options: {
-        // Sem animacao: corta ~1s de trabalho na main thread apos o clique (INP).
-        animation: false,
-        responsive: true,
-        maintainAspectRatio: false,
-        layout: { padding: { top: window.innerWidth < 768 ? 20 : 10 } },
-        plugins: {
-          legend: {
-            position: "bottom",
-            labels: {
-              usePointStyle: true,
-              pointStyle: "circle",
-              padding: 20,
-              color: "#3A4454",
-              font: {
-                family: "Inter",
-                size: 12,
-                weight: "500",
-                letterSpacing: "-0.0125em",
-              },
-              generateLabels: function (chart) {
-                return chart.data.datasets.map((dataset, index) => {
-                  const meta = chart.getDatasetMeta(index);
-                  return {
-                    text: dataset.label,
-                    fillStyle: dataset.backgroundColor,
-                    strokeStyle: dataset.backgroundColor,
-                    lineWidth: 0,
-                    hidden: meta.hidden,
-                    datasetIndex: index,
-                    fontColor: meta.hidden
-                      ? "rgba(58, 68, 84, 0.5)"
-                      : "#3A4454",
-                    textDecoration: "none",
-                    opacity: meta.hidden ? 0.5 : 1,
-                  };
-                });
-              },
+      window.chartInstance = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels,
+          datasets: [
+            {
+              label: "Total de investimentos",
+              data: montanteTotalGraphData,
+              backgroundColor: "#FD8D2B",
+              stack: "Stack 0",
             },
-            onClick: function (e, legendItem, legend) {
-              const datasetIndex = legendItem.datasetIndex;
-              const meta = legend.chart.getDatasetMeta(datasetIndex);
-              meta.hidden = meta.hidden === null ? true : !meta.hidden;
-              legend.chart.update();
+            {
+              label: "Rentabilidade total acumulada",
+              data: jurosAcumuladosGraphData,
+              backgroundColor: "#2970FF",
+              stack: "Stack 0",
             },
-            onHover: (event) => {
-              event.chart.canvas.style.cursor = "pointer";
-            },
-            onLeave: (event) => {
-              event.chart.canvas.style.cursor = "default";
-            },
-          },
-          tooltip: {
-            displayColors: true,
-            position: "nearest",
-            backgroundColor: "#121721",
-            cornerRadius: 8,
-            padding: 12,
-            titleFont: {
-              family: "Inter",
-              size: 11,
-              weight: "500",
-              color: "#CED5DF",
-            },
-            bodyFont: {
-              family: "Inter",
-              size: 11,
-              weight: "500",
-              color: "#E6E6E6",
-            },
-            callbacks: {
-              title: (t) =>
-                t[0].dataIndex + 1 === 1
-                  ? "1 ano"
-                  : `${t[0].dataIndex + 1} anos`,
-              label: (c) => formatCurrency(c.raw),
-              labelColor: function (context) {
-                return {
-                  backgroundColor: context.dataset.backgroundColor,
-                  borderColor: context.dataset.backgroundColor,
-                  borderWidth: 0,
-                  borderRadius: 50,
-                };
-              },
-            },
-            usePointStyle: true,
-            bodySpacing: 5,
-            boxPadding: 3,
-          },
-          title: {
-            display: true,
-            text: "Capital total",
-            align: "start",
-            color: "#3A4454",
-            font: {
-              family: "Inter",
-              size: 13, // Increased by 2 points
-              weight: "500",
-              letterSpacing: "-0.0125em",
-            },
-            padding: { top: 0, bottom: 25 },
-          },
+          ],
         },
-        scales: {
-          x: {
-            stacked: true,
+        options: {
+          // Sem animacao: corta ~1s de trabalho na main thread apos o clique (INP).
+          animation: false,
+          responsive: true,
+          maintainAspectRatio: false,
+          // Telemoveis a 3x desenhavam 2,25x mais pixels sem ganho visivel.
+          devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+          // Nao redesenhar o grafico dentro do frame de um resize (teclado,
+          // rotacao, troca de aba).
+          resizeDelay: 200,
+          layout: { padding: { top: window.innerWidth < 768 ? 20 : 10 } },
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: {
+                usePointStyle: true,
+                pointStyle: "circle",
+                padding: 20,
+                color: "#3A4454",
+                font: {
+                  family: "Inter",
+                  size: 12,
+                  weight: "500",
+                  letterSpacing: "-0.0125em",
+                },
+                generateLabels: function (chart) {
+                  return chart.data.datasets.map((dataset, index) => {
+                    const meta = chart.getDatasetMeta(index);
+                    return {
+                      text: dataset.label,
+                      fillStyle: dataset.backgroundColor,
+                      strokeStyle: dataset.backgroundColor,
+                      lineWidth: 0,
+                      hidden: meta.hidden,
+                      datasetIndex: index,
+                      fontColor: meta.hidden
+                        ? "rgba(58, 68, 84, 0.5)"
+                        : "#3A4454",
+                      textDecoration: "none",
+                      opacity: meta.hidden ? 0.5 : 1,
+                    };
+                  });
+                },
+              },
+              onClick: function (e, legendItem, legend) {
+                const datasetIndex = legendItem.datasetIndex;
+                const meta = legend.chart.getDatasetMeta(datasetIndex);
+                meta.hidden = meta.hidden === null ? true : !meta.hidden;
+                legend.chart.update();
+              },
+              onHover: (event) => {
+                event.chart.canvas.style.cursor = "pointer";
+              },
+              onLeave: (event) => {
+                event.chart.canvas.style.cursor = "default";
+              },
+            },
+            tooltip: {
+              displayColors: true,
+              position: "nearest",
+              backgroundColor: "#121721",
+              cornerRadius: 8,
+              padding: 12,
+              titleFont: {
+                family: "Inter",
+                size: 11,
+                weight: "500",
+                color: "#CED5DF",
+              },
+              bodyFont: {
+                family: "Inter",
+                size: 11,
+                weight: "500",
+                color: "#E6E6E6",
+              },
+              callbacks: {
+                title: (t) =>
+                  t[0].dataIndex + 1 === 1
+                    ? "1 ano"
+                    : `${t[0].dataIndex + 1} anos`,
+                label: (c) => formatCurrency(c.raw),
+                labelColor: function (context) {
+                  return {
+                    backgroundColor: context.dataset.backgroundColor,
+                    borderColor: context.dataset.backgroundColor,
+                    borderWidth: 0,
+                    borderRadius: 50,
+                  };
+                },
+              },
+              usePointStyle: true,
+              bodySpacing: 5,
+              boxPadding: 3,
+            },
             title: {
               display: true,
-              text: "Anos",
-              align: "end",
+              text: "Capital total",
+              align: "start",
               color: "#3A4454",
               font: {
                 family: "Inter",
@@ -487,45 +451,63 @@ document.getElementById("calcular").addEventListener("click", function (e) {
                 weight: "500",
                 letterSpacing: "-0.0125em",
               },
-              padding: { top: 10 },
+              padding: { top: 0, bottom: 25 },
             },
-            ticks: {
-              color: "#4F5969",
-              font: {
-                family: "Inter",
-                size: 10, // Increased by 1 point
-                weight: "500",
-                letterSpacing: "-0.0125em",
-              },
-            },
-            grid: { drawOnChartArea: false },
           },
-          y: {
-            stacked: true,
-            title: {
-              display: false, // Removed "Capital total" from the left Y-axis
-            },
-            ticks: {
-              color: "#4F5969",
-              font: {
-                family: "Inter",
-                size: 10, // Increased by 1 point
-                weight: "500",
-                letterSpacing: "-0.0125em",
+          scales: {
+            x: {
+              stacked: true,
+              title: {
+                display: true,
+                text: "Anos",
+                align: "end",
+                color: "#3A4454",
+                font: {
+                  family: "Inter",
+                  size: 13, // Increased by 2 points
+                  weight: "500",
+                  letterSpacing: "-0.0125em",
+                },
+                padding: { top: 10 },
               },
-              callback: (v) =>
-                v >= 1_000_000
-                  ? `${(v / 1_000_000).toFixed(1).replace(".0", "")}M`
-                  : v >= 1_000
-                  ? `${(v / 1_000).toFixed(1).replace(".0", "")}m`
-                  : v,
+              ticks: {
+                color: "#4F5969",
+                font: {
+                  family: "Inter",
+                  size: 10, // Increased by 1 point
+                  weight: "500",
+                  letterSpacing: "-0.0125em",
+                },
+              },
+              grid: { drawOnChartArea: false },
+            },
+            y: {
+              stacked: true,
+              title: {
+                display: false, // Removed "Capital total" from the left Y-axis
+              },
+              ticks: {
+                color: "#4F5969",
+                font: {
+                  family: "Inter",
+                  size: 10, // Increased by 1 point
+                  weight: "500",
+                  letterSpacing: "-0.0125em",
+                },
+                callback: (v) =>
+                  v >= 1_000_000
+                    ? `${(v / 1_000_000).toFixed(1).replace(".0", "")}M`
+                    : v >= 1_000
+                    ? `${(v / 1_000).toFixed(1).replace(".0", "")}m`
+                    : v,
+              },
             },
           },
         },
-      },
-    });
-  };
+      });
+    };
 
-  // Call updateChart after setting up the chart
-  updateChart();
+    // Call updateChart after setting up the chart
+    updateChart();
+  });
 });
