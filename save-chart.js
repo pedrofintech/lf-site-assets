@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Carrega o html2canvas so no primeiro clique (evita ~200 KB de parse no load).
+  // Carrega o html2canvas so no primeiro pedido (evita ~200 KB de parse no load).
   function ensureHtml2Canvas() {
     if (window.html2canvas) return Promise.resolve(window.html2canvas);
     if (window.__h2cPromise) return window.__h2cPromise;
@@ -19,6 +19,16 @@ document.addEventListener("DOMContentLoaded", function () {
     return window.__h2cPromise;
   }
 
+  // O link tem de estar no documento: o Safari ignora cliques em elementos soltos.
+  function triggerDownload(url, filename) {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   // Function to convert SVG to a Base64 Image
   function svgToBase64(svgElement, callback) {
     const svgData = new XMLSerializer().serializeToString(svgElement);
@@ -35,56 +45,84 @@ document.addEventListener("DOMContentLoaded", function () {
     img.src = url;
   }
 
-  // Function to capture and download the merged image
-  function downloadGraphImage() {
-    const currentPath = window.location.pathname;
+  const isSalario = window.location.pathname.includes(
+    "/simulador-salario-liquido"
+  );
 
-    if (currentPath.includes("/simulador-salario-liquido")) {
-      const exportElement = document.querySelector(".graph-image-export");
+  /* ── Salario liquido ──────────────────────────────────────────────────────
+     Esta e a unica pagina em que o grafico e montado em HTML e tem de passar
+     pelo html2canvas. O Safari do iPhone so autoriza um download enquanto ele
+     ainda esta colado ao toque, e o html2canvas demora demasiado a desenhar,
+     por isso o download nunca funcionava ai. A imagem passa a ser gerada
+     quando o menu "..." abre, e o clique fica instantaneo.                  */
+  let cachedUrl = null;
+  let pending = null;
 
-      if (!exportElement) {
-        console.error("Export element not found.");
-        return;
-      }
+  function invalidate() {
+    cachedUrl = null;
+    pending = null;
+  }
 
-      // Clone the real element including the live canvas
-      const cloned = exportElement.cloneNode(true);
+  function buildSalarioImage() {
+    const exportElement = document.querySelector(".graph-image-export");
+    if (!exportElement) return Promise.reject(new Error("Export element not found."));
 
-      // Replace the empty cloned canvas with a copy of the original canvas content
-      const originalCanvas = exportElement.querySelector("canvas");
-      const clonedCanvas = cloned.querySelector("canvas");
+    // Clone the real element including the live canvas
+    const cloned = exportElement.cloneNode(true);
 
-      if (originalCanvas && clonedCanvas) {
-        const context = clonedCanvas.getContext("2d");
-        context.drawImage(originalCanvas, 0, 0);
-      }
+    // Replace the empty cloned canvas with a copy of the original canvas content
+    const originalCanvas = exportElement.querySelector("canvas");
+    const clonedCanvas = cloned.querySelector("canvas");
 
-      // Wrap in padded container
-      const wrapper = document.createElement("div");
-      wrapper.style.padding = "30px";
-      wrapper.style.background = "#ffffff";
-      wrapper.style.position = "absolute";
-      wrapper.style.left = "-9999px";
-      wrapper.appendChild(cloned);
-      document.body.appendChild(wrapper);
-
-      ensureHtml2Canvas()
-        .then((html2canvas) => html2canvas(wrapper, { backgroundColor: null }))
-        .then((canvas) => {
-          const link = document.createElement("a");
-          link.href = canvas.toDataURL("image/png", 1.0);
-          link.download = "simulacao-salario-liquido.png";
-          link.click();
-          document.body.removeChild(wrapper);
-        })
-        .catch((err) => {
-          console.error(err);
-          document.body.removeChild(wrapper);
-        });
-
-      return;
+    if (originalCanvas && clonedCanvas) {
+      const context = clonedCanvas.getContext("2d");
+      context.drawImage(originalCanvas, 0, 0);
     }
 
+    // Wrap in padded container
+    const wrapper = document.createElement("div");
+    wrapper.style.padding = "30px";
+    wrapper.style.background = "#ffffff";
+    wrapper.style.position = "absolute";
+    wrapper.style.left = "-9999px";
+    wrapper.appendChild(cloned);
+    document.body.appendChild(wrapper);
+
+    const cleanup = () => {
+      if (wrapper.parentNode) wrapper.parentNode.removeChild(wrapper);
+    };
+
+    return ensureHtml2Canvas()
+      .then((html2canvas) => html2canvas(wrapper, { backgroundColor: null }))
+      .then((canvas) => {
+        const url = canvas.toDataURL("image/png", 1.0);
+        cleanup();
+        return url;
+      })
+      .catch((err) => {
+        cleanup();
+        throw err;
+      });
+  }
+
+  function warm() {
+    if (cachedUrl || pending) return pending;
+    pending = buildSalarioImage()
+      .then((url) => {
+        cachedUrl = url;
+        return url;
+      })
+      .catch((err) => {
+        pending = null;
+        throw err;
+      });
+    return pending;
+  }
+
+  /* ── Restantes calculadoras ───────────────────────────────────────────────
+     O grafico ja e uma <canvas> do Chart.js: le-se diretamente e junta-se a
+     marca de agua. Sem html2canvas, por isso funciona em telemovel.         */
+  function downloadCanvasGraph() {
     const canvasElement = document.querySelector(".graph-canvas");
     const watermarkElement = document.querySelector(".graph-watermark svg");
 
@@ -145,18 +183,54 @@ document.addEventListener("DOMContentLoaded", function () {
           ? "simulacaoLT-grafico-prestacao-credito-habitação.png"
           : "simulacaoLT-grafico-juros-compostos.png";
 
-        // Download the final image
-        const link = document.createElement("a");
-        link.href = finalCanvas.toDataURL("image/png", 1.0); // High quality
-        link.download = fileName;
-        link.click();
+        triggerDownload(finalCanvas.toDataURL("image/png", 1.0), fileName);
       });
     };
   }
 
   // Capture graph image when button is clicked
   const graphButton = document.querySelector("[download-graph-image-button]");
-  if (graphButton) {
-    graphButton.addEventListener("click", downloadGraphImage);
+  if (!graphButton) return;
+
+  if (!isSalario) {
+    graphButton.addEventListener("click", downloadCanvasGraph);
+    return;
   }
+
+  // A imagem deixa de servir assim que os numeros mudam.
+  document.addEventListener("input", invalidate, true);
+  document.addEventListener("change", invalidate, true);
+  document.addEventListener(
+    "click",
+    function (e) {
+      if (e.target && e.target.closest && e.target.closest("#calcular")) invalidate();
+    },
+    true
+  );
+
+  // Aquece quando o menu "..." abre — da o tempo que o clique nao tem.
+  const dropdown = graphButton.closest(".w-dropdown");
+  const toggle = dropdown && dropdown.querySelector(".w-dropdown-toggle");
+  if (toggle) {
+    toggle.addEventListener("pointerdown", function () {
+      warm().catch(function () {});
+    });
+  }
+  graphButton.addEventListener("pointerenter", function () {
+    warm().catch(function () {});
+  });
+
+  graphButton.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    if (cachedUrl) {
+      // Caminho rapido: nada de assincrono entre o toque e o download.
+      triggerDownload(cachedUrl, "simulacao-salario-liquido.png");
+      return;
+    }
+
+    warm()
+      .then((url) => triggerDownload(url, "simulacao-salario-liquido.png"))
+      .catch((err) => console.error(err));
+  });
 });

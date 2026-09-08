@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 */
 
-  // Carrega o html2canvas so no primeiro clique (evita ~200 KB de parse no load).
+  // Carrega o html2canvas so no primeiro pedido (evita ~200 KB de parse no load).
   function ensureHtml2Canvas() {
     if (window.html2canvas) return Promise.resolve(window.html2canvas);
     if (window.__h2cPromise) return window.__h2cPromise;
@@ -75,49 +75,107 @@ document.addEventListener("DOMContentLoaded", function () {
     return window.__h2cPromise;
   }
 
-  async function downloadDivAsImage(divSelector, filename, padding = 30) {
-    const targetDiv = document.querySelector(divSelector);
-    if (!targetDiv) return console.error("Div not found:", divSelector);
+  // O Safari do iPhone so autoriza um download enquanto ele ainda esta colado
+  // ao toque da pessoa. O html2canvas demora centenas de milissegundos a
+  // desenhar a tabela, o que cai sempre fora dessa janela — por isso o
+  // download nunca funcionava em iPhone. A imagem passa a ser gerada quando o
+  // menu "..." abre, e o clique fica instantaneo.
+  var TABLE_SELECTOR = ".table-content-watermark_wrapper";
+  var PADDING = 30;
+  var cachedUrl = null;
+  var pending = null;
 
-    // Arranca o download do html2canvas ja, em paralelo com o settle de
-    // layout/fontes abaixo — assim o primeiro clique nao paga as duas esperas
-    // em serie.
-    const h2cReady = ensureHtml2Canvas();
+  function invalidate() {
+    cachedUrl = null;
+    pending = null;
+  }
 
-    // Wait for layout/fonts to settle
-    if (document.fonts?.ready) await document.fonts.ready;
-    await new Promise((r) =>
-      requestAnimationFrame(() => requestAnimationFrame(r))
-    );
+  function buildImage() {
+    var target = document.querySelector(TABLE_SELECTOR);
+    if (!target) return Promise.reject(new Error("Div not found: " + TABLE_SELECTOR));
 
-    const rect = targetDiv.getBoundingClientRect();
-    const maxDim = 16384; // safe-ish browser limit
-    const safeScale = Math.min(
-      2, // don't force 4x for very tall content
-      maxDim / Math.max(rect.width + padding * 2, 1),
-      maxDim / Math.max(rect.height + padding * 2, 1)
-    );
+    var h2cReady = ensureHtml2Canvas();
 
-    await h2cReady;
+    // Renderiza um clone fora do ecra: assim nao e preciso mudar de separador
+    // nem mexer no que a pessoa esta a ver para gerar a imagem.
+    var wrapper = document.createElement("div");
+    wrapper.style.cssText =
+      "position:absolute;left:-9999px;top:0;padding:" +
+      PADDING +
+      "px;background:#fff;box-sizing:border-box;";
+    var clone = target.cloneNode(true);
+    clone.style.display = "block";
+    clone.style.maxHeight = "none";
+    clone.style.overflow = "visible";
+    wrapper.appendChild(clone);
+    document.body.appendChild(wrapper);
 
-    const canvas = await html2canvas(targetDiv, {
-      backgroundColor: "#fff",
-      useCORS: true,
-      scale: safeScale,
-      onclone: (doc) => {
-        const el = doc.querySelector(divSelector);
-        if (!el) return;
-        el.style.padding = `${padding}px`;
-        el.style.boxSizing = "border-box";
-        el.style.overflow = "visible";
-        el.style.maxHeight = "none";
-      },
-    });
+    function cleanup() {
+      if (wrapper.parentNode) wrapper.parentNode.removeChild(wrapper);
+    }
 
-    const link = document.createElement("a");
-    link.href = canvas.toDataURL("image/png");
+    return Promise.resolve()
+      .then(function () {
+        return document.fonts && document.fonts.ready;
+      })
+      .then(function () {
+        return new Promise(function (r) {
+          requestAnimationFrame(function () {
+            requestAnimationFrame(r);
+          });
+        });
+      })
+      .then(function () {
+        return h2cReady;
+      })
+      .then(function (html2canvas) {
+        var rect = wrapper.getBoundingClientRect();
+        var maxDim = 16384; // safe-ish browser limit
+        var scale = Math.min(
+          2, // don't force 4x for very tall content
+          maxDim / Math.max(rect.width, 1),
+          maxDim / Math.max(rect.height, 1)
+        );
+        return html2canvas(wrapper, {
+          backgroundColor: "#fff",
+          useCORS: true,
+          willReadFrequently: true,
+          scale: scale,
+        });
+      })
+      .then(function (canvas) {
+        var url = canvas.toDataURL("image/png");
+        cleanup();
+        return url;
+      })
+      .catch(function (err) {
+        cleanup();
+        throw err;
+      });
+  }
+
+  function warm() {
+    if (cachedUrl || pending) return pending;
+    pending = buildImage()
+      .then(function (url) {
+        cachedUrl = url;
+        return url;
+      })
+      .catch(function (err) {
+        pending = null;
+        throw err;
+      });
+    return pending;
+  }
+
+  function triggerDownload(url, filename) {
+    var link = document.createElement("a");
+    link.href = url;
     link.download = filename;
+    // O link tem de estar no documento: o Safari ignora cliques em elementos soltos.
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   }
 
   const tableButton = document.querySelector("[download-table-image-button]");
@@ -129,14 +187,48 @@ document.addEventListener("DOMContentLoaded", function () {
     : "simulacaoLT-tabela-juros-compostos.png";
 
   if (tableButton) {
-    tableButton.addEventListener("click", async () => {
+    // A imagem deixa de servir assim que os numeros mudam.
+    document.addEventListener("input", invalidate, true);
+    document.addEventListener("change", invalidate, true);
+    document.addEventListener(
+      "click",
+      function (e) {
+        if (e.target && e.target.closest && e.target.closest("#calcular")) invalidate();
+      },
+      true
+    );
+
+    // Aquece quando o menu "..." abre — da o tempo que o clique nao tem.
+    var dropdown = tableButton.closest(".w-dropdown");
+    var toggle = dropdown && dropdown.querySelector(".w-dropdown-toggle");
+    if (toggle) {
+      toggle.addEventListener("pointerdown", function () {
+        warm().catch(function () {});
+      });
+    }
+    tableButton.addEventListener("pointerenter", function () {
+      warm().catch(function () {});
+    });
+
+    tableButton.addEventListener("click", function (e) {
+      e.preventDefault();
       $("[table-button]").click();
-      await new Promise((r) => setTimeout(r, 100)); // let DOM update after tab switch
-      await downloadDivAsImage(
-        ".table-content-watermark_wrapper",
-        fileName,
-        30
-      );
+
+      if (cachedUrl) {
+        // Caminho rapido: nada de assincrono entre o toque e o download.
+        triggerDownload(cachedUrl, fileName);
+        return;
+      }
+
+      // Sem imagem pronta (desktop, ou menu aberto por teclado): o
+      // comportamento antigo continua a funcionar.
+      warm()
+        .then(function (url) {
+          triggerDownload(url, fileName);
+        })
+        .catch(function (err) {
+          console.error(err);
+        });
     });
   }
 });
