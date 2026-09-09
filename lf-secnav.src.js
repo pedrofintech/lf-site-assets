@@ -1,4 +1,4 @@
-/* LF secnav v16: barra de seccoes sticky em mobile para artigos LiteraciaFinanceira.pt.
+/* LF secnav v17: barra de seccoes sticky em mobile para artigos LiteraciaFinanceira.pt.
    Config em window.LF_SECNAV (definida no head da pagina). Servido via jsDelivr. */
 (function () {
   var CFG = window.LF_SECNAV || {};
@@ -268,13 +268,26 @@
         var open = menuVisible();
         if (open !== menuOpen) { menuOpen = open; bar.classList.toggle('is-hidden', open); }
       }
+      /* menuVisible() le o layout (getComputedStyle + getBoundingClientRect).
+         Agendar por frame evita repetir a leitura a cada mutacao da animacao. */
+      var checkAgendado = false;
+      function agendarCheck() {
+        if (checkAgendado) return;
+        checkAgendado = true;
+        window.requestAnimationFrame(function () { checkAgendado = false; checkMenu(); });
+      }
       if (window.MutationObserver) {
-        new MutationObserver(checkMenu).observe(nav, { attributes: true, subtree: true, attributeFilter: ['class', 'style', 'data-nav-menu-open'] });
+        new MutationObserver(agendarCheck).observe(nav, { attributes: true, subtree: true, attributeFilter: ['class', 'style', 'data-nav-menu-open'] });
       }
       nav.addEventListener('click', function () {
         setTimeout(checkMenu, 50); setTimeout(checkMenu, 350); setTimeout(checkMenu, 800);
       }, true);
-      setInterval(checkMenu, 700);
+      /* O menu abre com transicao: o fim dela e o momento certo para reavaliar.
+         Substitui o setInterval(700) que corria para sempre, mesmo com o menu
+         fechado e a pagina parada, e lia o layout em cada volta. */
+      ['transitionend', 'animationend'].forEach(function (ev) {
+        nav.addEventListener(ev, agendarCheck, { passive: true });
+      });
     }
 
     /* ---------- arranque ---------- */
