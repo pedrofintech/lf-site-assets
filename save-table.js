@@ -168,21 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return pending;
   }
 
-  // Preparar a imagem logo a seguir ao Calcular: abrir o menu da so cerca de um
-  // segundo, e num telemovel isso pode nao chegar para descarregar o
-  // html2canvas e desenhar. Corre em idle, fora do caminho do clique.
-  function scheduleWarm() {
-    setTimeout(function () {
-      if (typeof requestIdleCallback === "function") {
-        requestIdleCallback(function () {
-          warm().catch(function () {});
-        }, { timeout: 2000 });
-      } else {
-        warm().catch(function () {});
-      }
-    }, 1000);
-  }
-
   function triggerDownload(url, filename) {
     var link = document.createElement("a");
     link.href = url;
@@ -208,10 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener(
       "click",
       function (e) {
-        if (e.target && e.target.closest && e.target.closest("#calcular")) {
-        invalidate();
-        scheduleWarm();
-      }
+        if (e.target && e.target.closest && e.target.closest("#calcular")) invalidate();
       },
       true
     );
