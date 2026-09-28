@@ -1,8 +1,10 @@
-/* lf-ic-embed.js v1.0.0 - Literacia Financeira
+/* lf-ic-embed.js v1.1.0 - Literacia Financeira
    Início de simulação de crédito habitação a meio dos artigos: só inputs, sem resultados.
    O botão abre o formulário do intermediário com as respostas na URL, para não as pedir outra vez.
    Parceiro: mesma regra do A/B do site (?ab=, window.LFAB.v, localStorage lf_ab_ch, sorteio 50-50).
-   No artigo dos melhores intermediários é sempre o Balcão do Crédito. */
+   No artigo dos melhores intermediários é sempre o Balcão do Crédito.
+   Credível: sem pré-preenchimento configurado, mostra só dois botões (Comprar casa / Transferir crédito) para o form deles.
+   Onde este bloco aparece, o CTA fixo de mobile (.mlab-cta) deixa de aparecer. */
 (function () {
   var m = location.pathname.match(/^\/artigos\/([^/]+)\/?$/);
   if (!m) return;
@@ -52,6 +54,8 @@
     }
   };
   if (CFG.credivel_prefill) P.credivel.prefill = CFG.credivel_prefill;
+  var CREDIVEL_ON = CFG.credivel !== false;
+  function credSimples() { return !(P.credivel.prefill && P.credivel.prefill.url && P.credivel.prefill.campos); }
 
   var SETA = '<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var CADEADO = '<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="4" y="9" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="currentColor" stroke-width="1.6"/></svg>';
@@ -140,7 +144,10 @@
     '.lfic--credivel a.lfic__btn:focus-visible{outline:3px solid var(--nv);outline-offset:2px}',
     '.lfic--credivel p.lfic__pitch{margin:.75rem 0 0;text-align:center;font-size:.9375rem;color:var(--nv)}',
     '.lfic--credivel p.lfic__legal{margin:1rem 0 0;font-size:.75rem;line-height:1.45;color:#6b8198}',
-    '@media (max-width:640px){.lfic--credivel{padding:1.125rem;margin:1.5rem 0}.lfic--credivel .lfic__fields{grid-template-columns:1fr}.lfic--credivel h3.lfic__title{font-size:1.25rem}.lfic--credivel img.lfic__logo{height:2.125rem}.lfic--credivel button.lfic__opt{padding:.75rem .5rem;font-size:.9375rem}}'
+    '.lfic--credivel .lfic__go{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:0}',
+    '@media (max-width:640px){.lfic--credivel{padding:1.125rem;margin:1.5rem 0}.lfic--credivel .lfic__fields,.lfic--credivel .lfic__go{grid-template-columns:1fr}.lfic--credivel h3.lfic__title{font-size:1.25rem}.lfic--credivel img.lfic__logo{height:2.125rem}.lfic--credivel button.lfic__opt{padding:.75rem .5rem;font-size:.9375rem}}',
+    /* Com este bloco no artigo, sem CTA fixo em mobile */
+    '@media (max-width:991px){.mlab-cta{display:none !important}body.mlab-hascta .mlab-top.is-on{bottom:16px !important}}'
   ].join('');
 
   function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
@@ -205,6 +212,13 @@
         '<li><span class="lfic__num">2</span><span><small data-r="s2l"></small><b data-r="s2"></b></span></li></ol>' +
         '<p class="lfic__legal">Sem documentos nesta fase. ' + esc(p.legal) + '</p></aside>';
     }
+    if (credSimples()) {
+      return top + '<h3 class="lfic__title">Simula o teu crédito habitação</h3><p class="lfic__sub">Em menos de 1 minuto. Sem compromissos e sem stress.</p>' +
+        '<p class="lfic__plabel">O que procuras?</p><div class="lfic__go">' +
+        '<a class="lfic__btn" data-tipo="compra" href="' + p.url + '" target="_blank" rel="sponsored noopener">Comprar casa' + SETA + '</a>' +
+        '<a class="lfic__btn" data-tipo="transferencia" href="' + p.url + '" target="_blank" rel="sponsored noopener">Transferir crédito' + SETA + '</a></div>' +
+        '<p class="lfic__pitch">A Credível compara propostas de vários bancos por ti, sem custos.</p><p class="lfic__legal">' + esc(p.legal) + '</p>';
+    }
     return top + '<h3 class="lfic__title">Simula o teu crédito habitação</h3><p class="lfic__sub">Em menos de 1 minuto. Sem compromissos e sem stress.</p>' +
       '<p class="lfic__plabel">O que procuras?</p><div class="lfic__opts" data-r="opts"></div><div class="lfic__fields" data-r="fields"></div><p class="lfic__help" data-r="hint"></p>' +
       '<a class="lfic__btn" data-r="cta" href="' + p.url + '" target="_blank" rel="sponsored noopener">Continuar' + SETA + '</a>' +
@@ -228,6 +242,7 @@
   }
 
   function montar(pk) {
+    if (pk === 'credivel' && !CREDIVEL_ON) return;
     var rt = document.querySelector('.text-rich-text.is-artigo');
     if (!rt || rt.querySelector('.lfic')) return;
     var s = sitio(rt);
@@ -239,6 +254,12 @@
     root.setAttribute('data-partner', pk);
     root.innerHTML = html(pk);
     var q = function (k) { return root.querySelector('[data-r="' + k + '"]'); };
+    if (pk === 'credivel' && credSimples()) {
+      [].forEach.call(root.querySelectorAll('a[data-tipo]'), function (a) {
+        a.addEventListener('click', function () { ga('ic_embed_click', { partner: pk, article: slug, tipo: a.getAttribute('data-tipo'), com_valores: 'nao' }); });
+      });
+      return inserir(root, s);
+    }
     var tipo = conf.tipo && TIPOS[conf.tipo] ? conf.tipo : 'compra', vals = {}, uid = 'lfic' + Math.random().toString(36).slice(2, 7);
 
     var opts = q('opts');
@@ -286,10 +307,14 @@
     });
 
     campos();
+    inserir(root, s);
+  }
+
+  function inserir(root, s) {
+    var pk = root.getAttribute('data-partner');
     if (s.modo === 'dentro') s.el.appendChild(root);
     else if (s.modo === 'trocar') s.el.parentNode.replaceChild(root, s.el);
     else s.el.parentNode.insertBefore(root, s.el);
-
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (es) {
         if (es[0].isIntersecting) { ga('ic_embed_view', { partner: pk, article: slug }); io.disconnect(); }
