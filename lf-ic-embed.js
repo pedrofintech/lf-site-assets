@@ -1,8 +1,9 @@
-/* lf-ic-embed.js v1.1.0 - Literacia Financeira
+/* lf-ic-embed.js v1.2.0 - Literacia Financeira
    Início de simulação de crédito habitação a meio dos artigos: só inputs, sem resultados.
    O botão abre o formulário do intermediário com as respostas na URL, para não as pedir outra vez.
    Parceiro: mesma regra do A/B do site (?ab=, window.LFAB.v, localStorage lf_ab_ch, sorteio 50-50).
    No artigo dos melhores intermediários é sempre o Balcão do Crédito.
+   Balcão: usa os parâmetros que o /pedido já lê (objetivo, finalidade), os mesmos dos links da homepage deles.
    Credível: sem pré-preenchimento configurado, mostra só dois botões (Comprar casa / Transferir crédito) para o form deles.
    Onde este bloco aparece, o CTA fixo de mobile (.mlab-cta) deixa de aparecer. */
 (function () {
@@ -55,6 +56,9 @@
   };
   if (CFG.credivel_prefill) P.credivel.prefill = CFG.credivel_prefill;
   var CREDIVEL_ON = CFG.credivel !== false;
+  /* /pedido do Balcão: objetivo=compra|transferencia e finalidade=hpp|secundaria|arrendamento (confirmados na homepage deles).
+     valorParam: nome do parâmetro do valor da casa, quando confirmado; enquanto for null, o bloco não pede valores. */
+  var BDC = { objetivos: { compra: 'Comprar casa', transferencia: 'Transferir o meu crédito' }, finalidades: { hpp: 'Para morar', secundaria: 'Para férias', arrendamento: 'Para arrendar' }, valorParam: CFG.balcao_valor_param || null };
   function credSimples() { return !(P.credivel.prefill && P.credivel.prefill.url && P.credivel.prefill.campos); }
 
   var SETA = '<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -87,6 +91,11 @@
     '.lfic--balcao p.lfic__step{margin:0 0 .5rem;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--k2)}',
     '.lfic--balcao h3.lfic__q{margin:0 0 1rem;font-size:1.75rem;line-height:1.15;font-weight:600;letter-spacing:-.03em;color:var(--k)}',
     '.lfic--balcao h3.lfic__q.is-2{margin-top:1.5rem}',
+    '.lfic--balcao .lfic__opts.is-3{grid-template-columns:repeat(3,minmax(0,1fr))}',
+    '.lfic--balcao .lfic__opts.is-3 button.lfic__opt{justify-content:center;padding:.875rem .5rem;white-space:nowrap}',
+    '.lfic--balcao .lfic__opts.is-3 button.lfic__opt.is-on{padding:calc(.875rem - .5px) calc(.5rem - .5px)}',
+    '.lfic--balcao .lfic__opts.is-3 .lfic__dot{display:none}',
+    '.lfic--balcao .lfic__one{margin:1.5rem 0 0;max-width:22rem}',
     '.lfic--balcao button.lfic__opt{padding:.875rem 1rem;border:1.5px solid var(--ln);border-radius:.875rem;color:var(--k)}',
     '.lfic--balcao button.lfic__opt:hover{border-color:var(--k3)}',
     '.lfic--balcao button.lfic__opt.is-on{border:2px solid var(--k);padding:calc(.875rem - .5px) calc(1rem - .5px)}',
@@ -119,7 +128,7 @@
     '.lfic--balcao ol.lfic__steps b.is-empty{color:#78716c;font-weight:500}',
     '.lfic--balcao p.lfic__legal{margin:auto 0 0;font-size:.75rem;line-height:1.45;color:#a8a29e}',
     '.lfic--balcao p.lfic__legal-m{display:none;margin:1rem 0 0;font-size:.75rem;line-height:1.45;color:var(--k3)}',
-    '@media (max-width:720px){.lfic--balcao{grid-template-columns:1fr;margin:1.5rem 0}.lfic--balcao .lfic__side{display:none}.lfic--balcao .lfic__main{padding:1.125rem 1.125rem 1.25rem}.lfic--balcao .lfic__opts,.lfic--balcao .lfic__fields{grid-template-columns:1fr}.lfic--balcao h3.lfic__q{font-size:1.375rem}.lfic--balcao .lfic__actions{flex-direction:column;align-items:stretch}.lfic--balcao a.lfic__btn{justify-content:space-between}.lfic--balcao p.lfic__legal-m{display:block}}',
+    '@media (max-width:720px){.lfic--balcao{grid-template-columns:1fr;margin:1.5rem 0}.lfic--balcao .lfic__side{display:none}.lfic--balcao .lfic__main{padding:1.125rem 1.125rem 1.25rem}.lfic--balcao .lfic__opts,.lfic--balcao .lfic__opts.is-3,.lfic--balcao .lfic__fields{grid-template-columns:1fr}.lfic--balcao .lfic__one{max-width:none}.lfic--balcao .lfic__opts.is-3 button.lfic__opt{justify-content:space-between;padding:.875rem 1rem}.lfic--balcao .lfic__opts.is-3 button.lfic__opt.is-on{padding:calc(.875rem - .5px) calc(1rem - .5px)}.lfic--balcao .lfic__opts.is-3 .lfic__dot{display:inline-flex}.lfic--balcao h3.lfic__q{font-size:1.375rem}.lfic--balcao .lfic__actions{flex-direction:column;align-items:stretch}.lfic--balcao a.lfic__btn{justify-content:space-between}.lfic--balcao p.lfic__legal-m{display:block}}',
     /* Credível */
     '.lfic--credivel{--nv:#134e7c;--nv2:#3d6a90;--or:#f28b3d;--or2:#e27623;--ln:#d8e1ea;--bg:#f5f8fb;padding:1.5rem;border:1px solid var(--ln);border-radius:1.25rem;background:#fff;color:var(--nv)}',
     '.lfic--credivel img.lfic__logo{height:2.5rem}',
@@ -203,13 +212,14 @@
     var p = P[pk], top = '<div class="lfic__top"><img class="lfic__logo" src="' + p.logo + '" alt="' + esc(p.nome) + '" loading="lazy"><span class="lfic__tag">Anúncio</span></div>';
     if (pk === 'balcao') {
       return '<div class="lfic__main">' + top +
-        '<p class="lfic__step">Passo 1 de 11</p><h3 class="lfic__q">O que pretendes?</h3><div class="lfic__opts" data-r="opts"></div>' +
-        '<h3 class="lfic__q is-2">Quais são os valores?</h3><div class="lfic__fields" data-r="fields"></div><div class="lfic__hint" data-r="hint"></div>' +
+        '<p class="lfic__step">Passo 1 de 11</p><h3 class="lfic__q">O que pretendes?</h3><div class="lfic__opts" data-r="obj"></div>' +
+        '<h3 class="lfic__q is-2">Para que é a casa?</h3><div class="lfic__opts is-3" data-r="fin"></div>' +
+        (BDC.valorParam ? '<div class="lfic__one">' + campo('lficvc', ['valor_casa', 'Valor da casa', '250.000']) + '</div>' : '') +
         '<div class="lfic__actions"><a class="lfic__btn" data-r="cta" href="' + p.url + '" target="_blank" rel="sponsored noopener">Seguinte<span class="lfic__arrow">' + SETA + '</span></a>' +
         '<span class="lfic__free">' + CADEADO + 'Grátis e sem compromisso</span></div><p class="lfic__legal-m">' + esc(p.legal) + '</p></div>' +
         '<aside class="lfic__side"><p class="lfic__side-title">Crédito habitação</p><ol class="lfic__steps">' +
         '<li><span class="lfic__num">1</span><span><small>O que pretendes?</small><b data-r="s1"></b></span></li>' +
-        '<li><span class="lfic__num">2</span><span><small data-r="s2l"></small><b data-r="s2"></b></span></li></ol>' +
+        '<li><span class="lfic__num">2</span><span><small>Para que é a casa?</small><b data-r="s2"></b></span></li></ol>' +
         '<p class="lfic__legal">Sem documentos nesta fase. ' + esc(p.legal) + '</p></aside>';
     }
     if (credSimples()) {
@@ -260,6 +270,7 @@
       });
       return inserir(root, s);
     }
+    if (pk === 'balcao') return balcao(root, q, s);
     var tipo = conf.tipo && TIPOS[conf.tipo] ? conf.tipo : 'compra', vals = {}, uid = 'lfic' + Math.random().toString(36).slice(2, 7);
 
     var opts = q('opts');
@@ -307,6 +318,49 @@
     });
 
     campos();
+    inserir(root, s);
+  }
+
+  function balcao(root, q, s) {
+    var obj = conf.tipo && BDC.objetivos[conf.tipo] ? conf.tipo : 'compra', fin = null, valor = 0;
+    function grupo(el, mapa, atual, cb) {
+      Object.keys(mapa).forEach(function (k) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'lfic__opt' + (k === atual ? ' is-on' : '');
+        b.setAttribute('aria-pressed', k === atual ? 'true' : 'false');
+        b.innerHTML = '<span>' + mapa[k] + '</span><span class="lfic__dot"></span>';
+        b.addEventListener('click', function () {
+          [].forEach.call(el.children, function (x) { var on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+          cb(k); sync();
+        });
+        el.appendChild(b);
+      });
+    }
+    grupo(q('obj'), BDC.objetivos, obj, function (k) { obj = k; });
+    grupo(q('fin'), BDC.finalidades, fin, function (k) { fin = k; });
+    var inp = root.querySelector('input.lfic__input');
+    if (inp) {
+      inp.addEventListener('input', function () { var d = inp.value.replace(/[^0-9]/g, ''); if (d !== inp.value) inp.value = d; valor = num(d); sync(); });
+      inp.addEventListener('blur', function () { inp.value = valor ? fmt(valor) : ''; });
+      inp.addEventListener('focus', function () { inp.value = inp.value.replace(/\./g, ''); });
+    }
+    function sync() {
+      q('s1').textContent = BDC.objetivos[obj];
+      q('s2').textContent = fin ? BDC.finalidades[fin] : 'Por responder';
+      q('s2').classList.toggle('is-empty', !fin);
+      var u = new URL(P.balcao.url);
+      u.searchParams.set('objetivo', obj);
+      if (fin) u.searchParams.set('finalidade', fin);
+      if (valor && BDC.valorParam) u.searchParams.set(BDC.valorParam, valor);
+      u.searchParams.set('utm_source', 'literaciafinanceira');
+      u.searchParams.set('utm_medium', 'embed');
+      u.searchParams.set('utm_campaign', slug);
+      q('cta').setAttribute('href', u.toString());
+    }
+    q('cta').addEventListener('click', function () {
+      ga('ic_embed_click', { partner: 'balcao', article: slug, tipo: obj, finalidade: fin || 'sem_resposta', com_valores: valor ? 'sim' : 'nao' });
+    });
+    sync();
     inserir(root, s);
   }
 
