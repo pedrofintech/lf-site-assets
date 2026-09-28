@@ -1,10 +1,11 @@
-/* lf-ic-embed.js v1.3.0 - Literacia Financeira
+/* lf-ic-embed.js v1.4.0 - Literacia Financeira
    Início de simulação de crédito habitação a meio dos artigos: só inputs, sem resultados.
    O botão abre o formulário do intermediário com as respostas na URL, para não as pedir outra vez.
    Parceiro: mesma regra do A/B do site (?ab=, window.LFAB.v, localStorage lf_ab_ch, sorteio 50-50).
    No artigo dos melhores intermediários é sempre o Balcão do Crédito.
    Balcão: usa os parâmetros que o /pedido já lê (objetivo, finalidade), os mesmos dos links da homepage deles;
-   com LF_IC_CFG.balcao_valores=true pergunta também os valores (valor_imovel, valor_credito, capital_divida).
+   pergunta também os valores (valor_imovel, valor_credito, capital_divida), que o /pedido lê desde 28/09/2026;
+   desligam-se com LF_IC_CFG.balcao_valores=false.
    Credível: sem pré-preenchimento configurado, mostra só dois botões (Comprar casa / Transferir crédito) para o form deles.
    Onde este bloco aparece, o CTA fixo de mobile (.mlab-cta) deixa de aparecer. */
 (function () {
@@ -58,8 +59,8 @@
   if (CFG.credivel_prefill) P.credivel.prefill = CFG.credivel_prefill;
   var CREDIVEL_ON = CFG.credivel !== false;
   /* /pedido do Balcão: objetivo=compra|transferencia e finalidade=hpp|secundaria|arrendamento (confirmados na homepage deles).
-     valores: só depois de o /pedido ler valor_imovel, valor_credito e capital_divida da URL (LF_IC_CFG.balcao_valores = true). */
-  var BDC = { objetivos: { compra: 'Comprar casa', transferencia: 'Transferir o meu crédito' }, finalidades: { hpp: 'Para morar', secundaria: 'Para férias', arrendamento: 'Para arrendar' }, valores: CFG.balcao_valores === true };
+     valores: valor_imovel, valor_credito e capital_divida, lidos pelo /pedido (LF_IC_CFG.balcao_valores = false desliga). */
+  var BDC = { objetivos: { compra: 'Comprar casa', transferencia: 'Transferir o meu crédito' }, finalidades: { hpp: 'Para morar', secundaria: 'Para férias', arrendamento: 'Para arrendar' }, valores: CFG.balcao_valores !== false };
   function credSimples() { return !(P.credivel.prefill && P.credivel.prefill.url && P.credivel.prefill.campos); }
 
   var SETA = '<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
