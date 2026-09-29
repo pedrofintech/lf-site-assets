@@ -1,4 +1,4 @@
-/* lf-ic-embed.js v1.4.0 - Literacia Financeira
+/* lf-ic-embed.js v1.4.1 - Literacia Financeira
    Início de simulação de crédito habitação a meio dos artigos: só inputs, sem resultados.
    O botão abre o formulário do intermediário com as respostas na URL, para não as pedir outra vez.
    Parceiro: mesma regra do A/B do site (?ab=, window.LFAB.v, localStorage lf_ab_ch, sorteio 50-50).
@@ -7,14 +7,15 @@
    pergunta também os valores (valor_imovel, valor_credito, capital_divida), que o /pedido lê desde 28/09/2026;
    desligam-se com LF_IC_CFG.balcao_valores=false.
    Credível: sem pré-preenchimento configurado, mostra só dois botões (Comprar casa / Transferir crédito) para o form deles.
-   Onde este bloco aparece, o CTA fixo de mobile (.mlab-cta) deixa de aparecer. */
+   Onde este bloco aparece, o CTA fixo de mobile (.mlab-cta) deixa de aparecer - exceto nos artigos com cta: true,
+   onde o CTA continua a obedecer ao interruptor do CMS (v1.4.1: melhores-intermediarios-credito-portugal). */
 (function () {
   var m = location.pathname.match(/^\/artigos\/([^/]+)\/?$/);
   if (!m) return;
   var slug = m[1];
 
   var ARTIGOS = {
-    'melhores-intermediarios-credito-portugal': { partner: 'balcao', link: true, h2: 3 },
+    'melhores-intermediarios-credito-portugal': { partner: 'balcao', link: true, h2: 3, cta: true },
     'melhor-banco-para-credito-habitacao': {},
     'melhor-credito-habitacao': {},
     'transferir-credito-habitacao': { tipo: 'transferencia' },
@@ -155,10 +156,10 @@
     '.lfic--credivel p.lfic__pitch{margin:.75rem 0 0;text-align:center;font-size:.9375rem;color:var(--nv)}',
     '.lfic--credivel p.lfic__legal{margin:1rem 0 0;font-size:.75rem;line-height:1.45;color:#6b8198}',
     '.lfic--credivel .lfic__go{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:0}',
-    '@media (max-width:640px){.lfic--credivel{padding:1.125rem;margin:1.5rem 0}.lfic--credivel .lfic__fields,.lfic--credivel .lfic__go{grid-template-columns:1fr}.lfic--credivel h3.lfic__title{font-size:1.25rem}.lfic--credivel img.lfic__logo{height:2.125rem}.lfic--credivel button.lfic__opt{padding:.75rem .5rem;font-size:.9375rem}}',
-    /* Com este bloco no artigo, sem CTA fixo em mobile */
-    '@media (max-width:991px){.mlab-cta{display:none !important}body.mlab-hascta .mlab-top.is-on{bottom:16px !important}}'
+    '@media (max-width:640px){.lfic--credivel{padding:1.125rem;margin:1.5rem 0}.lfic--credivel .lfic__fields,.lfic--credivel .lfic__go{grid-template-columns:1fr}.lfic--credivel h3.lfic__title{font-size:1.25rem}.lfic--credivel img.lfic__logo{height:2.125rem}.lfic--credivel button.lfic__opt{padding:.75rem .5rem;font-size:.9375rem}}'
   ].join('');
+  /* Com este bloco no artigo, sem CTA fixo em mobile - salvo nos artigos com cta: true */
+  var CSS_SEM_CTA = '@media (max-width:991px){.mlab-cta{display:none !important}body.mlab-hascta .mlab-top.is-on{bottom:16px !important}}';
 
   function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
   function num(s) { var n = parseInt(String(s || '').replace(/[^0-9]/g, ''), 10); return isNaN(n) ? 0 : n; }
@@ -259,7 +260,7 @@
     if (!rt || rt.querySelector('.lfic')) return;
     var s = sitio(rt);
     if (!s) return;
-    if (!document.getElementById('lfic-css')) { var st = document.createElement('style'); st.id = 'lfic-css'; st.textContent = CSS; document.head.appendChild(st); }
+    if (!document.getElementById('lfic-css')) { var st = document.createElement('style'); st.id = 'lfic-css'; st.textContent = CSS + (conf.cta ? '' : CSS_SEM_CTA); document.head.appendChild(st); }
 
     var root = document.createElement('div');
     root.className = 'lfic lfic--' + pk;
