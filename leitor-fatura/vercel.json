@@ -1,5 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "functions": { "api/ler.js": { "maxDuration": 60 } },
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- ."
+  "functions": { "api/ler.js": { "maxDuration": 60 } }
 }
