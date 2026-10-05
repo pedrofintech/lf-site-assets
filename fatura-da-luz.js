@@ -1,6 +1,7 @@
-/* Fatura da luz - literaciafinanceira.pt (v2)
-   Uma pagina so: em cima carregas a fatura (PDF ou fotografia), em baixo estao os mesmos campos para preencher a mao,
-   depois os filtros e a lista de ofertas com as contas de cada uma.
+/* Fatura da luz - literaciafinanceira.pt (v3)
+   Topo como uma pagina de entrada: titulo a duas cores, a caixa "Comeca aqui" para carregar a fatura (PDF ou fotografia) a esquerda
+   e, a direita, um painel com o resultado (um exemplo ate haver dados). Por baixo estao os campos para preencher a mao,
+   os filtros e a lista de ofertas com as contas de cada uma.
    Precos e contas: os do comparador de eletricidade. O script desse comparador (repositorio comparador-eletricidade) e carregado
    dentro de um #lf-dp escondido e esta pagina usa o que ele expoe: window.__lfElCalc e window.__lfElState.
    Aspeto: o mesmo design system dos comparadores. O CSS do comparador de depositos e o do de eletricidade sao lidos pelo script
@@ -18,6 +19,11 @@
   var CSS = window.__lfFtCss || ['https://franklinsilvapt-arch.github.io/depositos-comparator/comparador-depositos.css', BASE + 'comparador-eletricidade.css'];
   var POTS0 = [1.15, 2.3, 3.45, 4.6, 5.75, 6.9, 10.35, 13.8, 17.25, 20.7, 27.6, 34.5, 41.4];
   var MAX_MB = 8, HOJE = new Date().toISOString().slice(0, 10), MES = 365 / 12;
+  /* O H1 da pagina e a primeira linha do titulo ("Compara tarifas de eletricidade,"); esta e a segunda, noutra cor */
+  var TITULO2 = window.__lfFtTitulo2 || 'em 1 clique.';
+  var LEAD = 'Carrega a fatura da luz e vê logo onde pagas menos. Usamos os preços que os comercializadores comunicam à ERSE, o regulador da energia. Sem registo, e não guardamos a tua fatura.';
+  /* Caso mostrado no painel do topo enquanto a pessoa nao da os dados dela (consumidor-tipo da ERSE mais pequeno) */
+  var EXEMPLO = { eur: '38', kwh: '', pot: 2, tarifa: 's', vazio: 40, ponta: 20, com: '', fam: false, social: false };
 
   var NOMES = {
     TUR: 'SU Eletricidade', ALFAENERGIA: 'Alfa Energia', AUDAX: 'Audax', COOP: 'Coopérnico', EDPC: 'EDP', END: 'Endesa',
@@ -64,7 +70,7 @@
   function el(id) { return document.getElementById(id); }
   function ico(p) { return '<svg class="dp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + p + '</svg>'; }
   var IC = {
-    up: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M12 18v-6M9 15l3-3 3 3"/>',
+    up: '<path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/>',
     unl: '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/>',
     wal: '<path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>',
     usr: '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
@@ -80,8 +86,8 @@
   function op(v, sel, txt) { return '<option value="' + v + '"' + (String(sel) === String(v) ? ' selected' : '') + '>' + txt + '</option>'; }
 
   /* ---------- Contas (motor do comparador de eletricidade) ---------- */
-  function ctx() {
-    var f = S.f;
+  function ctx(F) {
+    var f = F || S.f;
     return { pot: f.pot, tarifa: f.tarifa, vz: f.tarifa === 's' ? 0.4 : f.vazio / 100, pt: f.ponta / 100, fam: f.fam, social: f.social, kwh: 0 };
   }
   function conta(o, c, novo, tarifa) { return window.__lfElCalc(o, c.pot, c.kwh, c.vz, novo, tarifa || c.tarifa, c.pt, c.fam, c.social); }
@@ -102,8 +108,8 @@
     return (a + b) / 2;
   }
 
-  function calcular() {
-    var f = S.f, d = dados(), c = ctx(), eurMes = num(f.eur), kwhMes = num(f.kwh), estimado = false;
+  function calcular(F) {
+    var f = F || S.f, d = dados(), c = ctx(f), eurMes = num(f.eur), kwhMes = num(f.kwh), estimado = false;
     if (kwhMes > 0) c.kwh = kwhMes * 12;
     else if (eurMes > 0) { c.kwh = kwhDeEuros(eurMes, c); estimado = true; }
     if (!(c.kwh > 0)) return { vazio: true };
@@ -137,7 +143,11 @@
       potencia: function (a, b) { return a.r.p[0] - b.r.p[0] || a.ano1 - b.ano1; }
     }[S.ordem] || porOrdem('ano1'));
     var base = eurMes > 0 ? eurMes * 12 : (reg ? reg.total : null);
-    return { lista: lista, n: todos.length, coms: Object.keys(coms), nIdx: nIdx, nCond: nCond, c: c, estimado: estimado, chave: chave,
+    /* As tres mais baratas no 1.o ano, uma por empresa: e o que o painel do topo mostra */
+    var pc = {};
+    todos.forEach(function (x) { if (!pc[x.o.c] || x.ano1 < pc[x.o.c].ano1) pc[x.o.c] = x; });
+    var top = Object.keys(pc).map(function (k) { return pc[k]; }).sort(porOrdem('ano1')).slice(0, 3);
+    return { top: top, lista: lista, n: todos.length, coms: Object.keys(coms), nIdx: nIdx, nCond: nCond, c: c, estimado: estimado, chave: chave,
       base: base, baseTua: eurMes > 0, melhor1: melhor1, melhor2: melhor2 };
   }
 
@@ -178,7 +188,7 @@
     limite: 'Há muitos pedidos neste momento. Tenta daqui a um minuto ou preenche os campos em baixo.'
   };
   function lerFicheiro(file) {
-    S.lendo = true; S.erro = ''; S.lido = ''; renderForm();
+    S.lendo = true; S.erro = ''; S.lido = ''; renderUp();
     preparar(file).then(function (p) {
       var ctl = window.AbortController ? new AbortController() : null;
       if (ctl) setTimeout(function () { ctl.abort(); }, 90000);
@@ -187,12 +197,12 @@
       return r.json().then(function (j) { if (!r.ok || !j || j.erro) throw new Error((j && j.erro) || 'servico'); return j; });
     }).then(function (j) {
       if (j.e_fatura_eletricidade === false) throw new Error('naofatura');
-      S.lendo = false; aplicarLeitura(j); renderForm(); renderRes();
-      var r = el('ftRes'); if (r && r.scrollIntoView && S.R && !S.R.vazio) r.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      S.lendo = false; aplicarLeitura(j); renderUp(); renderForm(); renderRes();
+      var r = el('ftPainel'); if (r && r.scrollIntoView && S.R && !S.R.vazio) r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }).catch(function (e) {
       S.lendo = false;
       S.erro = ERROS[e && e.message] || 'Não conseguimos ler a fatura agora. Preenche os campos em baixo, demora menos de um minuto.';
-      renderForm();
+      renderUp();
     });
   }
   /* Passa a resposta do Worker para os campos, so com valores plausiveis. Os campos ficam por mes (a fatura pode ter 28 a 62 dias). */
@@ -223,7 +233,7 @@
       (j.tem_gas === true ? ' A fatura também tem gás: confirma que o valor é só o da luz.' : '');
   }
 
-  /* ---------- Formulario: fatura em cima, os mesmos campos em baixo ---------- */
+  /* ---------- Formulario: os mesmos campos que a fatura preenche, sempre a vista ---------- */
   function ajudaKwh(R) {
     if (num(S.f.kwh) > 0) return 'Está na fatura, em "consumo".';
     if (R && R.estimado) return 'Opcional. Pelo valor que pagas, estimamos cerca de <b>' + milhar(String(Math.round(R.c.kwh / 12))) + ' kWh</b> por mês.';
@@ -245,13 +255,7 @@
     var campoNum = function (id, rot, val, suf, ajuda, idAjuda) {
       return '<div><label class="dp-label" for="' + id + '">' + rot + '</label><div class="dp-input-wrap"><input id="' + id + '" class="dp-input" type="text" inputmode="decimal" autocomplete="off" value="' + esc(val) + '"><span class="ft-suf">' + suf + '</span></div><p class="el-ajuda"' + (idAjuda ? ' id="' + idAjuda + '"' : '') + '>' + ajuda + '</p></div>';
     };
-    return '<div class="dp-card is-open"><div class="dp-card-body">' +
-      '<div class="ft-up' + (S.lendo ? ' is-a-ler' : '') + '"' + (S.lendo ? '' : ' data-up role="button" tabindex="0"') + '>' +
-      (S.lendo ? '<div class="ft-roda" aria-hidden="true"></div><div class="ft-up-t">A ler a tua fatura...</div><div class="ft-up-s">Costuma demorar entre 5 e 20 segundos.</div>'
-        : ico(IC.up) + '<div class="ft-up-t">Carrega a tua fatura da luz</div><div class="ft-up-s">PDF ou fotografia. Lemos a potência, o consumo e o valor e preenchemos os campos por ti. A fatura não fica guardada.</div><span class="dp-btn is-secondary">Escolher ficheiro</span>') +
-      '</div><input type="file" id="ftFicheiro" accept="application/pdf,image/*" hidden>' +
-      (S.erro ? '<p class="ft-msg is-erro">' + esc(S.erro) + '</p>' : '') + (S.lido ? '<p class="ft-msg is-ok">' + S.lido + '</p>' : '') +
-      '<div class="ft-ou"><span>ou preenche à mão</span></div>' +
+    return '<div class="ft-ou" id="ftManual"><span>ou preenche à mão</span></div><div class="dp-card is-open"><div class="dp-card-body">' +
       '<div class="el-simples">' +
       campoNum('ftEur', 'Quanto pagas de luz por mês?', f.eur, '€', 'O valor habitual da tua fatura.') +
       '<div><label class="dp-label" for="ftPot">Potência contratada</label><select class="dp-input dp-input-select" id="ftPot">' + potOpts + '</select><p class="el-ajuda">Está na fatura. As mais comuns são 3,45 e 6,9 kVA.</p></div>' +
@@ -265,6 +269,37 @@
       '<button type="button" class="dp-chip' + (f.social ? ' is-on' : '') + '" data-social>' + ico(IC.heart) + 'Tenho tarifa social</button></div></div>' +
       '<p class="dp-form-note">Na dúvida, deixa a tarifa em Simples. O vazio é o consumo à noite e, no ciclo semanal, ao fim de semana. As famílias numerosas (cinco ou mais pessoas) têm IVA a 6% nos primeiros 300 kWh por mês, em vez de 200. A tarifa social é um desconto para famílias com rendimentos baixos e aplica-se em qualquer comercializador.</p></div>' +
       '</div></div>';
+  }
+
+  /* ---------- Topo: caixa da fatura a esquerda, painel com o resultado a direita ---------- */
+  function vUp() {
+    return '<div class="ft-up' + (S.lendo ? ' is-a-ler' : '') + '"' + (S.lendo ? '' : ' data-up role="button" tabindex="0"') + '>' +
+      (S.lendo ? '<div class="ft-roda" aria-hidden="true"></div><div class="ft-up-k">A ler a tua fatura...</div><div class="ft-up-t">Costuma demorar entre 5 e 20 segundos.</div>'
+        : '<div class="ft-up-ic">' + ico(IC.up) + '</div><div class="ft-up-k">Começa aqui</div><div class="ft-up-t">Carrega a tua fatura da luz</div><div class="ft-up-s">PDF ou fotografia. EDP, Endesa, Galp, Iberdrola, Goldenergy e todas as outras.</div>') +
+      '</div><input type="file" id="ftFicheiro" accept="application/pdf,image/*" hidden>' +
+      (S.erro ? '<p class="ft-msg is-erro">' + esc(S.erro) + '</p>' : '') + (S.lido ? '<p class="ft-msg is-ok">' + S.lido + '</p>' : '') +
+      '<a href="#" class="ft-manual" data-manual>Ou preenche à mão <span aria-hidden="true">→</span></a>' +
+      '<p class="ft-priv">Sem registo. Não guardamos a tua fatura.</p>';
+  }
+  function vPainel() {
+    if (S.motorErro) return '<div class="ft-painel"><p class="ft-p-s">Não foi possível carregar os preços. Atualiza a página dentro de momentos.</p></div>';
+    if (!S.motor) return '<div class="ft-painel is-exemplo"><p class="ft-p-s">A carregar os preços...</p></div>';
+    var teu = !!(S.R && !S.R.vazio), f = teu ? S.f : EXEMPLO, R = teu ? S.R : calcular(EXEMPLO);
+    if (!R || R.vazio || !R.melhor1) return '<div class="ft-painel is-exemplo"><p class="ft-p-s">Carrega a fatura ou preenche os campos para veres as ofertas.</p></div>';
+    var m1 = R.melhor1, m2 = R.melhor2, promo1 = m1.depois - m1.ano1 > 6, dm = R.base != null ? R.base - m1.ano1 : null;
+    var h = '<div class="ft-painel' + (teu ? '' : ' is-exemplo') + '"><div class="ft-p-top"><span class="ft-p-tag">' + (teu ? 'O teu resultado' : 'Exemplo') + '</span><span>' +
+      (teu ? milhar(String(Math.round(R.c.kwh / 12))) + ' kWh por mês' : 'Fatura de ' + eurInt(num(f.eur)) + ' por mês') + ' · ' + potTxt(pots()[f.pot]) + ' · tarifa ' + TARIFAS[f.tarifa].toLowerCase() + '</span></div>';
+    if (R.baseTua && dm >= 12) h += '<p class="ft-p-v">Podes poupar <span>' + eurInt(dm) + (promo1 ? ' no 1.º ano' : ' por ano') + '</span></p><p class="ft-p-s">A mais barata é a ' + esc(nome(m1.o.c)) + ': ' + eur(m1.ano1 / 12) + ' por mês, em vez de ' + eur(R.base / 12) + '.' +
+      (promo1 && m2 && m2 !== m1 ? ' Sem descontos temporários, é a ' + esc(nome(m2.o.c)) + ': ' + eur(m2.depois / 12) + '.' : '') + '</p>';
+    else if (R.baseTua) h += '<p class="ft-p-v">Já pagas um bom preço</p><p class="ft-p-s">A oferta mais barata fica em ' + eur(m1.ano1 / 12) + ' por mês e tu pagas ' + eur(R.base / 12) + '.</p>';
+    else h += '<p class="ft-p-v">A mais barata é a ' + esc(nome(m1.o.c)) + '</p><p class="ft-p-s">' + eur(m1.ano1 / 12) + ' por mês' + (promo1 ? ' no 1.º ano' : '') + '. Escreve quanto pagas hoje para veres a poupança.</p>';
+    h += '<ol class="ft-p-l">' + R.top.map(function (it, i) {
+      var n = nome(it.o.c);
+      return '<li><span class="ft-p-n">' + (i + 1) + '</span>' + logo(it.o.c, n) + '<span class="ft-p-c"><b>' + esc(n) + '</b><small>' + esc(it.o.n || '') + '</small></span><span class="ft-p-e"><b>' + eur(it.ano1 / 12) + '</b><small>por mês' + (it.depois - it.ano1 > 6 ? ', 1.º ano' : '') + '</small></span></li>';
+    }).join('') + '</ol>';
+    h += teu ? '<a href="#" class="ft-p-mais" data-ver>Ver todas as ofertas e as contas <span aria-hidden="true">↓</span></a>' + (R.estimado ? '<p class="ft-p-n2">Consumo estimado pelo valor que pagas. Com os kWh ou com a fatura, as contas ficam exatas.</p>' : '')
+      : '<p class="ft-p-n2">É assim que vais ver o teu resultado. Os preços do exemplo são os atuais.</p>';
+    return h + '</div>';
   }
 
   /* ---------- Resultados ---------- */
@@ -384,19 +419,7 @@
       '<button type="button" class="dp-chip' + (S.idx ? ' is-on' : '') + '" data-idx>' + ico(IC.wave) + 'Incluir tarifas indexadas' + (!S.idx && R.nIdx ? ' (' + R.nIdx + ')' : '') + '</button>';
     var bar = '<div class="dp-bar"><div class="dp-chips">' + chips + '</div></div>';
     if (R.vazio) return bar + '<div class="dp-empty">Carrega a fatura ou escreve quanto pagas por mês para veres onde pagas menos.</div>';
-    var h = '', m1 = R.melhor1, m2 = R.melhor2;
-    /* Veredicto: a resposta numa frase */
-    if (m1) {
-      var promo1 = m1.depois - m1.ano1 > 6, dm = R.base != null ? R.base - m1.ano1 : null;
-      h += '<div class="ft-veredicto">';
-      if (R.baseTua && dm >= 12) h += '<p class="ft-v-t">Podes poupar <span>' + eurInt(dm) + (promo1 ? ' no 1.º ano' : ' por ano') + '</span></p><p class="ft-v-s">A mais barata para ti é a ' + esc(nome(m1.o.c)) + ': ' + eur(m1.ano1 / 12) + ' por mês, em vez de ' + eur(R.base / 12) + '.' +
-        (promo1 && m2 && m2 !== m1 ? ' Sem contar com descontos temporários, é a ' + esc(nome(m2.o.c)) + ': ' + eur(m2.depois / 12) + ' por mês.' : '') + '</p>';
-      else if (R.baseTua) h += '<p class="ft-v-t">Já pagas um bom preço</p><p class="ft-v-s">A oferta mais barata desta lista fica em ' + eur(m1.ano1 / 12) + ' por mês e tu pagas ' + eur(R.base / 12) + '.</p>';
-      else h += '<p class="ft-v-t">A mais barata para ti é a ' + esc(nome(m1.o.c)) + '</p><p class="ft-v-s">' + eur(m1.ano1 / 12) + ' por mês' + (promo1 ? ' no 1.º ano' : '') + '. Escreve quanto pagas hoje para veres a poupança.</p>';
-      h += '<p class="ft-v-n">Contas para ' + milhar(String(Math.round(R.c.kwh / 12))) + ' kWh por mês, ' + potTxt(pots()[f.pot]) + ' e tarifa ' + TARIFAS[f.tarifa].toLowerCase() + (f.social ? ', com tarifa social' : '') + '.' +
-        (R.estimado ? ' O consumo foi estimado pelo valor que pagas: com os kWh ou com a fatura, as contas ficam exatas.' : '') + '</p></div>';
-    }
-    h += bar;
+    var h = bar, m1 = R.melhor1, m2 = R.melhor2;
     var lst = R.lista, vis = lst.slice(0, S.visiveis);
     h += '<div class="dp-mk"><b>' + R.n + '</b> ofertas de <b>' + R.coms.length + '</b> comercializadores' +
       (m1 ? '<span class="dp-mk-sep">·</span>Mais barata no 1.º ano: <b>' + esc(nome(m1.o.c)) + '</b>, ' + eur(m1.ano1 / 12) : '') +
@@ -414,14 +437,17 @@
     h += '<p class="dp-foot">Preços das ofertas de eletricidade para clientes domésticos comunicadas pelos comercializadores à <a href="https://simuladorprecos.erse.pt/" target="_blank" rel="noopener">ERSE</a>' + (d && d.atualizado ? ', atualizados a ' + esc(d.atualizado.split('-').reverse().join('/')) : '') + ', para Portugal continental. ' +
       'A fatura inclui energia, potência, IVA, imposto especial de consumo, contribuição audiovisual e taxa de exploração da DGEG, para o mesmo consumo durante um ano. A fatura por mês é o total do ano a dividir por 12. ' +
       'O preço do 1.º ano conta com os descontos para novos clientes. O preço depois do 1.º ano é o da mesma oferta sem esses descontos. ' +
-      'Por omissão ficam de fora as tarifas indexadas, porque o preço muda com o mercado, e as ofertas com condições de acesso, que exigem ser sócio ou cliente de outra empresa. Confirma sempre as condições no site do comercializador antes de mudares.</p>';
+      'Por omissão ficam de fora as tarifas indexadas, porque o preço muda com o mercado, e as ofertas com condições de acesso, que exigem ser sócio ou cliente de outra empresa. Confirma sempre as condições no site do comercializador antes de mudares. ' +
+      'Para uma análise hora a hora com o ficheiro da E-Redes, ou para tarifários indexados ao detalhe, o <a href="https://www.tiagofelicia.pt/eletricidade-tiagofelicia" target="_blank" rel="noopener">simulador do Tiago Felícia</a> vai mais fundo.</p>';
     return h;
   }
 
   /* ---------- Render ---------- */
+  function renderUp() { var e = el('ftUp'); if (e) e.innerHTML = vUp(); }
   function renderForm() { var e = el('ftForm'); if (e) e.innerHTML = vForm(); }
   function renderRes() {
     var e = el('ftRes'); if (e) e.innerHTML = vRes();
+    var p = el('ftPainel'); if (p) p.innerHTML = vPainel();
     var a = el('ftKwhAjuda'); if (a) a.innerHTML = ajudaKwh(S.R);
   }
   function refocus(id) {
@@ -434,6 +460,8 @@
     var t = e.target;
     if (!t.closest || !t.closest('#lf-ft') || t.closest('[data-stop]')) return;
     if (t.closest('[data-up]')) { var inp = el('ftFicheiro'); if (inp) inp.click(); return; }
+    if (t.closest('[data-manual]')) { e.preventDefault(); var fm = el('ftManual'); if (fm && fm.scrollIntoView) fm.scrollIntoView({ behavior: 'smooth', block: 'start' }); refocus('ftEur'); return; }
+    if (t.closest('[data-ver]')) { e.preventDefault(); var rs = el('ftRes'); if (rs && rs.scrollIntoView) rs.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
     var a = t.closest('[data-tarifa]');
     if (a) { S.f.tarifa = a.getAttribute('data-tarifa'); S.visiveis = 10; renderForm(); renderRes(); return; }
     if (t.closest('[data-fam]')) { S.f.fam = !S.f.fam; renderForm(); renderRes(); return; }
@@ -505,16 +533,22 @@
     }, 200);
   }
   function montar() {
-    var root = el('lf-ft');
+    var root = el('lf-ft'), h1 = document.querySelector('h1.heading-style-h2') || document.querySelector('h1');
     if (!root) {
-      var h1 = document.querySelector('h1.heading-style-h2') || document.querySelector('h1');
       root = document.createElement('div'); root.id = 'lf-ft';
       if (h1 && h1.parentNode) h1.parentNode.appendChild(root); else return;
     }
-    root.innerHTML = '<div id="ftForm"></div><div id="ftRes"></div>';
-    renderForm(); renderRes();
+    /* Titulo a duas cores: a segunda linha fica logo a seguir ao H1, com a mesma letra */
+    if (h1 && h1.insertAdjacentElement && !document.querySelector('.ft-h1b')) {
+      var h1b = document.createElement('div');
+      h1b.className = 'ft-h1b'; h1b.textContent = TITULO2;
+      try { var cs = window.getComputedStyle(h1); h1b.style.fontFamily = cs.fontFamily; h1b.style.fontWeight = cs.fontWeight; } catch (err) {}
+      h1.insertAdjacentElement('afterend', h1b);
+    }
+    root.innerHTML = '<p class="ft-lead">' + LEAD + '</p><div class="ft-hero"><div class="ft-esq" id="ftUp"></div><div class="ft-dir" id="ftPainel"></div></div><div id="ftForm"></div><div id="ftRes"></div>';
+    renderUp(); renderForm(); renderRes();
     carregarCss(); carregarMotor();
   }
-  window.__lfFtTeste = { S: S, aplicarLeitura: aplicarLeitura, calcular: calcular, renderForm: renderForm, renderRes: renderRes }; /* exposto para testes */
+  window.__lfFtTeste = { S: S, aplicarLeitura: aplicarLeitura, calcular: calcular, renderUp: renderUp, renderForm: renderForm, renderRes: renderRes }; /* exposto para testes */
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', montar); else montar();
 })();
