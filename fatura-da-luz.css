@@ -1,66 +1,44 @@
-/* Fatura da luz: estilos da pagina. Os campos e os botoes principais usam as classes do site (form_input, form_label, button). */
-#lf-ft{width:100%;max-width:640px;margin:32px auto 0;text-align:left;font-family:inherit;color:#202432;font-size:16px;line-height:24px}
-#lf-ft *{box-sizing:border-box}
-#lf-ft p{margin:0}
-#lf-ft .ft-esc{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-#lf-ft .ft-op{appearance:none;-webkit-appearance:none;cursor:pointer;text-align:left;padding:20px;border:1px solid #D0D5DD;border-radius:16px;background:#fff;font:inherit;color:inherit;display:flex;flex-direction:column;gap:6px;transition:border-color .15s,box-shadow .15s}
-#lf-ft .ft-op:hover,#lf-ft .ft-op:focus-visible{border-color:#202432;box-shadow:0 2px 8px rgba(16,24,40,.08);outline:none}
-#lf-ft .ft-op svg{width:28px;height:28px;margin-bottom:6px;color:#202432}
-#lf-ft .ft-op-t{font-size:18px;font-weight:600;line-height:26px}
-#lf-ft .ft-op-s{font-size:14px;line-height:20px;color:#4F5969}
-#lf-ft .ft-nota{margin-top:16px;font-size:13px;line-height:20px;color:#697386}
-#lf-ft .ft-caixa{padding:24px;border:1px solid #E9ECF1;border-radius:16px;background:#fff}
-#lf-ft .ft-centro{text-align:center}
-#lf-ft .ft-t{font-size:20px;font-weight:600;line-height:28px}
-#lf-ft .ft-sub{margin-top:4px;color:#4F5969}
-#lf-ft .ft-verde{color:#067647}
-#lf-ft .ft-campo{margin-top:20px}
-#lf-ft .ft-caixa>.ft-campo:first-child{margin-top:0}
-#lf-ft .ft-campo .form_label{display:block;margin-bottom:6px}
-#lf-ft .ft-in{position:relative}
-#lf-ft .ft-in .form_input{width:100%;margin:0;padding-right:56px}
+/* Fatura da luz: so o que esta pagina acrescenta ao design system dos comparadores.
+   O resto (campos, filtros, cartoes) vem do CSS do comparador de depositos e do de eletricidade, que o fatura-da-luz.js le e aplica com "#lf-dp" trocado por "#lf-ft". */
+#lf-ft{opacity:0;transition:opacity .2s}
+#lf-ft.is-pronto{opacity:1}
+#lf-ft #ftRes{margin-top:8px}
+#lf-ft .ft-up{display:flex;flex-direction:column;align-items:center;gap:8px;padding:28px 20px;border:1.5px dashed #98A2B3;border-radius:16px;background:#F9FAFB;text-align:center;cursor:pointer;transition:border-color .15s,background .15s}
+#lf-ft .ft-up:hover,#lf-ft .ft-up:focus-visible{border-color:#202432;background:#F2F4F7;outline:none}
+#lf-ft .ft-up.is-a-ler{cursor:default}
+#lf-ft .ft-up>svg{width:32px;height:32px;color:#202432}
+#lf-ft .ft-up-t{font-size:18px;font-weight:600;line-height:26px;color:#202432}
+#lf-ft .ft-up-s{max-width:520px;font-size:14px;line-height:20px;color:#4F5969}
+#lf-ft .ft-up .dp-btn{margin-top:8px;pointer-events:none}
+#lf-ft .ft-msg{margin:12px 0 0;padding:12px 14px;border-radius:12px;font-size:14px;line-height:20px;text-align:left}
+#lf-ft .ft-msg.is-erro{background:#FEF3F2;color:#B42318}
+#lf-ft .ft-msg.is-ok{background:#ECFDF3;color:#067647}
+#lf-ft .ft-ou{display:flex;align-items:center;gap:12px;margin:20px 0;font-size:13px;line-height:20px;color:#697386}
+#lf-ft .ft-ou:before,#lf-ft .ft-ou:after{content:"";flex:1;height:1px;background:#E9ECF1}
+#lf-ft .ft-l2{margin-top:20px}
+#lf-ft .dp-input-wrap{position:relative}
+#lf-ft .dp-input-wrap .dp-input{padding-right:56px}
 #lf-ft .ft-suf{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:14px;color:#98A2B3;pointer-events:none}
-#lf-ft .ft-sel{width:100%;margin:0;appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23697386' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:16px}
-#lf-ft .ft-ajuda{margin-top:6px;font-size:13px;line-height:20px;color:#697386}
-#lf-ft .ft-duo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-#lf-ft .ft-erro{margin:0 0 16px;padding:12px 14px;border-radius:12px;background:#FEF3F2;color:#B42318;font-size:14px;line-height:20px}
-#lf-ft .ft-campo~.ft-erro,#lf-ft .ft-ajuda~.ft-erro{margin:20px 0 0}
-#lf-ft .ft-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:24px}
-#lf-ft .ft-link{appearance:none;-webkit-appearance:none;border:0;background:none;padding:0;font:inherit;font-size:14px;color:#4F5969;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
-#lf-ft .ft-roda{width:36px;height:36px;margin:8px auto 16px;border:3px solid #E9ECF1;border-top-color:#202432;border-radius:50%;animation:ftRoda .8s linear infinite}
+#lf-ft .ft-toggle3{grid-template-columns:repeat(3,1fr)}
+#lf-ft .ft-roda{width:36px;height:36px;margin:4px auto 8px;border:3px solid #E9ECF1;border-top-color:#202432;border-radius:50%;animation:ftRoda .8s linear infinite}
 @keyframes ftRoda{to{transform:rotate(360deg)}}
-#lf-ft .ft-veredicto{padding:24px;border-radius:16px;background:#F5F7FA;margin-bottom:16px}
-#lf-ft .ft-veredicto .ft-t{font-size:24px;line-height:32px}
-#lf-ft .ft-ordem{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-#lf-ft .ft-ordem button{appearance:none;-webkit-appearance:none;cursor:pointer;padding:10px 12px;border:1px solid #D0D5DD;border-radius:12px;background:#fff;font:inherit;font-size:14px;font-weight:500;line-height:20px;color:#4F5969}
-#lf-ft .ft-ordem button.is-on{background:#202432;border-color:#202432;color:#fff}
-#lf-ft .ft-c{padding:20px;border:1px solid #E9ECF1;border-radius:16px;background:#fff;margin-top:12px}
-#lf-ft .ft-c.is-top{border-color:#202432}
-#lf-ft .ft-c-top{display:flex;align-items:center;gap:12px}
-#lf-ft .ft-logo{position:relative;flex:0 0 44px;width:44px;height:44px;border-radius:12px;border:1px solid #E9ECF1;background:#F5F7FA;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#697386;overflow:hidden}
-#lf-ft .ft-logo img{position:absolute;inset:4px;width:calc(100% - 8px);height:calc(100% - 8px);object-fit:contain;opacity:0}
-#lf-ft .ft-logo img.is-on{opacity:1;background:#fff;box-shadow:0 0 0 4px #fff}
-#lf-ft .ft-c-id{flex:1 1 auto;min-width:0}
-#lf-ft .ft-c-n{font-size:16px;font-weight:600;line-height:22px}
-#lf-ft .ft-c-o{font-size:13px;line-height:18px;color:#697386;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#lf-ft .ft-c-p{flex:0 0 auto;text-align:right}
-#lf-ft .ft-c-v{font-size:22px;font-weight:700;line-height:28px}
-#lf-ft .ft-c-s{font-size:12px;line-height:16px;color:#697386}
-#lf-ft .ft-c-l{margin-top:12px;font-size:14px;line-height:20px;color:#4F5969}
-#lf-ft .ft-c-l b{color:#202432;font-weight:600}
-#lf-ft .ft-c-d{margin-top:8px;font-size:14px;font-weight:600;line-height:20px;color:#697386}
-#lf-ft .ft-c-d.is-pos{color:#067647}
-#lf-ft .ft-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-#lf-ft .ft-tags span{padding:3px 10px;border-radius:999px;background:#F2F4F7;font-size:12px;line-height:18px;color:#4F5969}
-#lf-ft .ft-cta{display:inline-flex;align-items:center;gap:6px;margin-top:16px;text-decoration:none}
-#lf-ft .ft-cta svg{width:16px;height:16px}
-#lf-ft .ft-mais{appearance:none;-webkit-appearance:none;cursor:pointer;display:block;width:100%;margin-top:12px;padding:12px;border:1px solid #D0D5DD;border-radius:12px;background:#fff;font:inherit;font-size:14px;font-weight:500;color:#202432}
+#lf-ft .ft-veredicto{margin:24px 0 0;padding:24px;border-radius:16px;background:#F5F7FA;text-align:left}
+#lf-ft .ft-veredicto p{margin:0}
+#lf-ft .ft-v-t{font-size:24px;font-weight:600;line-height:32px;color:#202432}
+#lf-ft .ft-v-t span{color:#067647}
+#lf-ft .ft-v-s{margin-top:4px;font-size:16px;line-height:24px;color:#4F5969}
+#lf-ft .ft-v-n{margin-top:8px;font-size:13px;line-height:20px;color:#697386}
+/* Filtros em desktop: sao sete, ficam com a largura do texto e passam a duas linhas (no CSS base encolhem e cortam o texto) */
+@media (min-width:1001px){
+  #lf-ft .dp-bar .dp-chips{flex-wrap:wrap;gap:8px}
+  #lf-ft .dp-bar .dp-chip{flex:0 0 auto;overflow:visible}
+}
+@media (max-width:1000px){
+  #lf-ft .ft-l2{margin-top:16px}
+  #lf-ft .ft-toggle3{grid-template-columns:repeat(3,1fr)}
+}
 @media (max-width:560px){
-  #lf-ft{margin-top:24px}
-  #lf-ft .ft-esc,#lf-ft .ft-duo{grid-template-columns:1fr}
-  #lf-ft .ft-caixa,#lf-ft .ft-veredicto,#lf-ft .ft-c{padding:16px}
-  #lf-ft .ft-veredicto .ft-t{font-size:20px;line-height:28px}
-  #lf-ft .ft-ordem button{font-size:13px;padding:10px 6px}
-  #lf-ft .ft-c-v{font-size:20px}
-  #lf-ft .ft-cta{display:flex;justify-content:center}
+  #lf-ft .ft-up{padding:20px 16px}
+  #lf-ft .ft-veredicto{padding:16px}
+  #lf-ft .ft-v-t{font-size:20px;line-height:28px}
 }
