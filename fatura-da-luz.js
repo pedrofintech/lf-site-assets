@@ -1,26 +1,26 @@
-/* Fatura da luz - literaciafinanceira.pt (v4)
-   Topo como uma pagina de entrada: a caixa "Comeca aqui" para carregar a fatura (PDF ou fotografia) a esquerda e, a direita,
-   um painel com o resultado (um exemplo ate haver dados). Por baixo, um cartao com os campos para preencher a mao e, quando ha
-   dados, a seccao "Todas as ofertas" com os filtros e as contas de cada oferta.
-   O titulo e o H1 da pagina (Webflow); a segunda linha ("em 1 clique.") vem do fatura-da-luz.css.
+/* Fatura da luz - literaciafinanceira.pt (v5)
+   Topo: a caixa "Comeca aqui" para carregar a fatura em PDF e os dois campos principais a esquerda; a direita, um painel com o
+   resultado (um exemplo ate haver dados). Por baixo, os campos opcionais e, quando ha dados, a seccao "Todas as ofertas".
+   O titulo e o H1 da pagina (Webflow); a segunda parte ("em 1 clique.") vem do fatura-da-luz.css.
    Precos e contas: os do comparador de eletricidade. O script desse comparador (repositorio comparador-eletricidade) e carregado
    dentro de um #lf-dp escondido e esta pagina usa o que ele expoe: window.__lfElCalc e window.__lfElState.
+   Leitura da fatura: o leitor do comparador (fatura.js, expoe window.LF_FATURA). Le o PDF no browser com o pdf.js, sem AI e sem
+   servidor: a fatura nao sai do computador da pessoa. So e carregado quando alguem escolhe um ficheiro.
    Aspeto: o mesmo design system dos comparadores. O CSS do comparador de depositos e o do de eletricidade sao lidos pelo script
    e aplicados a esta pagina com "#lf-dp" trocado por "#lf-ft". O fatura-da-luz.css so tem o que esta pagina acrescenta.
-   Leitura da fatura: Worker "lf-fatura" (worker-ler-fatura.js neste repositorio). A fatura nao fica guardada.
-   Configuracao opcional antes deste script: window.__lfFtApi, window.__lfFtMotor e window.__lfFtCss. */
+   Configuracao opcional antes deste script: window.__lfFtMotor, window.__lfFtLeitor e window.__lfFtCss. */
 (function () {
   'use strict';
   if (window.__lfFtInit) return;
   window.__lfFtInit = true;
 
   var MOTOR = window.__lfFtMotor || 'https://franklinsilvapt-arch.github.io/comparador-eletricidade/comparador-eletricidade/comparador-eletricidade.js';
-  var API = window.__lfFtApi || 'https://lf-fatura.success-f03.workers.dev/';
   var BASE = MOTOR.replace(/[^\/]*$/, '');
+  var LEITOR = window.__lfFtLeitor || BASE + 'fatura.js';
   var CSS = window.__lfFtCss || ['https://franklinsilvapt-arch.github.io/depositos-comparator/comparador-depositos.css', BASE + 'comparador-eletricidade.css'];
   var POTS0 = [1.15, 2.3, 3.45, 4.6, 5.75, 6.9, 10.35, 13.8, 17.25, 20.7, 27.6, 34.5, 41.4];
-  var MAX_MB = 8, HOJE = new Date().toISOString().slice(0, 10), MES = 365 / 12;
-  var LEAD = 'Carrega a fatura da luz e vê as ofertas mais baratas para o teu consumo, com os preços que as empresas comunicam à ERSE.';
+  var MAX_MB = 15, HOJE = new Date().toISOString().slice(0, 10);
+  var LEAD = 'Carrega a fatura da luz ou preenche dois campos e vê onde pagas menos.';
   /* Caso mostrado no painel do topo enquanto a pessoa nao da os dados dela (consumidor-tipo da ERSE mais pequeno) */
   var EXEMPLO = { eur: '38', kwh: '', pot: 2, tarifa: 's', vazio: 40, ponta: 20, com: '', fam: false, social: false };
 
@@ -151,86 +151,84 @@
       base: base, baseTua: eurMes > 0, melhor1: melhor1, melhor2: melhor2 };
   }
 
-  /* ---------- Leitura da fatura ---------- */
-  function lerBase64(blob) {
-    return new Promise(function (ok, ko) {
-      var r = new FileReader();
-      r.onload = function () { ok(String(r.result).split(',')[1] || ''); };
-      r.onerror = function () { ko(new Error('ler')); };
-      r.readAsDataURL(blob);
+  /* ---------- Leitura da fatura (no browser, com o leitor do comparador) ---------- */
+  var leitor = null;
+  function carregarLeitor() {
+    if (window.LF_FATURA) return Promise.resolve(window.LF_FATURA);
+    if (leitor) return leitor;
+    leitor = new Promise(function (ok, ko) {
+      var s = document.createElement('script');
+      s.src = LEITOR + '?d=' + HOJE; s.async = true;
+      s.onload = function () { if (window.LF_FATURA) ok(window.LF_FATURA); else { leitor = null; ko(new Error('leitor')); } };
+      s.onerror = function () { leitor = null; ko(new Error('leitor')); };
+      document.head.appendChild(s);
     });
+    return leitor;
   }
-  /* Fotografias: reduz para 2000 px no lado maior e converte para JPEG, para o envio ser rapido e a leitura barata */
-  function reduzirImagem(file) {
-    return new Promise(function (ok, ko) {
-      var u = URL.createObjectURL(file), im = new Image();
-      im.onload = function () {
-        var k = Math.min(1, 2000 / Math.max(im.width, im.height)), cv = document.createElement('canvas');
-        cv.width = Math.round(im.width * k); cv.height = Math.round(im.height * k);
-        cv.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height);
-        URL.revokeObjectURL(u);
-        ok({ mime: 'image/jpeg', dados: cv.toDataURL('image/jpeg', 0.85).split(',')[1] });
-      };
-      im.onerror = function () { URL.revokeObjectURL(u); ko(new Error('imagem')); };
-      im.src = u;
-    });
-  }
-  function preparar(file) {
-    var pdf = file.type === 'application/pdf' || /\.pdf$/i.test(file.name || '');
-    if (!pdf && !/^image\//.test(file.type || '')) return Promise.reject(new Error('tipo'));
-    if (file.size > MAX_MB * 1024 * 1024 && pdf) return Promise.reject(new Error('grande'));
-    return pdf ? lerBase64(file).then(function (b) { return { mime: 'application/pdf', dados: b }; }) : reduzirImagem(file);
-  }
-  var ERROS = {
-    tipo: 'Só conseguimos ler ficheiros PDF ou fotografias.',
-    grande: 'O ficheiro tem mais de ' + MAX_MB + ' MB. Experimenta uma fotografia da primeira página.',
-    naofatura: 'Isto não parece uma fatura de eletricidade. Experimenta outro ficheiro ou preenche os campos em baixo.',
-    limite: 'Há muitos pedidos neste momento. Tenta daqui a um minuto ou preenche os campos em baixo.'
-  };
   function lerFicheiro(file) {
-    S.lendo = true; S.erro = ''; S.lido = ''; renderUp();
-    preparar(file).then(function (p) {
-      var ctl = window.AbortController ? new AbortController() : null;
-      if (ctl) setTimeout(function () { ctl.abort(); }, 90000);
-      return fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(p), signal: ctl ? ctl.signal : undefined });
-    }).then(function (r) {
-      return r.json().then(function (j) { if (!r.ok || !j || j.erro) throw new Error((j && j.erro) || 'servico'); return j; });
-    }).then(function (j) {
-      if (j.e_fatura_eletricidade === false) throw new Error('naofatura');
-      S.lendo = false; aplicarLeitura(j); renderUp(); renderForm(); renderRes();
-      var r = el('ftPainel'); if (r && r.scrollIntoView && S.R && !S.R.vazio) r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    S.erro = ''; S.lido = '';
+    if (file.type !== 'application/pdf' && !/\.pdf$/i.test(file.name || '')) { S.erro = 'Só conseguimos ler faturas em PDF. Descarrega a fatura na área de cliente do teu comercializador ou preenche os campos à mão.'; renderUp(); return; }
+    if (file.size > MAX_MB * 1024 * 1024) { S.erro = 'O ficheiro tem mais de ' + MAX_MB + ' MB. Preenche os campos à mão.'; renderUp(); return; }
+    S.lendo = true; renderUp();
+    carregarLeitor().then(function (L) { return L.ler(file); }).then(function (r) {
+      S.lendo = false; aplicarLeitura(r || {}); renderUp(); renderForm(); renderRes();
+      var p = el('ftPainel'); if (p && p.scrollIntoView && S.R && !S.R.vazio) p.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }).catch(function (e) {
+      var m = String((e && e.message) || '');
       S.lendo = false;
-      S.erro = ERROS[e && e.message] || 'Não conseguimos ler a fatura agora. Preenche os campos em baixo, demora menos de um minuto.';
+      /* As mensagens do leitor ja vem em portugues; os erros do pdf.js nao */
+      S.erro = /^(Este PDF|Não )/.test(m) ? m + ' Também podes preencher os campos à mão.' : 'Não conseguimos ler este ficheiro. Preenche os campos à mão, demora menos de um minuto.';
       renderUp();
     });
   }
-  /* Passa a resposta do Worker para os campos, so com valores plausiveis. Os campos ficam por mes (a fatura pode ter 28 a 62 dias). */
-  function aplicarLeitura(j) {
-    var f = S.f, ps = pots(), i, melhor = -1, dist = 9, falta = [];
-    var p = Number(j.potencia_kva);
-    if (p > 0) for (i = 0; i < ps.length; i++) if (Math.abs(ps[i] - p) < dist) { dist = Math.abs(ps[i] - p); melhor = i; }
-    if (melhor > -1 && dist < 0.06) f.pot = melhor; else falta.push('a potência');
-    f.tarifa = { simples: 's', 'bi-horaria': 'b', 'tri-horaria': 't' }[String(j.opcao_horaria || '').toLowerCase()] || 's';
-    var dias = Number(j.dias) >= 1 && Number(j.dias) <= 400 ? Number(j.dias) : 0;
-    var kwh = Number(j.kwh_total) > 0 && Number(j.kwh_total) < 100000 ? Number(j.kwh_total) : 0;
-    var vz = Number(j.kwh_vazio) > 0 ? Number(j.kwh_vazio) : 0, pt = Number(j.kwh_ponta) > 0 ? Number(j.kwh_ponta) : 0;
-    var tot = Number(j.total_eletricidade_eur) > 0 ? Number(j.total_eletricidade_eur) : Number(j.total_fatura_eur);
-    if (!(tot > 0 && tot < 20000)) tot = 0;
-    if (kwh > 0 && vz > 0 && vz < kwh) f.vazio = Math.min(95, Math.max(5, Math.round(vz / kwh * 100)));
-    if (kwh > 0 && pt > 0 && pt < kwh) f.ponta = Math.min(60, Math.max(5, Math.round(pt / kwh * 100)));
-    f.kwh = kwh && dias ? String(Math.round(kwh / dias * MES)) : '';
-    f.eur = tot && dias ? dec(tot / dias * MES, 2) : '';
-    if (!f.kwh) falta.push('o consumo');
-    if (!f.eur) falta.push('o valor');
-    if (NOMES[j.comercializador]) f.com = j.comercializador;
-    if (j.tarifa_social === true) f.social = true;
-    var quem = String(j.comercializador_nome || '').slice(0, 60) || (f.com ? nome(f.com) : '');
-    S.lido = 'Fatura' + (quem ? ' da ' + esc(quem) : '') + ' lida' + (kwh && dias ? ': ' + milhar(String(Math.round(kwh))) + ' kWh' + (tot ? ' e ' + eur(tot) : '') + ' em ' + dias + ' dias' : '') + '. ' +
-      'Os campos em baixo já estão preenchidos com os valores por mês. Confirma e corrige o que estiver errado.' +
-      (falta.length ? ' Não conseguimos ler ' + falta.join(' nem ') + '.' : '') +
-      (j.leitura === 'estimada' ? ' O consumo desta fatura é uma estimativa do comercializador.' : '') +
-      (j.tem_gas === true ? ' A fatura também tem gás: confirma que o valor é só o da luz.' : '');
+  /* Quanto a pessoa paga hoje por ano, para o consumo lido: primeiro pelo tarifario dela, se os precos da fatura baterem com uma
+     unica oferta do comercializador (a mesma regra do comparador); senao pelos precos da propria fatura, sem descontos. */
+  function custoAtual(r) {
+    var d = dados(), f = S.f;
+    if (!S.motor || !d || !(num(f.kwh) > 0)) return null;
+    var c = ctx(f), k = f.tarifa, pp = r.precoPotencia > 0 ? r.precoPotencia : 0;
+    var pe = (r.precoEnergia || []).filter(function (x) { return x > 0; });
+    c.kwh = num(f.kwh) * 12;
+    if (r.com && pe.length) {
+      var achado = d.ofertas.filter(function (o) {
+        var p = o.c === r.com && o[k] && o[k][f.pot];
+        if (!p) return false;
+        var okE = pe.some(function (x) { return p.slice(1).some(function (y) { return Math.abs(y - x) < 0.0006; }); });
+        return okE && (pp ? Math.abs(p[0] - pp) < 0.0011 : true);
+      });
+      if (achado.length === 1) { var ra = conta(achado[0], c, false); if (ra) return { anual: ra.total, oferta: achado[0] }; }
+    }
+    var n = k === 's' ? 1 : k === 'b' ? 2 : 3, linha = null;
+    if (pp && k === 's' && pe.length) linha = [pp, pe.reduce(function (a, b) { return a + b; }, 0) / pe.length];
+    else if (pp && pe.length === n) linha = [pp].concat(pe.slice().sort(function (a, b) { return b - a; }));
+    if (!linha) return null;
+    var o2 = { c: r.com || '', f: '00000000' }, tab = [];
+    tab[f.pot] = linha; o2[k] = tab;
+    var rb = conta(o2, c, false);
+    return rb ? { anual: rb.total, oferta: null } : null;
+  }
+  /* Passa o que o leitor devolveu para os campos. O que nao foi lido fica como estava e e dito a pessoa. */
+  function aplicarLeitura(r) {
+    var f = S.f, ps = pots(), d = dados(), i, melhor = 0, faltas = (r.avisos || []).slice();
+    if (r.pot > 0) {
+      for (i = 1; i < ps.length; i++) if (Math.abs(ps[i] - r.pot) < Math.abs(ps[melhor] - r.pot)) melhor = i;
+      if (Math.abs(ps[melhor] - r.pot) < 0.06) f.pot = melhor;
+    }
+    var temVz = typeof r.vazioPct === 'number' && r.vazioPct > 0, temPt = typeof r.pontaPct === 'number' && r.pontaPct > 0;
+    f.tarifa = r.tarifa === 's' || r.tarifa === 'b' || r.tarifa === 't' ? r.tarifa : (temVz ? (temPt ? 't' : 'b') : 's');
+    if (temVz) f.vazio = Math.min(95, Math.max(5, Math.round(r.vazioPct)));
+    if (temPt) f.ponta = Math.min(60, Math.max(5, Math.round(r.pontaPct)));
+    f.kwh = r.kwhMes > 0 ? String(Math.round(r.kwhMes)) : '';
+    f.com = r.com && (NOMES[r.com] || (d && d.ofertas.some(function (o) { return o.c === r.com; }))) ? r.com : '';
+    var atual = custoAtual(r);
+    f.eur = atual ? dec(atual.anual / 12, 2) : '';
+    S.lido = 'Fatura' + (f.com ? ' da ' + esc(nome(f.com)) : '') + ' lida' +
+      (r.kwh > 0 && r.dias > 0 ? ': ' + milhar(String(Math.round(r.kwh))) + ' kWh em ' + r.dias + ' dias' : '') + (r.pot > 0 ? ', ' + potTxt(ps[f.pot]) : '') + '.' +
+      (atual && atual.oferta ? ' Reconhecemos o teu tarifário: ' + esc(atual.oferta.n || nome(atual.oferta.c)) + '.' : '') +
+      (atual && !atual.oferta ? ' Pelos preços da fatura, sem descontos, pagas cerca de ' + eur(atual.anual / 12) + ' por mês.' : '') +
+      (faltas.length ? ' Não conseguimos ler: ' + esc(faltas.join(', ')) + '.' : '') +
+      (r.indexada ? ' A tua tarifa parece indexada: o preço muda com o mercado.' : '') +
+      ' Confirma os campos.';
   }
 
   /* ---------- Formulario: os mesmos campos que a fatura preenche, sempre a vista ---------- */
@@ -250,7 +248,6 @@
   }
   function vForm() {
     var f = S.f, d = dados();
-    var potOpts = pots().map(function (p, i) { return op(i, f.pot, potTxt(p)); }).join('');
     var coms = d ? Object.keys(d.ofertas.reduce(function (m, o) { m[o.c] = 1; return m; }, {})).sort(function (a, b) { return nome(a).localeCompare(nome(b), 'pt'); }) : [];
     if (f.com && coms.indexOf(f.com) < 0) coms.push(f.com);
     var comOpts = op('', f.com, 'Prefiro não dizer') + coms.map(function (c) { return op(c, f.com, esc(nome(c))); }).join('');
@@ -260,14 +257,11 @@
     var ptOpts = lista([10, 15, 20, 25, 30, 35], f.ponta).map(function (v) { return op(v, f.ponta, v + '% em ponta'); }).join('');
     var horas = f.tarifa === 's' ? '' : campoSel('ftVazio', 'Consumo em vazio', vzOpts, 'À noite e, no ciclo semanal, ao fim de semana.') +
       (f.tarifa === 't' ? campoSel('ftPonta', 'Consumo em ponta', ptOpts, 'Nas horas mais caras do dia.') : '');
-    return '<div class="ft-cartao" id="ftManual">' +
-      '<div class="ft-c-top"><h2 class="heading-style-h2 ft-h2">Ou preenche à mão</h2><p class="ft-c-sub">Chegam os dois primeiros campos. Os outros são opcionais e tornam as contas mais exatas.</p></div>' +
-      '<div class="ft-g ft-g2">' +
-      campoNum('ftEur', 'Quanto pagas de luz por mês?', f.eur, '€', 'O valor habitual da tua fatura.') +
-      campoSel('ftPot', 'Potência contratada', potOpts, 'Está na fatura. As mais comuns são 3,45 e 6,9 kVA.') +
-      '</div><div class="ft-g ft-g3">' +
+    return '<div class="ft-cartao">' +
+      '<div class="ft-c-top"><h2 class="heading-style-h2 ft-h2">Para contas mais exatas</h2><p class="ft-c-sub">Opcional. A fatura em PDF preenche estes campos por ti.</p></div>' +
+      '<div class="ft-g ft-g3">' +
       campoNum('ftKwh', 'Quantos kWh gastas por mês?', f.kwh, 'kWh', ajudaKwh(S.R), 'ftKwhAjuda') +
-      campoSel('ftCom', 'Com quem tens contrato?', comOpts, 'Opcional. Tira as ofertas só para novos clientes dessa empresa.') +
+      campoSel('ftCom', 'Com quem tens contrato?', comOpts, 'Tira as ofertas a que já não tens acesso.') +
       campoSel('ftTarifa', 'Tarifa', tarOpts, 'Na dúvida, deixa em Simples.') + horas +
       '</div><div class="ft-caso"><div class="ft-caso-c">' +
       '<button type="button" class="dp-chip' + (f.fam ? ' is-on' : '') + '" data-fam>' + ico(IC.fam) + 'Família numerosa</button>' +
@@ -275,15 +269,20 @@
       '<p class="ft-caso-n">Família numerosa: cinco ou mais pessoas. A tarifa social é o desconto para famílias com rendimentos baixos e aplica-se em qualquer comercializador.</p></div>' +
       '</div>';
   }
+  function vCampos() {
+    var f = S.f, potOpts = pots().map(function (p, i) { return op(i, f.pot, potTxt(p)); }).join('');
+    return '<div class="ft-ou"><span>ou preenche à mão</span></div><div class="ft-g ft-g2">' +
+      campoNum('ftEur', 'Quanto pagas de luz por mês?', f.eur, '€', 'O valor habitual da fatura.') +
+      campoSel('ftPot', 'Potência contratada', potOpts, 'Está na fatura, em kVA.') + '</div>';
+  }
 
   /* ---------- Topo: caixa da fatura a esquerda, painel com o resultado a direita ---------- */
   function vUp() {
     return '<div class="ft-up' + (S.lendo ? ' is-a-ler' : '') + '"' + (S.lendo ? '' : ' data-up role="button" tabindex="0"') + '>' +
-      (S.lendo ? '<div class="ft-roda" aria-hidden="true"></div><div class="heading-style-h2 ft-up-k">A ler a tua fatura...</div><div class="ft-up-t">Costuma demorar entre 5 e 20 segundos.</div>'
-        : '<div class="ft-up-ic">' + ico(IC.up) + '</div><div class="heading-style-h2 ft-up-k">Começa aqui</div><div class="ft-up-t">Carrega a tua fatura da luz</div><span class="dp-btn ft-up-b">Escolher fatura</span><div class="ft-up-s">PDF ou fotografia, de qualquer comercializador. Também a podes arrastar para aqui.</div>') +
-      '</div><input type="file" id="ftFicheiro" accept="application/pdf,image/*" hidden>' +
-      (S.erro ? '<p class="ft-msg is-erro">' + esc(S.erro) + '</p>' : '') + (S.lido ? '<p class="ft-msg is-ok">' + S.lido + '</p>' : '') +
-      '<p class="ft-priv">' + ico(IC.lock) + 'Sem registo. Não guardamos a tua fatura.</p>';
+      (S.lendo ? '<div class="ft-roda" aria-hidden="true"></div><div class="heading-style-h2 ft-up-k">A ler a tua fatura...</div><div class="ft-up-t">É lida no teu browser.</div>'
+        : '<div class="ft-up-ic">' + ico(IC.up) + '</div><div class="heading-style-h2 ft-up-k">Começa aqui</div><div class="ft-up-t">Carrega a tua fatura da luz em PDF</div><span class="dp-btn ft-up-b">Escolher fatura</span><div class="ft-up-s">' + ico(IC.lock) + 'Lida no teu browser. Não sai do teu computador.</div>') +
+      '</div><input type="file" id="ftFicheiro" accept="application/pdf,.pdf" hidden>' +
+      (S.erro ? '<p class="ft-msg is-erro">' + esc(S.erro) + '</p>' : '') + (S.lido ? '<p class="ft-msg is-ok">' + S.lido + '</p>' : '');
   }
   function vPainel() {
     if (S.motorErro) return '<div class="ft-painel"><p class="ft-p-s">Não foi possível carregar os preços. Atualiza a página dentro de momentos.</p></div>';
@@ -301,7 +300,7 @@
       var n = nome(it.o.c);
       return '<li><span class="ft-p-n">' + (i + 1) + '</span>' + logo(it.o.c, n) + '<span class="ft-p-c"><b>' + esc(n) + (i === 0 ? '<i class="ft-p-m">Mais barata</i>' : '') + '</b><small>' + esc(it.o.n || '') + '</small></span><span class="ft-p-e"><b>' + eur(it.ano1 / 12) + '</b><small>por mês' + (it.depois - it.ano1 > 6 ? ' no 1.º ano' : '') + '</small></span></li>';
     }).join('') + '</ol>';
-    h += teu ? '<a href="#" class="dp-btn is-secondary ft-p-mais" data-ver>Ver todas as ofertas e as contas</a>' + (R.estimado ? '<p class="ft-p-n2">Consumo estimado pelo valor que pagas. Com os kWh ou com a fatura, as contas ficam exatas.</p>' : '')
+    h += teu ? '<a href="#" class="dp-btn is-secondary ft-p-mais" data-ver>Ver todas as ofertas e as contas</a>'
       : '<p class="ft-p-n2">É assim que vais ver o teu resultado, com os preços atuais.</p>';
     return h + '</div>';
   }
@@ -447,7 +446,10 @@
 
   /* ---------- Render ---------- */
   function renderUp() { var e = el('ftUp'); if (e) e.innerHTML = vUp(); }
-  function renderForm() { var e = el('ftForm'); if (e) e.innerHTML = vForm(); }
+  function renderForm() {
+    var a = el('ftCampos'); if (a) a.innerHTML = vCampos();
+    var e = el('ftForm'); if (e) e.innerHTML = vForm();
+  }
   function renderRes() {
     var e = el('ftRes'); if (e) e.innerHTML = vRes();
     var p = el('ftPainel'); if (p) p.innerHTML = vPainel();
@@ -539,7 +541,7 @@
       root = document.createElement('div'); root.id = 'lf-ft';
       if (h1 && h1.parentNode) h1.parentNode.appendChild(root); else return;
     }
-    root.innerHTML = '<p class="ft-lead">' + LEAD + '</p><div class="ft-hero"><div class="ft-esq" id="ftUp"></div><div class="ft-dir" id="ftPainel"></div></div><div id="ftForm"></div><div id="ftRes"></div>';
+    root.innerHTML = '<p class="ft-lead">' + LEAD + '</p><div class="ft-hero"><div class="ft-esq"><div id="ftUp"></div><div id="ftCampos"></div></div><div class="ft-dir" id="ftPainel"></div></div><div id="ftForm"></div><div id="ftRes"></div>';
     renderUp(); renderForm(); renderRes();
     carregarCss(); carregarMotor();
   }
