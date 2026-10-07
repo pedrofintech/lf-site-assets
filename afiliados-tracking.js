@@ -6,8 +6,9 @@
  * onde o link estava e o valor medio desse clique.
  *
  * Funciona nos quatro sites: apanha /visita/<parceiro> (PT) e /visit/<parceiro>
- * (EN), e tambem os links diretos para dominios de parceiro listados no
- * ficheiro de valores.
+ * (EN), e tambem os links diretos de afiliado que correspondam a um dos
+ * padroes listados no ficheiro de valores. Qualquer link pode ainda ser
+ * marcado a mao com data-afiliado="nome-do-parceiro".
  *
  * Os valores vivem em afiliados-valores.json, fora deste ficheiro, para
  * poderem ser alterados sem publicar o site.
@@ -25,7 +26,7 @@
     moeda: "EUR",
     valorPorOmissao: 1,
     parceiros: {},
-    dominios: {},
+    padroes: {},
   };
 
   // Evita contar duas vezes o mesmo clique no mesmo elemento.
@@ -40,7 +41,7 @@
       valorPorOmissao:
         typeof dados.valorPorOmissao === "number" ? dados.valorPorOmissao : 1,
       parceiros: dados.parceiros || {},
-      dominios: dados.dominios || {},
+      padroes: dados.padroes || {},
     };
   }
 
@@ -97,8 +98,14 @@
 
     if (url.hostname === window.location.hostname) return null;
 
-    var porDominio = config.dominios[url.hostname];
-    if (porDominio) return porDominio;
+    // Links diretos de afiliado. Compara-se o endereco completo e nao so o
+    // dominio, porque o mesmo dominio serve links de afiliado e links de
+    // consulta (por exemplo o precario de uma corretora).
+    var endereco = url.hostname + url.pathname + url.search;
+    var padroes = Object.keys(config.padroes);
+    for (var i = 0; i < padroes.length; i++) {
+      if (endereco.indexOf(padroes[i]) !== -1) return config.padroes[padroes[i]];
+    }
 
     return null;
   }
