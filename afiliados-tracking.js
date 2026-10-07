@@ -140,11 +140,10 @@
       placement: localDoLink(link),
       link_url: link.href,
       link_text: (link.textContent || "").replace(/\s+/g, " ").trim().slice(0, 60),
-      page_path: window.location.pathname,
+      // "page_path" e um nome reservado no GA4 e seria descartado.
+      origin_path: window.location.pathname,
       value: valorDoParceiro(parceiro),
       currency: config.moeda,
-      // Garante que o evento sai antes de o browser sair da pagina.
-      transport_type: "beacon",
     });
   }
 
