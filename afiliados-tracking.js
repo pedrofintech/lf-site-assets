@@ -158,11 +158,10 @@
   // --------------------------------------------------------------- arranque
 
   lerCache();
-  if (window.requestIdleCallback) {
-    window.requestIdleCallback(carregarValores, { timeout: 3000 });
-  } else {
-    setTimeout(carregarValores, 1000);
-  }
+  // Carrega os valores de imediato: os links diretos de afiliado so sao
+  // reconhecidos depois de os padroes chegarem, e um clique rapido ficaria
+  // de fora. E um pedido de 1 KB, e so o primeiro da sessao.
+  carregarValores();
 
   document.addEventListener("click", aoClicar, true);
   document.addEventListener("auxclick", aoClicar, true);
