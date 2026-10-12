@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => {
         shareIcon.style.display = "block";
         copiedIcon.style.display = "none";
-        copiedText.textContent = "Partilhar resultados";
+        copiedText.textContent = "Compartilhar resultados";
       }, 1500);
     });
   }
