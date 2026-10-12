@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (shareIcon) shareIcon.style.display = "none";
 
       setTimeout(() => {
-        if (copiedText) copiedText.textContent = "Partilhar resultados";
+        if (copiedText) copiedText.textContent = "Compartilhar resultados";
         if (copiedIcon) copiedIcon.style.display = "none";
         if (shareIcon) shareIcon.style.display = "block";
       }, 2000);

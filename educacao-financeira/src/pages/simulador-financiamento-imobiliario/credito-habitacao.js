@@ -223,7 +223,9 @@ $(document).ready(function () {
       maxIter = 1000,
     }) {
       let low = 0;
-      let high = 0.02; // 2% mensal é seguramente acima do esperado
+      // Teto de 100% ao mês: o CET real pode passar dos 26,8% ao ano que um
+      // teto de 2% ao mês permitia, e a bisseção ficava presa nesse limite.
+      let high = 1;
       let mid;
       for (let i = 0; i < maxIter; i++) {
         mid = (low + high) / 2;
@@ -832,7 +834,6 @@ $(document).ready(function () {
     renderTable(selectedTable, null);
     $("#table-load-more-button").hide();
     $("#table-hide-more-button").css("display", "flex");
-    console.log("YOASFJOgjogyiwudhfgi");
   });
 });
 $("#table-hide-more-button").on("click", function (e) {
