@@ -1,0 +1,102 @@
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures row borders remain visible */
+  font-size: var(--p-small--font-size);
+  line-height: var(--p-small--line-height);
+  letter-spacing: var(--p-small--letter-spacing);
+  color: var(--colors--text-primary);
+  text-align: left;
+  margin-top: 16px;
+  /*margin-bottom: 2rem;*/
+  border-radius: 8px;
+  position: relative;
+}
+
+.table-content {
+  margin-bottom: 40px;
+}
+
+.w-embed + p:has(sup) {
+  margin-top: -40px !important;
+}
+
+/* Add the outer border using ::before */
+table::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* Covers the full table */
+  border: 1px solid var(--colors--border-secondary);
+  border-radius: 8px; /* Matches the table */
+  z-index: -1; /* Keeps border behind the table */
+}
+
+/* Header row styling */
+thead tr {
+  background-color: var(--colors--bg-primary-dark);
+  font-size: var(--p-small--font-size);
+  line-height: var(--p-small--line-height);
+  color: var(--colors--text-on-color-secondary);
+  padding: 0px;
+  letter-spacing: var(--p-small--letter-spacing);
+}
+
+/* Table headers */
+thead th {
+  font-weight: 500 !important;
+  padding: 12px;
+  border-bottom: 1px solid var(--colors--border-secondary);
+}
+
+/* Apply border-radius only to first and last header cells */
+thead th:first-child {
+  border-top-left-radius: 8px;
+}
+
+thead th:last-child {
+  border-top-right-radius: 8px;
+}
+
+/* Keep tbody row borders */
+tbody tr {
+  border-bottom: 1px solid var(--colors--border-secondary);
+}
+
+/* Remove bottom border from the last row */
+tbody tr:last-of-type {
+  border-bottom: none;
+}
+
+/* Ensure last row corners remain rounded */
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+/* Proper padding and spacing for table cells */
+th,
+td {
+  padding: 12px;
+  max-width: 13rem;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  th,
+  td {
+    min-width: 15rem;
+  }
+}
+
+@media (max-width: 479px) {
+  th,
+  td {
+    min-width: 10rem;
+    max-width: 20rem;
+  }
+}
