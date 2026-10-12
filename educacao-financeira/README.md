@@ -1,7 +1,8 @@
 # Educação Financeira — código custom para Webflow
 
-JS/CSS para `educacaofinanceirabrasil.com.br`. Servido como bundle único via Vercel,
-carregado em todas as páginas com **uma só tag** no Site Settings → Custom Code → Footer.
+JS/CSS para `educacaofinanceirabrasil.com.br`. O build fica em `dist/`, dentro deste repo,
+e é servido pelo jsDelivr a partir de um commit fixo. É carregado em todas as páginas com
+**uma só tag** no Site Settings → Custom Code → Footer.
 
 ## Como funciona
 
@@ -9,8 +10,9 @@ carregado em todas as páginas com **uma só tag** no Site Settings → Custom C
   por `location.pathname` para fazer `import()` dinâmico do módulo da página certa.
 - Vite faz code-splitting: cada página vira um chunk lazy-loaded, utilities partilhadas
   (save-table, calculadora-inputs, etc.) são extraídas em chunks comuns.
-- Build final em `dist/` com entry fixo `main.js` (URL estável) + chunks hashed
-  (cache imutável).
+- Build final em `dist/` com entry fixo `main.js` + chunks hashed. Os caminhos dos chunks
+  são relativos ao `main.js`, por isso o mesmo build funciona em qualquer commit.
+- `dist/` **está no git** de propósito: é o que o jsDelivr serve.
 
 ## Setup local (uma vez)
 
@@ -40,7 +42,7 @@ Cola isto em **Site Settings → Custom Code → Footer Code**:
 ```html
 <script>
 (function () {
-  var PROD = "https://educacao-financeira-lf.vercel.app/main.js";
+  var PROD = "https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@COMMIT/educacao-financeira/dist/main.js";
   var DEV = "https://localhost:3000/src/main.js";
   var s = document.createElement("script");
   s.type = "module";
@@ -56,16 +58,18 @@ Cola isto em **Site Settings → Custom Code → Footer Code**:
     console.log("[lf-code] staging detectado, a tentar dev server…");
     fetch(DEV, { mode: "no-cors" })
       .then(function () { load(DEV, "DEV (localhost)"); })
-      .catch(function () { load(PROD, "PROD (Vercel) — dev server offline"); });
+      .catch(function () { load(PROD, "PROD (jsDelivr) — dev server offline"); });
   } else {
-    load(PROD, "PROD (Vercel)");
+    load(PROD, "PROD (jsDelivr)");
   }
 })();
 </script>
 ```
 
-- **Domínio publicado** (`educacaofinanceirabrasil.com.br`) → carrega sempre `main.js` do Vercel.
-- **Webflow staging** (`educacaofinanceira.webflow.io`) → tenta `https://localhost:3000/src/main.js`; se o `npm run dev` não estiver a correr, faz fallback para Vercel.
+`COMMIT` é o hash completo do commit do `lf-site-assets` que tem o build que queres pôr online.
+
+- **Domínio publicado** (`educacaofinanceirabrasil.com.br`) → carrega sempre o `main.js` do jsDelivr.
+- **Webflow staging** (`educacaofinanceira.webflow.io`) → tenta `https://localhost:3000/src/main.js`; se o `npm run dev` não estiver a correr, faz fallback para o jsDelivr.
 
 Sem isto, terias de trocar a URL à mão sempre que mudasses entre dev e prod.
 
@@ -136,6 +140,15 @@ Se mudares para uma página sem esses globais, partem com `ReferenceError`.
 
 ## Deploy
 
-Vercel está ligado ao repo. Cada push a `main` faz deploy. Branches → preview deploys
-automáticos (URL `educacao-financeira-lf-<branch>-<hash>.vercel.app`) — útil para
-testar mudanças antes de mergear.
+Não há deploy automático. Para pôr uma alteração online:
+
+1. Alterar o código em `src/`.
+2. `npm run build`, nesta pasta.
+3. Commit de `src/` **e** de `dist/` juntos, e push para `main`.
+4. No Webflow, trocar o `COMMIT` do loader pelo hash completo desse commit e publicar.
+
+O commit fica fixo no URL, por isso o jsDelivr nunca serve uma versão misturada nem
+desatualizada. O mesmo padrão das calculadoras da Literacia.
+
+Se esquecer o passo 2, o site continua com o build antigo: o `dist/` é o que vai online,
+não o `src/`.

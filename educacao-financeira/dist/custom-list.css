@@ -1,0 +1,59 @@
+.custom-list-vantagens {
+  list-style: none;
+  padding-left: 0;
+}
+
+.custom-list-vantagens li {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.custom-list-vantagens li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1.5rem;
+  height: 1.9125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://cdn.prod.website-files.com/67922c46c9da6bf5d9bfdf09/67b45f3dd3f6d70721b3de6d_check-circle.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.custom-list-desvantagens {
+  list-style: none;
+  padding-left: 0;
+}
+
+.custom-list-desvantagens li {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.custom-list-desvantagens li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1.5rem;
+  height: 1.9125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://cdn.prod.website-files.com/67922c46c9da6bf5d9bfdf09/67b468bada2cccf3e5b995bf_x-circle.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 767px) {
+  .custom-list-vantagens li::before {
+    height: 1.65rem;
+  }
+
+  .custom-list-desvantagens li::before {
+    height: 1.65rem;
+  }
+}

@@ -5,13 +5,12 @@ const keyPath = '.cert/localhost-key.pem'
 const certPath = '.cert/localhost.pem'
 const hasCerts = fs.existsSync(keyPath) && fs.existsSync(certPath)
 
-// Em prod, o bundle é servido do Vercel mas carregado por uma página noutro
-// domínio (Webflow). Usar `base` absoluto faz com que os chunks dinâmicos
-// resolvam contra o Vercel em vez do domínio da página.
-const PROD_BASE = 'https://educacao-financeira-lf.vercel.app/'
-
+// Em prod, o bundle é servido pelo jsDelivr a partir de um commit fixo do
+// lf-site-assets, mas carregado por uma página noutro domínio (Webflow).
+// Com `base` relativo, os chunks dinâmicos resolvem contra o URL do main.js
+// (import.meta.url), seja qual for o commit, em vez do domínio da página.
 export default defineConfig(({ command }) => ({
-  base: command === 'build' ? PROD_BASE : '/',
+  base: command === 'build' ? './' : '/',
   server: {
     host: 'localhost',
     port: 3000,
