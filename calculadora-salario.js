@@ -209,105 +209,105 @@ const taxTables = [
     ],
   },
   {
-    //R. A. Açores - Tabela I
+    //R. A. Açores - Tabela I (Despacho n.º 1179/2026, em vigor desde 1 de janeiro de 2026)
     location: "Região Autónoma dos Açores",
     table: "Tabela I",
     maritalStatus: "Não casado / Casado dois titulares",
     salaryBrackets: [
       {
         min: 0,
-        max: 861,
+        max: 966,
         rate: 0.0,
         deduction: 0.0,
-        adDep: 0,
+        adDep: 0.0,
         taxaEfetiva: 0.0,
       },
       {
-        min: 861.01,
-        max: 959,
-        rate: 0.091,
-        deduction: "09.10%*2.60(1192.17 - R)", //(R) => 9.1 * 2.6 * (1192.17 - R),
-        adDep: 0,
-        taxaEfetiva: 0.033,
+        min: 966.01,
+        max: 1042,
+        rate: 0.0875,
+        deduction: "08.75%*2.60(1337.54 - R)",
+        adDep: 21.43,
+        taxaEfetiva: 0.023,
       },
       {
-        min: 959.01,
-        max: 1032,
-        rate: 0.1155,
-        deduction: "11.60%*1.35(1463.36 - R)", //(R) => 11.55 * 1.35 * (1463.36 - R),
-        adDep: 0,
-        taxaEfetiva: 0.05,
+        min: 1042.01,
+        max: 1108,
+        rate: 0.1099,
+        deduction: "10.99%*1.35(1652.49 - R)",
+        adDep: 21.43,
+        taxaEfetiva: 0.037,
       },
       {
-        min: 1032.01,
-        max: 1125,
-        rate: 0.1155,
-        deduction: 67.23,
-        adDep: 0,
-        taxaEfetiva: 0.056,
+        min: 1108.01,
+        max: 1154,
+        rate: 0.1099,
+        deduction: 80.79,
+        adDep: 21.43,
+        taxaEfetiva: 0.04,
       },
       {
-        min: 1125.01,
-        max: 1175,
-        rate: 0.154,
-        deduction: 110.54,
-        adDep: 0,
-        taxaEfetiva: 0.06,
+        min: 1154.01,
+        max: 1212,
+        rate: 0.1484,
+        deduction: 125.22,
+        adDep: 21.43,
+        taxaEfetiva: 0.045,
       },
       {
-        min: 1175.01,
-        max: 1769,
-        rate: 0.175,
-        deduction: 135.21,
-        adDep: 0,
-        taxaEfetiva: 0.099,
+        min: 1212.01,
+        max: 1819,
+        rate: 0.1687,
+        deduction: 149.83,
+        adDep: 21.43,
+        taxaEfetiva: 0.086,
       },
       {
-        min: 1769.01,
-        max: 2057,
-        rate: 0.224,
-        deduction: 221.91,
-        adDep: 0,
-        taxaEfetiva: 0.116,
+        min: 1819.01,
+        max: 2119,
+        rate: 0.2177,
+        deduction: 238.97,
+        adDep: 21.43,
+        taxaEfetiva: 0.105,
       },
       {
-        min: 2057.01,
-        max: 2408,
-        rate: 0.2485,
-        deduction: 272.3,
-        adDep: 0,
-        taxaEfetiva: 0.135,
+        min: 2119.01,
+        max: 2499,
+        rate: 0.2443,
+        deduction: 295.34,
+        adDep: 21.43,
+        taxaEfetiva: 0.126,
       },
       {
-        min: 2408.01,
-        max: 3201,
-        rate: 0.271,
-        deduction: 326.49,
-        adDep: 0,
-        taxaEfetiva: 0.169,
+        min: 2499.01,
+        max: 3305,
+        rate: 0.2685,
+        deduction: 355.82,
+        adDep: 21.43,
+        taxaEfetiva: 0.161,
       },
       {
-        min: 3201.01,
-        max: 5492,
-        rate: 0.2804,
-        deduction: 356.4,
-        adDep: 0,
-        taxaEfetiva: 0.216,
+        min: 3305.01,
+        max: 5547,
+        rate: 0.2779,
+        deduction: 386.89,
+        adDep: 21.43,
+        taxaEfetiva: 0.208,
       },
       {
-        min: 5492.01,
-        max: 20021,
+        min: 5547.01,
+        max: 20221,
         rate: 0.3146,
-        deduction: 544.59,
-        adDep: 0,
-        taxaEfetiva: 0.287,
+        deduction: 590.47,
+        adDep: 21.43,
+        taxaEfetiva: 0.285,
       },
       {
-        min: 20021.01,
+        min: 20221.01,
         max: Infinity,
         rate: 0.3302,
-        deduction: 856.42,
-        adDep: 0,
+        deduction: 905.92,
+        adDep: 21.43,
         taxaEfetiva: null,
       },
     ],
@@ -521,104 +521,104 @@ const taxTables = [
     ],
   },
   {
-    //R. A. Açores - Tabela II
+    //R. A. Açores - Tabela II (Despacho n.º 1179/2026, em vigor desde 1 de janeiro de 2026)
     location: "Região Autónoma dos Açores",
     table: "Tabela II",
     maritalStatus: "Não casado com um ou mais dependentes",
     salaryBrackets: [
       {
         min: 0,
-        max: 861,
+        max: 966,
         rate: 0.0,
         deduction: 0.0,
         adDep: 0.0,
         taxaEfetiva: 0.0,
       },
       {
-        min: 861.01,
-        max: 959,
-        rate: 0.091,
-        deduction: "09.10%*2.60(1192.17 - R)", //(R) => 9.1 * 2.6 * (1192.17 - R),
+        min: 966.01,
+        max: 1042,
+        rate: 0.0875,
+        deduction: "08.75%*2.60(1337.54 - R)",
         adDep: 34.29,
-        taxaEfetiva: 0.033,
+        taxaEfetiva: 0.023,
       },
       {
-        min: 959.01,
-        max: 1032,
-        rate: 0.1155,
-        deduction: "11.60%*1.35(1463.36 - R)", //(R) => 11.55 * 1.35 * (1463.36 - R),
+        min: 1042.01,
+        max: 1108,
+        rate: 0.1099,
+        deduction: "10.99%*1.35(1652.49 - R)",
         adDep: 34.29,
-        taxaEfetiva: 0.05,
+        taxaEfetiva: 0.037,
       },
       {
-        min: 1032.01,
-        max: 1125,
-        rate: 0.1155,
-        deduction: 67.23,
+        min: 1108.01,
+        max: 1154,
+        rate: 0.1099,
+        deduction: 80.79,
         adDep: 34.29,
-        taxaEfetiva: 0.056,
+        taxaEfetiva: 0.04,
       },
       {
-        min: 1125.01,
-        max: 1175,
-        rate: 0.154,
-        deduction: 110.54,
+        min: 1154.01,
+        max: 1212,
+        rate: 0.1484,
+        deduction: 125.22,
         adDep: 34.29,
-        taxaEfetiva: 0.06,
+        taxaEfetiva: 0.045,
       },
       {
-        min: 1175.01,
-        max: 1769,
-        rate: 0.175,
-        deduction: 135.21,
+        min: 1212.01,
+        max: 1819,
+        rate: 0.1687,
+        deduction: 149.83,
         adDep: 34.29,
-        taxaEfetiva: 0.099,
+        taxaEfetiva: 0.086,
       },
       {
-        min: 1769.01,
-        max: 2057,
-        rate: 0.224,
-        deduction: 221.91,
+        min: 1819.01,
+        max: 2119,
+        rate: 0.2177,
+        deduction: 238.97,
         adDep: 34.29,
-        taxaEfetiva: 0.116,
+        taxaEfetiva: 0.105,
       },
       {
-        min: 2057.01,
-        max: 2408,
-        rate: 0.2485,
-        deduction: 272.3,
+        min: 2119.01,
+        max: 2499,
+        rate: 0.2443,
+        deduction: 295.34,
         adDep: 34.29,
-        taxaEfetiva: 0.135,
+        taxaEfetiva: 0.126,
       },
       {
-        min: 2408.01,
-        max: 3201,
-        rate: 0.271,
-        deduction: 326.49,
+        min: 2499.01,
+        max: 3305,
+        rate: 0.2685,
+        deduction: 355.82,
         adDep: 34.29,
-        taxaEfetiva: 0.169,
+        taxaEfetiva: 0.161,
       },
       {
-        min: 3201.01,
-        max: 5492,
-        rate: 0.2804,
-        deduction: 356.4,
+        min: 3305.01,
+        max: 5547,
+        rate: 0.2779,
+        deduction: 386.89,
         adDep: 34.29,
-        taxaEfetiva: 0.216,
+        taxaEfetiva: 0.208,
       },
       {
-        min: 5492.01,
-        max: 20021,
+        min: 5547.01,
+        max: 20221,
         rate: 0.3146,
-        deduction: 544.59,
+        deduction: 590.47,
         adDep: 34.29,
-        taxaEfetiva: 0.287,
+        taxaEfetiva: 0.285,
       },
       {
-        min: 20021.01,
+        min: 20221.01,
         max: Infinity,
         rate: 0.3302,
-        deduction: 856.42,
+        deduction: 905.92,
         adDep: 34.29,
         taxaEfetiva: null,
       },
@@ -825,105 +825,89 @@ const taxTables = [
     ],
   },
   {
-    //R. A. Açores - Tabela III
+    //R. A. Açores - Tabela III (Despacho n.º 1179/2026, em vigor desde 1 de janeiro de 2026)
     location: "Região Autónoma dos Açores",
     table: "Tabela III",
-    maritalStatus: "Casado dois titulares com um ou mais dependentes",
+    maritalStatus: "Casado único titular",
     salaryBrackets: [
       {
         min: 0,
-        max: 798,
+        max: 1226,
         rate: 0.0,
         deduction: 0.0,
-        adDep: 21.43,
+        adDep: 0.0,
         taxaEfetiva: 0.0,
       },
       {
-        min: 798.01,
-        max: 922,
-        rate: 0.1015,
-        deduction: "10.15%*2.30(1167.90 - R)", //(R) => 10.15 * 2.3 * (1167.9 - R),
-        adDep: 21.43,
-        taxaEfetiva: 0.016,
+        min: 1226.01,
+        max: 1267,
+        rate: 0.0728,
+        deduction: 89.26,
+        adDep: 42.86,
+        taxaEfetiva: 0.002,
       },
       {
-        min: 922.01,
-        max: 995,
-        rate: 0.147,
-        deduction: "14.70%*1.30(1441.94 - R)", //(R) => 14.7 * 1.3 * (1441.94 - R),
-        adDep: 21.43,
-        taxaEfetiva: 0.04,
+        min: 1267.01,
+        max: 1602,
+        rate: 0.0964,
+        deduction: 119.17,
+        adDep: 42.86,
+        taxaEfetiva: 0.022,
       },
       {
-        min: 995.01,
-        max: 1106,
-        rate: 0.1855,
-        deduction: 123.72,
-        adDep: 21.43,
-        taxaEfetiva: 0.054,
+        min: 1602.01,
+        max: 1962,
+        rate: 0.1099,
+        deduction: 140.8,
+        adDep: 42.86,
+        taxaEfetiva: 0.038,
       },
       {
-        min: 1106.01,
-        max: 1600,
-        rate: 0.1995,
-        deduction: 139.22,
-        adDep: 21.43,
-        taxaEfetiva: 0.099,
+        min: 1962.01,
+        max: 2240,
+        rate: 0.1357,
+        deduction: 191.42,
+        adDep: 42.86,
+        taxaEfetiva: 0.05,
       },
       {
-        min: 1600.01,
-        max: 1961,
-        rate: 0.245,
-        deduction: 212.03,
-        adDep: 21.43,
-        taxaEfetiva: 0.126,
+        min: 2240.01,
+        max: 2900,
+        rate: 0.1594,
+        deduction: 244.51,
+        adDep: 42.86,
+        taxaEfetiva: 0.075,
       },
       {
-        min: 1961.01,
-        max: 2529,
-        rate: 0.259,
-        deduction: 239.49,
-        adDep: 21.43,
-        taxaEfetiva: 0.156,
+        min: 2900.01,
+        max: 3389,
+        rate: 0.1799,
+        deduction: 303.96,
+        adDep: 42.86,
+        taxaEfetiva: 0.09,
       },
       {
-        min: 2529.01,
-        max: 3694,
+        min: 3389.01,
+        max: 5965,
+        rate: 0.2017,
+        deduction: 377.85,
+        adDep: 42.86,
+        taxaEfetiva: 0.138,
+      },
+      {
+        min: 5965.01,
+        max: 20265,
         rate: 0.271,
-        deduction: 269.85,
-        adDep: 21.43,
-        taxaEfetiva: 0.192,
-      },
-      {
-        min: 3694.01,
-        max: 5469,
-        rate: 0.2804,
-        deduction: 304.38,
-        adDep: 21.43,
-        taxaEfetiva: 0.221,
-      },
-      {
-        min: 5469.01,
-        max: 6420,
-        rate: 0.299,
-        deduction: 406.61,
-        adDep: 21.43,
+        deduction: 791.23,
+        adDep: 42.86,
         taxaEfetiva: 0.232,
       },
       {
-        min: 6420.01,
-        max: 20064,
-        rate: 0.3146,
-        deduction: 506.61,
-        adDep: 21.43,
-        taxaEfetiva: 0.288,
-      },
-      {
-        min: 20064.01,
+        min: 20265.01,
         max: Infinity,
         rate: 0.3302,
-        deduction: 819.11,
-        adDep: 21.43,
+        deduction: 1990.92,
+        adDep: 42.86,
         taxaEfetiva: null,
       },
     ],
@@ -956,7 +940,7 @@ $(document).ready(function () {
 
     const parseNumber = (value) => {
       if (!value) return 0;
-      return parseFloat(value.replace(/\./g, "").replace(",", "."));
+      return parseFloat(value.replace(/\./g, "").replace(",", ".")) || 0;
     };
     // --------------------------------------------------------------------
     // --------------------------------------------------------------------
@@ -1007,6 +991,24 @@ $(document).ready(function () {
     );
     const T2D26_irsJovem = $("#irs-jovem").val();
 
+    // Sem salario nem outros rendimentos nao ha nada para calcular: esconde os
+    // resultados e volta a mostrar o cartao de espera, em vez de mostrar NaN€.
+    if (
+      !(
+        D22_salarioBruto +
+          D23_retribuicaoExtra +
+          D24_outrosRendIRS_SS +
+          D25_outrosRendIRS >
+        0
+      )
+    ) {
+      $(".all-results_wrapper").css("display", "none");
+      setTimeout(function () {
+        $(".placeholder-results_wrapper").css("display", "");
+      }, 0);
+      return;
+    }
+
     // --------------------------------------------------------------------
     // --------------------------------------------------------------------
     // ------------------------------ TABLE -------------------------------
@@ -1029,25 +1031,21 @@ $(document).ready(function () {
       );
     });
     function get_selectedRow(x) {
-      let rownumber = 999999;
-      let selectedR;
-      //Infinity
-      if (x > selectedTable.salaryBrackets[11].max) {
-        selectedR = selectedTable.salaryBrackets[11];
-      } else {
-        for (let n = 0; n < 12; n++) {
-          if (
-            (x >= selectedTable.salaryBrackets[n].min) &
-            (x <= selectedTable.salaryBrackets[n].max)
-          ) {
-            rownumber = n;
-            selectedR = selectedTable.salaryBrackets[n];
-          }
-          //console.log("Possibility " + n + " " + selectedTable.salaryBrackets[n].max);
+      const linhas = selectedTable.salaryBrackets;
+      let selectedR = linhas[linhas.length - 1];
+      for (let n = 0; n < linhas.length; n++) {
+        if (x <= linhas[n].max) {
+          selectedR = linhas[n];
+          break;
         }
       }
-      //console.log("Number of Rows: " + selectedTable.salaryBrackets.length);
-      //console.log("Possibility selected: " + rownumber + " " + selectedR.max);
+      // Tres ou mais dependentes: menos um ponto percentual na taxa marginal
+      // maxima (n.º 5, alinea h) do Despacho n.º 233-A/2026 e equivalentes regionais).
+      if (D15_dependentes >= 3 && selectedR.rate > 0) {
+        selectedR = Object.assign({}, selectedR, {
+          rate: Math.round((selectedR.rate - 0.01) * 10000) / 10000,
+        });
+      }
       return selectedR;
     }
     // --------------------------------------------------------------------
@@ -1072,7 +1070,7 @@ $(document).ready(function () {
       result = sum;
       if (D29 === "Cartão/Vales de refeição" && D30 > 10.46) {
         result = sum + D31 * (D30 - 10.46);
-      } else if (D29 === "Rendimento" && D30 > 6.15) {
+      } else if (D29 === "Remuneração" && D30 > 6.15) {
         result = sum + D31 * (D30 - 6.15);
       } else {
         result = sum;
@@ -1082,7 +1080,7 @@ $(document).ready(function () {
     function calculate_D35_IFS(D29, D30, D31) {
       if (D29 === "Cartão/Vales de refeição" && D30 > 10.46) {
         return D31 * (D30 - 10.46);
-      } else if (D29 === "Rendimento" && D30 > 6.15) {
+      } else if (D29 === "Remuneração" && D30 > 6.15) {
         return D31 * (D30 - 6.15);
       } else {
         return 0;
@@ -1191,6 +1189,7 @@ $(document).ready(function () {
         typeof selectedRow.deduction === "string"
           ? alternativeCalculation
           : baseCalculation; // "Parcela a Abater"
+      if (!(D22 > 0)) return 0;
       let reall = (Math.max(real_deduction, 0) / D22) * D36;
       /*
       console.log("YOOOOOOOOOOOOOOOOOO " + real_deduction);
@@ -1226,7 +1225,7 @@ $(document).ready(function () {
       return resultado;
     }
     function calculate_T2D43(T2D26, T2D30, T2D31, T2D34, T1D43) {
-      if (T2D26 == "Não aplicável") {
+      if (T2D26 == "Não aplicável" || !(T2D34 > 0)) {
         resultado = T1D43;
       } else {
         if (T2D30 * T2D34 > T2D31) {
@@ -1600,7 +1599,9 @@ $(document).ready(function () {
       $("[custo-anual-empresa-result]").text(formatEuro(custoAnualPatrao));
 
       const IRSPercentage =
-        (T2D43_retIRSrendimentos / D34_real_rendimentoTributavel) * 100;
+        D34_real_rendimentoTributavel > 0
+          ? (T2D43_retIRSrendimentos / D34_real_rendimentoTributavel) * 100
+          : 0;
       $("[irs-percentage-result]").text(formatPercent(IRSPercentage));
       const subAlimPercentage =
         (T2D45_retIRSduodecimos / D41_real_salarioBruto) * 100;
