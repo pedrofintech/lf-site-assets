@@ -1,0 +1,3149 @@
+{
+ "verificado": "13 de outubro de 2026",
+ "comparar": {
+  "particular": [
+   "revolut",
+   "activobank",
+   "bankinter"
+  ],
+  "empresa": [
+   "revolut-business",
+   "novobanco-empresas",
+   "santander-empresas"
+  ]
+ },
+ "pares": {
+  "n26|revolut": "n26-vs-revolut",
+  "moey|revolut": "revolut-vs-moey",
+  "revolut|wise": "wise-vs-revolut",
+  "revolut|traderepublic": "trade-republic-vs-revolut"
+ },
+ "contas": [
+  {
+   "id": "revolut",
+   "seg": "particular",
+   "ordem": 1,
+   "name": "Revolut",
+   "produto": "Conta Standard",
+   "tipo": "digital",
+   "tipoTxt": "Banco digital",
+   "entidade": "Revolut Bank UAB, Sucursal em Portugal",
+   "logo": "revolut.svg",
+   "logoPad": true,
+   "ini": "Re",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.literaciafinanceira.pt/visita/revolut",
+    "aff": "revolut",
+    "nota": "Aplicam-se as condições da campanha."
+   },
+   "bonus": "Bónus de 10€",
+   "review": "https://www.literaciafinanceira.pt/artigos/analise-completa-revolut-portugal",
+   "src": "https://www.revolut.com/pt-PT/legal/standard-fees/",
+   "f": {
+    "custoAno": 0,
+    "custoAno1": null,
+    "custoAnoOrdenado": null,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": 1.5,
+    "numerario": false,
+    "garantia": "LT",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "0€",
+     "s": "Plano Standard. Os planos pagos custam de 3,99€ a 55€ por mês"
+    },
+    "cartao": {
+     "v": "Grátis, envio 6,99€",
+     "s": "Primeiro cartão físico sem custo de emissão. Envio normal 6,99€ mais IS, expresso 19,99€. Cartões virtuais grátis"
+    },
+    "credito": {
+     "v": "Não tem",
+     "s": "O documento de informação sobre comissões indica cartão de crédito não disponível"
+    },
+    "levant": {
+     "v": "Grátis em euros",
+     "s": "Sem limite em euros em todo o EEE. O dono do multibanco pode cobrar uma taxa própria"
+    },
+    "levantFora": {
+     "v": "5 ou 200€ por mês grátis",
+     "s": "Noutras moedas, o que ocorrer primeiro. Depois 2% do valor (mín. 1€) mais IS. Grátis em SEK e RON"
+    },
+    "transf": {
+     "v": "Grátis",
+     "s": "SEPA normais e imediatas sem custo. Fora da SEPA, o custo aparece na app antes de confirmar"
+    },
+    "cambio": {
+     "v": "0% até 1.000€/mês",
+     "s": "Em dias úteis. Acima de 1.000€ por mês paga 1% e ao fim de semana mais 1%"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Para residentes em Portugal na sucursal portuguesa. Contas com IBAN LT ficam na Revolut Bank UAB"
+    },
+    "mbway": {
+     "v": "Sim",
+     "s": "Pagamentos, transferências e levantamentos sem cartão. Até 2.000€ por operação"
+    },
+    "pagamentos": {
+     "v": "Sim",
+     "s": "Referências Multibanco, pagamentos ao Estado e débitos diretos na app"
+    },
+    "numerario": {
+     "v": "Não",
+     "s": "Sem depósitos em dinheiro. Carregas por transferência ou cartão"
+    },
+    "carteiras": {
+     "v": "Sim",
+     "s": "Apple Pay e Google Pay, também com cartões virtuais"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "A conta principal não é remunerada. Os juros estão na Poupança de Acesso Imediato"
+    },
+    "poupanca": {
+     "v": "1,50% TANB",
+     "s": "Poupança de Acesso Imediato no Standard, até 100.000€, juros pagos todos os dias. Planos pagos até 2,75% TANB"
+    },
+    "investir": {
+     "v": "Ações, ETFs e cripto",
+     "s": "Também Robo-Advisor. Investir tem risco de perda de capital"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Fundo de garantia de depósitos da Lituânia"
+    },
+    "regulador": {
+     "v": "Banco da Lituânia e Banco de Portugal",
+     "s": "Licença do BCE. Sucursal registada no Banco de Portugal com o código 3560"
+    },
+    "abertura": {
+     "v": "Na app, sem depósito mínimo",
+     "s": "Maiores de 18 anos residentes em Portugal. O primeiro depósito não pode ser em dinheiro"
+    },
+    "balcoes": {
+     "v": "Não tem",
+     "s": "Tudo pela app"
+    },
+    "apoio": {
+     "v": "Chat na app, 24 horas",
+     "s": "Em mais de 100 línguas, com português. E-mail só sem acesso à app. Linha automática para bloquear o cartão"
+    }
+   },
+   "c": [
+    "pagamentos"
+   ]
+  },
+  {
+   "id": "activobank",
+   "seg": "particular",
+   "ordem": 2,
+   "name": "ActivoBank",
+   "produto": "Conta Simples",
+   "tipo": "digital",
+   "tipoTxt": "Banco digital",
+   "entidade": "Banco ActivoBank, S.A",
+   "logo": "activobank.svg",
+   "logoPad": false,
+   "ini": "Ac",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.activobank.pt/conta-simples"
+   },
+   "src": "https://www.activobank.pt/precario",
+   "f": {
+    "custoAno": 0,
+    "custoAno1": null,
+    "custoAnoOrdenado": null,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": null,
+    "numerario": true,
+    "garantia": "PT",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "0€",
+     "s": "Conta Simples sem comissão de manutenção e sem montante mínimo de abertura"
+    },
+    "cartao": {
+     "v": "Grátis",
+     "s": "Cartão de débito sem comissão de disponibilização. Contactless e MB WAY sem custos"
+    },
+    "credito": {
+     "v": "Sim, sem anuidade",
+     "s": "Cartão Classic sem comissão de disponibilização (TAEG 17,9%), sujeito a análise de risco"
+    },
+    "levant": {
+     "v": "Grátis",
+     "s": "Sem comissão no Multibanco e nos países do EEE em euros"
+    },
+    "levantFora": {
+     "v": "4€ + 0,50% + 3,85%",
+     "s": "Fora do EEE ou noutras moedas, mais IS. O Activo Viagem (desde 3,99€ por 30 dias) isenta"
+    },
+    "transf": {
+     "v": "Grátis online",
+     "s": "Transferências SEPA+ e imediatas sem custo na app e no site"
+    },
+    "cambio": {
+     "v": "3,85% + IS",
+     "s": "Comissão de serviço internacional nas compras noutras moedas. O Activo Viagem isenta"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Ordenado, débitos diretos e pagamentos ao Estado sem limitações"
+    },
+    "mbway": {
+     "v": "Sim",
+     "s": "MB WAY sem custos"
+    },
+    "pagamentos": {
+     "v": "Sim",
+     "s": "Serviços e Estado por referência multibanco e débitos diretos"
+    },
+    "numerario": {
+     "v": "Sim, no Millennium bcp",
+     "s": "Notas, moedas e cheques nos balcões e máquinas do Millennium bcp"
+    },
+    "carteiras": {
+     "v": "Apple Pay e Google Wallet",
+     "s": "Também Samsung Pay, Garmin Pay e Swatch Pay"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "A Conta Simples não é remunerada"
+    },
+    "poupanca": {
+     "v": "Só com plano pago",
+     "s": "PoupeUp: 0% sem plano, 2% TANB no AB Plus (até 5.000€) e 2,5% no AB Premium (até 20.000€). Planos de 3,99€ e 8,99€/mês + IS"
+    },
+    "investir": {
+     "v": "Fundos, PPR e bolsa",
+     "s": "Na app e no ActivoTrader. Os planos AB Plus e AB Premium incluem ordens de bolsa grátis"
+    },
+    "garantia": {
+     "v": "100.000€ (Portugal)",
+     "s": "Fundo de Garantia de Depósitos, por depositante e por banco"
+    },
+    "regulador": {
+     "v": "Banco de Portugal",
+     "s": "Banco do grupo Millennium bcp"
+    },
+    "abertura": {
+     "v": "Online ou num Ponto Activo",
+     "s": "Na app com Chave Móvel Digital, ou Cartão de Cidadão, comprovativos de morada e de emprego e selfie em vídeo. Sem mínimo"
+    },
+    "balcoes": {
+     "v": "17 Pontos Activo",
+     "s": "Em Lisboa, Porto, Braga, Coimbra, Aveiro, Leiria e arredores, quase todos em centros comerciais"
+    },
+    "apoio": {
+     "v": "Telefone todos os dias",
+     "s": "210 030 700: dias úteis das 8h às 22h, sábados das 10h às 20h, domingos e feriados das 12h às 20h"
+    }
+   }
+  },
+  {
+   "id": "bankinter",
+   "seg": "particular",
+   "ordem": 3,
+   "name": "Bankinter",
+   "produto": "Conta Bankinter Online",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco com balcões",
+   "entidade": "Bankinter, S.A., Sucursal em Portugal",
+   "logo": "bankinter.svg",
+   "logoPad": false,
+   "ini": "Ba",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online"
+   },
+   "tags": [
+    {
+     "t": "Só novos clientes",
+     "w": 1
+    }
+   ],
+   "src": "https://www.bankinter.pt/precario",
+   "f": {
+    "custoAno": 0,
+    "custoAno1": null,
+    "custoAnoOrdenado": null,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": 3.0,
+    "numerario": true,
+    "garantia": "ES",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "0€",
+     "s": "Conta Bankinter Online, só para novos clientes. A Conta Mais Ordenado também não tem comissão de manutenção"
+    },
+    "cartao": {
+     "v": "Grátis (1.º titular)",
+     "s": "Cartão de débito BK sem anuidade para o 1.º titular. Outros titulares pagam 20,80€/ano"
+    },
+    "credito": {
+     "v": "Sim",
+     "s": "BK Classic ou BK Power, a pedir na abertura da conta e sujeitos a aprovação"
+    },
+    "levant": {
+     "v": "Grátis",
+     "s": "Sem comissão no Multibanco e na zona euro. Ao balcão custa 5€"
+    },
+    "levantFora": {
+     "v": "Com comissão",
+     "s": "Valores no preçário de cartões do Bankinter (secção 3.4)"
+    },
+    "transf": {
+     "v": "Grátis online",
+     "s": "SEPA+ nacionais e imediatas grátis e ilimitadas online. Internacionais, urgentes e SWIFT pagam"
+    },
+    "cambio": {
+     "v": "Com comissão",
+     "s": "Valores no preçário de cartões do Bankinter (secção 3.4)"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Sucursal em Portugal com IBAN português: ordenado, débitos diretos e Estado sem limitações"
+    },
+    "mbway": {
+     "v": "Sim",
+     "s": "Transferências MB WAY grátis na app Bankinter"
+    },
+    "pagamentos": {
+     "v": "Sim",
+     "s": "Serviços e Estado por referência multibanco e débitos diretos"
+    },
+    "numerario": {
+     "v": "Sim, nas agências",
+     "s": "Depósitos de numerário ao balcão das agências"
+    },
+    "carteiras": {
+     "v": "Apple Pay",
+     "s": "Com todos os cartões de débito e de crédito. O site não refere Google Pay"
+    },
+    "jurosConta": {
+     "v": "3% TANB",
+     "s": "Nos 3 primeiros meses, até 100.000€. Depois 3% com ordenado ou pensão domiciliados e 2,5% sem"
+    },
+    "poupanca": {
+     "v": "Na própria conta",
+     "s": "Conta Mais Ordenado: 5% TANB no 1.º ano e 2% no 2.º até 10.000€, com ordenado de 750€ e 5 compras a crédito por ciclo"
+    },
+    "investir": {
+     "v": "Fundos, ações e ETFs",
+     "s": "Na app Bankinter e no Bankinter Broker"
+    },
+    "garantia": {
+     "v": "100.000€ (Espanha)",
+     "s": "Fondo de Garantía de Depósitos de Entidades de Crédito, porque é sucursal de um banco espanhol"
+    },
+    "regulador": {
+     "v": "BCE e Banco de Portugal",
+     "s": "O Bankinter, S.A. é supervisionado pelo BCE. A sucursal está registada no Banco de Portugal (n.º 269)"
+    },
+    "abertura": {
+     "v": "Online ou na agência",
+     "s": "Na app com Chave Móvel Digital ou videochamada, para quem tem nacionalidade portuguesa e vive em Portugal. Sem mínimo"
+    },
+    "balcoes": {
+     "v": "81 agências",
+     "s": "Mais 4 centros Private, 2 Corporate e 11 de Empresas"
+    },
+    "apoio": {
+     "v": "Telefone todos os dias",
+     "s": "210 548 000, das 8h às 20h. Fora de horas responde a assistente virtual BIA"
+    }
+   },
+   "c": [
+    "levantFora",
+    "cambio"
+   ]
+  },
+  {
+   "id": "moey",
+   "seg": "particular",
+   "ordem": 4,
+   "name": "Moey",
+   "produto": "Conta Moey",
+   "tipo": "digital",
+   "tipoTxt": "Banco digital",
+   "entidade": "Caixa Central de Crédito Agrícola Mútuo, CRL",
+   "ini": "Mo",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://moey.pt/campaigns/moeyapp2020?token=moey21384",
+    "aff": "moey"
+   },
+   "src": "https://moey.pt/hubfs/DIC_MOEY-3.pdf",
+   "f": {
+    "custoAno": 0,
+    "custoAno1": null,
+    "custoAnoOrdenado": null,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": null,
+    "numerario": false,
+    "garantia": "PT",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "0€",
+     "s": "Conta isenta de comissão de manutenção"
+    },
+    "cartao": {
+     "v": "Grátis",
+     "s": "Virtual Mastercard automático. Físico Multibanco e Mastercard sem comissão de disponibilização nem anuidade"
+    },
+    "credito": {
+     "v": "Não tem",
+     "s": "Cartão de crédito não disponível na Conta Moey"
+    },
+    "levant": {
+     "v": "Grátis",
+     "s": "Na rede Multibanco e na zona euro. Também levantas sem cartão com código MB WAY"
+    },
+    "levantFora": {
+     "v": "Ver preçário",
+     "s": "Valor para o cartão Moey não confirmado no preçário do Crédito Agrícola"
+    },
+    "transf": {
+     "v": "Grátis",
+     "s": "SEPA normais e imediatas sem custo na app. Transferências fora da SEPA não disponíveis"
+    },
+    "cambio": {
+     "v": "Câmbio Mastercard",
+     "s": "Comissões fora da zona euro no preçário do Crédito Agrícola. Valor para o cartão Moey não confirmado"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "IBAN nacional"
+    },
+    "mbway": {
+     "v": "Sim, grátis",
+     "s": "Na app, sem custos. Até 750€ por operação e 2.500€ por mês"
+    },
+    "pagamentos": {
+     "v": "Sim, na app",
+     "s": "Pagamento de serviços (água, luz, gás e outros) no menu In & Out. Débitos diretos"
+    },
+    "numerario": {
+     "v": "Não",
+     "s": "A conta não pode ser movimentada ao balcão. Carregas por IBAN ou MB WAY"
+    },
+    "carteiras": {
+     "v": "Sim",
+     "s": "Apple Pay, Google Wallet e Garmin Pay"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "Conta sem remuneração"
+    },
+    "poupanca": {
+     "v": "0%",
+     "s": "A Conta Poupança Moey (Goals) não é remunerada"
+    },
+    "investir": {
+     "v": "Não tem"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Fundo de Garantia de Depósitos (Portugal)"
+    },
+    "regulador": {
+     "v": "Banco de Portugal",
+     "s": "Caixa Central de Crédito Agrícola Mútuo, registada no Banco de Portugal com o n.º 9000"
+    },
+    "abertura": {
+     "v": "Na app, sem depósito mínimo",
+     "s": "Maiores de 18 anos com morada em Portugal, Cartão de Cidadão e Chave Móvel Digital"
+    },
+    "balcoes": {
+     "v": "Não tem",
+     "s": "A conta não pode ser movimentada nos balcões do Crédito Agrícola"
+    },
+    "apoio": {
+     "v": "Telefone, das 9h às 22h",
+     "s": "Todos os dias, pelo 210 521 500. Também WhatsApp e e-mail"
+    }
+   },
+   "c": [
+    "levantFora",
+    "cambio"
+   ]
+  },
+  {
+   "id": "openbank",
+   "seg": "particular",
+   "ordem": 5,
+   "name": "Openbank",
+   "produto": "Conta à Ordem Open",
+   "tipo": "digital",
+   "tipoTxt": "Banco digital",
+   "entidade": "Open Bank, S.A",
+   "logo": "openbank.svg",
+   "logoPad": true,
+   "ini": "Op",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.openbank.pt/"
+   },
+   "src": "https://www.openbank.pt/informacao-legal-reclamacoes",
+   "f": {
+    "custoAno": 0,
+    "custoAno1": null,
+    "custoAnoOrdenado": null,
+    "iban": "ES",
+    "mbway": false,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": 2.5,
+    "numerario": false,
+    "garantia": "ES",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "0€",
+     "s": "Sem comissões nas operações do dia a dia"
+    },
+    "cartao": {
+     "v": "Grátis",
+     "s": "Mastercard de débito Я42 com emissão e renovação grátis. Travel+ opcional por 4,99€/mês"
+    },
+    "credito": {
+     "v": "Sim",
+     "s": "O Openbank comercializa cartão de crédito. Condições não verificadas"
+    },
+    "levant": {
+     "v": "5 grátis por mês",
+     "s": "Em qualquer multibanco da zona euro e sem limite nos do Santander. Depois, o custo indicado no multibanco"
+    },
+    "levantFora": {
+     "v": "Grátis no Santander",
+     "s": "Sem limite nos multibancos Santander. Com Travel+ (4,99€/mês), 5 grátis por mês em qualquer multibanco"
+    },
+    "transf": {
+     "v": "Grátis",
+     "s": "Normais e imediatas para bancos portugueses e internacionais, nas moedas disponíveis"
+    },
+    "cambio": {
+     "v": "Grátis com Travel+",
+     "s": "Com Travel+ (4,99€/mês) pagas ao câmbio Mastercard sem comissões. Sem Travel+, o custo não está no site"
+    },
+    "iban": {
+     "v": "Espanhol (ES)",
+     "s": "O Openbank diz que o IBAN espanhol permite domiciliar o ordenado sem restrições"
+    },
+    "mbway": {
+     "v": "Não",
+     "s": "O Openbank não consta da lista de bancos aderentes ao MB WAY"
+    },
+    "pagamentos": {
+     "v": "Débitos diretos",
+     "s": "Domiciliações e débitos diretos. Sem informação sobre referências Multibanco ou pagamentos ao Estado"
+    },
+    "numerario": {
+     "v": "Não",
+     "s": "Sem balcões em Portugal"
+    },
+    "carteiras": {
+     "v": "Sim",
+     "s": "O cartão Я42 junta-se às principais carteiras de pagamento no telemóvel"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "Os juros estão nas contas poupança"
+    },
+    "poupanca": {
+     "v": "2,50% TANB",
+     "s": "Conta Poupança Boas-vindas: 6 meses, até 500.000€, novos clientes com o código BOASVINDAS. Depois 2,00% com ordenado ou 1,00%"
+    },
+    "investir": {
+     "v": "Ações, ETFs e Robo-Advisor",
+     "s": "1€ por operação em ações e ETFs e custódia 0€"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Fundo de garantia de depósitos espanhol"
+    },
+    "regulador": {
+     "v": "Banco de Espanha e BCE",
+     "s": "Open Bank, S.A., do grupo Santander, com sede em Madrid"
+    },
+    "abertura": {
+     "v": "Online ou na app",
+     "s": "Sem custos de abertura"
+    },
+    "balcoes": {
+     "v": "Não tem",
+     "s": "Levantamentos grátis nos multibancos do Santander"
+    },
+    "apoio": {
+     "v": "Telefone grátis",
+     "s": "800 785 168 para clientes e 800 785 170 para quem ainda não é cliente. E-mail contacto@openbank.com"
+    }
+   },
+   "c": [
+    "credito",
+    "levantFora",
+    "cambio",
+    "pagamentos",
+    "numerario",
+    "jurosConta"
+   ]
+  },
+  {
+   "id": "wise",
+   "seg": "particular",
+   "ordem": 6,
+   "name": "Wise",
+   "produto": "Conta Wise pessoal",
+   "tipo": "digital",
+   "tipoTxt": "Instituição de pagamento",
+   "entidade": "Wise Europe SA",
+   "logo": "wise.svg",
+   "logoPad": true,
+   "ini": "Wi",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.literaciafinanceira.pt/visita/wise",
+    "aff": "wise"
+   },
+   "tags": [
+    {
+     "t": "Sem garantia de depósitos",
+     "w": 1
+    }
+   ],
+   "src": "https://wise.com/pt/pricing/",
+   "f": {
+    "custoAno": 0,
+    "custoAno1": null,
+    "custoAnoOrdenado": null,
+    "iban": "BE",
+    "mbway": false,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": null,
+    "numerario": false,
+    "garantia": null,
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "0€",
+     "s": "Abrir e manter a conta é grátis"
+    },
+    "cartao": {
+     "v": "7€ uma vez",
+     "s": "Cartão de débito sem anuidade. Envio expresso desde 10,40€. Substituição 4€. Cartão digital grátis"
+    },
+    "credito": {
+     "v": "Não tem",
+     "s": "Só cartão de débito"
+    },
+    "levant": {
+     "v": "Grátis até 250€/mês",
+     "s": "Acima disso, 2,69% sobre o valor que excede 250€"
+    },
+    "levantFora": {
+     "v": "Grátis até 250€/mês",
+     "s": "O mesmo limite em qualquer país. Se não tiveres a moeda, pagas a tarifa de conversão"
+    },
+    "transf": {
+     "v": "Grátis entre contas Wise",
+     "s": "Receber euros por SEPA é grátis. Enviar euros para outro banco tem uma pequena tarifa, mostrada antes de confirmar"
+    },
+    "cambio": {
+     "v": "Desde 0,2%",
+     "s": "Câmbio comercial, sem margem escondida. A tarifa de conversão varia com a moeda"
+    },
+    "iban": {
+     "v": "Belga (BE)",
+     "s": "Os dados da conta em euros têm IBAN belga. A Wise não emite IBAN português"
+    },
+    "mbway": {
+     "v": "Não",
+     "s": "A Wise não consta da lista de bancos aderentes ao MB WAY"
+    },
+    "pagamentos": {
+     "v": "Só débitos diretos",
+     "s": "Débitos diretos SEPA em euros, exceto B2B. Sem pagamentos por entidade e referência nem ao Estado"
+    },
+    "numerario": {
+     "v": "Não",
+     "s": "Carregas por transferência ou cartão"
+    },
+    "carteiras": {
+     "v": "Sim",
+     "s": "Apple Pay e Google Pay"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "O saldo só rende se o aplicares no Rende+, que é um fundo"
+    },
+    "poupanca": {
+     "v": "Não tem",
+     "s": "O Rende+ aplica o saldo num fundo monetário: 2,25% líquido a 23/09/2026. Capital em risco, sem garantia de depósitos"
+    },
+    "investir": {
+     "v": "Rende+ e Ações",
+     "s": "Via Wise Assets Europe (Estónia), em parceria com a BlackRock. Capital em risco"
+    },
+    "garantia": {
+     "v": "Não tem",
+     "s": "Instituição de pagamento: o dinheiro é salvaguardado em bancos e fundos, sem fundo de garantia de depósitos"
+    },
+    "regulador": {
+     "v": "Banco Nacional da Bélgica",
+     "s": "Wise Europe SA, instituição de pagamento autorizada na Bélgica"
+    },
+    "abertura": {
+     "v": "Online ou na app, grátis",
+     "s": "Fotografia do documento de identificação e uma selfie"
+    },
+    "balcoes": {
+     "v": "Não tem",
+     "s": "Tudo pela app ou pelo site"
+    },
+    "apoio": {
+     "v": "Telefone 24 horas",
+     "s": "Pela opção de contacto na app ou no site. Centro de ajuda em português"
+    }
+   },
+   "c": [
+    "transf",
+    "pagamentos",
+    "apoio"
+   ]
+  },
+  {
+   "id": "bunq",
+   "seg": "particular",
+   "ordem": 7,
+   "name": "bunq",
+   "produto": "bunq Free",
+   "tipo": "digital",
+   "tipoTxt": "Banco digital",
+   "entidade": "bunq B.V",
+   "logo": "bunq.svg",
+   "logoPad": false,
+   "ini": "bu",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.literaciafinanceira.pt/visita/bunq",
+    "aff": "bunq",
+    "nota": "Taxas variáveis, sujeitas a alterações."
+   },
+   "review": "https://www.literaciafinanceira.pt/artigos/analise-bunq-portugal",
+   "src": "https://www.bunq.com/pt-pt/pricing",
+   "f": {
+    "custoAno": 0,
+    "custoAno1": null,
+    "custoAnoOrdenado": null,
+    "iban": "NL",
+    "mbway": false,
+    "cartaoFisico": false,
+    "cartaoGratis": false,
+    "jurosMax": 3.01,
+    "numerario": false,
+    "garantia": "NL",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "0€",
+     "s": "Plano bunq Free. Core 3,99€, Pro 9,99€ e Elite 18,99€ por mês"
+    },
+    "cartao": {
+     "v": "Só digital",
+     "s": "Cartão digital grátis. O cartão físico só existe a partir do bunq Core (3,99€/mês)"
+    },
+    "credito": {
+     "v": "Não no Free",
+     "s": "O Mastercard de crédito vem no Core, Pro e Elite. Por defeito usa o saldo da conta"
+    },
+    "levant": {
+     "v": "2,99€ cada",
+     "s": "Só em multibancos com pagamento por aproximação (Apple Pay ou Google Pay). Sem levantamentos grátis no Free"
+    },
+    "levantFora": {
+     "v": "2,99€ cada",
+     "s": "Igual a Portugal, só em multibancos com Apple Pay ou Google Pay"
+    },
+    "transf": {
+     "v": "Grátis",
+     "s": "SEPA normais e imediatas sem custo nos planos pessoais"
+    },
+    "cambio": {
+     "v": "0% até 1.000€/ano",
+     "s": "No Free, depois de 1.000€ por ano em compras noutras moedas pagas 1,5% por pagamento"
+    },
+    "iban": {
+     "v": "Neerlandês (NL)",
+     "s": "IBAN local só para quem vive na Bélgica, Alemanha, França, Espanha, Irlanda ou Itália"
+    },
+    "mbway": {
+     "v": "Não",
+     "s": "A bunq não consta da lista de bancos aderentes ao MB WAY"
+    },
+    "pagamentos": {
+     "v": "Só débitos diretos",
+     "s": "Débitos diretos SEPA. Sem pagamentos por entidade e referência nem ao Estado"
+    },
+    "numerario": {
+     "v": "Não",
+     "s": "Depósitos em lojas só nos Países Baixos, Alemanha e Áustria"
+    },
+    "carteiras": {
+     "v": "Sim",
+     "s": "Apple Pay e Google Pay com o cartão digital"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "Os juros são pagos nas contas poupança"
+    },
+    "poupanca": {
+     "v": "3,01% TANB",
+     "s": "Todo o saldo até ao 1.º recálculo (1/1 ou 1/7). Depois 1,51% até ao teu limiar e 3,01% acima. Juros semanais, até 100.000€"
+    },
+    "investir": {
+     "v": "Ações, ETFs e cripto",
+     "s": "Ações e ETFs com a Ginmon, cripto com a Kraken"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Sistema de garantia de depósitos dos Países Baixos"
+    },
+    "regulador": {
+     "v": "DNB e AFM (Países Baixos)",
+     "s": "bunq B.V., banco neerlandês. Opera em Portugal a partir dos Países Baixos"
+    },
+    "abertura": {
+     "v": "Na app",
+     "s": "Com documento de identificação. Tens 90 dias para enviar o NIF, senão a conta fica limitada"
+    },
+    "balcoes": {
+     "v": "Não tem",
+     "s": "Tudo pela app"
+    },
+    "apoio": {
+     "v": "Chat na app, 24 horas",
+     "s": "Assistente Finn e equipa bunq, com respostas traduzidas para a língua do telemóvel. Também por e-mail"
+    }
+   },
+   "c": [
+    "pagamentos"
+   ]
+  },
+  {
+   "id": "n26",
+   "seg": "particular",
+   "ordem": 8,
+   "name": "N26",
+   "produto": "N26 Standard",
+   "tipo": "digital",
+   "tipoTxt": "Banco digital",
+   "entidade": "N26 Bank SE",
+   "logo": "n26.svg",
+   "logoPad": true,
+   "ini": "N2",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.literaciafinanceira.pt/visita/n26",
+    "aff": "n26"
+   },
+   "src": "https://n26.com/en-eu/legal-documents/account",
+   "f": {
+    "custoAno": 0,
+    "custoAno1": null,
+    "custoAnoOrdenado": null,
+    "iban": "DE",
+    "mbway": false,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": 0.3,
+    "numerario": false,
+    "garantia": "DE",
+    "aberturaOnline": true,
+    "suportePt": false
+   },
+   "t": {
+    "manut": {
+     "v": "0€",
+     "s": "Plano Standard sem mensalidade nem comissão de manutenção"
+    },
+    "cartao": {
+     "v": "Físico: 10€ uma vez",
+     "s": "Cartão virtual Mastercard grátis. O físico custa 10€ de emissão, sem anuidade"
+    },
+    "credito": {
+     "v": "Não tem",
+     "s": "A conta Standard só inclui cartão de débito"
+    },
+    "levant": {
+     "v": "2 grátis por mês",
+     "s": "Em euros. Depois 2€ por levantamento"
+    },
+    "levantFora": {
+     "v": "1,7% do valor",
+     "s": "Levantamentos noutras moedas no plano Standard. Não contam para os 2 grátis"
+    },
+    "transf": {
+     "v": "Grátis",
+     "s": "SEPA normais e imediatas sem custo. Imediatas até 10.000€ por dia, limite ajustável"
+    },
+    "cambio": {
+     "v": "Sem comissão da N26",
+     "s": "Câmbio Mastercard, que já inclui uma pequena margem sobre a taxa do BCE"
+    },
+    "iban": {
+     "v": "Alemão (DE)",
+     "s": "Quem vive em Portugal recebe IBAN alemão. Recusar um IBAN de outro país da UE é ilegal"
+    },
+    "mbway": {
+     "v": "Não",
+     "s": "A N26 não consta da lista de bancos aderentes ao MB WAY"
+    },
+    "pagamentos": {
+     "v": "Só débitos diretos",
+     "s": "Débitos diretos SEPA. Sem pagamentos por entidade e referência nem ao Estado"
+    },
+    "numerario": {
+     "v": "Não",
+     "s": "O CASH26 só existe na Alemanha, Áustria e Espanha"
+    },
+    "carteiras": {
+     "v": "Sim",
+     "s": "Apple Pay e Google Pay"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "Só o N26 Instant Savings paga juros"
+    },
+    "poupanca": {
+     "v": "0,30% TANB",
+     "s": "N26 Instant Savings no Standard, juros mensais e sem retenção na fonte (declaras no anexo J). Metal: 1,50%"
+    },
+    "investir": {
+     "v": "Ações, ETFs e cripto",
+     "s": "Também um fundo monetário (Flexible Cash Fund), com capital em risco"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Sistema de garantia de depósitos alemão"
+    },
+    "regulador": {
+     "v": "BaFin (Alemanha)",
+     "s": "N26 Bank SE, com licença bancária alemã. Opera em Portugal a partir da Alemanha"
+    },
+    "abertura": {
+     "v": "Na app, sem depósito mínimo",
+     "s": "Maiores de 18 anos com documento válido. Verificação em inglês, alemão, francês, italiano ou espanhol"
+    },
+    "balcoes": {
+     "v": "Não tem",
+     "s": "Tudo pela app"
+    },
+    "apoio": {
+     "v": "Chat, das 7h às 23h",
+     "s": "Todos os dias, hora da Europa Central. Inglês, alemão, francês, italiano e espanhol. Telefone só nos planos pagos"
+    }
+   },
+   "c": [
+    "credito",
+    "pagamentos"
+   ]
+  },
+  {
+   "id": "best",
+   "seg": "particular",
+   "ordem": 9,
+   "name": "Banco Best",
+   "produto": "Conta Digital",
+   "tipo": "digital",
+   "tipoTxt": "Banco digital",
+   "entidade": "BEST, Banco Electrónico de Serviço Total, S.A",
+   "logo": "best.svg",
+   "logoPad": false,
+   "ini": "Ba",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.bancobest.pt/ptg/best_contas?active=digital"
+   },
+   "tags": [
+    {
+     "t": "Depósito inicial de 100€",
+     "w": 1
+    }
+   ],
+   "src": "https://www.bancobest.pt/ptg/best_NS_PRECARIO",
+   "f": {
+    "custoAno": 21.84,
+    "custoAno1": 0,
+    "custoAnoOrdenado": 0,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": false,
+    "jurosMax": null,
+    "numerario": true,
+    "garantia": "PT",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "0€",
+     "s": "Conta Digital sem comissão de manutenção. Depósito inicial de 100€"
+    },
+    "cartao": {
+     "v": "Grátis no 1.º ano",
+     "s": "Best Visa Debit: depois 21€/ano + IS (21,84€). Grátis com a Conta Digital Ordenado"
+    },
+    "credito": {
+     "v": "Sim, 22€/ano + IS",
+     "s": "Best Gold, grátis com a Conta Digital Ordenado. Best Gold Plus: 40€/ano + IS"
+    },
+    "levant": {
+     "v": "Grátis",
+     "s": "Sem comissão no Multibanco e nos países do EEE em euros"
+    },
+    "levantFora": {
+     "v": "4,25€ + 1% + 3,85%",
+     "s": "Fora do EEE noutras moedas, mais IS. Em euros fora do EEE: 4,25€ + 1%"
+    },
+    "transf": {
+     "v": "Grátis online",
+     "s": "Transferências SEPA+ sem custo no site, na app e no Multibanco"
+    },
+    "cambio": {
+     "v": "3,85% + IS",
+     "s": "2,5% + 1,35% nas compras fora do EEE ou noutras moedas"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Ordenado, débitos diretos e pagamentos ao Estado sem limitações"
+    },
+    "mbway": {
+     "v": "Sim",
+     "s": "Transferências MB WAY a 0€"
+    },
+    "pagamentos": {
+     "v": "Sim",
+     "s": "Serviços e Estado por referência multibanco e débitos diretos"
+    },
+    "numerario": {
+     "v": "Sim, no novobanco",
+     "s": "Depósitos de notas em euros sem custo nos balcões do novobanco"
+    },
+    "carteiras": {
+     "v": "Google Pay",
+     "s": "O cartão de débito digital funciona no Google Pay. O site não refere Apple Pay"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "A Conta Digital não é remunerada"
+    },
+    "poupanca": {
+     "v": "Não",
+     "s": "Sem conta poupança de acesso imediato. Depósito Novos Clientes: 3,30% TANB a 180 dias"
+    },
+    "investir": {
+     "v": "Fundos, ETFs, ações e PPR",
+     "s": "Mais de 4.000 fundos e ETF, ações, obrigações e CFD na Best Trading Pro"
+    },
+    "garantia": {
+     "v": "100.000€ (Portugal)",
+     "s": "Fundo de Garantia de Depósitos, por depositante e por banco"
+    },
+    "regulador": {
+     "v": "Banco de Portugal",
+     "s": "Banco do grupo novobanco"
+    },
+    "abertura": {
+     "v": "Online em 5 minutos",
+     "s": "Com Chave Móvel Digital, ou Cartão de Cidadão ou passaporte e videochamada. Mínimo de 100€"
+    },
+    "balcoes": {
+     "v": "10 espaços",
+     "s": "5 Centros de Investimento (Lisboa, Porto, Faro, Braga e Leiria) e 5 escritórios. Numerário no novobanco"
+    },
+    "apoio": {
+     "v": "Telefone em dias úteis",
+     "s": "218 505 775, das 9h às 18h30. Assistente digital BEA 24 horas e mensagens na área de cliente"
+    }
+   }
+  },
+  {
+   "id": "big",
+   "seg": "particular",
+   "ordem": 10,
+   "name": "Banco BiG",
+   "produto": "Conta Global",
+   "tipo": "digital",
+   "tipoTxt": "Banco digital",
+   "entidade": "Banco de Investimento Global, S.A",
+   "logo": "big.svg",
+   "logoPad": false,
+   "ini": "Ba",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.big.pt/"
+   },
+   "tags": [
+    {
+     "t": "Mínimo de 2.000€ para abrir",
+     "w": 1
+    }
+   ],
+   "src": "https://www.big.pt/Precario/Precario",
+   "f": {
+    "custoAno": 14.56,
+    "custoAno1": 10.4,
+    "custoAnoOrdenado": 0,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": false,
+    "jurosMax": 1.0,
+    "numerario": true,
+    "garantia": "PT",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "0€",
+     "s": "Sem comissão de abertura, manutenção ou encerramento. Montante mínimo de abertura de 2.000€"
+    },
+    "cartao": {
+     "v": "10€ + IS no 1.º ano",
+     "s": "BiG Mastercard: depois 14€/ano + IS. Grátis para o 1.º titular com ordenado domiciliado ou mais de 100.000€ no banco"
+    },
+    "credito": {
+     "v": "Sim",
+     "s": "Cartão Visa BiG, sujeito a aprovação"
+    },
+    "levant": {
+     "v": "Grátis",
+     "s": "Sem comissão no Multibanco e nos países do EEE em euros"
+    },
+    "levantFora": {
+     "v": "4,50€",
+     "s": "Por levantamento fora do EEE, mais IS. O dono do ATM pode cobrar uma taxa extra"
+    },
+    "transf": {
+     "v": "1€ + IS online",
+     "s": "Para outros bancos (10€ ao balcão). Grátis as 10 primeiras por mês com ordenado ou mais de 100.000€ no banco"
+    },
+    "cambio": {
+     "v": "1,7% + 1% + IS",
+     "s": "Nas compras fora do EEE ou noutras moedas"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Ordenado, débitos diretos e pagamentos ao Estado sem limitações"
+    },
+    "mbway": {
+     "v": "Sim",
+     "s": "Transferências MB WAY sem comissão na app e online"
+    },
+    "pagamentos": {
+     "v": "Sim",
+     "s": "Serviços e Estado por referência multibanco e débitos diretos"
+    },
+    "numerario": {
+     "v": "Só na sede, em Lisboa",
+     "s": "Ao balcão da sede: grátis até 5.000€, depois 0,10%"
+    },
+    "carteiras": {
+     "v": "Sem informação",
+     "s": "O site do BiG não refere Apple Pay nem Google Pay"
+    },
+    "jurosConta": {
+     "v": "1% TANB na Super Conta",
+     "s": "Conta à ordem remunerada, sem comissões. Juros sobre o saldo médio diário, pagos por trimestre"
+    },
+    "poupanca": {
+     "v": "Até 1,5% TANB",
+     "s": "Conta BiG Aforro: 1%, ou 1,5% com reforços de 150€/mês durante 3 meses. Só 1 levantamento por ano sem perder juros"
+    },
+    "investir": {
+     "v": "Ações, ETFs, fundos e PPR",
+     "s": "Também obrigações, certificados de aforro e do Tesouro e CFD"
+    },
+    "garantia": {
+     "v": "100.000€ (Portugal)",
+     "s": "Fundo de Garantia de Depósitos, por depositante e por banco"
+    },
+    "regulador": {
+     "v": "Banco de Portugal"
+    },
+    "abertura": {
+     "v": "Online ou na agência",
+     "s": "Abertura de conta online no site do BiG. Montante mínimo de 2.000€"
+    },
+    "balcoes": {
+     "v": "14 agências",
+     "s": "Em 11 localidades, como Lisboa, Porto, Braga, Coimbra, Aveiro e Loulé"
+    },
+    "apoio": {
+     "v": "Telefone em dias úteis",
+     "s": "213 305 377, das 8h às 21h. Email apoio@big.pt"
+    }
+   },
+   "c": [
+    "levantFora",
+    "cambio",
+    "carteiras"
+   ]
+  },
+  {
+   "id": "traderepublic",
+   "seg": "particular",
+   "ordem": 11,
+   "name": "Trade Republic",
+   "produto": "Conta Trade Republic (IBAN PT)",
+   "tipo": "digital",
+   "tipoTxt": "Banco digital",
+   "entidade": "Trade Republic Bank GmbH, Sucursal em Portugal",
+   "logo": "traderepublic.svg",
+   "logoPad": false,
+   "ini": "Tr",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.literaciafinanceira.pt/visita/trade-republic",
+    "aff": "trade-republic",
+    "nota": "Investir envolve risco de perda de capital."
+   },
+   "review": "https://www.literaciafinanceira.pt/artigos/analise-trade-republic-portugal",
+   "src": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
+   "f": {
+    "custoAno": 0,
+    "custoAno1": null,
+    "custoAnoOrdenado": null,
+    "iban": "PT",
+    "mbway": false,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": 3.0,
+    "numerario": false,
+    "garantia": "DE",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "0€",
+     "s": "Conta sem comissão de manutenção"
+    },
+    "cartao": {
+     "v": "Físico: 5€ uma vez",
+     "s": "Cartão Visa de débito. O virtual é grátis e o físico Classic custa 5€, sem anuidade"
+    },
+    "credito": {
+     "v": "Não tem",
+     "s": "O cartão Trade Republic é de débito"
+    },
+    "levant": {
+     "v": "Grátis a partir de 100€",
+     "s": "Abaixo de 100€ pagas 1€ por levantamento"
+    },
+    "levantFora": {
+     "v": "Grátis a partir de 100€",
+     "s": "Abaixo de 100€, 1€. Câmbio Visa sem comissão da Trade Republic. O dono do multibanco pode cobrar"
+    },
+    "transf": {
+     "v": "Grátis",
+     "s": "SEPA e transferências imediatas nacionais com o IBAN português"
+    },
+    "cambio": {
+     "v": "0%",
+     "s": "Câmbio da Visa, sem sobretaxa da Trade Republic nas compras noutras moedas"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Desde 16 de julho de 2026. Clientes anteriores têm de migrar para a sucursal portuguesa"
+    },
+    "mbway": {
+     "v": "Não",
+     "s": "A Trade Republic ainda não consta da lista de bancos aderentes ao MB WAY"
+    },
+    "pagamentos": {
+     "v": "Débitos diretos",
+     "s": "Ordenado e débitos diretos. Sem informação oficial sobre referências Multibanco ou pagamentos ao Estado"
+    },
+    "numerario": {
+     "v": "Não",
+     "s": "Carregas por transferência ou cartão"
+    },
+    "carteiras": {
+     "v": "Sim",
+     "s": "Apple Pay e Google Pay"
+    },
+    "jurosConta": {
+     "v": "3,00% TANB até 50.000€",
+     "s": "Novos clientes. Acima disso e para clientes atuais, 2,50% TANB (taxa do BCE). Juros mensais, com retenção de IRS"
+    },
+    "poupanca": {
+     "v": "-",
+     "s": "Não tem conta poupança separada. Os juros são pagos na própria conta"
+    },
+    "investir": {
+     "v": "Ações, ETFs, obrigações e cripto",
+     "s": "Planos de poupança e Saveback de 1% nas compras com cartão. Investir tem risco"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Saldo em bancos parceiros, cada um com garantia até 100.000€. Acima do teu limite vai para fundos monetários, sem garantia"
+    },
+    "regulador": {
+     "v": "BaFin, Bundesbank e Banco de Portugal",
+     "s": "Sucursal portuguesa registada no Banco de Portugal com o código 0286"
+    },
+    "abertura": {
+     "v": "Na app, sem depósito mínimo",
+     "s": "Para residentes em Portugal, com documento de identificação"
+    },
+    "balcoes": {
+     "v": "Não tem",
+     "s": "Tudo pela app"
+    },
+    "apoio": {
+     "v": "Chat e telefone, 24 horas",
+     "s": "Na app, com pessoas, em 8 línguas. A app está em português"
+    }
+   },
+   "c": [
+    "credito",
+    "pagamentos",
+    "numerario",
+    "apoio"
+   ]
+  },
+  {
+   "id": "cgd",
+   "seg": "particular",
+   "ordem": 12,
+   "name": "CGD",
+   "produto": "Conta Caixa S",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Caixa Geral de Depósitos, S.A",
+   "logo": "cgd.svg",
+   "logoPad": true,
+   "ini": "CG",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx"
+   },
+   "src": "https://www.cgd.pt/Precario/Pages/Precario.aspx",
+   "f": {
+    "custoAno": 65.52,
+    "custoAno1": null,
+    "custoAnoOrdenado": 39.94,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": null,
+    "numerario": true,
+    "garantia": "PT",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "5,46€/mês",
+     "s": "Conta Caixa S, com IS. Desce para 3,33€ com 50€/mês em compras com cartão e ordenado ou 2 débitos diretos"
+    },
+    "cartao": {
+     "v": "Incluído",
+     "s": "1 cartão de débito sem comissão no pacote. À parte custaria 19€/ano + IS"
+    },
+    "credito": {
+     "v": "Sim, à parte",
+     "s": "Caixa Classic: 18€/ano + IS (25€ com programa de pontos). Incluído na Conta Caixa M (6,55€/mês)"
+    },
+    "levant": {
+     "v": "Grátis",
+     "s": "Sem comissão no Multibanco e nos países do EEE em euros"
+    },
+    "levantFora": {
+     "v": "3,75€ + 0,60% + 3%",
+     "s": "Fora do EEE ou noutras moedas, mais IS"
+    },
+    "transf": {
+     "v": "Grátis online",
+     "s": "SEPA+ normais e imediatas grátis e ilimitadas na app e no Caixadirecta Online"
+    },
+    "cambio": {
+     "v": "3% + IS",
+     "s": "2% de comissão de serviço e 1% de conversão cambial, fora do EEE ou noutras moedas"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Ordenado, débitos diretos e pagamentos ao Estado sem limitações"
+    },
+    "mbway": {
+     "v": "Sim",
+     "s": "Transferências MB WAY grátis e ilimitadas com o cartão da Conta Caixa"
+    },
+    "pagamentos": {
+     "v": "Sim",
+     "s": "Serviços e Estado por referência multibanco e débitos diretos"
+    },
+    "numerario": {
+     "v": "Sim, grátis",
+     "s": "Notas sem custo nas agências e nas máquinas da Caixa. Moedas ao balcão: 2% + IS"
+    },
+    "carteiras": {
+     "v": "Apple Pay",
+     "s": "Associa o cartão na app Caixadirecta"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "A conta à ordem não é remunerada"
+    },
+    "poupanca": {
+     "v": "1,5% TANB com plano diário",
+     "s": "Conta Poupança Diária (só na app): 0,25% sem plano, de 100€ a 10.000€, prazo de 6 meses. Levantar antes penaliza os juros"
+    },
+    "investir": {
+     "v": "Fundos e PPR",
+     "s": "Fundos de investimento, PPR e bolsa no Caixadirecta"
+    },
+    "garantia": {
+     "v": "100.000€ (Portugal)",
+     "s": "Fundo de Garantia de Depósitos, por depositante e por banco"
+    },
+    "regulador": {
+     "v": "Banco de Portugal",
+     "s": "Banco público"
+    },
+    "abertura": {
+     "v": "Na app ou na agência",
+     "s": "100% online na app com Cartão de Cidadão português e Chave Móvel Digital. Depósito mínimo de 150€ em 30 dias"
+    },
+    "balcoes": {
+     "v": "484 agências",
+     "s": "Rede em Portugal em junho de 2026"
+    },
+    "apoio": {
+     "v": "Telefone 24 horas",
+     "s": "217 900 790, todos os dias. Assistente digital no site"
+    }
+   },
+   "c": [
+    "levantFora",
+    "carteiras"
+   ]
+  },
+  {
+   "id": "millennium",
+   "seg": "particular",
+   "ordem": 13,
+   "name": "Millennium bcp",
+   "produto": "Conta Millennium + Cliente Frequente",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Banco Comercial Português, S.A",
+   "logo": "millennium.svg",
+   "logoPad": true,
+   "ini": "Mi",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.millenniumbcp.pt/contas/conta-a-ordem/conta-millennium-cliente-frequente"
+   },
+   "src": "https://ind.millenniumbcp.pt/pt/info/Pages/precario.aspx",
+   "f": {
+    "custoAno": 99.84,
+    "custoAno1": 0,
+    "custoAnoOrdenado": 62.4,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": null,
+    "numerario": true,
+    "garantia": "PT",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "8,32€/mês",
+     "s": "Com IS. Desce até 5,20€ com ordenado, extrato digital e compras a crédito. 0€ no 1.º ano se abrires na app com Chave Móvel Digital. Conta Base: 6,24€"
+    },
+    "cartao": {
+     "v": "Incluído (2 cartões)",
+     "s": "2 cartões Visa Débito sem comissão. Na Conta Millennium sem pacote cada um custa 24,44€/ano"
+    },
+    "credito": {
+     "v": "Incluído (2 cartões)",
+     "s": "2 cartões Classic sem anuidade (TAEG 15,4%), sujeitos a análise de risco"
+    },
+    "levant": {
+     "v": "Grátis",
+     "s": "Sem comissão no Multibanco e nos países do EEE em euros. Ao balcão: 6€ + IS"
+    },
+    "levantFora": {
+     "v": "4€ + 0,50% + 3,85%",
+     "s": "Fora do EEE ou noutras moedas, mais IS. O Millennium Travel isenta a comissão de 3,85%"
+    },
+    "transf": {
+     "v": "25 grátis por mês",
+     "s": "SEPA+, imediatas e permanentes na app e no site. A partir da 26.ª, 1,20€ + IS cada"
+    },
+    "cambio": {
+     "v": "3,85% + IS",
+     "s": "Comissão de serviço internacional nas compras noutras moedas. O Millennium Travel isenta"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Ordenado, débitos diretos e pagamentos ao Estado sem limitações"
+    },
+    "mbway": {
+     "v": "Sim",
+     "s": "Transferências MB WAY na app sem comissão com o Cliente Frequente"
+    },
+    "pagamentos": {
+     "v": "Sim",
+     "s": "Serviços e Estado por referência multibanco e débitos diretos"
+    },
+    "numerario": {
+     "v": "Sim",
+     "s": "Notas nos balcões e nas máquinas. Moedas ao balcão: 2,50€ (25 a 99) ou 5€ (100 ou mais) + IS"
+    },
+    "carteiras": {
+     "v": "Apple Pay e Google Pay",
+     "s": "Também Samsung Wallet, Garmin Pay e Swatch Pay"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "A conta à ordem não é remunerada"
+    },
+    "poupanca": {
+     "v": "1,6% TANB com reforços",
+     "s": "Poupança Reforço Frequente: 6 meses a 1,60% se reforçares 100€ a cada 30 dias. Levantar antes perde os juros"
+    },
+    "investir": {
+     "v": "Fundos, ETFs e ações",
+     "s": "Também certificados e unit linked, no site e na app"
+    },
+    "garantia": {
+     "v": "100.000€ (Portugal)",
+     "s": "Fundo de Garantia de Depósitos, por depositante e por banco"
+    },
+    "regulador": {
+     "v": "Banco de Portugal"
+    },
+    "abertura": {
+     "v": "Na app ou no balcão",
+     "s": "Na app com Chave Móvel Digital e selfie em vídeo, com comprovativos de morada e de profissão. Mínimo de 250€"
+    },
+    "balcoes": {
+     "v": "385 sucursais",
+     "s": "Rede em Portugal em junho de 2026"
+    },
+    "apoio": {
+     "v": "Telefone 24 horas",
+     "s": "21 005 24 24 (rede fixa) ou 91 827 24 24 (rede móvel), todos os dias"
+    }
+   }
+  },
+  {
+   "id": "santander",
+   "seg": "particular",
+   "ordem": 14,
+   "name": "Santander",
+   "produto": "Conta Santander Mais",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Banco Santander Totta, S.A",
+   "logo": "santander.svg",
+   "logoPad": true,
+   "ini": "Sa",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.santander.pt/contas/conta-santander-mais"
+   },
+   "src": "https://www.santander.pt/precario",
+   "f": {
+    "custoAno": 107.28,
+    "custoAno1": 53.64,
+    "custoAnoOrdenado": 94.8,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": null,
+    "numerario": true,
+    "garantia": "PT",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "8,94€/mês",
+     "s": "Com IS, a partir dos 27 anos. 7,90€ com ordenado ou pensão de 300€. Grátis 6 meses se abrires online. Conta Base: 5,51€"
+    },
+    "cartao": {
+     "v": "Incluído (1.º titular)",
+     "s": "Outros titulares: grátis no 1.º trimestre, depois 6€/trimestre + IS"
+    },
+    "credito": {
+     "v": "Sim, 3€/mês + IS",
+     "s": "Classic: 1.º mês grátis e 2,25€/mês com 300€ de compras no período. O Serviço Mais paga o 1.º trimestre"
+    },
+    "levant": {
+     "v": "Grátis",
+     "s": "Sem comissão no Multibanco e nos países do EEE em euros. Ao balcão: 8€"
+    },
+    "levantFora": {
+     "v": "Grátis até 500€/mês",
+     "s": "Acima disso: 4€ + 1% + 3%, mais IS"
+    },
+    "transf": {
+     "v": "Grátis online",
+     "s": "SEPA+ normais e imediatas ilimitadas na app, NetBanco, ATM e telefone"
+    },
+    "cambio": {
+     "v": "Grátis até 500€/mês",
+     "s": "Acima disso: 3% + IS (2% de processamento e 1% de câmbio)"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Ordenado, débitos diretos e pagamentos ao Estado sem limitações"
+    },
+    "mbway": {
+     "v": "Sim",
+     "s": "MB WAY grátis na app Santander"
+    },
+    "pagamentos": {
+     "v": "Sim",
+     "s": "Serviços e Estado por referência multibanco e débitos diretos"
+    },
+    "numerario": {
+     "v": "Sim, grátis",
+     "s": "Notas sem custo ao balcão e nas máquinas. Moedas ao balcão: 2%"
+    },
+    "carteiras": {
+     "v": "Apple Pay e Google Pay",
+     "s": "Também Samsung Pay"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "A conta não é remunerada"
+    },
+    "poupanca": {
+     "v": "Não",
+     "s": "Só depósitos e contas poupança com prazo, que penalizam os juros se levantares antes (até 1,30% TANB)"
+    },
+    "investir": {
+     "v": "Fundos, PPR e bolsa",
+     "s": "Fundos, PPR e FPR, seguros financeiros e bolsa no ONeBroker, na app e no NetBanco"
+    },
+    "garantia": {
+     "v": "100.000€ (Portugal)",
+     "s": "Fundo de Garantia de Depósitos, por depositante e por banco"
+    },
+    "regulador": {
+     "v": "Banco de Portugal"
+    },
+    "abertura": {
+     "v": "Online 24h ou no balcão",
+     "s": "Com Chave Móvel Digital (sem mínimo) ou Cartão de Cidadão e vídeo (50€). No balcão: 150€"
+    },
+    "balcoes": {
+     "v": "261 agências",
+     "s": "Rede em Portugal em junho de 2026"
+    },
+    "apoio": {
+     "v": "Telefone 24 horas",
+     "s": "SuperLinha 217 807 364, todos os dias"
+    }
+   }
+  },
+  {
+   "id": "novobanco",
+   "seg": "particular",
+   "ordem": 15,
+   "name": "Novo Banco",
+   "produto": "Conta 100%",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Novo Banco, S.A",
+   "ini": "NB",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.novobanco.pt/particulares/contas/contas-pacote/conta-100"
+   },
+   "src": "https://www.novobanco.pt/precario",
+   "f": {
+    "custoAno": 98.64,
+    "custoAno1": null,
+    "custoAnoOrdenado": 56.16,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": null,
+    "numerario": true,
+    "garantia": "PT",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "8,22€/mês",
+     "s": "Conta 100%, com IS. 5,72€ ou 4,68€ com ordenado, extrato digital, 2 débitos diretos e 250€ ou 500€/mês em compras. Conta Base: 6,24€"
+    },
+    "cartao": {
+     "v": "Incluído",
+     "s": "Cartão de débito e cartão pré-pago sem comissão na Conta 100%. À parte o débito custa 25€/ano + IS"
+    },
+    "credito": {
+     "v": "Incluído",
+     "s": "Cartão de crédito Verde incluído na Conta 100%, sujeito a aprovação"
+    },
+    "levant": {
+     "v": "Grátis",
+     "s": "Sem comissão no Multibanco e nos países do EEE em euros. Ao balcão: 12,48€"
+    },
+    "levantFora": {
+     "v": "4,25€ + 1% + 3,85%",
+     "s": "Fora do EEE ou noutras moedas, mais IS"
+    },
+    "transf": {
+     "v": "Grátis online",
+     "s": "SEPA+ e imediatas incluídas no homebanking e na app"
+    },
+    "cambio": {
+     "v": "3,85% + IS",
+     "s": "1,35% + 2,50% fora do EEE. Noutras moedas dentro do EEE: 1,35%"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Ordenado, débitos diretos e pagamentos ao Estado sem limitações"
+    },
+    "mbway": {
+     "v": "Sim",
+     "s": "Transferências MB WAY grátis na app"
+    },
+    "pagamentos": {
+     "v": "Sim",
+     "s": "Serviços e Estado por referência multibanco e débitos diretos"
+    },
+    "numerario": {
+     "v": "Sim",
+     "s": "Notas sem custo. Moedas: 2% a partir de 50€, no máximo 15€, + IS"
+    },
+    "carteiras": {
+     "v": "Apple Pay e Google Pay"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "A conta à ordem não é remunerada"
+    },
+    "poupanca": {
+     "v": "Não",
+     "s": "Só poupanças com prazo, como a Micro Poupança"
+    },
+    "investir": {
+     "v": "Fundos, ações e PPR",
+     "s": "Também produtos estruturados, no homebanking e na app"
+    },
+    "garantia": {
+     "v": "100.000€ (Portugal)",
+     "s": "Fundo de Garantia de Depósitos, por depositante e por banco"
+    },
+    "regulador": {
+     "v": "Banco de Portugal"
+    },
+    "abertura": {
+     "v": "Online ou no balcão",
+     "s": "Chave Móvel Digital ou documento, selfie em vídeo e assinatura digital. Só portugueses e brasileiros residentes. Mínimo 250€"
+    },
+    "balcoes": {
+     "v": "302 balcões",
+     "s": "Rede do grupo em março de 2026"
+    },
+    "apoio": {
+     "v": "Telefone todos os dias",
+     "s": "Linha Direta 218 837 700: dias úteis das 8h às 22h, fins de semana e feriados das 9h às 18h"
+    }
+   }
+  },
+  {
+   "id": "bpi",
+   "seg": "particular",
+   "ordem": 16,
+   "name": "BPI",
+   "produto": "Conta Valor BPI",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Banco BPI, S.A",
+   "logo": "bpi.svg",
+   "logoPad": false,
+   "ini": "BP",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-valor-bpi"
+   },
+   "src": "https://bancobpi.pt/particulares/precario",
+   "f": {
+    "custoAno": 99.72,
+    "custoAno1": null,
+    "custoAnoOrdenado": 62.28,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": null,
+    "numerario": true,
+    "garantia": "PT",
+    "aberturaOnline": true,
+    "suportePt": true
+   },
+   "t": {
+    "manut": {
+     "v": "8,31€/mês",
+     "s": "Com IS. 5,19€ com ordenado ou pensão de 500€ ou 10.000€ em aplicações. Conta Base BPI: 75€ por ano + IS"
+    },
+    "cartao": {
+     "v": "Incluído (2 cartões)",
+     "s": "2 cartões BPI Electron sem comissão. Fora da Conta Valor: 20€/ano + IS"
+    },
+    "credito": {
+     "v": "Incluído (2 cartões)",
+     "s": "2 cartões BPI Classic sem anuidade (TAEG 16,1%), sujeitos a aprovação"
+    },
+    "levant": {
+     "v": "Grátis",
+     "s": "Sem comissão no Multibanco e nos países do EEE em euros. Ao balcão: 6,60€"
+    },
+    "levantFora": {
+     "v": "3,75€ + 0,50% + 3%",
+     "s": "Fora do EEE ou noutras moedas, mais IS"
+    },
+    "transf": {
+     "v": "Grátis online",
+     "s": "SEPA+ e imediatas grátis na app, no BPI Net e por telefone sem operador"
+    },
+    "cambio": {
+     "v": "3% + IS",
+     "s": "2% de processamento e 1% de conversão, fora do EEE ou noutras moedas"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Ordenado, débitos diretos e pagamentos ao Estado sem limitações"
+    },
+    "mbway": {
+     "v": "Sim",
+     "s": "Movimentos MB WAY grátis na app BPI"
+    },
+    "pagamentos": {
+     "v": "Sim",
+     "s": "Serviços e Estado por referência multibanco e débitos diretos"
+    },
+    "numerario": {
+     "v": "Sim, nos balcões",
+     "s": "Depósitos de numerário nos balcões BPI"
+    },
+    "carteiras": {
+     "v": "Apple Pay e Google Pay"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "A conta à ordem não é remunerada"
+    },
+    "poupanca": {
+     "v": "Não",
+     "s": "Sem conta poupança de acesso imediato remunerada. Há depósitos a prazo e planos poupança"
+    },
+    "investir": {
+     "v": "Fundos, PPR e bolsa",
+     "s": "Fundos BPI, PPR, seguros de capitalização e bolsa na app BPI Broker"
+    },
+    "garantia": {
+     "v": "100.000€ (Portugal)",
+     "s": "Fundo de Garantia de Depósitos, por depositante e por banco"
+    },
+    "regulador": {
+     "v": "Banco de Portugal",
+     "s": "Banco do grupo CaixaBank"
+    },
+    "abertura": {
+     "v": "100% online ou no balcão",
+     "s": "Na app BPI com Chave Móvel Digital ou selfie em vídeo e Cartão de Cidadão. Transferência inicial de 100€"
+    },
+    "balcoes": {
+     "v": "308 unidades",
+     "s": "Balcões e centros de empresas em junho de 2026"
+    },
+    "apoio": {
+     "v": "Telefone 24 horas",
+     "s": "BPI Direto 21 720 77 07, todos os dias. Mensagens na app BPI"
+    }
+   },
+   "c": [
+    "poupanca"
+   ]
+  },
+  {
+   "id": "novobanco-empresas",
+   "seg": "empresa",
+   "ordem": 1,
+   "name": "Novo Banco",
+   "produto": "Solução Novo Negócio",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Novo Banco, S.A",
+   "ini": "NB",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.novobanco.pt/empresas/tesouraria/contas/solucao-novo-negocio"
+   },
+   "tags": [
+    {
+     "t": "0€ nos primeiros 24 meses",
+     "w": 0
+    }
+   ],
+   "src": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/outros-clientes/OC_FCD_contas_deposito.pdf.coredownload.inline.pdf",
+   "f": {
+    "custoAno": 99.84,
+    "custoAno1": 0,
+    "iban": "PT",
+    "aberturaOnline": false,
+    "tpa": true,
+    "multimoeda": false,
+    "estado": true,
+    "cheques": true,
+    "eni": true,
+    "sociedades": true,
+    "jurosMax": null,
+    "garantia": "PT"
+   },
+   "t": {
+    "plano": {
+     "v": "Solução Novo Negócio",
+     "s": "Para sociedades e ENI com atividade iniciada há menos de 24 meses"
+    },
+    "manut": {
+     "v": "0€ nos primeiros 24 meses",
+     "s": "Isenção contada desde o início de atividade. Depois, 8€ + IS por mês (8,32€)"
+    },
+    "outrosPlanos": {
+     "v": "Negócios 8€, Negócios+ 13,95€",
+     "s": "Por mês, + IS. A Negócios fica isenta com o TPA Negócios. A Negócios+ fica isenta com TPA Negócios Extra ou Negócios+"
+    },
+    "cartoes": {
+     "v": "1 cartão de débito",
+     "s": "Cartão de débito Empresas para o titular, incluído na solução"
+    },
+    "transf": {
+     "v": "SEPA online grátis",
+     "s": "No novobanco Online, abaixo de 100.000€. Ao balcão: desde 6,50€ + IS"
+    },
+    "levant": {
+     "v": "Grátis no Multibanco",
+     "s": "Ao balcão: 12€ + IS por levantamento"
+    },
+    "cambio": {
+     "v": "Comissões do banco",
+     "s": "Pagamentos com cartão e transferências noutras moedas pagam as comissões e o câmbio do preçário do banco"
+    },
+    "tpa": {
+     "v": "Disponível",
+     "s": "Terminal de Pagamentos Negócios do novobanco, com custos à parte"
+    },
+    "cheques": {
+     "v": "Disponíveis",
+     "s": "Com custo à parte, segundo o preçário"
+    },
+    "iban": {
+     "v": "Português (PT50)"
+    },
+    "estado": {
+     "v": "Sim",
+     "s": "Pagamentos ao Estado e à Segurança Social no novobanco Online"
+    },
+    "multimoeda": {
+     "v": "Não",
+     "s": "A solução é em euros"
+    },
+    "juros": {
+     "v": "Não",
+     "s": "Conta à ordem e vertente poupança sem remuneração"
+    },
+    "credito": {
+     "v": "Sim",
+     "s": "Crédito, leasing e linhas de apoio para empresas, sujeitos a análise"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Fundo de Garantia de Depósitos (Portugal)"
+    },
+    "abertura": {
+     "v": "Ao balcão",
+     "s": "Sociedades e ENI. Depósito mínimo de 250€"
+    },
+    "balcoes": {
+     "v": "Rede nacional",
+     "s": "Balcões em todo o país"
+    },
+    "apoio": {
+     "v": "Balcão e gestor",
+     "s": "Também novobanco Online"
+    }
+   }
+  },
+  {
+   "id": "revolut-business",
+   "seg": "empresa",
+   "ordem": 2,
+   "name": "Revolut Business",
+   "produto": "Revolut Business Basic",
+   "tipo": "digital",
+   "tipoTxt": "Banco digital",
+   "entidade": "Revolut Bank UAB (Lituânia)",
+   "logo": "revolut.svg",
+   "logoPad": true,
+   "ini": "Re",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://revolutbusiness.ngih.net/c/2822659/3743144/9943",
+    "aff": "revolut-business",
+    "nota": "Aplicam-se as condições da campanha."
+   },
+   "bonus": "Bónus de 200€",
+   "tags": [
+    {
+     "t": "Só sociedades",
+     "w": 1
+    }
+   ],
+   "review": "https://www.literaciafinanceira.pt/artigos/revolut-business-empresas",
+   "src": "https://www.revolut.com/en-PT/legal/business-basic-fees/",
+   "f": {
+    "custoAno": 120,
+    "custoAno1": null,
+    "iban": "LT",
+    "aberturaOnline": true,
+    "tpa": true,
+    "multimoeda": true,
+    "estado": true,
+    "cheques": false,
+    "eni": false,
+    "sociedades": true,
+    "jurosMax": 1.0,
+    "garantia": "LT"
+   },
+   "t": {
+    "plano": {
+     "v": "Basic",
+     "s": "Plano de entrada para sociedades. Não há plano grátis para empresas em Portugal"
+    },
+    "manut": {
+     "v": "10€ por mês",
+     "s": "120€ por ano. O preçário da Revolut não refere Imposto do Selo"
+    },
+    "outrosPlanos": {
+     "v": "Grow 35€, Scale 125€",
+     "s": "Por mês. Enterprise com preço à medida. Os planos acima dão mais transferências grátis, câmbio e juros"
+    },
+    "cartoes": {
+     "v": "Débito físico e virtual",
+     "s": "Até 3 cartões físicos e 50 virtuais por pessoa da equipa. Pode haver custo de envio, mostrado na app"
+    },
+    "transf": {
+     "v": "10 grátis por mês",
+     "s": "Transferências locais. Depois, 0,20€ cada. Internacionais: 5€ cada. Receber em euros é grátis"
+    },
+    "levant": {
+     "v": "Grátis em euros no EEE",
+     "s": "Também em SEK e RON, Suíça, Andorra, Mónaco, São Marino e Vaticano. Nos restantes casos, 2%"
+    },
+    "cambio": {
+     "v": "Interbancário até 1.000€/mês",
+     "s": "Acima disso, 0,6%. Fora do horário de mercado, mais 1%"
+    },
+    "tpa": {
+     "v": "Revolut Terminal",
+     "s": "Terminal por 189€ + IVA (Lite: 139€ + IVA). Cartões europeus de particulares: 0,8% + 0,02€ por pagamento"
+    },
+    "cheques": {
+     "v": "Não",
+     "s": "Não emite cheques"
+    },
+    "iban": {
+     "v": "Lituano (LT)",
+     "s": "Sem IBAN português para empresas. Funciona em todas as transferências SEPA"
+    },
+    "estado": {
+     "v": "Só por transferência",
+     "s": "Sem referências Multibanco. AT e Segurança Social aceitam transferência para o IBAN indicado no documento de pagamento"
+    },
+    "multimoeda": {
+     "v": "Sim",
+     "s": "Saldos em várias moedas, com dados de conta locais e internacionais"
+    },
+    "juros": {
+     "v": "1% TANB no Basic",
+     "s": "Conta poupança Business com taxa variável: 1,55% no Grow, 2% no Scale e 2,25% no Enterprise. Juros diários"
+    },
+    "credito": {
+     "v": "Não anunciado",
+     "s": "O site da Revolut Business para Portugal não apresenta crédito, leasing nem linhas de apoio"
+    },
+    "garantia": {
+     "v": "Até 100.000€ (Lituânia)",
+     "s": "Depósitos na Revolut Bank UAB protegidos pelo sistema lituano de seguro de depósitos"
+    },
+    "abertura": {
+     "v": "100% online",
+     "s": "Só para sociedades registadas e ativas. ENI e trabalhadores independentes ficam de fora: a Revolut indica o Revolut Pro"
+    },
+    "balcoes": {
+     "v": "Não tem",
+     "s": "Banco só digital"
+    },
+    "apoio": {
+     "v": "Chat na app",
+     "s": "Também por email (business@revolut.com). Sem atendimento presencial"
+    }
+   },
+   "c": [
+    "credito"
+   ]
+  },
+  {
+   "id": "ca-empresas",
+   "seg": "empresa",
+   "ordem": 3,
+   "name": "Crédito Agrícola",
+   "produto": "Conta Pacote CA Empresas +",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Caixa Central de Crédito Agrícola Mútuo, C.R.L. (SICAM)",
+   "ini": "CA",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.creditoagricola.pt/empresas/tesouraria/conta-pacote-ca-empresas-mais"
+   },
+   "src": "https://www.creditoagricola.pt/-/media/b475f42d70834ab9b128f44eb7ae3011.pdf",
+   "f": {
+    "custoAno": 124.8,
+    "custoAno1": null,
+    "iban": "PT",
+    "aberturaOnline": false,
+    "tpa": true,
+    "multimoeda": false,
+    "estado": true,
+    "cheques": true,
+    "eni": true,
+    "sociedades": true,
+    "jurosMax": null,
+    "garantia": "PT"
+   },
+   "t": {
+    "plano": {
+     "v": "Conta Pacote CA Empresas +",
+     "s": "Para sociedades, ENI e profissionais liberais"
+    },
+    "manut": {
+     "v": "10€ por mês + IS",
+     "s": "10,40€ com IS. Sócios com 100 ou mais títulos de capital: 6 meses grátis e depois 7,50€ + IS"
+    },
+    "outrosPlanos": {
+     "v": "Conta Empresa ou Conta Negócio",
+     "s": "Sem pacote: manutenção de 80€ ou 50€ por ano + IS, sem os serviços incluídos"
+    },
+    "cartoes": {
+     "v": "1 débito e 1 de crédito",
+     "s": "Corporate ou Clube A, sem comissão de disponibilização. O cartão de débito é obrigatório"
+    },
+    "transf": {
+     "v": "50 SEPA+ por mês",
+     "s": "Grátis no CA Online e CA Mobile, incluindo imediatas. Depois, 1€ cada"
+    },
+    "levant": {
+     "v": "Grátis no Multibanco",
+     "s": "A lei proíbe comissões nos levantamentos em caixas automáticas em Portugal"
+    },
+    "cambio": {
+     "v": "Comissões do banco",
+     "s": "Pagamentos com cartão e transferências noutras moedas pagam as comissões e o câmbio do preçário do banco"
+    },
+    "tpa": {
+     "v": "Sob consulta",
+     "s": "A Conta Pacote não refere TPA. Pede as condições no balcão"
+    },
+    "cheques": {
+     "v": "20 por ano",
+     "s": "1 módulo de 20 cheques cruzados por ano, sujeito a análise de risco"
+    },
+    "iban": {
+     "v": "Português (PT50)"
+    },
+    "estado": {
+     "v": "Sim",
+     "s": "Pagamentos ao Estado e à Segurança Social no homebanking"
+    },
+    "multimoeda": {
+     "v": "Não",
+     "s": "A conta é em euros"
+    },
+    "juros": {
+     "v": "Não",
+     "s": "Conta não remunerada"
+    },
+    "credito": {
+     "v": "Sim",
+     "s": "Cartão de crédito incluído. Crédito e leasing sujeitos a análise"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Fundo de Garantia de Depósitos (Portugal)"
+    },
+    "abertura": {
+     "v": "Ao balcão",
+     "s": "Sem montante mínimo de abertura"
+    },
+    "balcoes": {
+     "v": "Rede nacional",
+     "s": "Caixas de Crédito Agrícola em todo o país, também em zonas rurais"
+    },
+    "apoio": {
+     "v": "Balcão e CA Online",
+     "s": "Também na app CA Empresas"
+    }
+   },
+   "c": [
+    "tpa"
+   ]
+  },
+  {
+   "id": "bpi-empresas",
+   "seg": "empresa",
+   "ordem": 4,
+   "name": "BPI",
+   "produto": "Conta Valor BPI Negócios",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Banco BPI, S.A",
+   "logo": "bpi.svg",
+   "logoPad": false,
+   "ini": "BP",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.bancobpi.pt/empresas/contas-valor-bpi-negocios"
+   },
+   "src": "https://bancobpi.pt/particulares/precario---folheto-comissoes-despesas---depositos---outros-clientes",
+   "f": {
+    "custoAno": 99.72,
+    "custoAno1": null,
+    "iban": "PT",
+    "aberturaOnline": false,
+    "tpa": true,
+    "multimoeda": false,
+    "estado": true,
+    "cheques": true,
+    "eni": true,
+    "sociedades": true,
+    "jurosMax": null,
+    "garantia": "PT"
+   },
+   "t": {
+    "plano": {
+     "v": "Conta Valor BPI Negócios",
+     "s": "Para empresas, ENI e profissionais liberais"
+    },
+    "manut": {
+     "v": "7,99€ por mês + IS",
+     "s": "Desce para 4,99€ + IS nos meses em que há um TPA BPI ativo associado à conta"
+    },
+    "outrosPlanos": {
+     "v": "Negócios+ 13,99€ (9,99€ com TPA)",
+     "s": "Por mês, + IS. Junta cheques, pagamento de ordenados e 50 transferências por lote por mês"
+    },
+    "cartoes": {
+     "v": "2 débito e 2 de crédito",
+     "s": "Sem comissão de disponibilização. Cartões de crédito sujeitos a aprovação"
+    },
+    "transf": {
+     "v": "SEPA e imediatas grátis",
+     "s": "No BPI Net Empresas ou na app, abaixo de 100.000€"
+    },
+    "levant": {
+     "v": "Grátis no Multibanco",
+     "s": "A lei proíbe comissões nos levantamentos em caixas automáticas em Portugal"
+    },
+    "cambio": {
+     "v": "Comissões do banco",
+     "s": "Pagamentos com cartão e transferências noutras moedas pagam as comissões e o câmbio do preçário do banco"
+    },
+    "tpa": {
+     "v": "TPA BPI",
+     "s": "Com um TPA BPI ativo, a mensalidade da conta desce de 7,99€ para 4,99€ + IS"
+    },
+    "cheques": {
+     "v": "Pagos à parte",
+     "s": "O Negócios+ inclui até 2 módulos por ano, no máximo 50 cheques"
+    },
+    "iban": {
+     "v": "Português (PT50)"
+    },
+    "estado": {
+     "v": "Sim",
+     "s": "Pagamentos ao Estado e à Segurança Social no homebanking"
+    },
+    "multimoeda": {
+     "v": "Não",
+     "s": "A conta é em euros"
+    },
+    "juros": {
+     "v": "Não",
+     "s": "Conta não remunerada"
+    },
+    "credito": {
+     "v": "Sim",
+     "s": "2 cartões de crédito BPI Business incluídos. Crédito e leasing sujeitos a análise"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Fundo de Garantia de Depósitos (Portugal)"
+    },
+    "abertura": {
+     "v": "Ao balcão",
+     "s": "Nos balcões BPI. Mínimo de 100€"
+    },
+    "balcoes": {
+     "v": "Rede nacional",
+     "s": "Balcões BPI em todo o país"
+    },
+    "apoio": {
+     "v": "Balcão e BPI Net Empresas",
+     "s": "Também na app BPI"
+    }
+   }
+  },
+  {
+   "id": "cgd-empresas",
+   "seg": "empresa",
+   "ordem": 5,
+   "name": "CGD",
+   "produto": "Conta Caixa Business",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Caixa Geral de Depósitos, S.A",
+   "logo": "cgd.svg",
+   "logoPad": true,
+   "ini": "CG",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.cgd.pt/Empresas/Gestao_corrente/Pages/Conta-Caixa-Business.aspx"
+   },
+   "src": "https://www.cgd.pt/Precario/Documents/9.pdf",
+   "f": {
+    "custoAno": 99.84,
+    "custoAno1": null,
+    "iban": "PT",
+    "aberturaOnline": false,
+    "tpa": true,
+    "multimoeda": false,
+    "estado": true,
+    "cheques": true,
+    "eni": true,
+    "sociedades": true,
+    "jurosMax": null,
+    "garantia": "PT"
+   },
+   "t": {
+    "plano": {
+     "v": "Conta Caixa Business",
+     "s": "Pacote base da Caixa para empresas e ENI"
+    },
+    "manut": {
+     "v": "8,32€ por mês (IS incluído)",
+     "s": "8€ + IS. Clientes Caixa TOP ou com conta de fundos PRR pagam metade"
+    },
+    "outrosPlanos": {
+     "v": "Business+ 14,56€, Corporate 41,60€",
+     "s": "Por mês, IS incluído. O Business+ junta 2 cartões de crédito, cheques e 50% na mensalidade do TPA"
+    },
+    "cartoes": {
+     "v": "1 cartão de débito",
+     "s": "Cartão de Débito Business incluído. O Business+ tem 2 de débito e 2 de crédito"
+    },
+    "transf": {
+     "v": "60 SEPA por mês",
+     "s": "Normais ou imediatas. Depois, de 0,40€ a 0,10€ cada + IS, mais barato com mais volume"
+    },
+    "levant": {
+     "v": "Grátis no Multibanco",
+     "s": "Ao balcão: 4,95€ + IS"
+    },
+    "cambio": {
+     "v": "Comissões do banco",
+     "s": "Pagamentos com cartão e transferências noutras moedas pagam as comissões e o câmbio do preçário do banco"
+    },
+    "tpa": {
+     "v": "Disponível",
+     "s": "TPA Caixa com custos próprios. O desconto de 50% na mensalidade só existe no Business+ e no Corporate"
+    },
+    "cheques": {
+     "v": "Pagos à parte",
+     "s": "O Business+ inclui 1 módulo de 30 cheques por ano"
+    },
+    "iban": {
+     "v": "Português (PT50)"
+    },
+    "estado": {
+     "v": "Sim",
+     "s": "Pagamentos ao Estado e à Segurança Social no homebanking"
+    },
+    "multimoeda": {
+     "v": "Não",
+     "s": "A conta é em euros. Contas noutras moedas só à parte"
+    },
+    "juros": {
+     "v": "Não",
+     "s": "Conta à ordem sem remuneração. Depósitos a prazo à parte"
+    },
+    "credito": {
+     "v": "Sim",
+     "s": "Crédito, leasing e linhas de apoio, incluindo crédito ligado ao TPA, sujeitos a análise"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Fundo de Garantia de Depósitos (Portugal)"
+    },
+    "abertura": {
+     "v": "Ao balcão",
+     "s": "Agências ou Gabinetes Empresas. Quem já é cliente adere no Caixadirecta Empresas. Mínimo de 500€"
+    },
+    "balcoes": {
+     "v": "Rede nacional",
+     "s": "Agências e Gabinetes Empresas em todo o país"
+    },
+    "apoio": {
+     "v": "Agência e gestor",
+     "s": "Também Caixadirecta Empresas, online e na app"
+    }
+   }
+  },
+  {
+   "id": "millennium-empresas",
+   "seg": "empresa",
+   "ordem": 6,
+   "name": "Millennium bcp",
+   "produto": "Solução M Empresa",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Banco Comercial Português, S.A",
+   "logo": "millennium.svg",
+   "logoPad": true,
+   "ini": "Mi",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.millenniumbcp.pt/empresas/abrir-conta-empresa-online"
+   },
+   "src": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf",
+   "f": {
+    "custoAno": 187.2,
+    "custoAno1": 140.4,
+    "iban": "PT",
+    "aberturaOnline": true,
+    "tpa": true,
+    "multimoeda": false,
+    "estado": true,
+    "cheques": true,
+    "eni": true,
+    "sociedades": true,
+    "jurosMax": null,
+    "garantia": "PT"
+   },
+   "t": {
+    "plano": {
+     "v": "Solução M Empresa",
+     "s": "Pacote para sociedades e ENI, com a conta à ordem isenta de manutenção"
+    },
+    "manut": {
+     "v": "15€ por mês + IS",
+     "s": "15,60€ com IS. Na abertura online, 7,5€ + IS nos primeiros 6 meses. A campanha de 1€/mês acabou a 30/09/2026"
+    },
+    "outrosPlanos": {
+     "v": "M Empresa Premium 25€ + IS",
+     "s": "Mais contas filhas, 2 cartões de débito, 5 de crédito e 210 transferências por mês. ENI: Conta Negócio sem pacote, 5,2€ + IS"
+    },
+    "cartoes": {
+     "v": "1 débito e 2 de crédito",
+     "s": "Sem anuidade enquanto tiver a solução. Cartões de crédito sujeitos a aprovação"
+    },
+    "transf": {
+     "v": "75 SEPA+ por mês",
+     "s": "Até 100.000€ cada. Acima disso, preçário normal"
+    },
+    "levant": {
+     "v": "Grátis no Multibanco",
+     "s": "A lei proíbe comissões nos levantamentos em caixas automáticas em Portugal"
+    },
+    "cambio": {
+     "v": "Comissões do banco",
+     "s": "Pagamentos com cartão e transferências noutras moedas pagam as comissões e o câmbio do preçário do banco"
+    },
+    "tpa": {
+     "v": "Disponível",
+     "s": "TPA Avançar ou Smart Moove: 50% na mensalidade de 1 TPA. A solução fica a metade se o TPA faturar 3.500€ ou 5.000€ por mês"
+    },
+    "cheques": {
+     "v": "1 módulo de 5 por mês",
+     "s": "Cheques cruzados, sujeitos a análise de risco. Cada cheque paga 0,05€ de IS"
+    },
+    "iban": {
+     "v": "Português (PT50)"
+    },
+    "estado": {
+     "v": "Sim",
+     "s": "Pagamentos ao Estado e à Segurança Social no homebanking"
+    },
+    "multimoeda": {
+     "v": "Não",
+     "s": "A conta é em euros"
+    },
+    "juros": {
+     "v": "Não indicado",
+     "s": "As condições da Solução M Empresa não preveem remuneração da conta"
+    },
+    "credito": {
+     "v": "Sim",
+     "s": "Inclui 2 cartões de crédito Silver Empresas. Crédito e leasing sujeitos a análise"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Fundo de Garantia de Depósitos (Portugal)"
+    },
+    "abertura": {
+     "v": "100% online",
+     "s": "Lda com um só gerente e sócios pessoas singulares, com Chave Móvel Digital. ENI pela Conta Negócio. Ativação com 500€"
+    },
+    "balcoes": {
+     "v": "Rede nacional",
+     "s": "Sucursais em todo o país"
+    },
+    "apoio": {
+     "v": "211 130 300",
+     "s": "Dias úteis, das 8h30 às 17h30. Também gestor e balcões"
+    }
+   },
+   "c": [
+    "custoAno",
+    "juros"
+   ]
+  },
+  {
+   "id": "montepio-empresas",
+   "seg": "empresa",
+   "ordem": 7,
+   "name": "Banco Montepio",
+   "produto": "Solução E.mpreendedor",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Caixa Económica Montepio Geral, caixa económica bancária, S.A",
+   "logo": "montepio.svg",
+   "logoPad": false,
+   "ini": "Ba",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.bancomontepio.pt/empresas/gestao-corrente/contas-e-solucoes"
+   },
+   "tags": [
+    {
+     "t": "Empresas com menos de 2 anos",
+     "w": 1
+    }
+   ],
+   "src": "https://www.bancomontepio.pt/content/dam/montepio/pdf/geral/precario/folheto-comissoes-despesas/outros-clientes/9-comissoes-contas-deposito-outros-clientes.pdf",
+   "f": {
+    "custoAno": 112.32,
+    "custoAno1": 102.96,
+    "iban": "PT",
+    "aberturaOnline": false,
+    "tpa": true,
+    "multimoeda": false,
+    "estado": true,
+    "cheques": true,
+    "eni": true,
+    "sociedades": true,
+    "jurosMax": null,
+    "garantia": "PT"
+   },
+   "t": {
+    "plano": {
+     "v": "Solução E.mpreendedor",
+     "s": "Para empresas e ENI com atividade há menos de 2 anos. Ao fim de 36 meses passa para a E.mpresário"
+    },
+    "manut": {
+     "v": "9€ por mês + IS",
+     "s": "9,36€ com IS. Com bonificação, 6€ ou 4€ + IS (4€ com TPA a faturar 500€ ou mais por mês). 1.º mês grátis"
+    },
+    "outrosPlanos": {
+     "v": "E.mpresário 12€, E.xpert 16€",
+     "s": "Por mês, + IS, sem bonificação. Com bonificação, desde 5€ e 6€ + IS"
+    },
+    "cartoes": {
+     "v": "2 cartões de débito",
+     "s": "1 Mastercard Negócios e 1 MB Empresas, sem comissão"
+    },
+    "transf": {
+     "v": "50 por mês grátis",
+     "s": "SEPA+ normais e imediatas no Montepio24 Empresas (web, app e telefone sem operador)"
+    },
+    "levant": {
+     "v": "Grátis no Multibanco",
+     "s": "Ao balcão: 6€ + IS"
+    },
+    "cambio": {
+     "v": "Comissões do banco",
+     "s": "Pagamentos com cartão e transferências noutras moedas pagam as comissões e o câmbio do preçário do banco"
+    },
+    "tpa": {
+     "v": "Preço próprio",
+     "s": "14€ por mês e 0,55% por pagamento (mínimo 0,06€)"
+    },
+    "cheques": {
+     "v": "Pagos à parte",
+     "s": "A E.mpresário inclui 1 livro de 30 cheques por ano"
+    },
+    "iban": {
+     "v": "Português (PT50)"
+    },
+    "estado": {
+     "v": "Sim",
+     "s": "Pagamentos ao Estado e à Segurança Social no homebanking"
+    },
+    "multimoeda": {
+     "v": "Não",
+     "s": "A conta é em euros"
+    },
+    "juros": {
+     "v": "Não indicado",
+     "s": "As condições da E.mpreendedor não preveem remuneração"
+    },
+    "credito": {
+     "v": "Sim",
+     "s": "50% de desconto na comissão de montagem da 1.ª operação de leasing auto ou de equipamento"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Fundo de Garantia de Depósitos (Portugal)"
+    },
+    "abertura": {
+     "v": "Ao balcão",
+     "s": "Exige Montepio24 Empresas e documentação digital ativos"
+    },
+    "balcoes": {
+     "v": "Rede nacional",
+     "s": "Balcões em todo o país"
+    },
+    "apoio": {
+     "v": "Balcão e Montepio24 Empresas",
+     "s": "Web, app e telefone"
+    }
+   },
+   "c": [
+    "juros"
+   ]
+  },
+  {
+   "id": "santander-empresas",
+   "seg": "empresa",
+   "ordem": 8,
+   "name": "Santander",
+   "produto": "Conta Ready",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "Banco Santander Totta, S.A",
+   "logo": "santander.svg",
+   "logoPad": true,
+   "ini": "Sa",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.santander.pt/empresas/abrir-conta-empresas-online"
+   },
+   "tags": [
+    {
+     "t": "Só ENI ou empresas até 6 meses",
+     "w": 1
+    }
+   ],
+   "src": "https://www.santander.pt/pdfs/precario-banco/folheto-comissoes-despesas/outros-clientes/9-contas-deposito/9_folhetocomissoesdespesas_oc_contasdep.pdf",
+   "f": {
+    "custoAno": 48.67,
+    "custoAno1": null,
+    "iban": "PT",
+    "aberturaOnline": true,
+    "tpa": true,
+    "multimoeda": false,
+    "estado": true,
+    "cheques": true,
+    "eni": true,
+    "sociedades": true,
+    "jurosMax": null,
+    "garantia": "PT"
+   },
+   "t": {
+    "plano": {
+     "v": "Conta Ready",
+     "s": "Para ENI e para sociedades (Lda e unipessoais) com menos de 6 meses de atividade"
+    },
+    "manut": {
+     "v": "3,90€ por mês + IS",
+     "s": "4,06€ com IS, 48,67€ por ano. Inclui cartão pré-pago"
+    },
+    "outrosPlanos": {
+     "v": "Start 11,90€, Grow 15,90€",
+     "s": "Por mês, + IS. Start: débito e 10 transferências grátis. Grow: 2 débito, 2 crédito, 120 transferências, cheques e oferta do 1.º TPA"
+    },
+    "cartoes": {
+     "v": "Cartão pré-pago",
+     "s": "Sem custo de emissão. Cartão de débito opcional: 20€ + IS por ano"
+    },
+    "transf": {
+     "v": "1,25€ + IS online",
+     "s": "A Ready não inclui transferências grátis. Ao balcão: 6,50€ + IS"
+    },
+    "levant": {
+     "v": "Grátis em Portugal",
+     "s": "Fora de Portugal há comissões, segundo o preçário de cartões"
+    },
+    "cambio": {
+     "v": "Comissões do banco",
+     "s": "Pagamentos com cartão e transferências noutras moedas pagam as comissões e o câmbio do preçário do banco"
+    },
+    "tpa": {
+     "v": "TPA Getnet",
+     "s": "Disponível à parte. O plano Grow inclui a oferta do 1.º TPA"
+    },
+    "cheques": {
+     "v": "Pagos à parte",
+     "s": "O Grow inclui 1 módulo de 20 cheques por mês"
+    },
+    "iban": {
+     "v": "Português (PT50)"
+    },
+    "estado": {
+     "v": "Sim",
+     "s": "Pagamentos ao Estado e à Segurança Social no homebanking"
+    },
+    "multimoeda": {
+     "v": "Não",
+     "s": "A conta é em euros"
+    },
+    "juros": {
+     "v": "Não",
+     "s": "A Conta Ready não é remunerada"
+    },
+    "credito": {
+     "v": "Sim",
+     "s": "No Grow, cartão de crédito com limite até 10.000€. Crédito e leasing sujeitos a análise"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Fundo de Garantia de Depósitos (Portugal)"
+    },
+    "abertura": {
+     "v": "100% online",
+     "s": "Com Chave Móvel Digital. ENI, unipessoais e Lda até 3 intervenientes, todos portugueses a viver em Portugal. Mínimo de 150€"
+    },
+    "balcoes": {
+     "v": "Rede nacional",
+     "s": "Balcões em todo o país"
+    },
+    "apoio": {
+     "v": "NetBanco Empresas e app",
+     "s": "Também banca telefónica e balcões"
+    }
+   }
+  },
+  {
+   "id": "abanca-empresas",
+   "seg": "empresa",
+   "ordem": 9,
+   "name": "ABANCA",
+   "produto": "Conta Business Basic",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "ABANCA Portugal, S.A",
+   "logo": "abanca.svg",
+   "logoPad": false,
+   "ini": "AB",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.abanca.pt/pt/empresas/contas/conta-business"
+   },
+   "tags": [
+    {
+     "t": "1.º ano grátis para novos clientes",
+     "w": 0
+    }
+   ],
+   "src": "https://www.abanca.pt/pt/empresas/contas/conta-business",
+   "f": {
+    "custoAno": 99.84,
+    "custoAno1": 0,
+    "iban": "PT",
+    "aberturaOnline": false,
+    "tpa": true,
+    "multimoeda": false,
+    "estado": true,
+    "cheques": true,
+    "eni": true,
+    "sociedades": true,
+    "jurosMax": null,
+    "garantia": "PT"
+   },
+   "t": {
+    "plano": {
+     "v": "Business Basic",
+     "s": "Conta pacote para empresas de qualquer setor e dimensão"
+    },
+    "manut": {
+     "v": "8€ por mês + IS",
+     "s": "8,32€ com IS. Grátis no 1.º ano para novos clientes"
+    },
+    "outrosPlanos": {
+     "v": "Business+ 10€ + IS",
+     "s": "2 cartões de débito, 2 de crédito e transferências SEPA+ online ilimitadas. Também grátis no 1.º ano"
+    },
+    "cartoes": {
+     "v": "1 débito e 1 de crédito",
+     "s": "Incluídos na mensalidade"
+    },
+    "transf": {
+     "v": "50 SEPA+ por mês",
+     "s": "Grátis no homebanking"
+    },
+    "levant": {
+     "v": "Grátis no Multibanco",
+     "s": "A lei proíbe comissões nos levantamentos em caixas automáticas em Portugal"
+    },
+    "cambio": {
+     "v": "Comissões do banco",
+     "s": "Pagamentos com cartão e transferências noutras moedas pagam as comissões e o câmbio do preçário do banco"
+    },
+    "tpa": {
+     "v": "Mensalidade de 9€",
+     "s": "Com a conta Business, o TPA ABANCA fica a 9€ por mês (exceto Tarifa Plana)"
+    },
+    "cheques": {
+     "v": "20 por ano",
+     "s": "1 módulo de 20 cheques por ano"
+    },
+    "iban": {
+     "v": "Português (PT50)"
+    },
+    "estado": {
+     "v": "Sim",
+     "s": "Pagamentos ao Estado e à Segurança Social no homebanking"
+    },
+    "multimoeda": {
+     "v": "Não",
+     "s": "A conta é em euros"
+    },
+    "juros": {
+     "v": "Não indicado",
+     "s": "A página da conta não refere remuneração"
+    },
+    "credito": {
+     "v": "Sim",
+     "s": "Cartão de crédito incluído. Crédito e leasing sujeitos a análise"
+    },
+    "garantia": {
+     "v": "Até 100.000€",
+     "s": "Fundo de Garantia de Depósitos (Portugal). Banco português: ABANCA Portugal, S.A"
+    },
+    "abertura": {
+     "v": "Ao balcão",
+     "s": "Adesão nas agências ou pelo 21 000 13 00"
+    },
+    "balcoes": {
+     "v": "Rede nacional",
+     "s": "Agências ABANCA, incluindo a antiga rede do EuroBic"
+    },
+    "apoio": {
+     "v": "21 000 13 00",
+     "s": "Também agências e gestor de conta"
+    }
+   },
+   "c": [
+    "abertura",
+    "juros"
+   ]
+  },
+  {
+   "id": "wise-business",
+   "seg": "empresa",
+   "ordem": 10,
+   "name": "Wise Business",
+   "produto": "Conta Wise Business",
+   "tipo": "digital",
+   "tipoTxt": "Instituição de pagamento",
+   "entidade": "Wise Europe SA (Bélgica)",
+   "logo": "wise.svg",
+   "logoPad": true,
+   "ini": "Wi",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://www.literaciafinanceira.pt/visita/wise-business",
+    "aff": "wise-business"
+   },
+   "tags": [
+    {
+     "t": "Sem garantia de depósitos",
+     "w": 1
+    }
+   ],
+   "src": "https://wise.com/pt/pricing/business/",
+   "f": {
+    "custoAno": 0,
+    "custoAno1": 60,
+    "iban": "BE",
+    "aberturaOnline": true,
+    "tpa": false,
+    "multimoeda": true,
+    "estado": true,
+    "cheques": false,
+    "eni": true,
+    "sociedades": true,
+    "jurosMax": null,
+    "garantia": null
+   },
+   "t": {
+    "plano": {
+     "v": "Conta Wise Business",
+     "s": "Uma só conta, sem planos. Para sociedades, ENI e trabalhadores independentes"
+    },
+    "manut": {
+     "v": "0€ por mês",
+     "s": "Sem mensalidade nem anuidade. Taxa única de 60€ para ativar os dados de conta (IBAN)"
+    },
+    "outrosPlanos": {
+     "v": "Não tem",
+     "s": "Paga-se por operação: envios, câmbio e levantamentos acima do limite"
+    },
+    "cartoes": {
+     "v": "1.º cartão grátis",
+     "s": "Cartões extra para a equipa: 4€ cada, pagamento único. Substituição: 4€"
+    },
+    "transf": {
+     "v": "Comissão por envio",
+     "s": "Varia com a moeda, desde 0,2%. Receber euros por SEPA é grátis. Na mesma moeda para outra conta Wise Business: grátis"
+    },
+    "levant": {
+     "v": "250€ por mês grátis",
+     "s": "Acima disso, 2,69% sobre o valor que passa dos 250€"
+    },
+    "cambio": {
+     "v": "Câmbio real + desde 0,2%",
+     "s": "A comissão varia com a moeda. Pagar com o cartão numa moeda que tens na conta é grátis"
+    },
+    "tpa": {
+     "v": "Não",
+     "s": "Sem terminal. Receber por cartão com link de pagamento está indisponível para novos clientes Wise Business"
+    },
+    "cheques": {
+     "v": "Não",
+     "s": "Não emite cheques"
+    },
+    "iban": {
+     "v": "Belga (BE)",
+     "s": "Sem IBAN nem NIB português. Receber euros por SWIFT custa 2,39€"
+    },
+    "estado": {
+     "v": "Só por transferência",
+     "s": "Sem referências Multibanco. AT e Segurança Social aceitam transferência para o IBAN indicado no documento de pagamento"
+    },
+    "multimoeda": {
+     "v": "Sim",
+     "s": "Dados de conta para receber em 22 moedas. Guardar saldo noutras moedas é grátis"
+    },
+    "juros": {
+     "v": "Rende+ (fundo, não depósito)",
+     "s": "Fundo monetário gerido com a BlackRock. Capital em risco. Comissão anual desde 0,26%"
+    },
+    "credito": {
+     "v": "Não",
+     "s": "A Wise não dá crédito, descoberto nem leasing"
+    },
+    "garantia": {
+     "v": "Não tem",
+     "s": "Instituição de pagamento: o dinheiro fica salvaguardado em bancos e fundos de baixo risco, fora do fundo de garantia de depósitos"
+    },
+    "abertura": {
+     "v": "100% online",
+     "s": "Registo e verificação da empresa no site ou na app. Taxa de 60€ para ativar os dados de conta"
+    },
+    "balcoes": {
+     "v": "Não tem",
+     "s": "Só online"
+    },
+    "apoio": {
+     "v": "Chat, email e telefone",
+     "s": "Apoio 24/7, segundo a Wise. Site e app em português"
+    }
+   },
+   "c": [
+    "estado"
+   ]
+  },
+  {
+   "id": "n26-business",
+   "seg": "empresa",
+   "ordem": 11,
+   "name": "N26 Business",
+   "produto": "N26 Business Standard",
+   "tipo": "digital",
+   "tipoTxt": "Banco digital",
+   "entidade": "N26 Bank SE (Alemanha)",
+   "logo": "n26.svg",
+   "logoPad": true,
+   "ini": "N2",
+   "cta": {
+    "label": "Abrir conta",
+    "href": "https://n26.com/en-eu/free-business-account"
+   },
+   "tags": [
+    {
+     "t": "Só para ENI e independentes",
+     "w": 1
+    }
+   ],
+   "src": "https://n26.com/en-eu/free-business-account",
+   "f": {
+    "custoAno": 0,
+    "custoAno1": null,
+    "iban": "DE",
+    "aberturaOnline": true,
+    "tpa": false,
+    "multimoeda": false,
+    "estado": true,
+    "cheques": false,
+    "eni": true,
+    "sociedades": false,
+    "jurosMax": 0.3,
+    "garantia": "DE"
+   },
+   "t": {
+    "plano": {
+     "v": "Business Standard",
+     "s": "Só para trabalhadores independentes e ENI que faturam em nome próprio. Não aceita sociedades"
+    },
+    "manut": {
+     "v": "0€",
+     "s": "Sem mensalidade. A N26 avisa que pode cobrar comissão sobre saldos a partir de 50.000€"
+    },
+    "outrosPlanos": {
+     "v": "Business Smart 4,90€/mês",
+     "s": "Inclui cartão físico, 3 levantamentos grátis por mês e 10 subcontas. Há ainda Business Go e Business Metal"
+    },
+    "cartoes": {
+     "v": "Virtual grátis, físico 10€",
+     "s": "Mastercard de débito física por 10€, pagos uma vez. Cashback de 0,1% nos pagamentos com cartão"
+    },
+    "transf": {
+     "v": "SEPA grátis",
+     "s": "Transferências imediatas também grátis, até 10.000€ por dia (limite ajustável)"
+    },
+    "levant": {
+     "v": "2 por mês grátis",
+     "s": "Na zona euro. Depois, 2€ cada. Fora da zona euro: 1,7% do valor"
+    },
+    "cambio": {
+     "v": "Sem comissão da N26",
+     "s": "Pagamentos com cartão noutras moedas ao câmbio da Mastercard, sem comissão extra da N26"
+    },
+    "tpa": {
+     "v": "Não",
+     "s": "Sem terminal de pagamento"
+    },
+    "cheques": {
+     "v": "Não",
+     "s": "Não emite cheques"
+    },
+    "iban": {
+     "v": "Alemão (DE)",
+     "s": "Sem IBAN português"
+    },
+    "estado": {
+     "v": "Só por transferência",
+     "s": "Sem referências Multibanco. AT e Segurança Social aceitam transferência para o IBAN indicado no documento de pagamento"
+    },
+    "multimoeda": {
+     "v": "Não",
+     "s": "Conta só em euros"
+    },
+    "juros": {
+     "v": "0,30% TANB",
+     "s": "Na N26 Instant Savings com o plano Standard. Taxa variável"
+    },
+    "credito": {
+     "v": "Não anunciado",
+     "s": "Sem crédito nem descoberto anunciados para a conta Business em Portugal"
+    },
+    "garantia": {
+     "v": "Até 100.000€ (Alemanha)",
+     "s": "Fundo de garantia de depósitos alemão"
+    },
+    "abertura": {
+     "v": "100% online",
+     "s": "Na app, em nome próprio, para quem tem atividade aberta como independente ou ENI"
+    },
+    "balcoes": {
+     "v": "Não tem",
+     "s": "Banco só digital"
+    },
+    "apoio": {
+     "v": "Chat na app",
+     "s": "Sem balcões nem gestor. Apoio em português não garantido"
+    }
+   },
+   "c": [
+    "estado",
+    "tpa",
+    "credito",
+    "apoio"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+<!-- Comparador de contas bancárias LF: custom code da página no Webflow.
+     Na página tem de existir um div nativo com o ID lf-cb.
+     Os ficheiros vêm do jsDelivr, presos a um commit deste repositório. Para publicar uma alteração
+     (dados, CSS ou JS): commit e push, troca COMMIT pelo hash novo nos dois blocos e publica a página.
+     O script é criado com createElement e não com document.write: o Chrome pode bloquear scripts de
+     outro domínio escritos com document.write em ligações lentas, e o comparador ficava em branco. -->
+
+<!-- 1. Inside <head> tag -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@COMMIT/comparador-contas/comparador-contas.css">
+
+<!-- 2. Before </body> tag -->
+<script>
+(function () {
+  var base = 'https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@COMMIT/comparador-contas/';
+  var alvo = document.getElementById('lf-cb');
+  if (alvo && !alvo.innerHTML.replace(/\s/g, '')) alvo.innerHTML = '<p class="cb-loading">A carregar o comparador...</p>';
+  function carregar(tentativas) {
+    var s = document.createElement('script');
+    s.src = base + 'comparador-contas.js';
+    s.onerror = function () {
+      if (tentativas > 0) setTimeout(function () { carregar(tentativas - 1); }, 1000);
+      else if (alvo) alvo.innerHTML = '<p class="cb-loading">Não foi possível carregar o comparador. Tenta recarregar a página.</p>';
+    };
+    document.body.appendChild(s);
+  }
+  carregar(2);
+})();
+</script>
