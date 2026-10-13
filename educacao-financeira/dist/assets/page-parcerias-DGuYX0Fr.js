@@ -1,2 +1,0 @@
-document.addEventListener("DOMContentLoaded",function(){$("[number-count]").each(function(){let t=$(this),n=parseInt(t.text().replace(/\./g,""),10);gsap.fromTo(t,{innerText:0},{innerText:n,duration:2.3,ease:"expo.inOut",roundProps:"innerText",onUpdate:function(){t.text(e(Math.round(t.text())))},scrollTrigger:{trigger:t,start:"top 90%",once:!0}})});function e(t){return t.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".")}});
-//# sourceMappingURL=page-parcerias-DGuYX0Fr.js.map
