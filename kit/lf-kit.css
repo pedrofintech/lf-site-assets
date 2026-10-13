@@ -43,8 +43,8 @@
 
 /* ---------- Texto ---------- */
 .lfk .lfk-title{font-family:var(--lfk-font-display);font-weight:400;font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.15;letter-spacing:-.015em;color:var(--lfk-text)}
-.lfk .lfk-h{font-size:22px;font-weight:500;line-height:28px;letter-spacing:-.01em;color:var(--lfk-text)}
-.lfk .lfk-h-sm{font-size:16px;font-weight:500;line-height:24px;color:var(--lfk-text)}
+.lfk .lfk-h{font-family:var(--lfk-font-display);font-size:22px;font-weight:400;line-height:28px;letter-spacing:-.01em;color:var(--lfk-text)}
+.lfk .lfk-h-sm{font-family:var(--lfk-font);font-size:16px;font-weight:500;line-height:24px;color:var(--lfk-text)}
 .lfk .lfk-eyebrow{font-size:12px;font-weight:600;line-height:18px;letter-spacing:.02em;text-transform:uppercase;color:var(--lfk-text-4)}
 .lfk .lfk-lead{font-size:18px;line-height:26px;color:var(--lfk-text-3)}
 .lfk .lfk-text{font-size:16px;line-height:24px;color:var(--lfk-text-2)}
@@ -188,11 +188,12 @@
 .lfk .lfk-tag.is-err{background:var(--lfk-err-bg);color:var(--lfk-err)}
 .lfk .lfk-tag.is-dark{background:var(--lfk-dark);color:#fff}
 .lfk .lfk-tag.is-brand{background:var(--lfk-brand);color:var(--lfk-on-brand)}
-.lfk .lfk-alert{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border:1px solid var(--lfk-info-border);border-radius:var(--lfk-r);background:var(--lfk-info-bg);color:var(--lfk-info);font-size:14px;line-height:20px}
+.lfk .lfk-alert{display:block;padding:10px 14px;border:1px solid var(--lfk-info-border);border-radius:var(--lfk-r);background:var(--lfk-info-bg);color:var(--lfk-info);font-size:14px;line-height:20px}
 .lfk .lfk-alert.is-ok{border-color:var(--lfk-ok-border);background:var(--lfk-ok-bg);color:var(--lfk-ok)}
 .lfk .lfk-alert.is-warn{border-color:var(--lfk-warn-border);background:var(--lfk-warn-bg);color:var(--lfk-warn)}
 .lfk .lfk-alert.is-err{border-color:var(--lfk-err-border);background:var(--lfk-err-bg);color:var(--lfk-err)}
 .lfk .lfk-alert b{font-weight:600}
+.lfk .lfk-alert svg{width:16px;height:16px;margin-right:6px;vertical-align:-3px}
 .lfk .lfk-empty{padding:32px;border:1px dashed var(--lfk-border);border-radius:var(--lfk-r-lg);color:var(--lfk-text-4);font-size:14px;line-height:20px;text-align:center}
 .lfk .lfk-spinner{display:inline-block;width:20px;height:20px;border:2px solid var(--lfk-border-2);border-top-color:var(--lfk-text);border-radius:50%;animation:lfkRoda .8s linear infinite}
 @keyframes lfkRoda{to{transform:rotate(360deg)}}
