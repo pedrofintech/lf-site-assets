@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LF kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="lf-kit.css">
+<style>
+  /* So para esta pagina: imita as variaveis do Webflow de cada site. Num site real ja existem. */
+  :root{--font--primary-family:Inter,Arial,sans-serif;--font--secondary-family:"Tiempos Headline",Georgia,serif;--colors--text-primary:#202432;--colors--bg-brand:#ff5a1f;--colors--text-link:#2970ff;--colors--border-focus:#d1e0ff;--colors--border-focus-dark:#84adff}
+  :root[data-site=eupf],:root[data-site=bm]{--colors--bg-brand:#202432;--colors--text-link:#004eeb}
+  :root[data-site=ra]{--colors--bg-brand:#0072ce;--colors--text-primary:#081c15;--colors--text-link:#0072ce}
+  :root[data-site=ef]{--colors--bg-brand:#008a52;--colors--text-link:#035b37;--colors--border-focus:#fdedb3;--colors--border-focus-dark:#f1ba05}
+  body{margin:0;background:#fcfcfd}
+  .demo{max-width:1040px;margin:0 auto;padding:32px 16px 80px}
+  .demo-bar{position:sticky;top:0;z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:12px 16px;background:rgba(252,252,253,.92);backdrop-filter:blur(6px);border-bottom:1px solid #e9ecf1}
+  .demo-sec{margin-top:40px}
+  .demo-sec > .lfk-eyebrow{margin-bottom:12px}
+  code{font-size:13px;color:#4f5969}
+</style>
+</head>
+<body>
+<div class="lfk demo-bar">
+  <span class="lfk-strong">LF kit</span>
+  <span class="lfk-small">Ver como fica em:</span>
+  <div class="lfk-chips" id="sites">
+    <button class="lfk-chip is-on" data-site="">Literacia</button>
+    <button class="lfk-chip" data-site="eupf">EUPF</button>
+    <button class="lfk-chip" data-site="bm">BrokerMatch</button>
+    <button class="lfk-chip" data-site="ra">Rahatarkus</button>
+    <button class="lfk-chip" data-site="ef">Educação Financeira</button>
+  </div>
+</div>
+
+<main class="lfk demo">
+  <div class="lfk-stack is-sm" style="text-align:center;align-items:center">
+    <h1 class="lfk-title">Simulador de exemplo</h1>
+    <p class="lfk-lead" style="max-width:40rem">Uma ferramenta montada só com o kit, para ver as peças juntas. Mudar de site em cima troca a cor da marca.</p>
+  </div>
+
+  <!-- Exemplo completo -->
+  <div class="lfk-card is-raised" style="margin-top:28px">
+    <div class="lfk-card-head">
+      <h2 class="lfk-h">Quanto vais pagar por mês</h2>
+      <span class="lfk-tag is-ok">Atualizado em outubro</span>
+    </div>
+    <div class="lfk-grid is-3">
+      <div class="lfk-field">
+        <label class="lfk-label" for="d-montante">Montante <span class="lfk-help" tabindex="0" data-tip="O valor que pedes ao banco, sem a entrada."></span></label>
+        <div class="lfk-input-wrap"><input class="lfk-input lfk-num" id="d-montante" inputmode="numeric" value="150.000"><span class="lfk-unit">€</span></div>
+      </div>
+      <div class="lfk-field">
+        <label class="lfk-label" for="d-prazo">Prazo</label>
+        <div class="lfk-input-wrap"><input class="lfk-input lfk-num" id="d-prazo" inputmode="numeric" value="30"><span class="lfk-unit">anos</span></div>
+      </div>
+      <div class="lfk-field">
+        <label class="lfk-label" for="d-taxa">Tipo de taxa</label>
+        <select class="lfk-input" id="d-taxa"><option>Variável</option><option>Fixa</option><option>Mista</option></select>
+      </div>
+    </div>
+    <div class="lfk-field" style="margin-top:16px">
+      <span class="lfk-label">Indexante</span>
+      <div class="lfk-toggle" id="d-toggle">
+        <button class="lfk-tab is-active">3 meses</button><button class="lfk-tab">6 meses</button><button class="lfk-tab">12 meses</button>
+      </div>
+    </div>
+    <div class="lfk-field" style="margin-top:16px">
+      <label class="lfk-label" for="d-range">Spread: <span id="d-range-v" class="lfk-num">1,0%</span></label>
+      <input class="lfk-range" id="d-range" type="range" min="0.5" max="2.5" step="0.1" value="1">
+    </div>
+    <div class="lfk-row is-between" style="margin-top:20px">
+      <label class="lfk-check"><input type="checkbox" checked> Incluir seguros</label>
+      <button class="lfk-btn">Calcular</button>
+    </div>
+    <hr class="lfk-divider" style="margin:24px 0">
+    <div class="lfk-kpis">
+      <div class="lfk-stat is-brand"><div class="lfk-stat-l">Prestação mensal</div><div class="lfk-stat-v">612,40 €</div><div class="lfk-stat-s">nos primeiros 12 meses</div></div>
+      <div class="lfk-stat is-sm"><div class="lfk-stat-l">TAEG</div><div class="lfk-stat-v">3,92%</div></div>
+      <div class="lfk-stat is-sm"><div class="lfk-stat-l">Total a pagar</div><div class="lfk-stat-v">220.464 €</div></div>
+    </div>
+    <p class="lfk-summary" style="margin-top:20px">Se pedires <b>150.000 €</b> a <b>30 anos</b>, pagas <b>612,40 €</b> por mês e <b>70.464 €</b> de juros no total.</p>
+  </div>
+
+  <section class="demo-sec">
+    <div class="lfk-eyebrow">Botões</div>
+    <div class="lfk-row">
+      <button class="lfk-btn">Principal</button>
+      <button class="lfk-btn is-dark">Escuro</button>
+      <button class="lfk-btn is-secondary">Secundário</button>
+      <button class="lfk-btn is-ghost">Discreto</button>
+      <button class="lfk-btn is-sm">Pequeno</button>
+      <button class="lfk-btn" disabled>Desligado</button>
+    </div>
+  </section>
+
+  <section class="demo-sec">
+    <div class="lfk-eyebrow">Campos</div>
+    <div class="lfk-grid">
+      <div class="lfk-field"><label class="lfk-label" for="c1">Normal</label><input class="lfk-input" id="c1" placeholder="Escreve aqui"><span class="lfk-hint">Texto de ajuda por baixo.</span></div>
+      <div class="lfk-field is-error"><label class="lfk-label" for="c2">Com erro</label><input class="lfk-input" id="c2" value="abc"><span class="lfk-error">Escreve um número.</span></div>
+      <div class="lfk-field"><label class="lfk-label" for="c3">Desligado</label><input class="lfk-input" id="c3" value="2,5" disabled></div>
+      <div class="lfk-field"><label class="lfk-label" for="c4">Número</label><div class="lfk-input-wrap"><input class="lfk-input" id="c4" type="number" value="4"><span class="lfk-unit">%</span></div></div>
+    </div>
+    <div class="lfk-chips" style="margin-top:16px" id="d-chips">
+      <button class="lfk-chip is-on">Todos</button><button class="lfk-chip">Bancos</button><button class="lfk-chip">Online</button><button class="lfk-chip">Sem comissões</button>
+    </div>
+  </section>
+
+  <section class="demo-sec">
+    <div class="lfk-eyebrow">Resultados</div>
+    <div class="lfk-grid is-2">
+      <div class="lfk-card is-soft">
+        <div class="lfk-kv"><span>Montante</span><span>150.000,00 €</span></div>
+        <div class="lfk-kv"><span>Juros</span><span>70.464,00 €</span></div>
+        <div class="lfk-kv"><span>Seguros</span><span>9.360,00 €</span></div>
+        <div class="lfk-kv is-total"><span>Total</span><span>229.824,00 €</span></div>
+      </div>
+      <div class="lfk-table-wrap">
+        <table class="lfk-table">
+          <thead><tr><th>Ano</th><th class="is-num">Prestação</th><th class="is-num">Juros</th><th class="is-num">Em dívida</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td class="is-num">612,40 €</td><td class="is-num">5.380,12 €</td><td class="is-num">146.031,68 €</td></tr>
+            <tr class="is-on"><td>2</td><td class="is-num">612,40 €</td><td class="is-num">5.233,97 €</td><td class="is-num">141.916,85 €</td></tr>
+            <tr><td>3</td><td class="is-num">612,40 €</td><td class="is-num">5.082,64 €</td><td class="is-num">137.650,69 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-sec">
+    <div class="lfk-eyebrow">Etiquetas e avisos</div>
+    <div class="lfk-row"><span class="lfk-tag">Neutra</span><span class="lfk-tag is-ok">Melhor taxa</span><span class="lfk-tag is-warn">Só clientes</span><span class="lfk-tag is-err">Expirada</span><span class="lfk-tag is-dark">12 meses</span><span class="lfk-tag is-brand">Destaque</span></div>
+    <div class="lfk-stack is-sm" style="margin-top:16px">
+      <div class="lfk-alert">Informação: os valores são uma simulação.</div>
+      <div class="lfk-alert is-ok">Tudo certo: a fatura foi lida.</div>
+      <div class="lfk-alert is-warn"><b>Atenção:</b> a taxa muda daqui a 6 meses.</div>
+      <div class="lfk-alert is-err">Não foi possível ler o ficheiro.</div>
+      <div class="lfk-empty">Ainda não há resultados. <span class="lfk-spinner" style="vertical-align:middle;margin-left:8px"></span></div>
+      <div class="lfk-or">ou</div>
+      <p class="lfk-foot">Fonte: Banco de Portugal. <a href="#">Metodologia</a>.</p>
+    </div>
+  </section>
+</main>
+
+<script>
+  document.getElementById('sites').addEventListener('click', function (e) {
+    var b = e.target.closest('.lfk-chip'); if (!b) return;
+    this.querySelectorAll('.lfk-chip').forEach(function (x) { x.classList.toggle('is-on', x === b); });
+    if (b.dataset.site) document.documentElement.setAttribute('data-site', b.dataset.site); else document.documentElement.removeAttribute('data-site');
+  });
+  document.getElementById('d-toggle').addEventListener('click', function (e) {
+    var b = e.target.closest('.lfk-tab'); if (!b) return;
+    this.querySelectorAll('.lfk-tab').forEach(function (x) { x.classList.toggle('is-active', x === b); });
+  });
+  document.getElementById('d-chips').addEventListener('click', function (e) {
+    var b = e.target.closest('.lfk-chip'); if (b) b.classList.toggle('is-on');
+  });
+  // Barra deslizante: pintar a parte preenchida
+  var r = document.getElementById('d-range');
+  function pinta() { r.style.setProperty('--lfk-fill', ((r.value - r.min) / (r.max - r.min) * 100) + '%'); document.getElementById('d-range-v').textContent = String(r.value).replace('.', ',') + '%'; }
+  r.addEventListener('input', pinta); pinta();
+</script>
+</body>
+</html>

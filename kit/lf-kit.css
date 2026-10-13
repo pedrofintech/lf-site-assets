@@ -1,0 +1,225 @@
+/* LF kit v1: estilos para ferramentas embebidas (calculadoras, comparadores, simuladores).
+   Serve nos cinco sites (Literacia, EUPF, BrokerMatch, Rahatarkus, Educacao Financeira): as cores e as letras vem
+   das variaveis do Webflow de cada site, por isso cada um fica com a sua marca. Fora do Webflow usa os valores da Literacia.
+   Base: o design system dos comparadores (deposito, eletricidade, fatura da luz).
+   Uso: <link rel="stylesheet" href=".../kit/lf-kit.css"> e tudo dentro de <div class="lfk">...</div>.
+   Exemplos de cada componente em kit/demo.html; regras para o Claude em kit/README.md. */
+
+.lfk{
+  --lfk-font:var(--font--primary-family,Inter,Arial,sans-serif);
+  --lfk-font-display:var(--font--secondary-family,"Tiempos Headline",Georgia,serif);
+  --lfk-brand:var(--colors--bg-brand,#ff5a1f);
+  --lfk-brand-hover:color-mix(in srgb,var(--lfk-brand) 86%,#000);
+  --lfk-brand-soft:color-mix(in srgb,var(--lfk-brand) 8%,#fff);
+  --lfk-on-brand:#fff;
+  --lfk-text:var(--colors--text-primary,#202432);
+  --lfk-text-2:var(--colors--text-secondary,#3a4454);
+  --lfk-text-3:var(--colors--text-tertiary,#4f5969);
+  --lfk-text-4:var(--colors--text-placeholder,#697386);
+  --lfk-link:var(--colors--text-link,#2970ff);
+  --lfk-bg:#fff;
+  --lfk-bg-2:var(--colors--bg-secondary,#f9fafb);
+  --lfk-bg-3:var(--colors--badge-bg,#f2f4f7);
+  --lfk-dark:#202432;
+  --lfk-border:var(--colors--border-primary,#ced5df);
+  --lfk-border-2:var(--colors--border-secondary,#e9ecf1);
+  --lfk-border-hover:#3a4454;
+  --lfk-focus:var(--colors--border-focus,#d1e0ff);
+  --lfk-focus-border:var(--colors--border-focus-dark,#84adff);
+  --lfk-ok:#067647;--lfk-ok-bg:#ecfdf3;--lfk-ok-border:#a9efc5;
+  --lfk-warn:#b54708;--lfk-warn-bg:#fffaeb;--lfk-warn-border:#fedf89;
+  --lfk-err:#b42318;--lfk-err-bg:#fef3f2;--lfk-err-border:#fda29b;
+  --lfk-info:#155eef;--lfk-info-bg:#eff4ff;--lfk-info-border:#d1e0ff;
+  --lfk-r-sm:8px;--lfk-r:12px;--lfk-r-lg:16px;--lfk-r-xl:20px;--lfk-r-full:999px;
+  --lfk-shadow:0 1px 2px rgba(16,24,40,.04),0 20px 48px -12px rgba(16,24,40,.12);
+  font-family:var(--lfk-font);font-size:16px;line-height:24px;letter-spacing:-.2px;color:var(--lfk-text);
+  text-align:left;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;text-size-adjust:100%
+}
+.lfk,.lfk *,.lfk *::before,.lfk *::after{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+.lfk :where(h1,h2,h3,h4,h5,h6,p,ul,ol,figure){margin:0}
+.lfk :where(button,input,select,textarea){font:inherit;letter-spacing:inherit;color:inherit}
+.lfk :where(img,svg){max-width:100%}
+.lfk .lfk-num{font-variant-numeric:tabular-nums}
+
+/* ---------- Texto ---------- */
+.lfk .lfk-title{font-family:var(--lfk-font-display);font-weight:400;font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.15;letter-spacing:-.015em;color:var(--lfk-text)}
+.lfk .lfk-h{font-size:22px;font-weight:500;line-height:28px;letter-spacing:-.01em;color:var(--lfk-text)}
+.lfk .lfk-h-sm{font-size:16px;font-weight:500;line-height:24px;color:var(--lfk-text)}
+.lfk .lfk-eyebrow{font-size:12px;font-weight:600;line-height:18px;letter-spacing:.02em;text-transform:uppercase;color:var(--lfk-text-4)}
+.lfk .lfk-lead{font-size:18px;line-height:26px;color:var(--lfk-text-3)}
+.lfk .lfk-text{font-size:16px;line-height:24px;color:var(--lfk-text-2)}
+.lfk .lfk-small{font-size:14px;line-height:20px;color:var(--lfk-text-3)}
+.lfk .lfk-xs{font-size:12px;line-height:18px;color:var(--lfk-text-4)}
+.lfk .lfk-muted{color:var(--lfk-text-4)}
+.lfk .lfk-strong{font-weight:600;color:var(--lfk-text)}
+.lfk .lfk-pos{color:var(--lfk-ok)}
+.lfk .lfk-neg{color:var(--lfk-err)}
+.lfk .lfk-link{color:var(--lfk-link);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.lfk .lfk-link:hover{text-decoration-thickness:2px}
+
+/* ---------- Disposicao ---------- */
+.lfk .lfk-stack{display:flex;flex-direction:column;gap:16px}
+.lfk .lfk-stack.is-sm{gap:8px}
+.lfk .lfk-stack.is-lg{gap:24px}
+.lfk .lfk-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.lfk .lfk-row.is-between{justify-content:space-between}
+.lfk .lfk-grid{display:grid;gap:16px 20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.lfk .lfk-grid.is-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lfk .lfk-grid.is-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.lfk .lfk-grid > *{min-width:0}
+.lfk .lfk-divider{height:1px;border:0;margin:0;background:var(--lfk-border-2)}
+.lfk .lfk-or{display:flex;align-items:center;gap:12px;font-size:13px;line-height:18px;color:var(--lfk-text-4)}
+.lfk .lfk-or::before,.lfk .lfk-or::after{content:"";flex:1;height:1px;background:var(--lfk-border-2)}
+
+/* ---------- Cartoes ---------- */
+.lfk .lfk-card{padding:24px 28px;border:1px solid var(--lfk-border-2);border-radius:var(--lfk-r-xl);background:var(--lfk-bg)}
+.lfk .lfk-card.is-soft{border-color:transparent;background:var(--lfk-bg-2)}
+.lfk .lfk-card.is-raised{box-shadow:var(--lfk-shadow)}
+.lfk .lfk-card.is-brand{border-color:var(--lfk-brand)}
+.lfk .lfk-card.is-sm{padding:16px 20px;border-radius:var(--lfk-r-lg)}
+.lfk .lfk-card-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 14px;margin-bottom:16px}
+
+/* ---------- Botoes ---------- */
+.lfk .lfk-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px;border:1px solid transparent;border-radius:var(--lfk-r);background:var(--lfk-brand);color:var(--lfk-on-brand);font-size:15px;font-weight:500;line-height:20px;text-align:center;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
+.lfk .lfk-btn:hover{background:var(--lfk-brand-hover);color:var(--lfk-on-brand)}
+.lfk .lfk-btn.is-dark{background:var(--lfk-dark)}
+.lfk .lfk-btn.is-dark:hover{background:#3a4454}
+.lfk .lfk-btn.is-secondary{background:var(--lfk-bg);border-color:var(--lfk-border);color:var(--lfk-text-2)}
+.lfk .lfk-btn.is-secondary:hover{border-color:var(--lfk-border-hover);background:var(--lfk-bg);color:var(--lfk-text)}
+.lfk .lfk-btn.is-ghost{background:transparent;color:var(--lfk-text-2)}
+.lfk .lfk-btn.is-ghost:hover{background:var(--lfk-bg-3);color:var(--lfk-text)}
+.lfk .lfk-btn.is-sm{min-height:36px;padding:7px 12px;font-size:14px;border-radius:10px}
+.lfk .lfk-btn.is-block{display:flex;width:100%}
+.lfk .lfk-btn svg{width:16px;height:16px;flex-shrink:0}
+.lfk .lfk-btn:disabled,.lfk .lfk-btn.is-disabled{opacity:.45;pointer-events:none}
+
+/* ---------- Campos ---------- */
+.lfk .lfk-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.lfk .lfk-label{display:flex;align-items:center;gap:6px;margin:0;font-size:14px;font-weight:500;line-height:20px;color:var(--lfk-text-2)}
+.lfk .lfk-hint{font-size:12px;line-height:18px;color:var(--lfk-text-4)}
+.lfk .lfk-error{display:none;font-size:12px;line-height:18px;color:var(--lfk-err)}
+.lfk .lfk-field.is-error .lfk-error{display:block}
+.lfk .lfk-input{display:block;width:100%;min-height:44px;margin:0;padding:10px 12px;border:1px solid var(--lfk-border);border-radius:var(--lfk-r);background:var(--lfk-bg);color:var(--lfk-text);font-size:16px;line-height:22px;outline:none;box-shadow:none;-webkit-appearance:none;appearance:none;transition:border-color .15s,box-shadow .15s}
+.lfk .lfk-input::placeholder{color:var(--lfk-text-4);opacity:1}
+.lfk .lfk-input:hover{border-color:var(--lfk-border-hover)}
+.lfk .lfk-input:focus{border-color:var(--lfk-focus-border);box-shadow:0 0 0 3px var(--lfk-focus)}
+.lfk .lfk-field.is-error .lfk-input{border-color:var(--lfk-err-border)}
+.lfk .lfk-input:disabled{background:var(--lfk-bg-2);color:var(--lfk-text-4);pointer-events:none}
+/* Sem setas nos campos numericos (no Windows ocupam espaco e tapam o sufixo) */
+.lfk .lfk-input[type=number]{-moz-appearance:textfield}
+.lfk .lfk-input::-webkit-outer-spin-button,.lfk .lfk-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+/* Unidade dentro do campo (EUR, %, anos) */
+.lfk .lfk-input-wrap{position:relative}
+.lfk .lfk-input-wrap .lfk-input{padding-right:56px}
+.lfk .lfk-unit{position:absolute;top:50%;right:12px;transform:translateY(-50%);font-size:15px;line-height:20px;color:var(--lfk-text-4);pointer-events:none}
+/* Lista: seta propria, igual em Mac e Windows */
+.lfk select.lfk-input{padding-right:36px;cursor:pointer;background:var(--lfk-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233A4454' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center}
+.lfk select.lfk-input::-ms-expand{display:none}
+.lfk select.lfk-input option{color:#202432;background:#fff}
+.lfk textarea.lfk-input{min-height:96px;resize:vertical}
+
+/* Escolha em botoes (2 a 5 opcoes): <div class="lfk-toggle"><button class="lfk-tab is-active"> */
+.lfk .lfk-toggle{display:grid;grid-auto-columns:minmax(0,1fr);grid-auto-flow:column;gap:8px}
+.lfk .lfk-tab{min-height:44px;padding:10px 8px;border:1px solid var(--lfk-border);border-radius:var(--lfk-r);background:var(--lfk-bg);color:var(--lfk-text-2);font-size:14px;font-weight:500;line-height:20px;text-align:center;white-space:nowrap;cursor:pointer}
+.lfk .lfk-tab:hover{border-color:var(--lfk-border-hover)}
+.lfk .lfk-tab.is-active,.lfk .lfk-tab[aria-pressed=true]{background:var(--lfk-text-2);border-color:var(--lfk-text-2);color:#f9fafb}
+
+/* Filtros em pilula: <button class="lfk-chip is-on"> */
+.lfk .lfk-chips{display:flex;flex-wrap:wrap;gap:6px}
+.lfk .lfk-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--lfk-border);border-radius:var(--lfk-r-full);background:var(--lfk-bg);color:var(--lfk-text-2);font-size:13px;font-weight:500;line-height:18px;white-space:nowrap;cursor:pointer}
+.lfk .lfk-chip:hover{border-color:var(--lfk-border-hover)}
+.lfk .lfk-chip.is-on,.lfk .lfk-chip[aria-pressed=true]{background:var(--lfk-dark);border-color:var(--lfk-dark);color:#fff}
+
+/* Caixas de escolha e opcoes: <label class="lfk-check"><input type="checkbox"> Texto</label> */
+.lfk .lfk-check{display:inline-flex;align-items:flex-start;gap:10px;font-size:15px;line-height:22px;color:var(--lfk-text-2);cursor:pointer}
+.lfk .lfk-check input{flex-shrink:0;width:18px;height:18px;margin:2px 0 0;accent-color:var(--lfk-dark);cursor:pointer}
+
+/* Barra deslizante */
+.lfk .lfk-range{display:block;width:100%;height:24px;margin:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer;--lfk-fill:50%}
+.lfk .lfk-range::-webkit-slider-runnable-track{height:6px;border-radius:999px;background:linear-gradient(to right,var(--lfk-dark) var(--lfk-fill),var(--lfk-border-2) var(--lfk-fill))}
+.lfk .lfk-range::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:-7px;border:2px solid var(--lfk-dark);border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.2)}
+.lfk .lfk-range::-moz-range-track{height:6px;border-radius:999px;background:var(--lfk-border-2)}
+.lfk .lfk-range::-moz-range-progress{height:6px;border-radius:999px;background:var(--lfk-dark)}
+.lfk .lfk-range::-moz-range-thumb{width:16px;height:16px;border:2px solid var(--lfk-dark);border-radius:50%;background:#fff}
+.lfk .lfk-range:focus-visible{outline:none}
+.lfk .lfk-range:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px var(--lfk-focus)}
+
+/* Ajuda ao lado da etiqueta: <span class="lfk-help" tabindex="0" data-tip="Texto"></span> */
+.lfk .lfk-help{position:relative;display:inline-flex;width:16px;height:16px;border-radius:50%;color:var(--lfk-text-4);cursor:help;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2396A0B0' stroke-width='1.33' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.06 6a2 2 0 0 1 3.89.67c0 1.33-2 2-2 2M8 11.33h.01M14.67 8A6.67 6.67 0 1 1 1.33 8a6.67 6.67 0 0 1 13.34 0Z'/%3E%3C/svg%3E") no-repeat center/16px}
+.lfk .lfk-help::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;z-index:20;width:max-content;max-width:min(260px,70vw);padding:10px 12px;border-radius:var(--lfk-r);background:#121721;color:#f2f4f7;font-size:13px;font-weight:400;line-height:18px;letter-spacing:0;text-align:left;white-space:normal;transform:translateX(-50%);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s}
+.lfk .lfk-help:hover::after,.lfk .lfk-help:focus::after{opacity:1;visibility:visible}
+.lfk .lfk-help:focus-visible{outline:none;box-shadow:0 0 0 3px var(--lfk-focus)}
+
+/* ---------- Resultados ---------- */
+/* Numero grande: <div class="lfk-stat"><div class="lfk-stat-l">..</div><div class="lfk-stat-v">..</div><div class="lfk-stat-s">..</div></div> */
+.lfk .lfk-stat{min-width:0}
+.lfk .lfk-stat-l{font-size:13px;line-height:18px;color:var(--lfk-text-4)}
+.lfk .lfk-stat-v{margin-top:4px;font-size:30px;font-weight:600;line-height:36px;letter-spacing:-.01em;color:var(--lfk-text);font-variant-numeric:tabular-nums}
+.lfk .lfk-stat-s{margin-top:2px;font-size:14px;line-height:20px;color:var(--lfk-text-3)}
+.lfk .lfk-stat.is-sm .lfk-stat-v{font-size:20px;line-height:28px}
+.lfk .lfk-stat.is-brand .lfk-stat-v{color:var(--lfk-brand)}
+/* Linha de valores lado a lado */
+.lfk .lfk-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+/* Lista de pares nome / valor */
+.lfk .lfk-kv{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--lfk-border-2);font-size:14px;line-height:20px}
+.lfk .lfk-kv > :first-child{color:var(--lfk-text-3)}
+.lfk .lfk-kv > :last-child{text-align:right;color:var(--lfk-text);font-weight:500;font-variant-numeric:tabular-nums}
+.lfk .lfk-kv.is-total{border-bottom:0;font-size:16px}
+.lfk .lfk-kv.is-total > :last-child{font-weight:700}
+/* Frase de resumo com os valores a negrito */
+.lfk .lfk-summary{padding:16px 20px;border-radius:var(--lfk-r-lg);background:var(--lfk-bg-2);font-size:15px;line-height:23px;color:var(--lfk-text-2)}
+.lfk .lfk-summary b{font-weight:600;color:var(--lfk-text)}
+
+/* Tabela: <div class="lfk-table-wrap"><table class="lfk-table"> ; numeros com class="is-num" */
+.lfk .lfk-table-wrap{width:100%;overflow-x:auto;border:1px solid var(--lfk-border-2);border-radius:var(--lfk-r-lg);scrollbar-width:thin;scrollbar-color:var(--lfk-border) transparent}
+.lfk .lfk-table-wrap::-webkit-scrollbar{height:8px}
+.lfk .lfk-table-wrap::-webkit-scrollbar-thumb{border-radius:8px;background:var(--lfk-border)}
+.lfk .lfk-table{width:100%;margin:0;border-collapse:collapse;border-spacing:0;font-size:14px;line-height:20px}
+.lfk .lfk-table th{padding:10px 14px;background:var(--lfk-bg-2);border-bottom:1px solid var(--lfk-border-2);font-size:12px;font-weight:500;line-height:18px;color:var(--lfk-text-4);text-align:left;white-space:nowrap}
+.lfk .lfk-table td{padding:10px 14px;border-bottom:1px solid var(--lfk-border-2);color:var(--lfk-text-2);text-align:left;background:transparent}
+.lfk .lfk-table tr:last-child td{border-bottom:0}
+.lfk .lfk-table .is-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lfk .lfk-table tr.is-on td{background:var(--lfk-brand-soft);color:var(--lfk-text);font-weight:600}
+
+/* ---------- Etiquetas e avisos ---------- */
+.lfk .lfk-tag{display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:var(--lfk-r-full);background:var(--lfk-bg-3);color:var(--lfk-text-3);font-size:12px;font-weight:500;line-height:18px;white-space:nowrap}
+.lfk .lfk-tag.is-ok{background:var(--lfk-ok-bg);color:var(--lfk-ok)}
+.lfk .lfk-tag.is-warn{background:var(--lfk-warn-bg);color:var(--lfk-warn)}
+.lfk .lfk-tag.is-err{background:var(--lfk-err-bg);color:var(--lfk-err)}
+.lfk .lfk-tag.is-dark{background:var(--lfk-dark);color:#fff}
+.lfk .lfk-tag.is-brand{background:var(--lfk-brand);color:var(--lfk-on-brand)}
+.lfk .lfk-alert{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border:1px solid var(--lfk-info-border);border-radius:var(--lfk-r);background:var(--lfk-info-bg);color:var(--lfk-info);font-size:14px;line-height:20px}
+.lfk .lfk-alert.is-ok{border-color:var(--lfk-ok-border);background:var(--lfk-ok-bg);color:var(--lfk-ok)}
+.lfk .lfk-alert.is-warn{border-color:var(--lfk-warn-border);background:var(--lfk-warn-bg);color:var(--lfk-warn)}
+.lfk .lfk-alert.is-err{border-color:var(--lfk-err-border);background:var(--lfk-err-bg);color:var(--lfk-err)}
+.lfk .lfk-alert b{font-weight:600}
+.lfk .lfk-empty{padding:32px;border:1px dashed var(--lfk-border);border-radius:var(--lfk-r-lg);color:var(--lfk-text-4);font-size:14px;line-height:20px;text-align:center}
+.lfk .lfk-spinner{display:inline-block;width:20px;height:20px;border:2px solid var(--lfk-border-2);border-top-color:var(--lfk-text);border-radius:50%;animation:lfkRoda .8s linear infinite}
+@keyframes lfkRoda{to{transform:rotate(360deg)}}
+.lfk .lfk-foot{font-size:12px;line-height:18px;color:var(--lfk-text-4)}
+.lfk .lfk-foot a{color:inherit;text-decoration:underline}
+
+/* ---------- Teclado e acessibilidade ---------- */
+.lfk :is(.lfk-btn,.lfk-tab,.lfk-chip,.lfk-link):focus-visible{outline:none;box-shadow:0 0 0 3px var(--lfk-focus)}
+.lfk .lfk-check input:focus-visible{outline:2px solid var(--lfk-focus-border);outline-offset:2px}
+/* Windows com contraste elevado: as caixas continuam a ter contorno */
+@media (forced-colors:active){
+  .lfk :is(.lfk-card,.lfk-input,.lfk-btn,.lfk-tab,.lfk-chip,.lfk-alert,.lfk-tag){border:1px solid CanvasText}
+  .lfk :is(.lfk-tab.is-active,.lfk-chip.is-on){outline:2px solid Highlight}
+}
+@media (prefers-reduced-motion:reduce){.lfk *{transition:none!important;animation-duration:.01ms!important}}
+
+/* ---------- Ecras pequenos ---------- */
+@media (max-width:767px){
+  .lfk .lfk-card{padding:16px;border-radius:var(--lfk-r-lg)}
+  .lfk .lfk-grid.is-2,.lfk .lfk-grid.is-3{grid-template-columns:minmax(0,1fr)}
+  .lfk .lfk-toggle{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lfk .lfk-tab{white-space:normal}
+  .lfk .lfk-stat-v{font-size:26px;line-height:32px}
+  .lfk .lfk-help::after{left:auto;right:-8px;transform:none}
+}
+/* Portateis com pouca altura (muito comum em Windows): menos espaco vertical */
+@media (min-width:768px) and (max-height:720px){
+  .lfk .lfk-card{padding:20px 24px}
+  .lfk .lfk-stack.is-lg{gap:18px}
+}
