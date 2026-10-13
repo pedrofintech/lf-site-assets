@@ -29,6 +29,7 @@ const routes = [
   { test: (p) => p === '/calculadora-investimentos', load: () => import('./pages/calculadora-investimentos/index.js') },
   { test: (p) => p === '/simulador-financiamento-imobiliario', load: () => import('./pages/simulador-financiamento-imobiliario/index.js') },
   { test: (p) => p === '/simulador-emprestimo-pessoal', load: () => import('./pages/simulador-emprestimo-pessoal/index.js') },
+  { test: (p) => p === '/parcerias', load: () => import('./pages/parcerias/index.js') },
   { test: (p) => p === '/contatos', load: () => import('./pages/contatos/index.js') },
   { test: (p) => p.startsWith('/artigos'), load: () => import('./pages/artigos/index.js') },
   { test: (p) => p === '/portfolio', load: () => import('./pages/portfolio/index.js') },

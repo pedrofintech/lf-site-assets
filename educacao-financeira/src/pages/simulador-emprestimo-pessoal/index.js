@@ -1,3 +1,4 @@
+import '../../shared/styles/table-style-calculadora-habitacao.css'
 import '../../shared/styles/table-style-calculadora.css'
 import '../../shared/calculadora-inputs.js'
 import '../../shared/dropdown-scroll.js'

@@ -99,6 +99,7 @@ src/
     simulador-financiamento-imobiliario/
     simulador-emprestimo-pessoal/
     contatos/
+    parcerias/
     artigos/                        # também usado em /artigos/<slug> (collection detail)
     categorias-artigos/             # /categorias-artigos/<slug>
     portfolio/
@@ -121,11 +122,12 @@ Definido em [src/main.js](src/main.js). Pathname normalizado (sem trailing slash
 | `/simulador-financiamento-imobiliario` | `pages/simulador-financiamento-imobiliario/` |
 | `/simulador-emprestimo-pessoal` | `pages/simulador-emprestimo-pessoal/` |
 | `/contatos` | `pages/contatos/` |
+| `/parcerias` | `pages/parcerias/` |
 | `/artigos`, `/artigos/*` | `pages/artigos/` |
 | `/categorias-artigos/*` | `pages/categorias-artigos/` |
 | `/portfolio` | `pages/portfolio/` |
 | `/` | `pages/home/` (nota e zoom das imagens dos recursos) |
-| qualquer outro (`/sobre`, `/parcerias`, `/recursos/*`, etc.) | só globais |
+| qualquer outro (`/sobre`, `/recursos/*`, etc.) | só globais |
 
 Para adicionar uma página nova: cria `src/pages/<slug>/index.js` com os imports
 necessários e adiciona uma linha em `routes` no `src/main.js`.
