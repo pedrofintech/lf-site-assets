@@ -92,6 +92,7 @@ src/
       table-style-calculadora-salario.css, table-style-calculadora-habitacao.css,
       vantagens-desvantagens.css
   pages/                            # uma pasta por rota Webflow
+    home/                           # /
     calculadora-juros-compostos/
     calculadora-independencia-financeira/
     calculadora-investimentos/
@@ -123,7 +124,8 @@ Definido em [src/main.js](src/main.js). Pathname normalizado (sem trailing slash
 | `/artigos`, `/artigos/*` | `pages/artigos/` |
 | `/categorias-artigos/*` | `pages/categorias-artigos/` |
 | `/portfolio` | `pages/portfolio/` |
-| qualquer outro (`/`, `/sobre`, `/parcerias`, `/recursos/*`, etc.) | só globais |
+| `/` | `pages/home/` (nota e zoom das imagens dos recursos) |
+| qualquer outro (`/sobre`, `/parcerias`, `/recursos/*`, etc.) | só globais |
 
 Para adicionar uma página nova: cria `src/pages/<slug>/index.js` com os imports
 necessários e adiciona uma linha em `routes` no `src/main.js`.

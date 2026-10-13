@@ -37,6 +37,7 @@ import './globals/gsap-opacity.js'
 const path = (location.pathname.replace(/\/+$/, '') || '/').toLowerCase()
 
 const routes = [
+  { test: (p) => p === '/', load: () => import('./pages/home/index.js') },
   { test: (p) => p === '/calculadora-juros-compostos', load: () => import('./pages/calculadora-juros-compostos/index.js') },
   { test: (p) => p === '/calculadora-independencia-financeira', load: () => import('./pages/calculadora-independencia-financeira/index.js') },
   { test: (p) => p === '/calculadora-investimentos', load: () => import('./pages/calculadora-investimentos/index.js') },
