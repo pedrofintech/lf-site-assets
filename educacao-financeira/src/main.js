@@ -4,23 +4,9 @@ console.log(
   "color:inherit"
 )
 
-// Polyfill: o nosso bundle carrega depois do DOMContentLoaded, por isso scripts
-// que fazem `document.addEventListener("DOMContentLoaded", fn)` nunca disparariam.
-// Aqui interceptamos e corremos `fn` imediatamente se o DOM já estiver pronto.
-const _origAdd = document.addEventListener.bind(document)
-document.addEventListener = function (type, listener, options) {
-  if (
-    type === "DOMContentLoaded" &&
-    document.readyState !== "loading" &&
-    typeof listener === "function"
-  ) {
-    Promise.resolve().then(() =>
-      listener.call(document, new Event("DOMContentLoaded"))
-    )
-    return
-  }
-  return _origAdd(type, listener, options)
-}
+// Tem de ser o primeiro import: os módulos importados correm antes do corpo
+// deste ficheiro, por isso o polyfill tem de estar ativo antes dos globais.
+import './globals/dom-ready.js'
 
 // Globais — corre em todas as páginas
 import './globals/document-load.js'
