@@ -1,0 +1,122 @@
+.table-content {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* ============================= */
+/* TABLE BASE */
+/* ============================= */
+
+table {
+  width: 100%;
+  border-collapse: separate; /* important */
+  border-spacing: 0; /* important */
+  font-size: var(--p-small--font-size);
+  color: var(--colors--text-primary);
+  line-height: var(--p-small--line-height);
+  letter-spacing: var(--p-small--letter-spacing);
+  text-align: left;
+  table-layout: fixed; /* keep natural sizing so header/body align */
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+thead th {
+  font-weight: 500 !important;
+  padding: 12px;
+  color: var(--colors--text-tertiary);
+  white-space: normal; /* wrap */
+  word-break: break-word;
+  vertical-align: top;
+}
+
+/* ============================= */
+/* BODY */
+/* ============================= */
+
+tbody td {
+  padding: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* row separators (inside body) */
+tbody tr:not(:last-child) td {
+  border-bottom: 1px solid var(--colors--border-secondary);
+}
+
+/* ============================= */
+/* BODY OUTER BORDER (rounded) */
+/* ============================= */
+
+/* left + right borders for all body rows */
+tbody td:first-child {
+  border-left: 1px solid var(--colors--border-secondary);
+}
+tbody td:last-child {
+  border-right: 1px solid var(--colors--border-secondary);
+}
+
+/* top border on first body row */
+tbody tr:first-child td {
+  border-top: 1px solid var(--colors--border-secondary);
+}
+
+/* bottom border on last body row */
+tbody tr:last-child td {
+  border-bottom: 1px solid var(--colors--border-secondary);
+}
+
+/* rounded corners on the body only */
+tbody tr:first-child td:first-child {
+  border-top-left-radius: 8px;
+}
+tbody tr:first-child td:last-child {
+  border-top-right-radius: 8px;
+}
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+/* ============================= */
+/* COLUMN SIZING */
+/* ============================= */
+
+/* first column */
+thead th:first-child,
+tbody td:first-child {
+  width: 4.2rem;
+}
+
+/* all other columns same width */
+thead th:not(:first-child),
+tbody td:not(:first-child) {
+  width: 133px;
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media screen and (max-width: 767px) {
+  thead th:first-child,
+  tbody td:first-child {
+    width: 6rem;
+    min-width: 6rem;
+    max-width: 6rem;
+  }
+
+  /* Other columns: allow fill, but cap at 140px */
+  thead th:not(:first-child),
+  tbody td:not(:first-child) {
+    width: 7rem;
+    min-width: 7rem;
+    max-width: 7rem;
+  }
+}

@@ -1,0 +1,31 @@
+.conversion-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.conversion-list li {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.conversion-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1.5rem;
+  height: 1.55rem;
+  margin-top: -0.06rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://cdn.prod.website-files.com/67b3586be7527f75ff1f014c/67e3cb54d6d59734b92bcb83_feature.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 767px) {
+  .conversion-list li::before {
+    height: 1.65rem;
+  }
+}
