@@ -14,9 +14,13 @@ import './globals/copyright.js'
 import './globals/cookies.js'
 import './globals/categoria-link.js'
 import './globals/menu.js'
-import './globals/lock-scroll-load.js'
+// Desligado (13 out 2026): forçava o topo ao abrir e rebentava em `lenis`,
+// que não é global. Os outros sites não o têm.
+// import './globals/lock-scroll-load.js'
 import './globals/marquee.js'
-import './globals/titles-animation.js'
+// Desligado (13 out 2026): precisa do SplitType, que não é carregado, por
+// isso nunca animou e só dava erro. Os outros sites não o têm.
+// import './globals/titles-animation.js'
 // Fades de entrada desligados a pedido (13 out 2026), para ficar como os
 // outros sites, que têm os mesmos atributos [opacity-*] mas sem animação.
 // import './globals/gsap-opacity.js'
