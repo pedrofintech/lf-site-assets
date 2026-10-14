@@ -2,9 +2,11 @@
 
 Estilos prontos para ferramentas embebidas no Webflow: calculadoras, comparadores, simuladores. Uma ferramenta feita com o kit fica igual às calculadoras live, sem CSS próprio para botões, campos, cartões, tabelas ou gráficos. Cada medida vem das classes do Webflow (form_input, form_label, button, table-results_wrapper, graph_wrapper, resultados_component, help-text_wrapper, badge) e das tabelas das calculadoras, e usa as cores de cada site. A tipografia (tamanhos, alturas de linha, tracking) é fixa e igual nos cinco, com os valores da Literacia, mesmo que as variáveis do Webflow difiram entre sites.
 
-Funciona nos cinco sites (Literacia, EUPF, BrokerMatch, Rahatarkus, Educação Financeira). As cores e as letras vêm das variáveis do Webflow de cada site, por isso o botão principal sai laranja na Literacia, verde na Educação Financeira e azul no Rahatarkus, com o mesmo código.
+Funciona nos cinco sites (Literacia, EUPF, BrokerMatch, Rahatarkus, Educação Financeira). As cores vêm das variáveis do Webflow de cada site, por isso o botão principal sai laranja na Literacia, verde na Educação Financeira e azul no Rahatarkus, com o mesmo código.
 
-Para ver todas as peças: `python3 kit/serve.py` e abrir http://localhost:4321/demo.html (não abre bem com duplo clique; o servidor desliga a cache para se ver sempre a última versão). A demo carrega o CSS real do Webflow do site escolhido no seletor, por isso as letras, cores e tamanhos são os do site.
+**Para o Claude:** as instruções completas estão em [`CLAUDE.md`](CLAUDE.md). Num pedido novo basta escrever: "Lê o kit/CLAUDE.md do repo pedrofintech/lf-site-assets e usa o kit."
+
+Para ver todas as peças: https://htmlpreview.github.io/?https://github.com/pedrofintech/lf-site-assets/blob/main/kit/demo.html. Localmente: `python3 kit/serve.py` e abrir http://localhost:4321/demo.html (não abre bem com duplo clique). A demo carrega o CSS real do Webflow do site escolhido no seletor, por isso as letras, cores e tamanhos são os do site.
 
 ## Como usar
 
@@ -20,7 +22,7 @@ E a ferramenta toda dentro de `<div class="lfk">`. Fora desse div o kit não mex
 
 ## Regras para o Claude
 
-Colar isto no pedido quando se pede uma ferramenta nova:
+Resumo (as regras completas estão no `CLAUDE.md`):
 
 > Usa o LF kit (`kit/lf-kit.css` do repo pedrofintech/lf-site-assets; exemplos em `kit/demo.html`). Tudo dentro de `<div class="lfk">`. Usa só as classes `lfk-*` do kit para texto, botões, campos, cartões, tabelas, etiquetas e avisos. Não escrevas CSS para cores, letras, bordas ou cantos: se faltar uma peça, junta só o mínimo num `<style>` com prefixo próprio e usa as variáveis do kit (`var(--lfk-brand)`, `var(--lfk-text)`, `var(--lfk-border-2)`, etc.), nunca cores em hexadecimal. Números com `class="lfk-num"` ou `is-num` nas tabelas. Listas são `<select class="lfk-input">` (o `lf-kit.js` transforma-as no dropdown das calculadoras e mantém o `<select>` sincronizado). Gráficos só com `lf-kit.js` (`LFK.bar`, `LFK.line`, `LFK.donut`), dentro de um `lfk-card` com separadores Gráfico/Tabela. Botões são `<button>`, campos têm `<label for>`. Testa a 375 px de largura e num ecrã com 650 px de altura.
 

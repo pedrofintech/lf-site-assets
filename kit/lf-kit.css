@@ -70,6 +70,7 @@
 .lfk :where(button){letter-spacing:inherit;text-rendering:inherit}  /* no site os botoes sao <a> e herdam do body */
 .lfk :where(img,svg){max-width:100%}
 .lfk .lfk-num{font-variant-numeric:tabular-nums}
+.lfk [hidden],.lfk[hidden]{display:none!important}
 
 /* ---------- Texto ---------- */
 /* Titulo da pagina = heading-style-h2; titulo de secao = h4; titulo de cartao = "Resultados" (text-size-extra-large medium) */
