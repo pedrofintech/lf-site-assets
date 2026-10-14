@@ -42,6 +42,27 @@
     "v": "Sem mínimo",
     "s": "Online"
    },
+   "perfis": {
+    "menor": {
+     "produto": "Revolut <18",
+     "idade": "6 a 17 anos",
+     "custoMes": 0,
+     "cartao": "Grátis, envio 6,99€",
+     "ab": {
+      "v": "Sem mínimo",
+      "s": "Na app dos pais"
+     },
+     "nota": "Subconta do pai ou da mãe, que têm de ter conta Revolut. No plano Standard inclui 1 conta para menores. O jovem tem app própria.",
+     "src": "https://www.revolut.com/pt-PT/kids-and-teens/kids-bank-account/"
+    },
+    "conjunta": {
+     "v": "2 titulares",
+     "s": "Na app, os 2 com Revolut",
+     "cartao2": "2.º cartão: envio 6,99€",
+     "nota": "Conta coletiva à parte, com 0€ de manutenção. Os 2 titulares têm de ter conta Revolut, 18 anos ou mais e viver no mesmo país.",
+     "src": "https://www.revolut.com/pt-PT/open-joint-bank-account/"
+    }
+   },
    "review": "https://www.literaciafinanceira.pt/artigos/analise-completa-revolut-portugal",
    "src": "https://www.revolut.com/pt-PT/legal/standard-fees/",
    "f": {
@@ -156,9 +177,36 @@
     "label": "Ir para o ActivoBank",
     "href": "https://www.activobank.pt/conta-simples"
    },
+   "premio": {
+    "t": "200€ em cartão Amazon e 5% TANB",
+    "s": "Cartão Oferta Amazon.es de 200€ e Conta PoupeUp a 5% TANB durante 360 dias, até 5.000€. Ordenado desde 900€. Até 31/10/2026.",
+    "ate": "2026-10-31",
+    "url": "https://www.activobank.pt/ordenado-activo"
+   },
    "ab": {
     "v": "Sem mínimo",
     "s": "Online ou Ponto Activo"
+   },
+   "perfis": {
+    "menor": {
+     "produto": "Conta Menores",
+     "idade": "0 a 17 anos",
+     "custoMes": 0,
+     "cartao": "Grátis, desde os 12 anos",
+     "ab": {
+      "v": "Sem mínimo",
+      "s": "Num Ponto Activo"
+     },
+     "nota": "Cartão de débito 12/17 grátis a partir dos 12 anos, com limite diário escolhido pelos pais. Pré-pago grátis a partir dos 10 anos e app a partir dos 12.",
+     "src": "https://www.activobank.pt/conta-menores"
+    },
+    "conjunta": {
+     "v": "Até 2 titulares",
+     "s": "Online, os 2 com CMD",
+     "cartao2": "2.º cartão grátis",
+     "nota": "Abre online com 2 titulares se ambos tiverem Chave Móvel Digital; senão, num Ponto Activo. O 2.º titular também pode entrar depois, por convite na app.",
+     "src": "https://www.activobank.pt/abertura-conta"
+    }
    },
    "src": "https://www.activobank.pt/precario",
    "f": {
@@ -281,9 +329,35 @@
      "s": "A Conta Bankinter Online sem comissões é só para novos clientes"
     }
    ],
+   "premio": {
+    "t": "5% TANB no 1.º ano",
+    "s": "Na Conta Mais Ordenado: 5% TANB no 1.º ano e 2% no 2.º, até 10.000€, com ordenado desde 750€ e cartão de crédito com 5 compras por período.",
+    "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-mais-ordenado"
+   },
    "ab": {
     "v": "Sem mínimo",
     "s": "Online ou agência"
+   },
+   "perfis": {
+    "menor": {
+     "produto": "Conta BK Mini",
+     "idade": "0 a 17 anos",
+     "custoMes": 0,
+     "cartao": "Grátis, desde os 14 anos",
+     "ab": {
+      "v": "Mín. 25€",
+      "s": "Na agência"
+     },
+     "nota": "Cartão de débito grátis a partir dos 14 anos, com limite de 50€ por dia. App a partir dos 14 anos. O menor é o único titular.",
+     "src": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-jovem-bk-mini"
+    },
+    "conjunta": {
+     "v": "Até 3 titulares",
+     "s": "Na app, por convite",
+     "cartao2": "2.º cartão: 20,80€/ano",
+     "nota": "O 1.º titular abre na app e convida os outros. O cartão de débito é grátis só para o 1.º titular.",
+     "src": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online"
+    }
    },
    "src": "https://www.bankinter.pt/precario",
    "f": {
@@ -779,6 +853,21 @@
     "v": "Sem mínimo",
     "s": "Online"
    },
+   "perfis": {
+    "menor": {
+     "produto": "Conta para crianças",
+     "idade": "0 a 17 anos",
+     "custoMes": 3.99,
+     "custoNota": "Plano Core dos pais",
+     "cartao": "Incluído",
+     "ab": {
+      "v": "Sem mínimo",
+      "s": "Na app dos pais"
+     },
+     "nota": "A conta da criança é grátis, mas o pai ou a mãe tem de ter um plano pago (Core, desde 3,99€ por mês). Até 4 contas de menores.",
+     "src": "https://help.bunq.com/articles/how-do-i-open-an-account-for-my-child"
+    }
+   },
    "review": "https://www.literaciafinanceira.pt/artigos/analise-bunq-portugal",
    "src": "https://www.bunq.com/pt-pt/pricing",
    "f": {
@@ -905,6 +994,15 @@
    "ab": {
     "v": "Sem mínimo",
     "s": "Online"
+   },
+   "perfis": {
+    "conjunta": {
+     "v": "2 titulares",
+     "s": "Na app, os 2 com N26",
+     "cartao2": "2.º cartão: físico 10€",
+     "nota": "Conta conjunta com IBAN próprio, em todos os planos, sem custo extra. Os 2 titulares têm de ter conta N26 do mesmo país.",
+     "src": "https://n26.com/en-eu/joint-bank-account"
+    }
    },
    "src": "https://n26.com/en-eu/legal-documents/account",
    "f": {
@@ -1034,6 +1132,28 @@
     "v": "Mín. 100€",
     "s": "Online"
    },
+   "perfis": {
+    "menor": {
+     "produto": "Conta Start Plus",
+     "idade": "Até aos 17 anos",
+     "custoMes": 0,
+     "conf": true,
+     "cartao": "Grátis",
+     "ab": {
+      "v": "Mín. 100€",
+      "s": "Centro de Investimento"
+     },
+     "nota": "Cartão Best Visa Debit sem comissão. O menor não tem acesso online: movimenta a conta com autorização dos pais.",
+     "src": "https://www.bancobest.pt/ptg/best_contas?active=startplus"
+    },
+    "conjunta": {
+     "v": "Até 4 titulares",
+     "s": "Online",
+     "cartao2": "2.º cartão: 21,84€/ano",
+     "nota": "Abre online com até 4 titulares, todos com Chave Móvel Digital; senão, por videochamada ou num Centro de Investimento.",
+     "src": "https://www.bancobest.pt/ptg/AberturaContaOnline"
+    }
+   },
    "src": "https://www.bancobest.pt/ptg/best_NS_PRECARIO",
    "f": {
     "custoAno": 21.84,
@@ -1151,6 +1271,40 @@
    "ab": {
     "v": "Mín. 2.000€",
     "s": "Online ou agência"
+   },
+   "perfis": {
+    "jovem": {
+     "produto": "Conta Global #Investe_no_Futuro",
+     "idade": "18 a 29 anos",
+     "custoMes": 0,
+     "cartao": "Grátis",
+     "ab": {
+      "v": "Mín. 250€",
+      "s": "Online ou agência"
+     },
+     "nota": "Preçário automático até fazer 30 anos: sem manutenção, um cartão BiG Mastercard grátis por conta e 10 transferências por mês grátis na internet. Mínimo de abertura de 250€ em vez de 2.000€.",
+     "src": "https://www.big.pt/Precario/PrecarioInvesteFuturo"
+    },
+    "menor": {
+     "produto": "Conta Global Sub-18",
+     "idade": "Até aos 17 anos",
+     "custoMes": 1.21,
+     "custoNota": "0€ sem cartão",
+     "cartao": "Desde os 14 anos: 14,56€/ano",
+     "ab": {
+      "v": "Mín. 250€",
+      "s": "Online e por correio"
+     },
+     "nota": "Sem comissão de manutenção. Cartão BiG Mastercard opcional a partir dos 14 anos: 10€ + IS no 1.º ano e 14€ + IS depois. Os documentos seguem por correio ou numa agência.",
+     "src": "https://www.big.pt/AbrirConta/AberturaDeContas/Condicoes/Junior"
+    },
+    "conjunta": {
+     "v": "Vários titulares",
+     "s": "Conta coletiva",
+     "cartao2": "2.º cartão: 14,56€/ano",
+     "nota": "Conta individual ou coletiva. A isenção do cartão com ordenado ou mais de 100.000€ é só para o 1.º titular.",
+     "src": "https://www.big.pt/pdf/abrirconta/CondicoesGerais_AC.pdf"
+    }
    },
    "src": "https://www.big.pt/Precario/Precario",
    "f": {
@@ -1389,6 +1543,52 @@
     "v": "Mín. 150€",
     "s": "Online ou agência"
    },
+   "perfis": {
+    "jovem": {
+     "produto": "Conta CaixaJovem Extracto",
+     "idade": "18 a 25 anos",
+     "custoMes": 1.65,
+     "custoMesCond": 0,
+     "cartao": "Grátis no 1.º ano",
+     "ab": {
+      "v": "Mín. 100€",
+      "s": "Só 1 titular"
+     },
+     "promo": {
+      "m": 12
+     },
+     "tags": [
+      {
+       "t": "Cartão grátis no 1.º ano",
+       "w": 0,
+       "i": "card",
+       "s": "Depois, 19,76€ por ano, ou grátis com 600€ de compras por ano"
+      }
+     ],
+     "nota": "Sem comissão de manutenção até aos 25 anos, com 1 titular. Cartão de débito grátis no 1.º ano; depois 19,76€ por ano, ou grátis com 600€ de compras por ano. Aos 26 anos passa a Conta Extracto.",
+     "src": "https://www.cgd.pt/_layouts/15/CaixatecCGDLayoutsV2/fin.aspx?pff=400&pfc=014&moe=EUR"
+    },
+    "menor": {
+     "produto": "Conta CaixaJovem Extracto",
+     "idade": "0 a 17 anos",
+     "custoMes": 1.21,
+     "custoNota": "0€ sem cartão",
+     "cartao": "Desde os 12 anos: 14,56€/ano",
+     "ab": {
+      "v": "Mín. 100€",
+      "s": "Na agência"
+     },
+     "nota": "Sem comissão de manutenção. Mega Cartão Jovem a partir dos 12 anos, por 14€ + IS por ano. Dos 12 aos 17 anos, o menor consulta as contas na app. Só 1 titular, o menor.",
+     "src": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Caixajovem-Extracto.aspx"
+    },
+    "conjunta": {
+     "v": "Vários titulares",
+     "s": "Só na agência",
+     "cartao2": "2.º cartão: por confirmar",
+     "nota": "Aceita vários titulares, mas só na agência: online a conta abre com 1 titular. O pacote S inclui 1 cartão de débito.",
+     "src": "https://www.cgd.pt/Particulares/Contas/Abertura-conta/Pages/Abertura-conta.aspx"
+    }
+   },
    "src": "https://www.cgd.pt/Precario/Pages/Precario.aspx",
    "f": {
     "custoAno": 65.52,
@@ -1516,9 +1716,50 @@
     "m": 12,
     "ate": "2026-12-31"
    },
+   "premio": {
+    "t": "Até 500€ de volta no cartão de crédito",
+    "s": "20% do menor dos 2 primeiros ordenados, até 500€. Ordenado desde 1.000€, só novos clientes, fidelização de 24 meses. Contas abertas até 15/10/2026.",
+    "ate": "2026-10-15",
+    "url": "https://www.millenniumbcp.pt/campanhas/domiciliacao-ordenado"
+   },
    "ab": {
     "v": "Mín. 250€",
     "s": "50€ dos 18 aos 35 anos"
+   },
+   "perfis": {
+    "jovem": {
+     "produto": "Millennium GO!",
+     "idade": "18 a 30 anos",
+     "custoMes": 3.64,
+     "custoMesCond": 1.04,
+     "cartao": "Incluído",
+     "ab": {
+      "v": "Mín. 50€",
+      "s": "Online"
+     },
+     "nota": "3,50€ + IS por mês. 1,04€ com ordenado de 500€ ou mais e extrato digital. Inclui cartão de débito e cartão de crédito GO! sem comissão. Acaba aos 31 anos.",
+     "src": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0729-PT.pdf"
+    },
+    "menor": {
+     "produto": "Conta Millennium Start + Let's GO!",
+     "idade": "0 a 17 anos",
+     "custoMes": 0.52,
+     "custoMesCond": 0,
+     "cartao": "Grátis, desde os 12 anos",
+     "ab": {
+      "v": "Mín. 25€",
+      "s": "Na sucursal"
+     },
+     "nota": "0,50€ + IS por mês. 0€ se estiver ligada a uma conta família, como a Cliente Frequente, e tiver extrato digital. Cartão de débito a partir dos 12 anos e app a partir dos 14.",
+     "src": "https://www.millenniumbcp.pt/contas/abrir-conta-para-menor/lets-go"
+    },
+    "conjunta": {
+     "v": "Vários titulares",
+     "s": "Online até 2",
+     "cartao2": "2.º cartão incluído",
+     "nota": "Na app abre com até 2 titulares, com Chave Móvel Digital; com mais, na sucursal. O pacote isenta 2 cartões de débito.",
+     "src": "https://www.millenniumbcp.pt/abrir-conta-online"
+    }
    },
    "src": "https://ind.millenniumbcp.pt/pt/info/Pages/precario.aspx",
    "f": {
@@ -1644,9 +1885,49 @@
    "promo": {
     "m": 6
    },
+   "premio": {
+    "t": "Até 500€ na conta ou 750€ em pontos",
+    "s": "500€ ou 750€ em pontos com ordenado desde 1.200€; 100€ com ordenado de 850€ a 1.199€. Só novos clientes, fidelização de 25 meses. Contas abertas até 31/10/2026.",
+    "ate": "2026-10-31",
+    "url": "https://www.santander.pt/campanhas/vantagens-ordenado"
+   },
    "ab": {
     "v": "Sem mínimo",
     "s": "Com Chave Móvel Digital"
+   },
+   "perfis": {
+    "jovem": {
+     "produto": "Conta Jovem",
+     "idade": "18 a 26 anos",
+     "custoMes": 0,
+     "cartao": "Grátis (1.º titular)",
+     "ab": {
+      "v": "Sem mínimo",
+      "s": "Online"
+     },
+     "premio": true,
+     "nota": "Manutenção e cartão de débito do 1.º titular grátis até aos 26 anos. Dos 27 aos 30 anos, 6€ + IS por trimestre de manutenção mais o cartão. Aos 31 anos passa a conta normal.",
+     "src": "https://www.santander.pt/pdfs/particulares/contas/conta-jovem/BST-IE-50008945.pdf"
+    },
+    "menor": {
+     "produto": "Conta Sub18",
+     "idade": "0 a 17 anos",
+     "custoMes": 0,
+     "cartao": "Grátis, desde os 13 anos",
+     "ab": {
+      "v": "Mín. 5€",
+      "s": "No balcão"
+     },
+     "nota": "Dos 0 aos 12 anos, 2 cartões pré-pagos grátis. Dos 13 aos 17, cartão de débito grátis e app para menores. Abrem os pais, os avós ou o representante legal.",
+     "src": "https://www.santander.pt/contas/conta-bancaria-para-menores"
+    },
+    "conjunta": {
+     "v": "Vários titulares",
+     "s": "Online com 2",
+     "cartao2": "2.º cartão: 24,96€/ano",
+     "nota": "Abre online com 2 titulares. O cartão dos outros titulares custa 6€ + IS por trimestre a partir do 2.º trimestre, grátis até aos 25 anos.",
+     "src": "https://www.santander.pt/contas/conta-santander-mais"
+    }
    },
    "src": "https://www.santander.pt/precario",
    "f": {
@@ -1765,6 +2046,39 @@
     "v": "Mín. 250€",
     "s": "Online ou balcão"
    },
+   "perfis": {
+    "jovem": {
+     "produto": "Conta 18.25",
+     "idade": "18 a 25 anos",
+     "custoMes": 0,
+     "cartao": "Grátis",
+     "ab": {
+      "v": "Mín. 50€",
+      "s": "Online ou balcão"
+     },
+     "nota": "Sem comissão de manutenção. Cartão de débito e cartão pré-pago grátis. Não é preciso ser estudante. Dos 26 aos 31 anos há a Conta 26.31.",
+     "src": "https://www.novobanco.pt/en/personal/current-accounts/packaged-accounts/1825-account"
+    },
+    "menor": {
+     "produto": "Conta Jovem e Movimento Júnior",
+     "idade": "0 a 17 anos",
+     "custoMes": 0,
+     "cartao": "Grátis, desde os 13 anos",
+     "ab": {
+      "v": "Mín. 50€",
+      "s": "No balcão"
+     },
+     "nota": "Conta Jovem dos 13 aos 17 anos, com cartão de débito grátis e app. Conta Movimento Júnior até aos 12 anos, sem cartão de débito (mínimo de 40€; pré-pago grátis a partir dos 10).",
+     "src": "https://www.novobanco.pt/en/personal/current-accounts/accounts-with-no-maintenance-fees"
+    },
+    "conjunta": {
+     "v": "Vários titulares",
+     "s": "2.º titular no balcão",
+     "cartao2": "2.º cartão grátis",
+     "nota": "Online a conta abre com 1 titular; o 2.º junta-se depois num balcão. O pacote inclui o cartão de débito do titular adicional sem custo.",
+     "src": "https://www.novobanco.pt/en/personal/current-accounts/open-current-account-online"
+    }
+   },
    "src": "https://www.novobanco.pt/precario",
    "f": {
     "custoAno": 98.64,
@@ -1877,9 +2191,48 @@
     "label": "Ir para o BPI",
     "href": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-valor-bpi"
    },
+   "premio": {
+    "t": "300€ em Cartão Continente",
+    "s": "Para novos clientes com ordenado desde 900€ numa conta pacote. Fidelização de 24 meses. Até 31/12/2026.",
+    "ate": "2026-12-31",
+    "url": "https://www.bancobpi.pt/campanha-domiciliar-ordenado"
+   },
    "ab": {
     "v": "Mín. 100€",
     "s": "Online ou balcão"
+   },
+   "perfis": {
+    "jovem": {
+     "produto": "Conta AGE",
+     "idade": "18 a 30 anos",
+     "custoMes": 0,
+     "cartao": "Grátis",
+     "ab": {
+      "v": "Mín. 25€",
+      "s": "Online ou balcão"
+     },
+     "nota": "Inclui cartão de débito BPI Electron e cartão de crédito BPI Classic sem comissão. Aos 31 anos passa para a Conta Valor BPI.",
+     "src": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-age"
+    },
+    "menor": {
+     "produto": "Conta AGE e Conta BPI Júnior",
+     "idade": "0 a 17 anos",
+     "custoMes": 0,
+     "cartao": "Grátis, desde os 13 anos",
+     "ab": {
+      "v": "Mín. 25€",
+      "s": "Online ou balcão"
+     },
+     "nota": "Conta AGE dos 13 aos 17 anos, com cartão de débito e área própria na BPI App. Conta BPI Júnior até aos 12 anos, sem cartões. Os pais abrem na BPI App ou ao balcão.",
+     "src": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-age"
+    },
+    "conjunta": {
+     "v": "Vários titulares",
+     "s": "Só no balcão",
+     "cartao2": "2.º cartão incluído",
+     "nota": "A abertura online é só com 1 titular. A Conta Valor inclui 2 cartões de débito e 2 cartões de crédito, sem comissão.",
+     "src": "https://www.bancobpi.pt/particulares/contas/abrir-conta-no-bpi"
+    }
    },
    "src": "https://bancobpi.pt/particulares/precario",
    "f": {

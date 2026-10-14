@@ -29,7 +29,9 @@
    "apoio": "https://revolut.com/pt-PT/contact-us",
    "suportePt": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_e_condi_es_para_clientes_particulares_dac36970_2.3.3_1790931433_pt.pdf",
    "custoMes": "https://cdn.revolut.com/terms_and_conditions/pdf/comiss_es_para_clientes_particulares_standard_8c859b1b_2.2.3_1787647528_pt.pdf",
-   "ab": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf"
+   "ab": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf",
+   "perfis.menor": "https://www.revolut.com/pt-PT/kids-and-teens/kids-bank-account/",
+   "perfis.conjunta": "https://www.revolut.com/pt-PT/open-joint-bank-account/"
   },
   "activobank": {
    "manut": "https://www.activobank.pt/conta-simples",
@@ -55,7 +57,10 @@
    "balcoes": "https://www.activobank.pt/onde-estamos",
    "apoio": "https://www.activobank.pt/conta-simples",
    "custoMes": "https://www.activobank.pt/conta-simples",
-   "ab": "https://www.activobank.pt/conta-simples"
+   "ab": "https://www.activobank.pt/conta-simples",
+   "perfis.menor": "https://www.activobank.pt/conta-menores",
+   "perfis.conjunta": "https://www.activobank.pt/abertura-conta",
+   "premio": "https://www.activobank.pt/ordenado-activo"
   },
   "bankinter": {
    "manut": "https://clientebancario.bportugal.pt/sites/default/files/precario/0269_/0269_PRE_0.pdf",
@@ -81,7 +86,10 @@
    "balcoes": "https://www.bankinter.pt/informacao-util-footer",
    "apoio": "https://www.bankinter.pt/contactos1",
    "custoMes": "https://www.bankinter.pt/documents/20182/497914/DIC+Conta+ONline+-+PT+01.102023.pdf/694ebe83-ac04-4764-8072-26bfd3effda9?version=1.2",
-   "ab": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online"
+   "ab": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
+   "perfis.menor": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-jovem-bk-mini",
+   "perfis.conjunta": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
+   "premio": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-mais-ordenado"
   },
   "moey": {
    "manut": "https://moey.pt/hubfs/DIC_MOEY-3.pdf",
@@ -199,7 +207,8 @@
    "suportePt": "https://help.bunq.com/en/articles/what-kind-of-support-does-bunq-provide",
    "custoMes": "https://www.bunq.com/pt-pt/personal/plans",
    "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro",
-   "ab": "https://help.bunq.com/articles/bunq-free-faq"
+   "ab": "https://help.bunq.com/articles/bunq-free-faq",
+   "perfis.menor": "https://help.bunq.com/articles/how-do-i-open-an-account-for-my-child"
   },
   "n26": {
    "manut": "https://n26.com/en-eu/free-bank-account",
@@ -229,7 +238,8 @@
    "suportePt": "https://n26.com/en-eu/free-bank-account",
    "custoMes": "https://n26.com/en-eu/free-bank-account",
    "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro",
-   "ab": "https://n26.com/en-eu/free-bank-account"
+   "ab": "https://n26.com/en-eu/free-bank-account",
+   "perfis.conjunta": "https://n26.com/en-eu/joint-bank-account"
   },
   "best": {
    "custoAnoOrdenado": "https://www.bancobest.pt/ptg/best_contas?active=digital",
@@ -257,7 +267,9 @@
    "apoio": "https://www.bancobest.pt/ptg/best_contactos",
    "custoMes": "https://www.bancobest.pt/ptg/best__cartoes?active=visadebit",
    "ab": "https://www.bancobest.pt/ptg/best_contas?active=digital",
-   "promo": "https://www.bancobest.pt/ptg/best_contas?active=digital"
+   "promo": "https://www.bancobest.pt/ptg/best_contas?active=digital",
+   "perfis.menor": "https://www.bancobest.pt/ptg/best_contas?active=startplus",
+   "perfis.conjunta": "https://www.bancobest.pt/ptg/AberturaContaOnline"
   },
   "big": {
    "custoAnoOrdenado": "https://www.big.pt/pdf/BIG018b_precario.pdf",
@@ -284,7 +296,10 @@
    "balcoes": "https://www.big.pt/QuemSomos/ApoioAgenciasContactos/Contactos",
    "apoio": "https://www.big.pt/Apoio/ApoioAoCliente",
    "custoMes": "https://www.big.pt/pdf/BIG018b_precario.pdf",
-   "ab": "https://www.big.pt/Apoio/ApoioAoCliente"
+   "ab": "https://www.big.pt/Apoio/ApoioAoCliente",
+   "perfis.jovem": "https://www.big.pt/Precario/PrecarioInvesteFuturo",
+   "perfis.menor": "https://www.big.pt/AbrirConta/AberturaDeContas/Condicoes/Junior",
+   "perfis.conjunta": "https://www.big.pt/pdf/abrirconta/CondicoesGerais_AC.pdf"
   },
   "traderepublic": {
    "manut": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
@@ -341,7 +356,10 @@
    "balcoes": "https://www.cgd.pt/Investor-Relations/Informacao-Financeira/CGD/Relatorios-Contas/2026/Documents/Press-Release-PT-1S-2026.pdf",
    "apoio": "https://www.cgd.pt/Ajuda/Contactos/Pages/Contactos.aspx",
    "custoMes": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx",
-   "ab": "https://www.cgd.pt/Particulares/Contas/Abertura-conta/Pages/Abertura-conta.aspx"
+   "ab": "https://www.cgd.pt/Particulares/Contas/Abertura-conta/Pages/Abertura-conta.aspx",
+   "perfis.jovem": "https://www.cgd.pt/_layouts/15/CaixatecCGDLayoutsV2/fin.aspx?pff=400&pfc=014&moe=EUR",
+   "perfis.menor": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Caixajovem-Extracto.aspx",
+   "perfis.conjunta": "https://www.cgd.pt/Particulares/Contas/Abertura-conta/Pages/Abertura-conta.aspx"
   },
   "millennium": {
    "custoAnoOrdenado": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0708-PT.pdf",
@@ -370,7 +388,11 @@
    "custoMes": "https://investimentos.millenniumbcp.pt/pt/Documents/10901033-PT.pdf",
    "campanha": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0729-PT.pdf",
    "ab": "https://investimentos.millenniumbcp.pt/pt/Documents/10901033-PT.pdf",
-   "promo": "https://clientebancario.bportugal.pt/sites/default/files/precario/0033_/0033_PRE_1.pdf"
+   "promo": "https://clientebancario.bportugal.pt/sites/default/files/precario/0033_/0033_PRE_1.pdf",
+   "perfis.jovem": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0729-PT.pdf",
+   "perfis.menor": "https://www.millenniumbcp.pt/contas/abrir-conta-para-menor/lets-go",
+   "perfis.conjunta": "https://www.millenniumbcp.pt/abrir-conta-online",
+   "premio": "https://www.millenniumbcp.pt/campanhas/domiciliacao-ordenado"
   },
   "santander": {
    "custoAnoOrdenado": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
@@ -398,7 +420,11 @@
    "apoio": "https://www.santander.pt/contactos",
    "custoMes": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
    "ab": "https://www.santander.pt/contas/conta-santander-mais",
-   "promo": "https://www.santander.pt/contas/conta-santander-mais"
+   "promo": "https://www.santander.pt/contas/conta-santander-mais",
+   "perfis.jovem": "https://www.santander.pt/pdfs/particulares/contas/conta-jovem/BST-IE-50008945.pdf",
+   "perfis.menor": "https://www.santander.pt/contas/conta-bancaria-para-menores",
+   "perfis.conjunta": "https://www.santander.pt/contas/conta-santander-mais",
+   "premio": "https://www.santander.pt/campanhas/vantagens-ordenado"
   },
   "novobanco": {
    "custoAnoOrdenado": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
@@ -425,7 +451,10 @@
    "balcoes": "https://www.novobanco.com/content/dam/novobanco-com/investors/financial-disclosures/2026/1%C2%BAtrimestre/1Q2026%20Resultados.pdf",
    "apoio": "https://www.novobanco.pt/en/personal/help-and-contacts/direct-line",
    "custoMes": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
-   "ab": "https://www.novobanco.pt/en/personal/current-accounts/open-online-bank-account"
+   "ab": "https://www.novobanco.pt/en/personal/current-accounts/open-online-bank-account",
+   "perfis.jovem": "https://www.novobanco.pt/en/personal/current-accounts/packaged-accounts/1825-account",
+   "perfis.menor": "https://www.novobanco.pt/en/personal/current-accounts/accounts-with-no-maintenance-fees",
+   "perfis.conjunta": "https://www.novobanco.pt/en/personal/current-accounts/open-current-account-online"
   },
   "bpi": {
    "custoAnoOrdenado": "https://www.bancobpi.pt/content/conn/UCM/uuid/dDocName:PR_WCS01_UCM01063279",
@@ -452,7 +481,11 @@
    "balcoes": "https://bancobpi.pt/contentservice/getContent?documentName=ZGRMZGEZMME3NZUZNDI2",
    "apoio": "https://bancobpi.pt/particulares/contactos-bpi/contactos",
    "custoMes": "https://www.bancobpi.pt/content/conn/UCM/uuid/dDocName:PR_WCS01_UCM01063279",
-   "ab": "https://bancobpi.pt/particulares/contas/abrir-conta-no-bpi"
+   "ab": "https://bancobpi.pt/particulares/contas/abrir-conta-no-bpi",
+   "perfis.jovem": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-age",
+   "perfis.menor": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-age",
+   "perfis.conjunta": "https://www.bancobpi.pt/particulares/contas/abrir-conta-no-bpi",
+   "premio": "https://www.bancobpi.pt/campanha-domiciliar-ordenado"
   },
   "novobanco-empresas": {
    "manut": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2922.pdf.coredownload.inline.pdf",

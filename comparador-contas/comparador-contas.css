@@ -22,7 +22,12 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb a.cb-author:hover .cb-an{text-decoration:underline}
 
 /* escolhas do topo: rótulo por cima e botões com borda, como "Prazo" nos depósitos */
-#lf-cb .cb-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+#lf-cb .cb-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+/* "Para quem": select com a mesma altura e borda dos botões */
+#lf-cb .cb-pselect{display:block;width:100%;margin:0;height:auto;font:inherit;font-size:14px;font-weight:500;line-height:20px;color:var(--g700);padding:12px 40px 12px 14px;border:1px solid var(--g300);border-radius:12px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233A4454' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;-webkit-appearance:none;appearance:none;cursor:pointer}
+#lf-cb .cb-pselect:hover{border-color:var(--g700)}
+#lf-cb .cb-pselect.is-on{border-color:var(--g700);box-shadow:inset 0 0 0 1px var(--g700)}
+#lf-cb .cb-pselect:focus-visible{outline:none;box-shadow:0 0 0 3px var(--blue100)}
 #lf-cb .cb-label{display:block;font-size:14px;font-weight:500;line-height:20px;color:var(--g700);margin-bottom:6px}
 #lf-cb .cb-toggle{display:grid;grid-template-columns:repeat(var(--cb-tabs,2),minmax(0,1fr));gap:8px}
 #lf-cb .cb-tab{border:1px solid var(--g300);background:#fff;border-radius:12px;padding:12px 8px;font-size:14px;font-weight:500;line-height:20px;color:var(--g700);white-space:nowrap;text-align:center;margin:0}
@@ -88,6 +93,8 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb .cb-tag .cb-i{width:12px;height:12px;stroke-width:2.2}
 #lf-cb .cb-tag.is-warn{background:var(--warn50);color:var(--warn700)}
 #lf-cb .cb-tag.is-ok,#lf-cb .cb-tag.is-bonus{background:var(--ok50);color:var(--ok700)}
+#lf-cb a.cb-tag.is-link{text-decoration:none;box-shadow:inset 0 0 0 1px var(--ok200)}
+#lf-cb a.cb-tag.is-link:hover{background:var(--ok200)}
 #lf-cb .cb-tag.is-bonus{font-weight:600}
 #lf-cb .cb-tag.is-conf{background:var(--warn50);color:var(--warn700);border:1px solid var(--warn200);margin-top:5px}
 #lf-cb .cb-tag.is-best{background:var(--ok50);color:var(--ok700);border:1px solid var(--ok200);margin-top:5px}
@@ -138,6 +145,8 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb .cb-kv-l{color:var(--g600)}
 #lf-cb .cb-kv-v b{font-weight:500;color:var(--g900)}
 #lf-cb .cb-kv-v .cb-s{display:block;font-size:12px;line-height:17px;color:var(--g500);margin-top:2px}
+#lf-cb .cb-links{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:4px}
+#lf-cb .cb-cell .cb-links{justify-content:center}
 #lf-cb .cb-dfoot{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px}
 #lf-cb .cb-src{font-size:12px;color:var(--g500);text-decoration:underline;text-decoration-color:var(--g300);text-underline-offset:2px}
 #lf-cb .cb-src:hover{color:var(--g700)}
@@ -222,6 +231,8 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb .cb-notes{margin:24px 0 0;font-size:12px;line-height:18px;color:var(--g600)}
 #lf-cb .cb-notes p{margin:0 0 8px}
 #lf-cb .cb-notes b{font-weight:600;color:var(--g700)}
+#lf-cb .cb-notes a{color:var(--g700);text-decoration:underline;text-decoration-color:var(--g300);text-underline-offset:2px}
+#lf-cb .cb-notes a:hover{text-decoration-color:var(--g700)}
 
 @media (min-width:768px){
  #lf-cb .cb-dgrid>*{grid-row:var(--r)}
@@ -255,6 +266,7 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
  #lf-cb .cb-author{padding:0 12px}
  #lf-cb .cb-meta .cb-date{flex-basis:100%;justify-content:center;border-left:0}
  #lf-cb .cb-form{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 12px}
+ #lf-cb .cb-fg-perfil{grid-column:1/-1;order:3}
  #lf-cb .cb-toggle{gap:6px}
  #lf-cb .cb-tab{padding:11px 4px;font-size:13px}
  #lf-cb .cb-c-main{grid-template-columns:minmax(0,1fr);grid-template-areas:"ent" "kpis" "cta";gap:14px;padding:16px}

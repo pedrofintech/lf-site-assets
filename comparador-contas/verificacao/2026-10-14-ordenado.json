@@ -1,0 +1,333 @@
+{
+  "verificado": "2026-10-14",
+  "contas": [
+    {
+      "id": "santander",
+      "ativa": true,
+      "tipo": "dinheiro",
+      "etiqueta": "Até 500€ ou 750€ em pontos",
+      "resumo": "500€ na conta ou 750€ em pontos Santander Rewards com ordenado desde 1.200€ líquidos; 100€ na conta com ordenado desde 850€ e abaixo de 1.200€. Só novos clientes, com fidelização de 25 meses.",
+      "ordenadoMin": 850,
+      "fidelizacaoMeses": 25,
+      "inicio": "2026-08-18",
+      "fim": "2026-10-31",
+      "fimAdesao": "2026-11-30",
+      "url": "https://www.santander.pt/campanhas/vantagens-ordenado",
+      "fontes": [
+        {"url": "https://www.santander.pt/campanhas/vantagens-ordenado", "citacao": "Receba 750€ em pontos (75.000 pontos) e troque-os na Loja Online ou em produtos do banco.", "data": null},
+        {"url": "https://www.santander.pt/campanhas/vantagens-ordenado", "citacao": "ou 500€ na conta para ordenados iguais ou superiores a 1.200€ líquidos.", "data": null},
+        {"url": "https://www.santander.pt/campanhas/vantagens-ordenado", "citacao": "Fidelização de 25 meses para não devolver o benefício.", "data": null},
+        {"url": "https://www.santander.pt/abrir-conta-online", "citacao": "Campanha para novos clientes. Até 31/10.", "data": null},
+        {"url": "https://www.santander.pt/pdfs/particulares/campanhas/BST-IE-50009233.pdf", "citacao": "com data de abertura compreendida entre 18 de agosto de 2026 e 31 de outubro de 2026.", "data": "2026-10-01"},
+        {"url": "https://www.santander.pt/pdfs/particulares/campanhas/BST-IE-50009233.pdf", "citacao": "O Banco permitirá a adesão a esta Campanha até ao dia 30 de novembro de 2026 (inclusive).", "data": "2026-10-01"},
+        {"url": "https://www.santander.pt/pdfs/particulares/campanhas/BST-IE-50009233.pdf", "citacao": "de valor mensal líquido mínimo de 850€ (oitocentos e cinquenta euros)", "data": "2026-10-01"},
+        {"url": "https://www.santander.pt/pdfs/particulares/campanhas/BST-IE-50009233.pdf", "citacao": "100€ (cem euros) em conta", "data": "2026-10-01"},
+        {"url": "https://www.santander.pt/pdfs/particulares/campanhas/BST-IE-50009233.pdf", "citacao": "O valor do benefício bruto será i) de 694,44€ con 194,44€ de IRS retido na fonte para o Benefício de 500€.", "data": "2026-10-01"}
+      ],
+      "notas": "Sem alterações face ao artigo de 2/10. A página só diz «Até 31/10»: o ano e as datas de abertura e adesão estão no regulamento (versão de 01/10/2026). Os 500€ e os 100€ são valores depois do IRS (bruto 694,44€ e 138,89€). Contas elegíveis: Conta Santander, Santander Mais, Jovem e Jovem Mais. O primeiro ordenado tem de chegar até 90 dias depois de escolher a oferta. Não acumula com outras campanhas de ordenado do banco. Tipo «dinheiro» porque a opção em pontos é alternativa aos 500€ na conta."
+    },
+    {
+      "id": "millennium",
+      "ativa": true,
+      "tipo": "cashback",
+      "etiqueta": "Até 500€ em cashback",
+      "resumo": "Devolução no cartão de crédito de 20% do menor dos 2 primeiros ordenados, até 500€. Ordenado líquido a partir de 1.000€, só novos clientes, com fidelização de 24 meses.",
+      "ordenadoMin": 1000,
+      "fidelizacaoMeses": 24,
+      "inicio": "2026-07-16",
+      "fim": "2026-10-15",
+      "fimAdesao": "2026-12-15",
+      "url": "https://www.millenniumbcp.pt/campanhas/domiciliacao-ordenado",
+      "fontes": [
+        {"url": "https://www.millenniumbcp.pt/campanhas/domiciliacao-ordenado", "citacao": "Campanha válida de 16/07/2026 a 15/10/2026 para novos Clientes particulares 1°s titulares de conta à ordem,", "data": null},
+        {"url": "https://www.millenniumbcp.pt/campanhas/domiciliacao-ordenado", "citacao": "Devolução, em cartão de crédito, de 20% do menor valor dos 2 primeiros ordenados/reformas, até 500€.", "data": null},
+        {"url": "https://www.millenniumbcp.pt/campanhas/domiciliacao-ordenado", "citacao": "que domiciliem o ordenado/reforma de valor líquido igual ou superior a 1.000€,", "data": null},
+        {"url": "https://www.millenniumbcp.pt/campanhas/domiciliacao-ordenado", "citacao": "Obriga à fidelização da domiciliação do ordenado/reforma durante 24 meses.", "data": null},
+        {"url": "https://www.millenniumbcp.pt/media/tnfjkgzi/regulamento_campanha_clientes_ordenados_pt.pdf", "citacao": "A Campanha decorre entre 16 de julho e 15 de outubro de 2026.", "data": "2026-08-12"},
+        {"url": "https://www.millenniumbcp.pt/media/tnfjkgzi/regulamento_campanha_clientes_ordenados_pt.pdf", "citacao": "A data-limite para inscrição na campanha será o dia 15 de dezembro de 2026 (inclusive).", "data": "2026-08-12"},
+        {"url": "https://www.millenniumbcp.pt/media/tnfjkgzi/regulamento_campanha_clientes_ordenados_pt.pdf", "citacao": "O valor total do benefício bruto será, no máximo, 694,44€ com 194,44€ de IRS retido na fonte.", "data": "2026-08-12"},
+        {"url": "https://www.millenniumbcp.pt/campanhas/domiciliacao-ordenado", "citacao": "Até 15 de outubro, traga-o para o Millennium e receba 10% do seu ordenado, até 500€.", "data": null}
+      ],
+      "notas": "Acaba amanhã: a conta tem de ser aberta até 15/10/2026. Não há nova edição anunciada no site a 14/10/2026 (as anteriores foram de 16/10/2025 a 15/01/2026 e de 16/01 a 15/04/2026). Voltar a ver a 16/10. 1.º ordenado até 31/10/2026 e 2.º até 30/11/2026; inscrição até 15/12/2026. Exige cartão de crédito associado à conta. A página diz «igual ou superior a 1.000€» e o regulamento «superior a 1.000€». Clientes atuais têm outra campanha: 10% do ordenado até 500€, 1.º ordenado até 15/10/2026, fidelização de 24 meses. Há ainda a campanha iPhone 17 para novos clientes com ordenado mínimo de 1.200€, também até 15/10/2026."
+    },
+    {
+      "id": "bpi",
+      "ativa": true,
+      "tipo": "voucher",
+      "etiqueta": "300€ em Cartão Continente",
+      "resumo": "300€ em Cartão Continente para novos clientes que domiciliem um ordenado a partir de 900€ numa conta pacote. Fidelização de 24 meses.",
+      "ordenadoMin": 900,
+      "fidelizacaoMeses": 24,
+      "inicio": "2026-06-01",
+      "fim": "2026-12-31",
+      "fimAdesao": "2027-01-31",
+      "url": "https://www.bancobpi.pt/campanha-domiciliar-ordenado",
+      "fontes": [
+        {"url": "https://www.bancobpi.pt/campanha-domiciliar-ordenado", "citacao": "Receba 300€ em Cartão Continente ao domiciliar* o seu ordenado no BPI.", "data": null},
+        {"url": "https://www.bancobpi.pt/campanha-domiciliar-ordenado", "citacao": "Campanha válida até 31/12/26.", "data": null},
+        {"url": "https://www.bancobpi.pt/campanha-domiciliar-ordenado", "citacao": "Exclusivo novos Clientes ≥ 18 anos.", "data": null},
+        {"url": "https://www.bancobpi.pt/campanha-domiciliar-ordenado", "citacao": "Domiciliação por 24 meses ou débito do valor recebido.", "data": null},
+        {"url": "https://www.bancobpi.pt/campanha-domiciliar-ordenado", "citacao": "Receber ordenado líquido (≥ 900€) no BPI entre 1 de setembro a 31 de dezembro de 2026", "data": null},
+        {"url": "https://www.bancobpi.pt/contentservice/getContent?documentName=OWRLMTE0YJI0NGI4NGQX", "citacao": "incluindo a domiciliação de ordenado elegível, entre 1 de Junho 2026 e 31 de Dezembro de 2026.", "data": null},
+        {"url": "https://www.bancobpi.pt/contentservice/getContent?documentName=OWRLMTE0YJI0NGI4NGQX", "citacao": "O valor do ordenado domiciliado deverá ser igual ou superior a €900 (novecentos euros).", "data": null},
+        {"url": "https://www.bancobpi.pt/contentservice/getContent?documentName=OWRLMTE0YJI0NGI4NGQX", "citacao": "O Cliente deverá aderir à Campanha na BPI App até ao dia 31 de janeiro de 2027 (inclusive),", "data": null}
+      ],
+      "notas": "Sem alterações face ao artigo. Novo cliente: primeira conta à ordem no BPI aberta desde 1/1/2026 e sem ordenado domiciliado no BPI nos 12 meses anteriores. Exige BPI App, Cartão Continente e conta pacote (página: comissão desde 4,99€/mês + IS). Datas de início diferentes: o regulamento diz 1/6/2026 e a FAQ da página diz ordenado recebido entre 1/9 e 31/12/2026. A meta descrição da página ainda mostra uma edição antiga (1/2 a 31/5/2026, 20% até 500€). O regulamento não tem data. O cartão tem de ser usado em 12 meses."
+    },
+    {
+      "id": "bankinter",
+      "ativa": true,
+      "tipo": "juros",
+      "etiqueta": "5% TANB no 1.º ano",
+      "resumo": "Conta Mais Ordenado com 5% TANB no 1.º ano e 2% no 2.º, até 10.000€ de saldo, para quem domicilia ordenado a partir de 750€. Exige cartão de crédito ativo com 5 compras por ciclo de juros.",
+      "ordenadoMin": 750,
+      "fidelizacaoMeses": 6,
+      "inicio": null,
+      "fim": null,
+      "fimAdesao": null,
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-mais-ordenado",
+      "fontes": [
+        {"url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-mais-ordenado", "citacao": "1.º ano: TANB 5% » TANL 3,60%", "data": null},
+        {"url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-mais-ordenado", "citacao": "2.º ano: TANB 2% » TANL 1,44%", "data": null},
+        {"url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-mais-ordenado", "citacao": "Saldo máximo diário de 10.000€.", "data": null},
+        {"url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-mais-ordenado", "citacao": "Condição de Acesso: Domiciliação de Ordenado (ou pensão/reforma) de valor igual ou superior a 750€.", "data": null},
+        {"url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-mais-ordenado", "citacao": "Remunerada nos primeiros 2 anos mínimo de permanência de 6 meses.", "data": null},
+        {"url": "https://www.bankinter.pt/documents/20182/501707/FIN+Conta+Mais+Ordenado.pdf/ac9ba24e-1890-4021-ae96-60428b6fecf5?version=1.13", "citacao": "Validade das condições A partir de 1 de julho de 2026.", "data": "2026-07-01"},
+        {"url": "https://www.bankinter.pt/documents/20182/501707/FIN+Conta+Mais+Ordenado.pdf/ac9ba24e-1890-4021-ae96-60428b6fecf5?version=1.13", "citacao": "Conta exclusiva para Clientes que nunca tenham tido uma Conta Mais Ordenado", "data": "2026-07-01"},
+        {"url": "https://saladeimprensa.bankinter.pt/detalle/-/prensa/103954", "citacao": "o Bankinter Portugal acaba de lançar uma nova campanha centrada no mote “Até parece mentira”,", "data": "2023-06-16"}
+      ],
+      "notas": "Não é campanha com datas: é a oferta permanente da Conta Mais Ordenado, sem data de fim (FIN com condições válidas a partir de 1/7/2026). A página não usa a palavra campanha; o banco chamou campanha à promoção desta conta em comunicados de imprensa de 2020 e 2023. Por isso marquei tipo «juros»: decidir se entra no filtro. É outra conta, não a Conta Bankinter Online do comparador. Os 6 meses são permanência mínima da conta (página), não fidelização do ordenado; a FIN não os refere. Só para quem nunca teve Conta Mais Ordenado. Ordenado de 750€ em pelo menos 2 de cada 3 meses. A página promete «até 507€» em 2 anos. Sem alterações face ao artigo."
+    },
+    {
+      "id": "activobank",
+      "ativa": true,
+      "tipo": "voucher",
+      "etiqueta": "200€ Amazon + 5% TANB",
+      "resumo": "Cartão Oferta Amazon.es de 200€ e Conta PoupeUp a 5% TANB durante 360 dias, até 5.000€. Para novos ordenados a partir de 900€ líquidos, incluindo clientes atuais sem ordenado no banco nos últimos 24 meses.",
+      "ordenadoMin": 900,
+      "fidelizacaoMeses": null,
+      "inicio": "2026-09-01",
+      "fim": "2026-10-31",
+      "fimAdesao": "2026-10-31",
+      "url": "https://www.activobank.pt/ordenado-activo",
+      "fontes": [
+        {"url": "https://www.activobank.pt/ordenado-activo", "citacao": "Campanha válida de 01/09 a 31/10/2026 para novos Ordenados (mín. 900€ líquidos por 3 meses consecutivos),", "data": null},
+        {"url": "https://www.activobank.pt/ordenado-activo", "citacao": "Conta PoupeUp remunerada: 5% TANB 360 dias", "data": null},
+        {"url": "https://www.activobank.pt/ordenado-activo", "citacao": "A oferta 200€ Cartão Oferta Amazon.es é atribuída no 4.º mês após a primeira domiciliação.", "data": null},
+        {"url": "https://www.activobank.pt/PDF/Normas_e_regulamentos/oa_regulamento_set26.pdf", "citacao": "A Campanha decorre entre os dias 1 de setembro e 31 de outubro de 2026", "data": "2026-09-01"},
+        {"url": "https://www.activobank.pt/PDF/Normas_e_regulamentos/oa_regulamento_set26.pdf", "citacao": "Conta PoupeUp em euros: TANB de 5% por 360 dias com cálculo de juros diários sobre o saldo máximo diário de 5.000€", "data": "2026-09-01"},
+        {"url": "https://www.activobank.pt/PDF/Normas_e_regulamentos/oa_regulamento_set26.pdf", "citacao": "Voucher Amazon 200€ (líquido) por conta do ActivoBank", "data": "2026-09-01"},
+        {"url": "https://www.activobank.pt/PDF/Normas_e_regulamentos/oa_regulamento_set26.pdf", "citacao": "Não tenham domiciliado o respetivo Ordenado em qualquer conta da qual sejam titulares no ActivoBank nos últimos 24 meses", "data": "2026-09-01"},
+        {"url": "https://www.activobank.pt/PDF/Normas_e_regulamentos/oa_regulamento_set26.pdf", "citacao": "Registem no período da campanha e até 31/10/2026 o código promocional", "data": "2026-09-01"}
+      ],
+      "notas": "Correção ao artigo: não há fidelização de 24 meses. Nem a página nem o regulamento a referem; os 24 meses são a regra de não ter tido ordenado no ActivoBank nos últimos 24 meses. O regulamento não prevê devolução. Condições: ordenado de 900€ durante 3 meses seguidos, débitos diretos de 2 entidades diferentes, Conta PoupeUp e código ABORDENADO na App até 31/10/2026. Se o ordenado falhar 3 meses seguidos, a taxa da PoupeUp passa a 0%. Prémios atribuídos no 4.º mês, entre 1/12/2026 e 31/1/2027. O voucher é de 200€ líquidos (bruto 277,78€)."
+    },
+    {
+      "id": "cgd",
+      "ativa": false,
+      "tipo": "cashback",
+      "etiqueta": null,
+      "resumo": "Sem campanha de ordenado aberta a todos. Existe um cashback de 15% do ordenado até 500€, mas só para colaboradores de empresas com Protocolo Caixa.",
+      "ordenadoMin": null,
+      "fidelizacaoMeses": 24,
+      "inicio": null,
+      "fim": null,
+      "fimAdesao": null,
+      "url": "https://www.cgd.pt/Particulares/Contas/Pages/domiciliacao-de-ordenado.aspx",
+      "fontes": [
+        {"url": "https://www.cgd.pt/Particulares/Contas/Pages/domiciliacao-de-ordenado.aspx", "citacao": "Receba o seu ordenado ou pensão na Caixa e usufrua de tranquilidade e conveniência.", "data": null},
+        {"url": "https://www.cgd.pt/Particulares/Pages/Protocolos-Clientes-Caixa.aspx", "citacao": "Cashback de 15% sobre o ordenado domiciliado na Caixa (**)", "data": null},
+        {"url": "https://www.cgd.pt/Particulares/PublishingImages/Protocolos-clientes-Caixa/condicoes-programas-cashback-protocolo-caixa.pdf?V=5", "citacao": "destinada aos colaboradores das empresas que tenham celebrado protocolo com a Caixa", "data": null},
+        {"url": "https://www.cgd.pt/Particulares/PublishingImages/Protocolos-clientes-Caixa/condicoes-programas-cashback-protocolo-caixa.pdf?V=5", "citacao": "tendo um limite máximo de 500,00€ (quinhentos euros).", "data": null},
+        {"url": "https://www.cgd.pt/Particulares/PublishingImages/Protocolos-clientes-Caixa/condicoes-programas-cashback-protocolo-caixa.pdf?V=5", "citacao": "O Programa é uma iniciativa disponibilizada pela Caixa por tempo indeterminado", "data": null},
+        {"url": "https://www.cgd.pt/Particulares/Em-Campanha/Pages/bonus-novo-cliente.aspx", "citacao": "Campanha válida até 31/12/2026.", "data": null}
+      ],
+      "notas": "A página de domiciliação só fala do Caixaordenado (descoberto), sem prémio. O Programa Cashback Domiciliação de Ordenado é só para colaboradores de empresas com protocolo: exige Conta Caixa M (não a Conta Caixa S do comparador), ordenado mínimo igual ao salário mínimo nacional, 24 meses de domiciliação e não tem data de fim. O cashback vai para o cartão de crédito depois de uma compra na Loja Caixa. Marquei false por não estar aberto a todos. A campanha Bónus Novo Cliente (50€ por amigo, até 31/12/2026) é de recomendação e não exige ordenado."
+    },
+    {
+      "id": "novobanco",
+      "ativa": false,
+      "tipo": null,
+      "etiqueta": null,
+      "resumo": "Sem campanha de ordenado nas páginas oficiais que consegui ler.",
+      "ordenadoMin": null,
+      "fidelizacaoMeses": null,
+      "inicio": null,
+      "fim": null,
+      "fimAdesao": null,
+      "url": "https://www.novobanco.pt/particulares/contas/domiciliar-ordenado",
+      "fontes": [
+        {"url": "https://www.novobanco.pt/particulares/contas/domiciliar-ordenado", "citacao": "Ao receber o seu ordenado de forma automática na sua conta depósitos à ordem tem a garantia de maior comodidade e segurança", "data": null},
+        {"url": "https://www.novobanco.pt/particulares/contas/contas-pacote/conta-100", "citacao": "Depósito a Prazo para novos clientes", "data": null},
+        {"url": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/termos_condicoes_cashback.pdf.coredownload.inline.pdf", "citacao": "Ser titular de uma Conta Pacote no novobanco", "data": null}
+      ],
+      "notas": "A página de domiciliação de ordenado, a da Conta 100% e a de abertura de conta não referem prémio por ordenado; os destaques para novos clientes são depósitos a prazo. As páginas em /campanhas (por exemplo «Cashback Novos Clientes» e «contas-4-10-cashback») estão bloqueadas pelo robots.txt do banco e não as consegui ler: convém abrir à mão para confirmar que não exigem ordenado. O Programa de Cashback (termos em PDF) é cashback em compras com cartão em retalhistas e não exige ordenado."
+    },
+    {
+      "id": "best",
+      "ativa": false,
+      "tipo": null,
+      "etiqueta": null,
+      "resumo": "Sem campanha de ordenado. A Conta Digital Ordenado só isenta comissões a quem domicilia.",
+      "ordenadoMin": null,
+      "fidelizacaoMeses": null,
+      "inicio": null,
+      "fim": null,
+      "fimAdesao": null,
+      "url": "https://www.bancobest.pt/ptg/best_contas?active=ordenado",
+      "fontes": [
+        {"url": "https://www.bancobest.pt/ptg/best_contas?active=ordenado", "citacao": "Uma conta à ordem para quem domicilia o ordenado com cartões de débito e crédito grátis", "data": null},
+        {"url": "https://www.bancobest.pt/ptg/bestsite/conta-digital-ordenado-v2/", "citacao": "de valor igual ou superior a 750€ líquidos/mês.", "data": null}
+      ],
+      "notas": "A Conta Digital Ordenado dá isenção de comissões a quem domicilia 750€ líquidos ou mais (isso já está no comparador), sem prémio. A oferta para novos clientes é uma taxa especial em depósitos, sem ligação ao ordenado."
+    },
+    {
+      "id": "big",
+      "ativa": false,
+      "tipo": null,
+      "etiqueta": null,
+      "resumo": "Sem campanha de ordenado.",
+      "ordenadoMin": null,
+      "fidelizacaoMeses": null,
+      "inicio": null,
+      "fim": null,
+      "fimAdesao": null,
+      "url": "https://big.pt/",
+      "fontes": [
+        {"url": "https://big.pt/", "citacao": "Crédito Ordenado", "data": null},
+        {"url": "https://www.big.pt/campanha/contadigital/", "citacao": "O valor mínimo para a abertura de conta são 2.000 €.", "data": null}
+      ],
+      "notas": "O site bancobig.pt redireciona para big.pt. As campanhas em destaque (fundos, FundAdvisor, Conta Margem, depósitos, InvestorWeek, transferência de carteira) não envolvem ordenado. A única referência a ordenado na página inicial é o produto Crédito Ordenado. A campanha Conta 100% Digital não dá prémio por ordenado."
+    },
+    {
+      "id": "moey",
+      "ativa": false,
+      "tipo": null,
+      "etiqueta": null,
+      "resumo": "Sem campanha de ordenado.",
+      "ordenadoMin": null,
+      "fidelizacaoMeses": null,
+      "inicio": null,
+      "fim": null,
+      "fimAdesao": null,
+      "url": "https://moey.pt/",
+      "fontes": [
+        {"url": "https://moey.pt/", "citacao": "Por cada amigo que abre conta Moey com o teu código, tu ganhas 5€ e eles ganham 10€.", "data": null},
+        {"url": "https://moey.pt/", "citacao": "Adere à Moey e ganha 5€ + 50GB de dados móveis na hora e até 10€ em cashback ao pagares o teu tarifário MOCHE.", "data": null}
+      ],
+      "notas": "As campanhas no site são de recomendação e do tarifário MOCHE; nenhuma exige ordenado. A página da campanha «moey! é o futuro» não mostra prémio. O artigo do blog sobre receber o ordenado no Moey é de 2019 e não tem prémio. Também não encontrei campanha de ordenado no site do Crédito Agrícola."
+    },
+    {
+      "id": "openbank",
+      "ativa": false,
+      "tipo": null,
+      "etiqueta": null,
+      "resumo": "Sem campanha. A Conta Poupança Ordenado paga 2% TANB a quem domicilia (1% aos restantes), mas é condição permanente.",
+      "ordenadoMin": null,
+      "fidelizacaoMeses": null,
+      "inicio": null,
+      "fim": null,
+      "fimAdesao": null,
+      "url": "https://www.openbank.pt/conta-remunerada-poupanca",
+      "fontes": [
+        {"url": "https://www.openbank.pt/conta-remunerada-poupanca", "citacao": "Por domiciliar o seu ordenado: 2,00% TANB1", "data": null},
+        {"url": "https://www.openbank.pt/conta-remunerada-poupanca", "citacao": "Caso contrário, usufruirá de 1,00% TANB1.", "data": null},
+        {"url": "https://www.openbank.pt/domiciliar-ordenado", "citacao": "Também pode beneficiar das vantagens se receber uma transferência mensal de pelo menos 700,00 €", "data": null},
+        {"url": "https://www.openbank.pt/promocoes", "citacao": "Estamos a preparar novas promoções para si. Descubra-as em breve!", "data": null}
+      ],
+      "notas": "A Conta Poupança Ordenado não tem datas nem limite de saldo e o banco não a apresenta como campanha. Também não é só para ordenados: conta qualquer transferência mensal de 700€ ou mais. A página de promoções não tem nenhuma ativa. O PDF de informação pré-contratual está bloqueado pelo robots.txt."
+    },
+    {
+      "id": "revolut",
+      "ativa": false,
+      "tipo": null,
+      "etiqueta": null,
+      "resumo": "Sem campanha de ordenado em Portugal.",
+      "ordenadoMin": null,
+      "fidelizacaoMeses": null,
+      "inicio": null,
+      "fim": null,
+      "fimAdesao": null,
+      "url": "https://www.revolut.com/pt-PT/bank-account/",
+      "fontes": [
+        {"url": "https://www.revolut.com/pt-PT/bank-account/", "citacao": "Depois, mude o seu salário ao partilhar o seu número de conta ou IBAN com o seu empregador.", "data": null},
+        {"url": "https://www.revolut.com/es-ES/legal/PLAN_SALARY_PROMOTION/", "citacao": "clientes personales que residan en España", "data": null}
+      ],
+      "notas": "A página da conta só explica como mudar o salário. A promoção «Beneficios por salario» (plano Metal grátis) foi só para residentes em Espanha, de abril a maio de 2025; a versão pt-PT dessa página não existe."
+    },
+    {
+      "id": "n26",
+      "ativa": false,
+      "tipo": "dinheiro",
+      "etiqueta": null,
+      "resumo": "Sorteio: 10 vencedores por mês recebem o ordenado a dobrar, até 10.000€, se receberem 800€ ou mais por mês. Não é prémio garantido.",
+      "ordenadoMin": 800,
+      "fidelizacaoMeses": null,
+      "inicio": "2026-09-07",
+      "fim": "2027-02-28",
+      "fimAdesao": "2027-02-28",
+      "url": "https://n26.com/en-eu/salary-account",
+      "fontes": [
+        {"url": "https://n26.com/en-eu/salary-account", "citacao": "be one of 10 monthly winners to double your salary", "data": null},
+        {"url": "https://n26.com/en-eu/salary-account", "citacao": "To enter, sign up and get €800+ paid into your account monthly.", "data": null},
+        {"url": "https://n26.com/en-eu/salary-account", "citacao": "To participate, enroll between 07.09.2026 and 28.02.2027", "data": null},
+        {"url": "https://n26.com/en-de/salary-account", "citacao": "receive an incoming payment of €1,000+ (€800+ for non-German permanent residents) into a main or joint account", "data": null},
+        {"url": "https://n26.com/en-de/salary-account", "citacao": "Poland, Portugal, Slovakia, Slovenia, Spain, Sweden, or Switzerland", "data": null}
+      ],
+      "notas": "Promoção ativa e aberta a residentes em Portugal (planos Standard, Smart, Go e Metal). Marquei false porque é um sorteio: quem domicilia não tem prémio garantido. Se quiserem incluir, etiqueta sugerida: «Sorteio: ordenado a dobrar». Página só em inglês; a versão pt-pt do site não abriu. O valor mínimo de 800€ vale para quem não reside na Alemanha."
+    },
+    {
+      "id": "bunq",
+      "ativa": false,
+      "tipo": null,
+      "etiqueta": null,
+      "resumo": "Sem campanha de ordenado.",
+      "ordenadoMin": null,
+      "fidelizacaoMeses": null,
+      "inicio": null,
+      "fim": null,
+      "fimAdesao": null,
+      "url": "https://help.bunq.com/en/articles/set-up-your-salary",
+      "fontes": [
+        {"url": "https://help.bunq.com/en/articles/set-up-your-salary", "citacao": "Receiving euro payments into your bunq Bank Account is always free.", "data": null},
+        {"url": "https://www.bunq.com/pt-pt", "citacao": "3,01% é a taxa bónus anual sobre as poupanças acima do teu limite pessoal, até 100.000 €.", "data": null}
+      ],
+      "notas": "O artigo de ajuda sobre o salário não refere prémio. O site português só destaca juros de poupança, sem ligação ao ordenado."
+    },
+    {
+      "id": "wise",
+      "ativa": false,
+      "tipo": null,
+      "etiqueta": null,
+      "resumo": "Sem campanha de ordenado.",
+      "ordenadoMin": null,
+      "fidelizacaoMeses": null,
+      "inicio": null,
+      "fim": null,
+      "fimAdesao": null,
+      "url": "https://wise.com/pt/receive-money",
+      "fontes": [
+        {"url": "https://wise.com/pt/receive-money", "citacao": "Compartilhe os seus dados de conta para receber o seu salário do exterior, sem perder na conversão.", "data": null}
+      ],
+      "notas": "A página para receber dinheiro só explica como receber o salário do estrangeiro. Sem campanha nem prémio."
+    },
+    {
+      "id": "traderepublic",
+      "ativa": false,
+      "tipo": null,
+      "etiqueta": null,
+      "resumo": "Sem campanha de ordenado.",
+      "ordenadoMin": null,
+      "fidelizacaoMeses": null,
+      "inicio": null,
+      "fim": null,
+      "fimAdesao": null,
+      "url": "https://traderepublic.com/pt-pt",
+      "fontes": [
+        {"url": "https://traderepublic.com/pt-pt", "citacao": "Obtém o teu cartão sem custo de subscrição para gastar e receber 1 % de Saveback.", "data": null},
+        {"url": "https://assets.traderepublic.com/assets/files/T&C_Customer-Promotions-PT.pdf", "citacao": "The Promotion consists of a cash payment within a range of 5 - 200 euros", "data": null}
+      ],
+      "notas": "A página principal destaca juros sobre o saldo e Saveback no cartão, sem ligação ao ordenado. Os termos das promoções para novos clientes em Portugal pedem depósito, cartão e compras, não ordenado."
+    }
+  ]
+}

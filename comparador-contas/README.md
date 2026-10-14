@@ -31,6 +31,8 @@ Em cada conta:
 - `cta`: botão "Ir para o/a X", como nos outros comparadores. `label` é o texto, `href` o link, `aff` o nome do parceiro (põe `rel="sponsored"` e `data-afiliado` para o `afiliados-tracking.js`) e `nota` a frase pequena por baixo do botão.
 - `bonus` e `tags`: etiquetas por baixo do nome, sempre com ícone. O bónus fica verde, com o ícone de presente. Em `tags`, `t` é o texto (até 28 carateres, para caber numa linha), `w: 1` um aviso (amarelo) e `w: 0` uma vantagem (verde), `i` o ícone (`cal` campanhas de meses grátis, `cash` levantamentos, `shx` sem garantia de depósitos, `usr` quem pode abrir, `bld` empresas, `card` cartão; sem `i` usa um aviso ou um visto), `s` a explicação que aparece ao passar o rato e `ate` (AAAA-MM-DD) o último dia da campanha: a partir do dia seguinte a etiqueta deixa de aparecer.
 - `promo`: meses sem custos de uma campanha (`m`) e, se houver, o último dia para aderir (`ate`). Com 6 meses ou mais, a conta entra nos filtros "Sem custos fixos" e "Sem mensalidade". O custo por mês continua a ser o valor normal.
+- `premio`: campanha para quem domicilia o ordenado (as do artigo "Melhores campanhas para domiciliar o ordenado", confirmadas no site do banco). `t` é o prémio em poucas palavras, `s` as condições, `url` a página da campanha e `ate` o último dia (sem `ate`, é uma oferta sem fim anunciado). Dá a etiqueta "Prémio por domiciliar", que abre o artigo, e a linha "Prémio por domiciliar o ordenado" nos detalhes.
+- `perfis`: o que muda no seletor "Para quem" das contas pessoais. `jovem` e `menor` trocam a conta pela do perfil: `produto`, `idade` (aparece numa etiqueta e no destaque "Idades"), `custoMes`, `custoMesCond`, `custoNota`, `cartao` (destaque do cartão), `ab` (destaque da abertura), `promo`, `tags`, `nota` (explicação na linha do perfil), `src` (fonte), `conf: true` para "A confirmar" e `premio: true` se a campanha de ordenado também vale para essa conta. `conjunta` não troca a conta: `v` (quantos titulares), `s` (como se abre), `cartao2` (custo do cartão dos outros titulares), `nota` e `src`. Sem `jovem`, o perfil jovem mostra a conta normal; sem `menor` ou `conjunta`, a conta sai da lista nesse perfil.
 - `ab`: destaque "Abertura" das contas pessoais. `v` é o mínimo para abrir ("Sem mínimo", "Mín. 250€") e `s` o canal ("Online", "Online ou balcão").
 - `review`: link para a análise completa no site.
 - `src`: preçário ou página oficial (link "Ver preçário").
@@ -47,6 +49,10 @@ Em cada conta:
 4. Publica a página.
 
 O commit fixo garante que o CSS, o JS e os dados mudam todos ao mesmo tempo e que a cache do jsDelivr não serve uma versão antiga.
+
+Antes de publicar, abre uma vez no browser `https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@<commit>/comparador-contas/dados/contas.json` e espera que carregue. Num commit novo, o jsDelivr pode demorar uns segundos a ir buscar o repositório e, nesse tempo, a página mostra "Não foi possível carregar o comparador".
+
+O seletor "Para quem" também funciona por link: `?perfil=jovem`, `?perfil=menor`, `?perfil=conjunta`, ou `?conta=empresa&perfil=eni` e `?conta=empresa&perfil=sociedade`. Serve para ligar de artigos (por exemplo, um artigo sobre contas para jovens).
 
 ## Regras dos dados
 

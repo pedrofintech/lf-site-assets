@@ -55,11 +55,16 @@
       { k: 'online', l: 'Abertura online', i: 'mon', f: function (o) { return !!o.f.aberturaOnline; } },
       { k: 'ibanpt', l: 'IBAN português', i: 'pin', f: function (o) { return o.f.iban === 'PT'; } },
       { k: 'tpa', l: 'TPA', i: 'card', f: function (o) { return !!o.f.tpa; } },
-      { k: 'multimoeda', l: 'Multimoeda', i: 'glo', f: function (o) { return !!o.f.multimoeda; } },
-      { k: 'eni', l: 'Para ENI', i: 'usr', f: function (o) { return !!o.f.eni; } },
-      { k: 'sociedades', l: 'Para sociedades', i: 'bld', f: function (o) { return !!o.f.sociedades; } }
+      { k: 'multimoeda', l: 'Várias moedas', i: 'glo', f: function (o) { return !!o.f.multimoeda; } }
     ]
   };
+  /* "Para quem": muda as contas que aparecem e, nos perfis jovem e menor, a conta e o custo de cada banco (campo perfis) */
+  var PERFIS = {
+    particular: [['', 'Qualquer pessoa'], ['jovem', 'Jovem até 30 anos'], ['menor', 'Menor de 18 anos'], ['conjunta', 'Conta conjunta']],
+    empresa: [['', 'Qualquer empresa'], ['eni', 'Empresário em nome individual'], ['sociedade', 'Sociedade']]
+  };
+  var PERFIL_ROW = { jovem: 'Conta para jovens', menor: 'Conta para menores', conjunta: 'Conta conjunta' };
+  var ARTIGO_ORDENADO = '/artigos/melhores-campanhas-para-domiciliar-ordenado';
   var SEGS = [['particular', 'Pessoal'], ['empresa', 'Empresa']];
   var VISTAS = [['lista', 'Lista'], ['comparar', 'Lado a lado']];
   var SORTS = {
@@ -76,7 +81,8 @@
         { k: 'levant', l: 'Levantamentos', n: 'Em Portugal e na zona euro' },
         { k: 'levantFora', l: 'Levantamentos fora da zona euro' },
         { k: 'transf', l: 'Transferências', n: 'SEPA e imediatas' },
-        { k: 'cambio', l: 'Pagamentos noutras moedas' }
+        { k: 'cambio', l: 'Pagamentos noutras moedas' },
+        { k: 'premio', calc: 'premio', l: 'Prémio por domiciliar o ordenado' }
       ] },
       { id: 'dia', t: 'No dia a dia', i: 'pho', rows: [
         { k: 'iban', l: 'IBAN' },
@@ -162,7 +168,8 @@
     gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/>',
     shx: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M9.5 9.5l5 5M14.5 9.5l-5 5"/>',
     warn: '<path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>',
-    ok: '<path d="M20 6L9 17l-5-5"/>'
+    ok: '<path d="M20 6L9 17l-5-5"/>',
+    sal: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>'
   };
 
   /* ---------- Formatação pt-PT ---------- */
@@ -195,9 +202,10 @@
         q[decodeURIComponent(i < 0 ? kv : kv.slice(0, i))] = i < 0 ? '' : decodeURIComponent(kv.slice(i + 1).replace(/\+/g, ' '));
       });
       if (q.conta === 'empresa' || q.conta === 'particular') S.seg = q.conta;
+      if (q.perfil && PERFIS[S.seg].some(function (x) { return x[0] === q.perfil; })) S.perfil = q.perfil;
       if (q.comparar) {
         var ids = [];
-        q.comparar.split(',').forEach(function (id) { var o = byId(id); if (o && o.seg === S.seg && ids.indexOf(id) < 0) ids.push(id); });
+        q.comparar.split(',').forEach(function (id) { var o = byId(id); if (o && o.seg === S.seg && disponivel(o) && ids.indexOf(id) < 0) ids.push(id); });
         if (ids.length) { S.sel[S.seg] = ids.slice(0, maxSel()); if (ids.length > 1) S.view = 'comparar'; }
       }
     } catch (e) { /* URL inválido: fica o estado por omissão */ }
@@ -205,8 +213,9 @@
   function writeUrl() {
     try {
       if (!window.history || !history.replaceState) return;
-      var keep = location.search.replace(/^\?/, '').split('&').filter(function (kv) { return kv && !/^(conta|comparar)=/.test(kv); });
+      var keep = location.search.replace(/^\?/, '').split('&').filter(function (kv) { return kv && !/^(conta|perfil|comparar)=/.test(kv); });
       if (S.seg === 'empresa') keep.push('conta=empresa');
+      if (S.perfil) keep.push('perfil=' + S.perfil);
       if (S.view === 'comparar' && sel().length) keep.push('comparar=' + sel().join(','));
       history.replaceState(history.state, '', location.pathname + (keep.length ? '?' + keep.join('&') : '') + location.hash);
     } catch (e) { /* sem history: ignora */ }
@@ -214,7 +223,35 @@
 
   /* ---------- Lista filtrada ---------- */
   function chipsOn() { var n = 0; for (var k in S.on) { if (S.on.hasOwnProperty(k) && S.on[k]) n++; } return n; }
-  function noSeg() { return ALL.filter(function (o) { return o.seg === S.seg; }); }
+  /* Contas do tipo escolhido que existem para o perfil, já com a conta e o custo do perfil (vista) */
+  function noSeg() { return ALL.filter(function (o) { return o.seg === S.seg && disponivel(o); }).map(vista); }
+  function disponivel(o) {
+    var p = S.perfil;
+    if (!p || p === 'jovem') return true;
+    if (p === 'eni') return !!o.f.eni;
+    if (p === 'sociedade') return !!o.f.sociedades;
+    return !!(o.perfis && o.perfis[p]);
+  }
+  /* Nos perfis jovem e menor, a conta do banco pode ser outra (ex.: Conta Jovem): muda o produto, o custo, o cartão,
+     a abertura e as etiquetas. As campanhas da conta normal só passam se o perfil o disser (premio: true). */
+  function vista(o) {
+    var p = (S.perfil === 'jovem' || S.perfil === 'menor' || S.perfil === 'conjunta') && o.perfis && o.perfis[S.perfil];
+    if (!p) return o;
+    var v = Object.create(o);
+    v.base = o; v.perfil = p;
+    if (S.perfil === 'conjunta') return v;
+    v.produto = p.produto || o.produto;
+    v.f = {}; for (var k in o.f) { if (o.f.hasOwnProperty(k)) v.f[k] = o.f[k]; }
+    v.f.custoMes = p.custoMes; v.f.custoMesCond = p.custoMesCond != null ? p.custoMesCond : null; v.f.custoAno = Math.round(p.custoMes * 1200) / 100;
+    v.custoNota = p.custoNota || null;
+    v.ab = p.ab || o.ab;
+    v.promo = p.promo || null;
+    v.tags = p.tags || [];
+    v.premio = p.premio ? o.premio : null;
+    v.bonus = p.bonus ? o.bonus : null;
+    return v;
+  }
+  function vistaId(id) { var o = byId(id); return o && o.seg === S.seg && disponivel(o) ? vista(o) : null; }
   function filtered() {
     var chips = CHIPS[S.seg];
     var list = noSeg().filter(function (o) {
@@ -260,12 +297,14 @@
   function kpis(o) {
     var f = o.f, custo = kpi('Custo por mês', esc(eur2(f.custoMes)), esc(custoSub(o)));
     if (o.seg === 'particular') {
-      var ab = o.ab || { v: txt(o, 'abertura').v };
+      var p = o.perfil, conj = S.perfil === 'conjunta' && p, ab = o.ab || { v: txt(o, 'abertura').v };
       return custo +
-        kpi('Cartão de débito', esc(txt(o, 'cartao').v), '') +
-        kpi('Abertura', esc(ab.v), esc(ab.s || '')) +
+        kpi('Cartão de débito', esc((p && !conj && p.cartao) || txt(o, 'cartao').v), conj ? esc(p.cartao2 || '') : '') +
+        (conj ? kpi('Conta conjunta', esc(p.v), esc(p.s || '')) : kpi('Abertura', esc(ab.v), esc(ab.s || ''))) +
         kpi('IBAN', esc(IBANS[f.iban] || f.iban), (f.mbway ? '<span class="cb-yn is-yes">' + ico(IC.yes) + 'Com MB WAY</span>' : '<span class="cb-yn is-no">' + ico(IC.no) + 'Sem MB WAY</span>')) +
-        kpi('Juros', f.jurosMax > 0 ? 'Até ' + fmtPct(f.jurosMax) : 'Não paga', f.jurosMax > 0 ? (jurosNaConta(o) ? 'Na conta à ordem' : 'Na conta poupança') : '');
+        /* nos perfis jovem e menor interessa mais a idade do que os juros (que podem não valer para a conta jovem) */
+        ((S.perfil === 'jovem' || S.perfil === 'menor') ? kpi('Idades', esc(p && p.idade ? p.idade : 'Desde os 18 anos'), '') :
+        kpi('Juros', f.jurosMax > 0 ? 'Até ' + fmtPct(f.jurosMax) : 'Não paga', f.jurosMax > 0 ? (jurosNaConta(o) ? 'Na conta à ordem' : 'Na conta poupança') : ''));
     }
     return custo +
       kpi('Cartões', esc(txt(o, 'cartoes').v), '') +
@@ -291,7 +330,12 @@
   }
   function tagsHtml(o, keep) {
     var h = '';
+    if (o.perfil && o.perfil.idade) h += tagHtml('is-info', 'usr', o.perfil.idade, o.perfil.produto);
     if (o.bonus) h += tagHtml('is-bonus', 'gift', o.bonus, o.cta && o.cta.nota);
+    if (o.premio && ativo(o.premio)) {
+      h += '<a class="cb-tag is-ok is-link" href="' + LF + ARTIGO_ORDENADO + '" target="_blank" rel="noopener" title="' + esc(o.premio.t + '. ' + o.premio.s) + '">' +
+        ico(IC.sal) + '<span>Prémio por domiciliar</span></a>';
+    }
     (o.tags || []).forEach(function (t) {
       if (!ativo(t)) return;
       h += tagHtml(t.w ? 'is-warn' : 'is-ok', t.i || (t.w ? 'warn' : 'ok'), t.t, t.s);
@@ -311,9 +355,37 @@
     if (row.calc === 'juros') {
       return { v: f.jurosMax > 0 ? fmtPct(f.jurosMax) : 'Não paga', s: '', num: f.jurosMax || 0, big: true };
     }
+    if (row.calc === 'perfil') {
+      var p = o.perfil;
+      if (!p) return { v: o.produto, s: 'Não há preço especial para jovens nesta conta' };
+      if (S.perfil === 'conjunta') return { v: p.v, s: [p.s, p.nota].filter(Boolean).join('. '), links: [[p.src, 'Fonte']] };
+      return { v: p.produto + (p.idade ? ' (' + p.idade + ')' : ''), s: (p.nota || '') + ' Os restantes valores são da ' + o.base.produto + '.', conf: !!p.conf, links: [[p.src, 'Fonte']] };
+    }
+    /* a manutenção e o cartão da conta do perfil estão na linha do perfil; os da conta normal enganavam */
+    if (o.base && S.perfil !== 'conjunta' && (row.k === 'manut' || row.k === 'cartao')) return { v: 'Ver acima', s: 'Em "' + PERFIL_ROW[S.perfil] + '"' };
+    if (row.calc === 'premio') {
+      var pr = o.premio && ativo(o.premio) ? o.premio : null;
+      if (!pr) return { v: 'Sem campanha', s: '' };
+      return { v: pr.t, s: pr.s, links: [[pr.url, 'Ver campanha'], [LF + ARTIGO_ORDENADO, 'Melhores campanhas para domiciliar o ordenado']] };
+    }
     if (row.top) return { v: o[row.k] || '-', s: '' };
     var d = txt(o, row.k);
     return { v: d.v, s: d.s || '', conf: isConf(o, row.k), yn: true };
+  }
+
+  /* Secções da comparação. Com um perfil escolhido (jovem, menor ou conjunta), "Quanto pagas" começa pela conta desse perfil. */
+  function secs() {
+    var all = SECTIONS[S.seg];
+    if (S.seg !== 'particular' || !PERFIL_ROW[S.perfil]) return all;
+    return all.map(function (sec, i) {
+      if (i) return sec;
+      var c = {}; for (var k in sec) { if (sec.hasOwnProperty(k)) c[k] = sec[k]; }
+      c.rows = [{ k: 'perfil', calc: 'perfil', l: PERFIL_ROW[S.perfil] }].concat(sec.rows);
+      return c;
+    });
+  }
+  function linksHtml(r) {
+    return r.links ? '<span class="cb-links">' + r.links.map(function (x) { return '<a class="cb-src" href="' + esc(x[0]) + '" target="_blank" rel="noopener">' + esc(x[1]) + '</a>'; }).join('') + '</span>' : '';
   }
 
   /* ---------- Render: estrutura ---------- */
@@ -342,6 +414,10 @@
   function renderForm() {
     document.getElementById('cb-form').innerHTML =
       tabs('data-seg', SEGS, S.seg, 'cb-l-seg', 'Tipo de conta') +
+      '<div class="cb-fg cb-fg-perfil"><label class="cb-label" for="cb-perfil">Para quem</label>' +
+        '<select class="cb-pselect' + (S.perfil ? ' is-on' : '') + '" id="cb-perfil">' + PERFIS[S.seg].map(function (x) {
+          return '<option value="' + x[0] + '"' + (S.perfil === x[0] ? ' selected' : '') + '>' + esc(x[1]) + '</option>';
+        }).join('') + '</select></div>' +
       tabs('data-go', VISTAS, S.view, 'cb-l-ver', 'Ver');
   }
 
@@ -366,16 +442,16 @@
   /* Detalhes em duas colunas. As secções vão aos pares (uma à esquerda, outra à direita) e cada linha ocupa a mesma
      linha da grelha que a do lado (--r), para os traços ficarem alinhados. No telemóvel fica uma coluna, pela ordem do HTML. */
   function detailHtml(o) {
-    var h = '<div class="cb-c-detail"><div class="cb-dgrid">', secs = SECTIONS[o.seg], base = 1;
-    for (var p = 0; p < secs.length; p += 2) {
+    var h = '<div class="cb-c-detail"><div class="cb-dgrid">', ss = secs(), base = 1;
+    for (var p = 0; p < ss.length; p += 2) {
       var alto = 0;
-      secs.slice(p, p + 2).forEach(function (sec, c) {
+      ss.slice(p, p + 2).forEach(function (sec, c) {
         var col = ' cb-col' + (c + 1);
         h += '<div class="cb-h' + col + (p ? ' is-next' : '') + '" style="--r:' + base + '">' + esc(sec.t) + '</div>';
         sec.rows.forEach(function (row, i) {
           var r = rowVal(o, row);
           h += '<div class="cb-kv' + col + '" style="--r:' + (base + 1 + i) + '"><span class="cb-kv-l">' + esc(row.l) + '</span><span class="cb-kv-v"><b>' + (r.yn ? yn(r.v) : esc(r.v)) + '</b>' +
-            (r.s ? '<span class="cb-s">' + esc(r.s) + '</span>' : '') + (r.conf ? '<span class="cb-tag is-conf">' + CONF + '</span>' : '') + '</span></div>';
+            (r.s ? '<span class="cb-s">' + esc(r.s) + '</span>' : '') + linksHtml(r) + (r.conf ? '<span class="cb-tag is-conf">' + CONF + '</span>' : '') + '</span></div>';
         });
         alto = Math.max(alto, sec.rows.length);
       });
@@ -405,7 +481,7 @@
 
   /* ---------- Render: lado a lado (como o comparador de corretoras) ---------- */
   function renderCompare() {
-    var cur = sel().map(byId).filter(Boolean), max = maxSel();
+    var cur = sel().map(vistaId).filter(Boolean), max = maxSel();
     var picks = noSeg().sort(function (a, b) { return a.ordem - b.ordem; });
     var h = '<div class="cb-panel">' +
       '<p class="cb-step">Escolhe até ' + max + ' contas para comparar</p>' +
@@ -432,11 +508,11 @@
         '<div class="cb-hname">' + logo(o, 'md') + '<span><b>' + esc(o.name) + '</b><small>' + esc(o.produto) + '</small></span></div>' +
         tagsHtml(o, true) + ctaHtml(o, 'head') + '</div>';
     }).join('') + '</div>';
-    var body = SECTIONS[S.seg].map(function (sec) {
+    var body = secs().map(function (sec) {
       var rows = sec.rows.map(function (row) {
         var vals = cur.map(function (o) { return rowVal(o, row); });
         var best = null;
-        if (row.calc && cur.length > 1) {
+        if ((row.calc === 'custo' || row.calc === 'juros') && cur.length > 1) {
           var nums = vals.map(function (v) { return v.num; });
           var mn = Math.min.apply(null, nums), mx = Math.max.apply(null, nums);
           if (mx - mn > 0.004) best = row.calc === 'custo' ? mn : mx;
@@ -446,6 +522,7 @@
           vals.map(function (r) {
             var c = '<span class="cb-v' + (r.big ? ' is-big' : '') + '">' + (r.yn ? yn(r.v) : esc(r.v)) + '</span>';
             if (r.s) c += '<span class="cb-s">' + esc(r.s) + '</span>';
+            c += linksHtml(r);
             if (best !== null && Math.abs(r.num - best) < 0.005) c += '<span class="cb-tag is-best">' + (row.calc === 'custo' ? 'Mais barato' : 'Mais alta') + '</span>';
             if (r.conf) c += '<span class="cb-tag is-conf">' + CONF + '</span>';
             return '<div class="cb-cell">' + c + '</div>';
@@ -491,7 +568,7 @@
 
   /* ---------- Render: barra de comparação e notas ---------- */
   function renderTray() {
-    var tr = document.getElementById('cb-tray'), cur = sel().map(byId).filter(Boolean);
+    var tr = document.getElementById('cb-tray'), cur = sel().map(vistaId).filter(Boolean);
     var show = S.view === 'lista' && cur.length > 0;
     tr.classList.toggle('is-on', show);
     root.style.paddingBottom = show ? '84px' : '';
@@ -507,6 +584,8 @@
     if (S.seg === 'particular') {
       p.push('<b>Custo por mês:</b> comissão de manutenção mais a anuidade do cartão de débito a dividir por 12, com Imposto do Selo, sem condições especiais. "Com condições" é o custo com ordenado domiciliado ou outras exigências do banco, explicadas em "Comissão de manutenção". Levantamentos, transferências e câmbio estão nos detalhes, mas não entram nesta conta.');
       p.push('<b>Meses grátis:</b> as campanhas com pelo menos ' + PROMO_MIN + ' meses sem custos aparecem numa etiqueta verde e contam no filtro "Sem custos fixos". O custo por mês é o valor normal, depois da campanha.');
+      p.push('<b>Para quem:</b> em "Jovem até 30 anos" e "Menor de 18 anos" mostramos a conta de cada banco para essa idade, com as idades na etiqueta. Nos bancos sem conta própria para jovens fica a conta normal. Os bancos sem conta para menores saem da lista. Em "Conta conjunta" só ficam as contas que aceitam mais de um titular.');
+      p.push('<b>Prémio por domiciliar:</b> campanhas para quem leva o ordenado para o banco, confirmadas nos sites dos bancos. Têm regras próprias, como ordenado mínimo e fidelização. Vê as <a href="' + LF + ARTIGO_ORDENADO + '" target="_blank" rel="noopener">melhores campanhas para domiciliar o ordenado</a>.');
       p.push('<b>Bancos tradicionais:</b> comparamos a conta pacote de entrada (conta à ordem com cartão de débito). Em qualquer banco podes pedir uma conta de serviços mínimos bancários, que em 2026 custa no máximo 5,37€ por ano (menos de 0,45€ por mês), se não tiveres outra conta à ordem.');
       p.push('<b>Juros:</b> a taxa mais alta que um cliente novo consegue sem ordenado, na conta à ordem ou numa poupança de acesso imediato do próprio banco. Fundos, como o da Wise, não contam. Os juros pagam 28% de IRS.');
       p.push('<b>Revolut:</b> bónus de 10€ ao abrires conta pelo nosso link e gastares 10€ no primeiro mês, até 31/12/2026. Aplicam-se os termos da campanha.');
@@ -533,7 +612,7 @@
   function fillDefaults() {
     var s = sel(), max = Math.min(maxSel(), 3), def = (D.comparar && D.comparar[S.seg]) || [];
     def.concat(noSeg().sort(function (a, b) { return a.ordem - b.ordem; }).map(function (o) { return o.id; }))
-      .forEach(function (id) { if (s.length < max && s.indexOf(id) < 0 && byId(id) && byId(id).seg === S.seg) s.push(id); });
+      .forEach(function (id) { var o = byId(id); if (s.length < max && s.indexOf(id) < 0 && o && o.seg === S.seg && disponivel(o)) s.push(id); });
   }
 
   /* ---------- Posição fixa (barra do topo da comparação) ---------- */
@@ -573,6 +652,7 @@
     var attrs = ['data-cmp', 'data-chip', 'data-seg', 'data-go', 'data-more', 'data-pick', 'data-sec', 'data-diff'];
     for (var i = 0; i < attrs.length; i++) { if (el.hasAttribute(attrs[i])) return '[' + attrs[i] + (el.getAttribute(attrs[i]) ? '="' + el.getAttribute(attrs[i]) + '"' : '') + ']'; }
     if (el.id === 'cb-sort') return '#cb-sort';
+    if (el.id === 'cb-perfil') return '#cb-perfil';
     return null;
   }
   function refocus(key) { if (!key) return; var el = root.querySelector(key); if (el && el.focus) { try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); } } }
@@ -582,7 +662,7 @@
       var t = e.target, el, key = null;
       if ((el = t.closest('[data-seg]'))) {
         var sg = el.getAttribute('data-seg');
-        if (sg !== S.seg) { S.seg = sg; S.on = {}; S.open = null; S.all = false; if (S.sort === 'juros' && sg === 'empresa') S.sort = 'rec'; key = focusKey(el); renderAll(); refocus(key); }
+        if (sg !== S.seg) { S.seg = sg; S.on = {}; S.perfil = ''; S.open = null; S.all = false; if (S.sort === 'juros' && sg === 'empresa') S.sort = 'rec'; key = focusKey(el); renderAll(); refocus(key); }
         return;
       }
       if ((el = t.closest('[data-chip]'))) { var k = el.getAttribute('data-chip'); S.on[k] = !S.on[k]; S.all = false; key = focusKey(el); renderView(); refocus(key); return; }
@@ -601,13 +681,19 @@
       }
       if ((el = t.closest('[data-clear]'))) { S.sel[S.seg] = []; renderView(); writeUrl(); return; }
       if ((el = t.closest('[data-pick]'))) { toggleSel(el.getAttribute('data-pick')); key = focusKey(el); renderView(); writeUrl(); refocus(key); return; }
-      if ((el = t.closest('[data-sec]'))) { var sid = el.getAttribute('data-sec'); S.secs[sid] = !S.secs[sid]; key = focusKey(el); renderTable(sel().map(byId).filter(Boolean)); refocus(key); return; }
-      if ((el = t.closest('[data-diff]'))) { S.diff = !S.diff; el.setAttribute('aria-pressed', S.diff); renderTable(sel().map(byId).filter(Boolean)); return; }
+      if ((el = t.closest('[data-sec]'))) { var sid = el.getAttribute('data-sec'); S.secs[sid] = !S.secs[sid]; key = focusKey(el); renderTable(sel().map(vistaId).filter(Boolean)); refocus(key); return; }
+      if ((el = t.closest('[data-diff]'))) { S.diff = !S.diff; el.setAttribute('aria-pressed', S.diff); renderTable(sel().map(vistaId).filter(Boolean)); return; }
     });
     root.addEventListener('change', function (e) {
       var t = e.target;
       if (t.hasAttribute && t.hasAttribute('data-cmp')) { var key = focusKey(t); toggleSel(t.getAttribute('data-cmp')); renderView(); refocus(key); return; }
       if (t.id === 'cb-sort') { S.sort = t.value; renderView(); refocus('#cb-sort'); }
+      if (t.id === 'cb-perfil') {
+        S.perfil = t.value; S.all = false; S.open = null;
+        S.sel[S.seg] = sel().filter(function (id) { var o = byId(id); return o && disponivel(o); });
+        if (S.view === 'comparar' && sel().length < 2) fillDefaults();
+        renderAll(); refocus('#cb-perfil');
+      }
     });
     window.addEventListener('scroll', onScroll, { passive: true });
     var lastMax = maxSel(), rz = null;
@@ -626,7 +712,7 @@
   }
 
   function start() {
-    S = { seg: 'particular', on: {}, sort: 'rec', view: 'lista', open: null, all: false, diff: false, secs: {}, sel: { particular: [], empresa: [] } };
+    S = { seg: 'particular', perfil: '', on: {}, sort: 'rec', view: 'lista', open: null, all: false, diff: false, secs: {}, sel: { particular: [], empresa: [] } };
     readUrl();
     shell();
     renderAll();

@@ -1,0 +1,1898 @@
+{
+ "verificado": "2026-10-14",
+ "nota": "Pesquisa por perfil (jovem, menor, conta conjunta) nas fontes oficiais de cada banco, com citações. Junta os três ficheiros da pesquisa.",
+ "contas": [
+  {
+   "id": "cgd",
+   "jovem": {
+    "existe": true,
+    "produto": "Conta CaixaJovem Extracto",
+    "idade": "18 a 25 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 0.0,
+    "custoMes": 0.0,
+    "condicoes": "Só 1 titular. Cartão Caixa Débito isento no 1.º ano; nos anos seguintes fica isento com 600€ de compras por ano, senão paga 19,76€. Aos 26 anos passa a Conta Extracto.",
+    "abertura": "Mínimo de 100€. A página do produto não indica o canal; online, a CGD só abre contas de maiores de 18 anos com 1 titular.",
+    "fontes": [
+     {
+      "url": "https://www.cgd.pt/_layouts/15/CaixatecCGDLayoutsV2/fin.aspx?pff=400&pfc=014&moe=EUR",
+      "citacao": "As contas de jovens até 25 anos, uni-tituladas, estão isentas da comissão de manutenção de conta à ordem.",
+      "data": "referência 400014_EUR_20260903_001"
+     },
+     {
+      "url": "https://www.cgd.pt/_layouts/15/CaixatecCGDLayoutsV2/fin.aspx?pff=400&pfc=014&moe=EUR",
+      "citacao": "Quando o cliente atingir a idade de 26 anos, a conta CaixaJovem Extracto será automaticamente convertida em conta Extracto.",
+      "data": "referência 400014_EUR_20260903_001"
+     },
+     {
+      "url": "https://www.cgd.pt/Precario/Documents/1.pdf",
+      "citacao": "Contas à ordem de jovens até 25 anos, uni-tituladas",
+      "data": "03-ago-2026"
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/A-sua-Medida/Jovens/Pages/Jovens.aspx",
+      "citacao": "Cartão Caixa Débito isento de comissão de disponibilização",
+      "data": ""
+     },
+     {
+      "url": "https://www.cgd.pt/Precario/Documents/3.pdf",
+      "citacao": "1.ª comissão por disponibilização de um cartão de débito: cartões associados a contas jovens (de titulares com idade inferior a 26 anos)",
+      "data": "28-mai-2026"
+     },
+     {
+      "url": "https://www.cgd.pt/Precario/Documents/3.pdf",
+      "citacao": "cartões associados a contas jovens, com faturação anual em compras ≥ 600,00 Euros;",
+      "data": "28-mai-2026"
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Caixajovem-Extracto.aspx",
+      "citacao": "Para abrir a Conta Caixajovem bastam 100 €.",
+      "data": ""
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/Contas/PublishingImages/Conta-Caixa/Contrato-Adesao-Conta-Caixa.pdf",
+      "citacao": "Cliente com idade igual ou inferior a 30 anos com conta de Depósitos à Ordem uni-titulada",
+      "data": "referência ICGDPT0410_20260415"
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/Contas/PublishingImages/Conta-Caixa/Contrato-Adesao-Conta-Caixa.pdf",
+      "citacao": "e simultaneamente à Conta Caixa M até 31/12/2026.",
+      "data": "referência ICGDPT0410_20260415"
+     }
+    ],
+    "notas": "Até aos 30 anos há também a Conta Caixa M a 2€ + IS (2,08€/mês), só com conta de 1 titular e com 2 cartões de débito incluídos. Fica a 0€ para quem abre a 1.ª conta e adere até 31/12/2026 e para estudantes do superior com menos de 28 anos e Cartão Caixa IU. A CaixaJovem é a conta que a CGD mostra para crianças e jovens até aos 25."
+   },
+   "menor": {
+    "existe": true,
+    "produto": "Conta CaixaJovem Extracto",
+    "idade": "0 a 17 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 14.56,
+    "custoMes": 1.21,
+    "cartao": "Mega Cartão Jovem (débito) a partir dos 12 anos, a 14€ + IS por ano (14,56€). Antes dos 12 anos não há cartão.",
+    "condicoes": "Só 1 titular, o menor. Sem comissão de manutenção. Dos 12 aos 17 anos o menor pode consultar as contas na app Caixadirecta.",
+    "abertura": "Na agência (online só para maiores de 18). Pede a cédula ou o boletim de nascimento do menor. Mínimo de 100€.",
+    "fontes": [
+     {
+      "url": "https://www.cgd.pt/Particulares/A-sua-Medida/Jovens/Pages/Jovens.aspx",
+      "citacao": "Dos 0 aos 25 anos.",
+      "data": ""
+     },
+     {
+      "url": "https://www.cgd.pt/_layouts/15/CaixatecCGDLayoutsV2/fin.aspx?pff=400&pfc=014&moe=EUR",
+      "citacao": "A conta não poderá ter mais do que 1 titular.",
+      "data": "referência 400014_EUR_20260903_001"
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Caixajovem-Extracto.aspx",
+      "citacao": "Com o Mega Cartão Jovem, a partir dos 12 anos na rede multibanco, ou com qualquer cartão de débito, a partir dos 18 anos.",
+      "data": ""
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/Cartoes/Cartoes-de-Debito/Pages/Cartao-Debito-Megacartao-Jovem.aspx",
+      "citacao": "Comissão de disponibilização de cartão de € 14,00/ano (acresce imposto do selo 4%)",
+      "data": ""
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/A-sua-Medida/Jovens/Pages/Jovens.aspx",
+      "citacao": "Entre os 12 e os 17 anos, o seu filho pode consultar as suas contas.",
+      "data": ""
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/Contas/Abertura-conta/Pages/Abertura-conta.aspx",
+      "citacao": "Podem abrir conta online pessoas maiores de 18 anos",
+      "data": ""
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Documents/Abertura-Conta.pdf",
+      "citacao": "Cédula/boletim de nascimento no caso de menores.",
+      "data": "CGDPT0094"
+     }
+    ],
+    "notas": "Custo com o Mega Cartão Jovem; sem cartão a conta custa 0€. O preçário de cartões (28-mai-2026) não mostra isenção para o Megacartão Jovem. A CGD não indica em que canal se abre a conta de um menor; como online só aceita maiores de 18, fica a agência."
+   },
+   "conjunta": {
+    "existe": true,
+    "maxTitulares": null,
+    "condicoes": "Aceita vários titulares, mas só na agência: online abre apenas com 1 titular. O pacote S inclui 1 cartão de débito; a Conta Caixa M inclui 2, para 2 titulares.",
+    "fontes": [
+     {
+      "url": "https://www.cgd.pt/link/novascondicoesgerais-SMB",
+      "citacao": "A conta é individual ou coletiva, consoante tenha, respetivamente, um ou mais titulares.",
+      "data": "referência ICGDPT0309_20260901"
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/Contas/Abertura-conta/Pages/Abertura-conta.aspx",
+      "citacao": "a abertura de conta online está disponível apenas para contas com um único titular particular",
+      "data": ""
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/Contas/Abertura-conta/Pages/Abertura-conta.aspx",
+      "citacao": "Outros casos devem ser tratados numa agência.",
+      "data": ""
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx",
+      "citacao": "Uma comissão de disponibilização de cartão",
+      "data": ""
+     },
+     {
+      "url": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-M.aspx",
+      "citacao": "2 Cartões de Débito (2 titulares)",
+      "data": ""
+     }
+    ],
+    "notas": "As condições gerais não fixam máximo de titulares. Fora do pacote, o Caixa Débito custa 19€ + IS (19,76€/ano, página da Conta Caixa S); a coluna 'Outros Titulares' do preçário de cartões não tem valor legível, por isso o custo do cartão do 2.º titular fica por confirmar."
+   }
+  },
+  {
+   "id": "millennium",
+   "jovem": {
+    "existe": true,
+    "produto": "Millennium GO!",
+    "idade": "18 a 30 anos",
+    "manutMes": 3.64,
+    "cartaoAno": 0.0,
+    "custoMes": 3.64,
+    "condicoes": "Conta a idade do 1.º titular. Baixa para 1,04€/mês com ordenado de 500€ ou mais domiciliado e extrato digital. Inclui cartão de débito e cartão de crédito GO! sem comissão. Acaba aos 31 anos.",
+    "abertura": "Online, na app com Chave Móvel Digital ou por videochamada. Mínimo de 250€ para novos clientes na página; a FIN baixa para 50€ dos 18 aos 35 anos na plataforma digital.",
+    "fontes": [
+     {
+      "url": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0729-PT.pdf",
+      "citacao": "com idade compreendida entre os 18 e os 30 anos, ambos inclusive.",
+      "data": "SC0729 (10903553) 10-25"
+     },
+     {
+      "url": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0729-PT.pdf",
+      "citacao": "no valor de €3,50/mês (valor anual de 43,68€, Imposto do Selo incluído)",
+      "data": "SC0729 (10903553) 10-25"
+     },
+     {
+      "url": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0729-PT.pdf",
+      "citacao": "sendo o respetivo valor mensal de €1,00 (valor anual de 12,48€, Imposto do Selo incluído)",
+      "data": "SC0729 (10903553) 10-25"
+     },
+     {
+      "url": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0729-PT.pdf",
+      "citacao": "Isenção da comissão de disponibilização de um cartão de débito para movimentação da Conta DO;",
+      "data": "SC0729 (10903553) 10-25"
+     },
+     {
+      "url": "https://www.millenniumbcp.pt/contas/conta-a-ordem/conta-millennium-go",
+      "citacao": "Com Chave Móvel Digital ou com videochamada, a escolha é sua.",
+      "data": ""
+     },
+     {
+      "url": "https://www.millenniumbcp.pt/contas/conta-a-ordem/conta-millennium-go",
+      "citacao": "Se é novo Cliente o montante mínimo de abertura de conta é de 250€.",
+      "data": ""
+     },
+     {
+      "url": "https://investimentos.millenniumbcp.pt/pt/Documents/10901033-PT.pdf",
+      "citacao": "que efetuem a abertura de conta na sucursal e para €50 para Clientes com idade compreendida entre os 18 e os 35 anos",
+      "data": "01-08-2026"
+     },
+     {
+      "url": "https://investimentos.millenniumbcp.pt/pt/Documents/10901033-PT.pdf",
+      "citacao": "Isenção de comissão de Manutenção de Conta se o 1º titular tiver uma idade igual ou inferior a 23 anos.",
+      "data": "01-08-2026"
+     },
+     {
+      "url": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0708-PT.pdf",
+      "citacao": "Dos 18 aos 30 anos comissão de disponibilização anual 14,66€.",
+      "data": ""
+     }
+    ],
+    "notas": "3,50€ + IS por mês. Sem pacote, a Conta Millennium não paga manutenção se o 1.º titular tiver até 23 anos e o cartão de débito custa 14,66€/ano dos 18 aos 30. Valores das condições do GO! (SC0729), porque a tabela do preçário (29-jun-2026) está desalinhada."
+   },
+   "menor": {
+    "existe": true,
+    "produto": "Conta Millennium Start + Let's GO!",
+    "idade": "0 a 17 anos",
+    "manutMes": 0.52,
+    "cartaoAno": 0.0,
+    "custoMes": 0.52,
+    "cartao": "Cartão de débito a partir dos 12 anos, pedido pelos pais, sem comissão. Cartão pré-pago Jovem grátis a partir dos 12 anos.",
+    "condicoes": "0€ se a conta estiver associada a uma conta família (Cliente Frequente, Prestige ou Mais Portugal) e tiver extrato digital. Site e app a partir dos 14 anos.",
+    "abertura": "Na sucursal; o representante legal assina a adesão. Mínimo de 25€.",
+    "fontes": [
+     {
+      "url": "https://www.millenniumbcp.pt/contas/abrir-conta-para-menor/lets-go",
+      "citacao": "Comissão de manutenção de conta pacote anual de 6,24€,",
+      "data": ""
+     },
+     {
+      "url": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0744.pdf",
+      "citacao": "uma comissão de manutenção de conta pacote de 0,5€/mês, acrescida de Imposto do Selo",
+      "data": "SC0744 (10903668) 04-24"
+     },
+     {
+      "url": "https://www.millenniumbcp.pt/contas/abrir-conta-para-menor/lets-go",
+      "citacao": "e aderir ao extrato digital, não paga comissão de manutenção de conta.",
+      "data": ""
+     },
+     {
+      "url": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0744.pdf",
+      "citacao": "Possibilidade de atribuição de um cartão Mastercard Débito a Cliente com idade superior a 12 anos (inclusive).",
+      "data": "SC0744 (10903668) 04-24"
+     },
+     {
+      "url": "https://www.millenniumbcp.pt/contas/abrir-conta-para-menor/lets-go",
+      "citacao": "A partir dos 14 anos, os seus filhos podem aceder ao nosso site ou app",
+      "data": ""
+     },
+     {
+      "url": "https://www.millenniumbcp.pt/contas/abrir-conta-para-menor/lets-go",
+      "citacao": "O representante legal deve assinar a proposta de adesão.",
+      "data": ""
+     },
+     {
+      "url": "https://www.millenniumbcp.pt/contas/abrir-conta-para-menor/lets-go",
+      "citacao": "Se os seus filhos são novos Clientes o montante mínimo de abertura de conta é de 25€.",
+      "data": ""
+     },
+     {
+      "url": "https://investimentos.millenniumbcp.pt/pt/Documents/10901007-PT.pdf",
+      "citacao": "Conta individual titulada por Clientes Particulares com idades compreendidas entre os 0 e os 17 anos.",
+      "data": "03-07-2025"
+     }
+    ],
+    "notas": "0,50€ + IS por mês. A Conta Millennium Start sozinha é isenta de manutenção, mas fora do Let's GO! o cartão de débito custa 14,10€ + IS por ano (FIN de 03-07-2025). O Let's GO! acaba aos 18 anos."
+   },
+   "conjunta": {
+    "existe": true,
+    "maxTitulares": null,
+    "condicoes": "Na app abre com até 2 titulares (Chave Móvel Digital); com mais de 2, na sucursal. O pacote isenta 2 cartões de débito (24,44€ por titular/ano).",
+    "fontes": [
+     {
+      "url": "https://www.millenniumbcp.pt/abrir-conta-online",
+      "citacao": "Sim, na app pode abrir conta com 2 titulares, com Chave Móvel Digital.",
+      "data": ""
+     },
+     {
+      "url": "https://www.millenniumbcp.pt/abrir-conta-online",
+      "citacao": "Se quiser abrir com mais do que 2 titulares, deve abrir a sua conta numa sucursal",
+      "data": ""
+     },
+     {
+      "url": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0708-PT.pdf",
+      "citacao": "Isenção de comissão de disponibilização de dois cartões de débito no valor de 24,44€ por titular/ano",
+      "data": ""
+     }
+    ],
+    "notas": "As fontes não indicam um máximo de titulares. As bonificações do Cliente Frequente dependem do 1.º titular."
+   }
+  },
+  {
+   "id": "santander",
+   "jovem": {
+    "existe": true,
+    "produto": "Conta Jovem",
+    "idade": "18 a 26 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 0.0,
+    "custoMes": 0.0,
+    "condicoes": "Manutenção e cartão de débito do 1.º titular grátis até aos 26 anos. Dos 27 aos 30 paga 2,08€/mês e 6,24€ por trimestre pelo cartão. Aos 31 passa a Conta D.O. Particulares.",
+    "abertura": "Online com Chave Móvel Digital, sem mínimo. Ao balcão, mínimo recomendado de 5€.",
+    "fontes": [
+     {
+      "url": "https://www.santander.pt/pdfs/particulares/contas/conta-jovem/BST-IE-50008945.pdf",
+      "citacao": "Pessoas singulares com idade entre os 18 e os 26 anos (inclusive).",
+      "data": "08/06/2026"
+     },
+     {
+      "url": "https://www.santander.pt/pdfs/particulares/contas/conta-jovem/BST-IE-50008945.pdf",
+      "citacao": "Até aos 26 anos de idade (inclusive): Isento.",
+      "data": "08/06/2026"
+     },
+     {
+      "url": "https://www.santander.pt/pdfs/particulares/contas/conta-jovem/BST-IE-50008945.pdf",
+      "citacao": "Dos 27 aos 30 anos a comissão será de 6,00€+ Imposto do Selo por trimestre.",
+      "data": "08/06/2026"
+     },
+     {
+      "url": "https://www.santander.pt/pdfs/particulares/contas/conta-jovem/BST-IE-50008945.pdf",
+      "citacao": "Quando o Cliente atinge os 31 anos, a conta Jovem converter-se-á numa Conta D.O. Particulares,",
+      "data": "08/06/2026"
+     },
+     {
+      "url": "https://www.santander.pt/contas/conta-jovem",
+      "citacao": "Cartão de débito grátis para o 1.º titular.",
+      "data": ""
+     },
+     {
+      "url": "https://www.santander.pt/contas/conta-jovem",
+      "citacao": "O valor mínimo de abertura de conta é de 5,00€ (0€ se for aberta com Chave Móvel Digital).",
+      "data": ""
+     }
+    ],
+    "notas": "A Conta Santander Mais do comparador é para quem tem 27 anos ou mais. Dos 27 aos 30 anos a Conta Jovem custa 24,96€/ano de manutenção."
+   },
+   "menor": {
+    "existe": true,
+    "produto": "Conta Sub18",
+    "idade": "0 a 17 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 0.0,
+    "custoMes": 0.0,
+    "cartao": "Dos 0 aos 12 anos, 2 cartões pré-pagos grátis. Dos 13 aos 17, cartão de débito grátis, com autorização dos representantes legais.",
+    "condicoes": "App Santander para menores dos 13 aos 17 anos. O menor é sempre o 1.º titular; os pais podem ser contitulares.",
+    "abertura": "No balcão, pelos pais, avós ou representante legal. Mínimo de 5€.",
+    "fontes": [
+     {
+      "url": "https://www.santander.pt/contas/conta-bancaria-para-menores",
+      "citacao": "Uma conta dos 0 aos 17 anos, sem custos",
+      "data": ""
+     },
+     {
+      "url": "https://www.santander.pt/pdfs/particulares/contas/conta-sub-18/BST-IE-50008944.pdf",
+      "citacao": "Comissão de Manutenção da Conta Pacote: Isento",
+      "data": "24/08/2026"
+     },
+     {
+      "url": "https://www.santander.pt/pdfs/particulares/contas/conta-sub-18/BST-IE-50008944.pdf",
+      "citacao": "a partir dos 13 anos, através de cartão de débito, desde que autorizado pelos representantes legais",
+      "data": "24/08/2026"
+     },
+     {
+      "url": "https://www.santander.pt/pdfs/particulares/contas/conta-sub-18/BST-IE-50008944.pdf",
+      "citacao": "Os representantes legais do menor poderão ser também titulares da Conta mas este será sempre o 1º titular da mesma.",
+      "data": "24/08/2026"
+     },
+     {
+      "url": "https://www.santander.pt/contas/conta-bancaria-para-menores",
+      "citacao": "Oferta de 2 cartões pré-pagos não personalizados",
+      "data": ""
+     },
+     {
+      "url": "https://www.santander.pt/contas/conta-bancaria-para-menores",
+      "citacao": "Acesso à App Santander para menores",
+      "data": ""
+     },
+     {
+      "url": "https://www.santander.pt/contas/conta-bancaria-para-menores",
+      "citacao": "A abertura da mesma deve ser feita pelos pais, avós, ou representante legal.",
+      "data": ""
+     },
+     {
+      "url": "https://www.santander.pt/contas/conta-bancaria-para-menores",
+      "citacao": "Abertura no balcão - valor mínimo de abertura: 5€",
+      "data": ""
+     },
+     {
+      "url": "https://www.santander.pt/pdfs/particulares/contas/conta-sub-18/BST-IE-50008947.pdf",
+      "citacao": "Disponibilização de Cartão de Débito [Cartão de Débito Santander]",
+      "data": "01/06/2026"
+     }
+    ],
+    "notas": "O DIC da Conta Sub18 mostra custo anual de 0€, com cartão de débito a 0€ para todos os titulares. Dois meses depois dos 18 anos passa a Conta Jovem."
+   },
+   "conjunta": {
+    "existe": true,
+    "maxTitulares": null,
+    "condicoes": "Abre online com 2 titulares (conta solidária). Cartão de débito grátis para o 1.º titular; os outros pagam 6,24€ por trimestre a partir do 2.º trimestre (24,96€/ano), grátis até aos 25 anos.",
+    "fontes": [
+     {
+      "url": "https://www.santander.pt/abrir-conta-online",
+      "citacao": "Sim. No Santander, é possível abrir uma conta Santander com 2 titulares online.",
+      "data": ""
+     },
+     {
+      "url": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008239.pdf",
+      "citacao": "a conta, se for coletiva, fica sujeita ao regime de movimentação solidária.",
+      "data": "01/07/2026"
+     },
+     {
+      "url": "https://www.santander.pt/contas/conta-santander-mais",
+      "citacao": "isenção da primeira trimestralidade de comissão de disponibilização de cartão de débito para todos os titulares.",
+      "data": ""
+     },
+     {
+      "url": "https://www.santander.pt/contas/conta-santander-mais",
+      "citacao": "As seguintes serão no valor de 6,00€ por trimestre, acrescida de Imposto do Selo.",
+      "data": ""
+     },
+     {
+      "url": "https://www.santander.pt/contas/conta-santander-mais",
+      "citacao": "Isenção da comissão de disponibilização do cartão de débito para todos os clientes com idade até aos 25 anos.",
+      "data": ""
+     },
+     {
+      "url": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
+      "citacao": "Os valores acima indicados incluem os impostos legais em vigor.",
+      "data": "01/06/2026"
+     }
+    ],
+    "notas": "Nenhuma fonte indica máximo de titulares. O 1.º titular tem de ter 27 anos ou mais. No DIC (01/06/2026) os valores do cartão aparecem pela ordem 0€, 0€, 6,24€, 0€, 18,72€ e 24,96€, o que bate com 0€ para o 1.º titular e 18,72€ no 1.º ano e 24,96€ nos seguintes para os outros."
+   }
+  },
+  {
+   "id": "novobanco",
+   "jovem": {
+    "existe": true,
+    "produto": "Conta 18.25",
+    "idade": "18 a 25 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 0.0,
+    "custoMes": 0.0,
+    "condicoes": "Não é preciso ser estudante. Cartão de débito e cartão pré-pago grátis para o titular. Depois dos 25 anos a FIN prevê 5€ + IS por mês (5,20€).",
+    "abertura": "Online, em cerca de 15 minutos, ou ao balcão. Mínimo de 50€.",
+    "fontes": [
+     {
+      "url": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/particulares/P_FCD_contas_deposito_NOVO_BANCO.pdf.coredownload.inline.pdf",
+      "citacao": "Conta 18.25 (clientes particulares entre os 18 e os 25 anos de idade)",
+      "data": "20-fevereiro-2026"
+     },
+     {
+      "url": "https://www.novobanco.pt/content/dam/novobancopublicsites/en/particulares/contas/GBES3939.pdf.coredownload.inline.pdf",
+      "citacao": "Exempt up to and including the age of 25.",
+      "data": "3939/2 - 07/2026"
+     },
+     {
+      "url": "https://www.novobanco.pt/content/dam/novobancopublicsites/en/particulares/contas/GBES3939.pdf.coredownload.inline.pdf",
+      "citacao": "Free provision of an debit card, free provision of a prepaid card for the cardholder",
+      "data": "3939/2 - 07/2026"
+     },
+     {
+      "url": "https://www.novobanco.pt/en/personal/current-accounts/packaged-accounts/1825-account",
+      "citacao": "whether you are studying or working",
+      "data": ""
+     },
+     {
+      "url": "https://www.novobanco.pt/en/personal/current-accounts/packaged-accounts/1825-account",
+      "citacao": "Open your account online in around 15 minutes",
+      "data": ""
+     },
+     {
+      "url": "https://www.novobanco.pt/en/personal/current-accounts/packaged-accounts/1825-account",
+      "citacao": "Make your first deposit of at least 50€",
+      "data": ""
+     }
+    ],
+    "notas": "As páginas em português carregam por JavaScript e a FIN só existe em inglês; usei a página e a FIN em inglês do novobanco. Dos 26 aos 31 anos há a Conta 26.31 (5€ + IS por mês, 0€ com condições). A 18.25 também pode ser coletiva."
+   },
+   "menor": {
+    "existe": true,
+    "produto": "Conta Jovem (13 a 17 anos) e Conta Movimento Júnior (0 a 12 anos)",
+    "idade": "0 a 17 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 0.0,
+    "custoMes": 0.0,
+    "cartao": "Cartão Débito Jovem grátis dos 13 aos 17 anos, pedido pelo representante legal. A Movimento Júnior não tem cartão de débito; o pré-pago é grátis a partir dos 10 anos.",
+    "condicoes": "Na Conta Jovem o menor usa o novobanco Online e a app. Na Movimento Júnior, os pais gerem a conta no online deles.",
+    "abertura": "No balcão, pelo representante legal. Mínimo de 50€ (Conta Jovem) ou 40€ (Movimento Júnior).",
+    "fontes": [
+     {
+      "url": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/particulares/P_FCD_contas_deposito_NOVO_BANCO.pdf.coredownload.inline.pdf",
+      "citacao": "Comissão de Manutenção de Conta Movimento Junior (0-12 anos); Conta Jovem (13-17 anos); Conta Boas Vindas",
+      "data": "20-fevereiro-2026"
+     },
+     {
+      "url": "https://www.novobanco.pt/en/personal/current-accounts/accounts-with-no-maintenance-fees",
+      "citacao": "This account is exclusively for young people aged between 13 and 17.",
+      "data": ""
+     },
+     {
+      "url": "https://www.novobanco.pt/en/personal/current-accounts/accounts-with-no-maintenance-fees",
+      "citacao": "Free issue of a Cartão Débito Jovem -Youth Debit Card",
+      "data": ""
+     },
+     {
+      "url": "https://www.novobanco.pt/en/personal/current-accounts/accounts-with-no-maintenance-fees",
+      "citacao": "These cards must be requested by the legal representative",
+      "data": ""
+     },
+     {
+      "url": "https://www.novobanco.pt/en/personal/current-accounts/accounts-with-no-maintenance-fees",
+      "citacao": "novobanco Online and App",
+      "data": ""
+     },
+     {
+      "url": "https://www.novobanco.pt/en/personal/current-accounts/accounts-with-no-maintenance-fees",
+      "citacao": "Opened at a Branch",
+      "data": ""
+     },
+     {
+      "url": "https://www.novobanco.pt/en/personal/current-accounts/accounts-with-no-maintenance-fees",
+      "citacao": "Manage your children's account digitally through online banking when linked to your own account.",
+      "data": ""
+     },
+     {
+      "url": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/FIN_Jovem.pdf.coredownload.inline.pdf",
+      "citacao": "Montante mínimo de abertura: EUR 50,00.",
+      "data": "0733/2 - 08/2021"
+     },
+     {
+      "url": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0732.pdf.coredownload.inline.pdf",
+      "citacao": "disponibilização gratuita ao cartão pré-pago Tipo para menores com idade igual ou superior a 10 anos",
+      "data": "0732/2 - 05/2024"
+     },
+     {
+      "url": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0732.pdf.coredownload.inline.pdf",
+      "citacao": "Montante mínimo de abertura: EUR 40,00 ou o equivalente na moeda estrangeira permitida.",
+      "data": "0732/2 - 05/2024"
+     }
+    ],
+    "notas": "A FIN da Conta Jovem é de 08/2021, mas o preçário de 20-fev-2026 e a página atual confirmam a isenção. O cartão de débito jovem tem limites de 50€ por levantamento e 100€ por compra."
+   },
+   "conjunta": {
+    "existe": true,
+    "maxTitulares": null,
+    "condicoes": "Online não abre com 2 titulares: o 2.º titular junta-se depois, num balcão. O pacote inclui cartão de débito para o titular adicional sem custo.",
+    "fontes": [
+     {
+      "url": "https://www.novobanco.pt/en/personal/current-accounts/open-current-account-online",
+      "citacao": "You may add a second account holder later. At present, this must be completed at one of our Branches",
+      "data": ""
+     },
+     {
+      "url": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/5047_I.U._CGs_novobanco_Particulares.pdf.coredownload.inline.pdf",
+      "citacao": "A Conta D/O é coletiva, quando tem mais de um titular.",
+      "data": "Versão Nº 4 de 01/04/2024"
+     },
+     {
+      "url": "https://www.novobanco.pt/content/dam/novobancopublicsites/en/particulares/contas/GBES3938.pdf.coredownload.inline.pdf",
+      "citacao": "Providing an debit card [Cartão Débito] for cardholder and additional cardholder",
+      "data": "01/04/2025"
+     }
+    ],
+    "notas": "Nenhuma fonte indica máximo de titulares. O DIC da Conta 100% em inglês mostra 0€ no cartão de débito do titular adicional."
+   }
+  },
+  {
+   "id": "bpi",
+   "jovem": {
+    "existe": true,
+    "produto": "Conta AGE",
+    "idade": "18 a 30 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 0.0,
+    "custoMes": 0.0,
+    "condicoes": "Conta a idade do 1.º titular. Inclui cartão de débito BPI Electron e cartão de crédito BPI Classic sem comissão. Aos 31 anos passa para a Conta Valor BPI.",
+    "abertura": "100% online na BPI App, com Chave Móvel Digital ou Vídeo Selfie, ou ao balcão. Mínimo de 25€.",
+    "fontes": [
+     {
+      "url": "https://www.bancobpi.pt/contentservice/getContent?documentName=PP_WCS01_UCM01002540",
+      "citacao": "Dos 18 aos 30 anos: O 1º titular tem que ter idade compreendida entre os 18 e os 30 anos (inclusive).",
+      "data": "V. 0350 - 01.07.2026"
+     },
+     {
+      "url": "https://www.bancobpi.pt/contentservice/getContent?documentName=PP_WCS01_UCM01002540",
+      "citacao": "Isenta enquanto o 1º titular tiver idade inferior a 31 anos;",
+      "data": "V. 0350 - 01.07.2026"
+     },
+     {
+      "url": "https://www.bancobpi.pt/contentservice/getContent?documentName=PP_WCS01_UCM01002540",
+      "citacao": "O Cliente é migrado automaticamente para uma Conta Valor BPI",
+      "data": "V. 0350 - 01.07.2026"
+     },
+     {
+      "url": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-age",
+      "citacao": "Tem direito a 1 cartão de crédito e 1 cartão de débito de forma gratuíta.",
+      "data": ""
+     },
+     {
+      "url": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-age",
+      "citacao": "Só precisa de € 25 para abrir a conta (pacote).",
+      "data": ""
+     },
+     {
+      "url": "https://www.bpiage.pt/ajuda-contactos",
+      "citacao": "Abre uma conta totalmente online, na BPI App, com Chave Móvel Digital ou com Vídeo Selfie.",
+      "data": ""
+     }
+    ],
+    "notas": "Na Conta Valor BPI a manutenção passa a 7,99€ + IS (8,31€/mês), ou 4,99€ + IS com ordenado ou pensão domiciliados ou 10.000€ em aplicações. O cartão de crédito depende de aprovação."
+   },
+   "menor": {
+    "existe": true,
+    "produto": "Conta AGE (13 a 17 anos) e Conta BPI Júnior (0 a 12 anos)",
+    "idade": "0 a 17 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 0.0,
+    "custoMes": 0.0,
+    "cartao": "Cartão de débito BPI Electron sem comissão a partir dos 13 anos, na Conta AGE. A Conta BPI Júnior não tem cartões.",
+    "condicoes": "Área AGE na BPI App. Dos 13 aos 17 o menor movimenta a conta com autorização do representante legal. Na Júnior, só os representantes usam a BPI App e o BPI Net.",
+    "abertura": "Pelos pais ou representantes legais, online na BPI App ou ao balcão. Mínimo de 25€.",
+    "fontes": [
+     {
+      "url": "https://www.bancobpi.pt/contentservice/getContent?documentName=PP_WCS01_UCM01002540",
+      "citacao": "Dos 13 aos 17 anos: Conta exclusivamente titulada por pessoa singular menor,",
+      "data": "V. 0350 - 01.07.2026"
+     },
+     {
+      "url": "https://www.bancobpi.pt/contentservice/getContent?documentName=PP_WCS01_UCM01002541",
+      "citacao": "Conta exclusivamente titulada por pessoa singular menor, com idade compreendida entre os 0 e os 12 anos (inclusive)",
+      "data": "V. 0300 - 01.07.2026"
+     },
+     {
+      "url": "https://www.bancobpi.pt/contentservice/getContent?documentName=PP_WCS01_UCM01002541",
+      "citacao": "Comissão de Manutenção de conta: Isenta enquanto o 1º titular tiver idade inferior a 31 anos.",
+      "data": "V. 0300 - 01.07.2026"
+     },
+     {
+      "url": "https://www.bancobpi.pt/contentservice/getContent?documentName=PP_WCS01_UCM01002541",
+      "citacao": "Está inibida a atribuição de Cheques e de Cartões (débito e crédito).",
+      "data": "V. 0300 - 01.07.2026"
+     },
+     {
+      "url": "https://www.bpiage.pt/ajuda-contactos",
+      "citacao": "Se tens menos de 18 anos, terão que ser os teus pais (ou representantes legais) a abrir a Conta.",
+      "data": ""
+     },
+     {
+      "url": "https://www.bpiage.pt/ajuda-contactos",
+      "citacao": "Se tiveres entre os 13 e os 30, podes movimentar a tua conta através do cartão de débito",
+      "data": ""
+     },
+     {
+      "url": "https://www.bancobpi.pt/premier/bpi-e-o-primeiro-banco-em-portugal-a-lancar-abertura-de-conta-100--digital-para-menores-de-idade",
+      "citacao": "Os jovens AGE têm uma área dedicada na BPI App",
+      "data": "16-08-2023"
+     },
+     {
+      "url": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-bpi-junior",
+      "citacao": "Os representantes da conta têm acesso à BPI App e BPI Net em qualquer altura.",
+      "data": ""
+     }
+    ],
+    "notas": "A Júnior passa automaticamente para a Conta AGE no mês em que o titular faz 13 anos. A abertura na app para menores dos 0 aos 17 anos vem de um comunicado do BPI de 16-08-2023 e da página de ajuda AGE."
+   },
+   "conjunta": {
+    "existe": true,
+    "maxTitulares": null,
+    "condicoes": "A abertura online é só para contas com 1 titular. A Conta Valor inclui 2 cartões de débito BPI Electron para 2 titulares e 2 cartões de crédito BPI Classic, sem comissão.",
+    "fontes": [
+     {
+      "url": "https://www.bancobpi.pt/particulares/contas/abrir-conta-no-bpi",
+      "citacao": "Conta com 1 titular e para utilização pessoal;",
+      "data": ""
+     },
+     {
+      "url": "https://www.bancobpi.pt/content/conn/UCM/uuid/dDocName:PR_WCS01_UCM01063279",
+      "citacao": "Disponibilização de dois Cartões de Débito - Cartão BPI Electron (2 titulares distintos) sem comissão de disponibilização;",
+      "data": "V. 0350 - 01.07.2026"
+     },
+     {
+      "url": "https://www.bancobpi.pt/content/conn/UCM/uuid/dDocName:PR_WCS01_UCM01063279",
+      "citacao": "Alteração de Intervenientes €7,50*",
+      "data": "V. 0350 - 01.07.2026"
+     },
+     {
+      "url": "https://www.bancobpi.pt/contentservice/getContent?documentName=PR_WCS01_UCM01070682",
+      "citacao": "Havendo mais do que um Titular, a conta é colectiva",
+      "data": "V. 09/2020"
+     }
+    ],
+    "notas": "Nenhuma fonte indica máximo de titulares. Juntar ou mudar titulares depois custa 7,50€ (a FIN não diz se inclui IS e remete isenções para o preçário)."
+   }
+  },
+  {
+   "id": "activobank",
+   "jovem": {
+    "existe": false,
+    "produto": null,
+    "idade": null,
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "condicoes": null,
+    "abertura": null,
+    "fontes": [
+     {
+      "url": "https://www.activobank.pt/conta-simples",
+      "citacao": "Inclui 0€ de comissão de manutenção, Cartão de débito sem comissão de disponibilização, MB Way sem custos e gestão pela App.",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/abertura-conta",
+      "citacao": "Menores de 30 anos podem apresentar o comprovativo de morada dos pais (com data inferior a 12 meses)",
+      "data": null
+     }
+    ],
+    "notas": "Sem conta nem preço especial para jovens adultos: a Conta Simples custa 0€ a todos. A única regra ligada à idade é documental (menores de 30 anos podem usar o comprovativo de morada dos pais). As páginas da conta não indicam idade mínima; até aos 17 anos há a Conta Menores."
+   },
+   "menor": {
+    "existe": true,
+    "produto": "Conta Menores",
+    "idade": "0 a 17 anos",
+    "manutMes": 0,
+    "cartaoAno": 0,
+    "custoMes": 0,
+    "cartao": "Cartão de débito 12/17 sem comissões a partir dos 12 anos, com limite diário de 50€, 100€, 150€ ou 200€ escolhido pelo representante. Cartão pré-pago sem custos a partir dos 10 anos.",
+    "condicoes": "Sem depósito mínimo. App a partir dos 12 anos. Aos 18 anos a conta é regularizada na app (com Chave Móvel Digital) ou num Ponto Activo.",
+    "abertura": "Presencial num Ponto Activo, pelos pais ou representantes legais (no máximo dois).",
+    "fontes": [
+     {
+      "url": "https://www.activobank.pt/conta-menores",
+      "citacao": "Contas menores, desde o nascimento até aos 17 anos",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/conta-menores",
+      "citacao": "Sem comissões ou despesas de manutenção de Conta.",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/conta-menores",
+      "citacao": "Cartão de Débito sem comissões a partir dos 12 anos.",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/conta-menores",
+      "citacao": "limitados ao montante máximo diário que definir (50€, 100€, 150€ ou 200€)",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/conta-menores",
+      "citacao": "A partir dos 12 anos já é possível aceder à App.",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/conta-menores",
+      "citacao": "Apenas os pais e/ou representantes legais, no máximo dois, podem abrir uma Conta a um menor.",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/conta-menores",
+      "citacao": "A abertura de Conta tem de ser feita presencialmente num Ponto Activo.",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/conta-menores",
+      "citacao": "Acesso ao Cartão Pré-pago sem custos, a partir dos 10 anos.",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/PDF/PRECARIO_Aviso_8_2009.pdf",
+      "citacao": "Conta Menor: Abertura de Conta sem depósito mínimo inicial.",
+      "data": "Secção de depósitos em vigor desde 01-dez-2025"
+     },
+     {
+      "url": "https://clientebancario.bportugal.pt/sites/default/files/precario/0023_/0023_PRE.pdf",
+      "citacao": "Visa Debito 12/17",
+      "data": "Entrada em vigor: 01-jun-2026"
+     }
+    ],
+    "notas": "No preçário a conta chama-se Conta Menor. A frase do pré-pago a partir dos 10 anos está só na descrição da página. O título da página do cartão diz 14/17, mas o texto e o preçário dizem 12/17."
+   },
+   "conjunta": {
+    "existe": true,
+    "maxTitulares": 2,
+    "condicoes": "Um ou dois titulares. Abre online com 2 titulares se ambos tiverem Chave Móvel Digital; senão vão os dois a um Ponto Activo. O 2.º titular também pode entrar depois, por convite na app. Sem custo extra conhecido.",
+    "fontes": [
+     {
+      "url": "https://www.activobank.pt/abertura-conta",
+      "citacao": "Conta com um ou dois titulares",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/abertura-conta",
+      "citacao": "A abertura de Conta com dois titulares pode ser realizada online, desde que ambos disponham de Chave Móvel Digital.",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/abertura-conta",
+      "citacao": "Caso algum dos titulares não possua Chave Móvel Digital, terão de se deslocar simultaneamente a um Ponto Activo",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/conta-simples",
+      "citacao": "O segundo titular irá receber um email com um código de convite.",
+      "data": null
+     },
+     {
+      "url": "https://www.activobank.pt/cartao-debito",
+      "citacao": "Não paga comissão de disponibilização",
+      "data": null
+     }
+    ],
+    "notas": "As fontes não distinguem o cartão do 1.º e do 2.º titular; a página do cartão de débito dá a disponibilização como isenta. O máximo de 2 titulares vem da página de abertura de conta."
+   }
+  },
+  {
+   "id": "bankinter",
+   "jovem": {
+    "existe": true,
+    "produto": "Conta Bankinter",
+    "idade": "18 a 25 anos (inclusive)",
+    "manutMes": 0,
+    "cartaoAno": 0,
+    "custoMes": 0,
+    "condicoes": "Sem comissão de manutenção quando o 1.º titular tem entre 18 e 25 anos e cartão de débito grátis para clientes dessa idade. Depois dos 25: 20€ + IS por trimestre (83,20€ por ano) e cartão a 20€ + IS, salvo outras isenções.",
+    "abertura": "Online (app Bankinter) ou numa agência. Sem montante mínimo de abertura.",
+    "fontes": [
+     {
+      "url": "https://www.bankinter.pt/documents/20182/512270/FIN+Conta+Bankinter.pdf/2a15c0fc-c714-48b4-a30f-fab55b3c9171?version=1.10",
+      "citacao": "Contas cujo titular (1.º titular) tenha entre 18 e 25 anos de idade (inclusive).",
+      "data": "A partir de 1 de julho de 2026"
+     },
+     {
+      "url": "https://www.bankinter.pt/documents/20182/512270/FIN+Conta+Bankinter.pdf/2a15c0fc-c714-48b4-a30f-fab55b3c9171?version=1.10",
+      "citacao": "Isenção da Comissão de Manutenção de Conta desde que verificadas as seguintes condições:",
+      "data": "A partir de 1 de julho de 2026"
+     },
+     {
+      "url": "https://www.bankinter.pt/documents/20182/512270/FIN+Conta+Bankinter.pdf/2a15c0fc-c714-48b4-a30f-fab55b3c9171?version=1.10",
+      "citacao": "Não existem montantes máximos e/ou mínimos de abertura ou manutenção da Conta.",
+      "data": "A partir de 1 de julho de 2026"
+     },
+     {
+      "url": "https://www.bankinter.pt/documents/20182/512270/DIC+Conta+Bankinter++-+PT+072023_site.pdf/9e9e4e96-790f-4e49-bf10-d933fe8eb24a?version=1.1",
+      "citacao": "Disponibilização de um cartão de débito de forma gratuita para Clientes entre os 18 e 25 anos de idade (inclusive);",
+      "data": "1 de janeiro de 2025"
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-bankinter",
+      "citacao": "ou Clientes com idade entre 18 e 25 anos (inclusive)",
+      "data": null
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-bankinter",
+      "citacao": "A partir dos 25 anos a Comissão de Disponibilização de um cartão de débito é de 20€ (acresce Imposto Selo à Taxa em vigor);",
+      "data": null
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-bankinter",
+      "citacao": "Abra uma conta Bankinter 100% online",
+      "data": null
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta/como-abrir-uma-conta-online",
+      "citacao": "Nota: restantes situações poderá proceder à abertura de conta em qualquer Agência Bankinter",
+      "data": null
+     }
+    ],
+    "notas": "É a conta normal do banco, não a Conta Bankinter ONline do comparador. A isenção da manutenção depende da idade do 1.º titular. Os 3 primeiros meses não pagam manutenção para ninguém. No DIC, a manutenção sem isenção é de 20,80€ por trimestre e o custo total anual de 83,20€. A página tem a legenda 'Conta Bankinter Jovens', sem mais condições. A abertura online pede mais de 18 anos, nacionalidade portuguesa e residência em Portugal."
+   },
+   "menor": {
+    "existe": true,
+    "produto": "Conta BK Mini",
+    "idade": "0 a 17 anos",
+    "manutMes": 0,
+    "cartaoAno": 0,
+    "custoMes": 0,
+    "cartao": "Cartão de débito grátis a partir dos 14 anos, com limite diário de 50€.",
+    "condicoes": "O menor é o único titular; pais ou tutores ficam como representantes legais. Mínimo de abertura de 25€. App e Bankinter Particulares a partir dos 14 anos.",
+    "abertura": "Numa agência Bankinter, pelos representantes legais. Mínimo de 25€.",
+    "fontes": [
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta",
+      "citacao": "A Conta BK Mini é a conta ideal para os mais novos, dos 0 aos 17 anos",
+      "data": null
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-jovem-bk-mini",
+      "citacao": "Isenta de Comissão de Manutenção de Conta;",
+      "data": null
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-jovem-bk-mini",
+      "citacao": "Disponibilização de um Cartão de Débito de forma gratuita a partir dos 14 anos (com limite de utilização diária de 50€).",
+      "data": null
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-jovem-bk-mini",
+      "citacao": "Montante mínimo de abertura de 25€;",
+      "data": null
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-jovem-bk-mini",
+      "citacao": "A partir dos 14 anos acesso ao Bankinter Particulares e App Bankinter.",
+      "data": null
+     },
+     {
+      "url": "https://www.bankinter.pt/documents/20182/503642/FIN+Conta+Mini+%28B+Teen%29+-+PT+042024.pdf/fff91bc4-e3b1-48bd-85f1-a32b5ca43df5?version=1.0",
+      "citacao": "O menor é o único Titular da Conta à Ordem.",
+      "data": "A partir de 1 de abril de 2024"
+     },
+     {
+      "url": "https://www.bankinter.pt/documents/20182/503642/FIN+Conta+Mini+%28B+Teen%29+-+PT+042024.pdf/fff91bc4-e3b1-48bd-85f1-a32b5ca43df5?version=1.0",
+      "citacao": "Conta à Ordem aberta em nome do menor (1.º titular) em que os respectivos representantes legais figuram associados à conta.",
+      "data": "A partir de 1 de abril de 2024"
+     },
+     {
+      "url": "https://www.bankinter.pt/documents/20182/503642/DIC_BKMINI+-+PT+072023.pdf/cdcb3d1a-e3bd-4153-85cf-54857026340d?version=1.0",
+      "citacao": "Custo total anual 0,00 €",
+      "data": "1 de maio de 2022"
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/conta-jovem-bk-mini/campanha-bk-mini",
+      "citacao": "Dirija-se a uma Agência Bankinter mais próxima de si e abra sua Conta BK Mini.",
+      "data": "Campanha de 2 de abril a 30 de junho de 2025"
+     }
+    ],
+    "notas": "O local de abertura só aparece na página da campanha BK Mini de 2025, já terminada (agência). A FIN chama ao cartão Cartão Electron, para maiores de 14 anos (inclusive). As fontes não dizem o que acontece aos 18 anos."
+   },
+   "conjunta": {
+    "existe": true,
+    "maxTitulares": 3,
+    "condicoes": "Até 3 titulares, com movimentação individual ou solidária. Abre na app: o 1.º titular envia convites aos outros. Cartão de débito grátis só para o 1.º titular; cada outro titular paga 20,80€ por ano (1,73€ por mês).",
+    "fontes": [
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
+      "citacao": "de movimentação individual ou solidária (Máx. 3 Titulares).",
+      "data": null
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
+      "citacao": "despolete os “Convites” aos restantes titulares,",
+      "data": null
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
+      "citacao": "isenção da Comissão de Disponibilização de um Cartão de Débito (anuidade) para o 1º titular",
+      "data": null
+     },
+     {
+      "url": "https://www.bankinter.pt/documents/20182/497914/DIC+Conta+ONline+-+PT+01.102023.pdf/694ebe83-ac04-4764-8072-26bfd3effda9?version=1.2",
+      "citacao": "Anuidade 0,00 € 20,80 € 0,00 € 20,80 €",
+      "data": "21 de julho de 2026"
+     },
+     {
+      "url": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
+      "citacao": "Utilizadores em situação Doméstica apenas co titulares (2ºs e 3ºs Titulares).",
+      "data": null
+     }
+    ],
+    "notas": "No DIC a linha da anuidade vem por colunas (1.º titular e outros titulares, cartões BK e BK Premier); 20,80€ = 20€ + IS de 4%. A conta é só para novos clientes (nunca 1.º titular de uma conta à ordem no Bankinter)."
+   }
+  },
+  {
+   "id": "moey",
+   "jovem": {
+    "existe": false,
+    "produto": null,
+    "idade": null,
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "condicoes": null,
+    "abertura": null,
+    "fontes": [
+     {
+      "url": "https://moey.pt/hubfs/FIN_MOEY_v33_pt.pdf",
+      "citacao": "Pessoas singulares, com idade igual ou superior a 18 anos, com capacidade jurídica plena e residentes em Portugal",
+      "data": null
+     },
+     {
+      "url": "https://support.moey.pt/hc/pt-pt/articles/360015881878-Quem-pode-aderir",
+      "citacao": "É necessário que tenhas morada de residência em Portugal e mais de 18 anos.",
+      "data": "27/09/2022"
+     },
+     {
+      "url": "https://www.creditoagricola.pt/para-mim/dia-a-dia/conta-superjovem",
+      "citacao": "Destina-se a jovens dos 18 aos 30 anos, inclusive.",
+      "data": null
+     }
+    ],
+    "notas": "A Moey não tem conta nem condição para jovens: a partir dos 18 anos as condições são iguais para todos. Fora da Moey, o Crédito Agrícola tem a Conta SuperJovem (18 aos 30 anos, isenta de manutenção, aberta na app CA com Chave Móvel Digital). Não é produto Moey: fica ao critério do editor."
+   },
+   "menor": {
+    "existe": false,
+    "produto": null,
+    "idade": null,
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "cartao": null,
+    "condicoes": null,
+    "abertura": null,
+    "fontes": [
+     {
+      "url": "https://moey.pt/hubfs/FIN_MOEY_v33_pt.pdf",
+      "citacao": "Pessoas singulares, com idade igual ou superior a 18 anos, com capacidade jurídica plena e residentes em Portugal",
+      "data": null
+     },
+     {
+      "url": "https://support.moey.pt/hc/pt-pt/articles/360015881878-Quem-pode-aderir",
+      "citacao": "É necessário que tenhas morada de residência em Portugal e mais de 18 anos.",
+      "data": "27/09/2022"
+     },
+     {
+      "url": "https://www.creditoagricola.pt/para-mim/dia-a-dia/conta-1-2-3",
+      "citacao": "Destina-se a crianças e jovens até aos 12 anos, inclusive.",
+      "data": null
+     }
+    ],
+    "notas": "A Moey só aceita maiores de 18 anos. Fora da Moey, o Crédito Agrícola tem a Conta 1, 2, 3 (até aos 12 anos, aberta pelos representantes legais, isenta de manutenção). Não é produto Moey."
+   },
+   "conjunta": {
+    "existe": false,
+    "maxTitulares": 1,
+    "condicoes": "Só um titular por conta e uma conta por cliente.",
+    "fontes": [
+     {
+      "url": "https://support.moey.pt/hc/pt-pt/articles/360015614717-Posso-ter-uma-conta-conjunta",
+      "citacao": "Não podes ter uma conta conjunta. Na Moey a conta é só tua.",
+      "data": "Atualizado a 14/04/2025"
+     },
+     {
+      "url": "https://support.moey.pt/hc/pt-pt/articles/360015881878-Quem-pode-aderir",
+      "citacao": "Cada cliente só pode ter uma conta.",
+      "data": "27/09/2022"
+     }
+    ],
+    "notas": "Para partilhar despesas, a app tem Grupos e Dividir Conta."
+   }
+  },
+  {
+   "id": "best",
+   "jovem": {
+    "existe": false,
+    "produto": null,
+    "idade": null,
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "condicoes": null,
+    "abertura": null,
+    "fontes": [
+     {
+      "url": "https://www.bancobest.pt/ptg/bestsite/best_docs/FIN_ContaDigital.pdf",
+      "citacao": "Particulares residentes no território nacional, maiores de idade.",
+      "data": null
+     },
+     {
+      "url": "https://www.bancobest.pt/ptg/AberturaContaOnline",
+      "citacao": "Conta 18-35",
+      "data": null
+     }
+    ],
+    "notas": "Sem conta nem condição para jovens adultos no preçário (em vigor a 01-ago-2026) nem na página de contas. A Conta Digital é para maiores de idade. O formulário de abertura online lista uma 'Conta 18-35' a 0€, ao lado de contas fora de comercialização, sem página, ficha ou linha no preçário. Não confirmada."
+   },
+   "menor": {
+    "existe": true,
+    "produto": "Conta Start Plus",
+    "idade": "Menores de 18 anos",
+    "manutMes": 0,
+    "cartaoAno": 0,
+    "custoMes": 0,
+    "cartao": "Best Visa Debit sem comissão para todos os titulares da Start Plus. As fontes não indicam idade mínima para o cartão. Sem cartão de crédito.",
+    "condicoes": "Mínimo de abertura de 100€. O menor não recebe acessos online: os representantes não lhos podem passar e ele só movimenta a conta com autorização deles.",
+    "abertura": "Num Centro de Investimento do Best, pelos pais ou representantes legais. A página não dá abertura online. Mínimo de 100€.",
+    "fontes": [
+     {
+      "url": "https://www.bancobest.pt/ptg/best_contas?active=startplus",
+      "citacao": "Uma conta à ordem para menores de 18 anos que querem planear o futuro",
+      "data": null
+     },
+     {
+      "url": "https://www.bancobest.pt/ptg/best_contas?active=startplus",
+      "citacao": "0€ / Manutenção de conta / 100€ / Mínimo de abertura / 0€ / Cartão de débito / Sem cartão de crédito",
+      "data": null
+     },
+     {
+      "url": "https://www.bancobest.pt/ptg/best_contas?active=startplus",
+      "citacao": "Para abrir conta e mais informações, visite um Centro de Investimento",
+      "data": null
+     },
+     {
+      "url": "https://clientebancario.bportugal.pt/sites/default/files/precario/0065_/0065_PRE.pdf",
+      "citacao": "para todos os titulares, nas Contas Digital Ordenado, Start Plus,",
+      "data": "Entrada em vigor: 01-ago-2026"
+     },
+     {
+      "url": "https://www.bancobest.pt/ptg/bestsite/best_docs/ContratoAberturaConta.pdf",
+      "citacao": "os seus representantes obrigam-se a não transmitir quaisquer elementos de acesso à Conta por via telemática aos Menores",
+      "data": null
+     },
+     {
+      "url": "https://www.bancobest.pt/ptg/bestsite/best_docs/ContratoAberturaConta.pdf",
+      "citacao": "A movimentação da Conta pelo próprio Menor, quando legalmente admissível, depende de autorização do seu representante",
+      "data": null
+     }
+    ],
+    "notas": "Manutenção e mínimo vêm do bloco de preços do separador Start Plus da página de contas (linhas separadas por /). O bloco não tem título, mas é o único com 'Sem cartão de crédito' e o botão 'Centro de Investimento', o mesmo do cartão da Start Plus. A tabela de manutenção do preçário sai desalinhada e não encontrei FIN da Start Plus; a parte das Condições Gerais sobre contas de menores (B3) não ficou legível."
+   },
+   "conjunta": {
+    "existe": true,
+    "maxTitulares": 4,
+    "condicoes": "Conta individual ou coletiva (solidária). Abre online com até 4 titulares, todos com Chave Móvel Digital ativa; senão por videochamada ou num Centro de Investimento. Cartão grátis no 1.º ano só para o 1.º titular; cada outro titular paga 21€ + IS (21,84€) por ano.",
+    "fontes": [
+     {
+      "url": "https://www.bancobest.pt/ptg/OpenAccountTitularInfo",
+      "citacao": "N.º de titulares",
+      "data": null
+     },
+     {
+      "url": "https://www.bancobest.pt/ptg/AberturaContaOnline",
+      "citacao": "Todos os titulares da conta têm que ter Chave Móvel Digital ativa; se não for esse o caso, escolha uma das outras opções",
+      "data": null
+     },
+     {
+      "url": "https://www.bancobest.pt/ptg/AberturaContaOnline",
+      "citacao": "Se a conta tiver mais do que 1 titular é necessário que todos os titulares se façam acompanhar da respetiva documentação.",
+      "data": null
+     },
+     {
+      "url": "https://www.bancobest.pt/ptg/bestsite/best_docs/ContratoAberturaConta.pdf",
+      "citacao": "A conta poderá ser individual ou colectiva. Neste último caso, deverá ser solidária.",
+      "data": null
+     },
+     {
+      "url": "https://www.bancobest.pt/ptg/best_contas?active=digital",
+      "citacao": "na abertura de novas contas (1º ano) para o 1º titular",
+      "data": null
+     },
+     {
+      "url": "https://www.bancobest.pt/ptg/best_contas?active=digital",
+      "citacao": "nas restantes situações. Acresce imposto do selo",
+      "data": null
+     }
+    ],
+    "notas": "O máximo de 4 vem do formulário de abertura online (campo N.º de titulares com opções de 1 a 4); as Condições Gerais não fixam limite. Cartão do 2.º titular: 21,84€ por ano, ou 1,82€ por mês."
+   }
+  },
+  {
+   "id": "big",
+   "jovem": {
+    "existe": true,
+    "produto": "Conta Global com o preçário #Investe_no_Futuro",
+    "idade": "18 aos 29 anos (até fazer 30)",
+    "manutMes": 0,
+    "cartaoAno": 0,
+    "custoMes": 0,
+    "condicoes": "Automático e grátis para clientes particulares nesta idade. Isenta um cartão BiG Mastercard por conta, dá 10 transferências interbancárias grátis por mês na internet e baixa o mínimo de abertura para 250€. Não acumula com outros preçários.",
+    "abertura": "Online ou numa agência BiG. Mínimo de 250€ em vez de 2.000€.",
+    "fontes": [
+     {
+      "url": "https://www.big.pt/Precario/PrecarioInvesteFuturo",
+      "citacao": "O BiG disponibiliza, de forma automática e gratuíta, o preçário #Investe_no_Futuro a qualquer cliente particular entre os 18 e os 30 anos.",
+      "data": null
+     },
+     {
+      "url": "https://www.big.pt/Precario/PrecarioInvesteFuturo",
+      "citacao": "Este preçário não se aplica a titulares com idade inferior a 18 anos nem a partir do momento em que completam 30 anos.",
+      "data": null
+     },
+     {
+      "url": "https://www.big.pt/Precario/PrecarioInvesteFuturo",
+      "citacao": "Isenção da comissão de emissão e anuidade de um cartão BiG Mastercard por conta, incluíndo transferências MB WAY gratuitas;",
+      "data": null
+     },
+     {
+      "url": "https://www.big.pt/Precario/PrecarioInvesteFuturo",
+      "citacao": "Montante mínimo de abertura de conta à ordem: 250€;",
+      "data": null
+     },
+     {
+      "url": "https://www.big.pt/Precario/PrecarioInvesteFuturo",
+      "citacao": "10 transferências nacionais interbancárias gratuitas, via internet, por mês;",
+      "data": null
+     },
+     {
+      "url": "https://www.big.pt/pdf/BIG018b_precario.pdf",
+      "citacao": "entre os 18 e os 30 com o Preçário #Investe_no_Futuro ativo (em vigor a partir de 28 de Julho de 2023).",
+      "data": "Secção de cartões em vigor desde 04-jul-2024"
+     },
+     {
+      "url": "https://www.big.pt/Apoio/ApoioAoCliente",
+      "citacao": "Os clientes BiG estão isentos de qualquer comissão de abertura, manutenção ou encerramento da sua conta.",
+      "data": null
+     },
+     {
+      "url": "https://www.big.pt/Apoio/ApoioAoCliente",
+      "citacao": "Tem duas opções para abrir conta no BiG: online ou dirigindo-se a uma das agências do BiG.",
+      "data": null
+     }
+    ],
+    "notas": "A página diz 'entre os 18 e os 30 anos', mas o preçário deixa de se aplicar quando o cliente faz 30. A isenção é de um cartão por conta: um 2.º cartão paga o preço normal (10€ + IS no 1.º ano, 14€ + IS depois)."
+   },
+   "menor": {
+    "existe": true,
+    "produto": "Conta Global Sub-18",
+    "idade": "Menores de 18 anos",
+    "manutMes": 0,
+    "cartaoAno": 14.56,
+    "custoMes": 1.21,
+    "cartao": "BiG Mastercard de débito opcional e só a partir dos 14 anos: 10€ + IS no 1.º ano e 14€ + IS (14,56€) nos seguintes. O preçário jovem não se aplica a menores.",
+    "condicoes": "Para o menor com os representantes legais. Mínimo de abertura de 250€. Sem cartão o custo é 0€.",
+    "abertura": "Começa online (Abrir Conta Sub-18), mas os documentos físicos seguem por correio ou são entregues numa agência BiG. Mínimo de 250€.",
+    "fontes": [
+     {
+      "url": "https://www.big.pt/AbrirConta/AberturaDeContas/Condicoes/Junior",
+      "citacao": "A abertura de conta Sub-18 está disponível para clientes menores e seus representantes legais.",
+      "data": null
+     },
+     {
+      "url": "https://www.big.pt/AbrirConta/AberturaDeContas/Condicoes/Junior",
+      "citacao": "O valor mínimo para abertura de conta são 250€",
+      "data": null
+     },
+     {
+      "url": "https://www.big.pt/AbrirConta/AberturaDeContas/Condicoes/Junior",
+      "citacao": "Para completar o processo de abertura de conta, será necessário o envio por correio da documentação física",
+      "data": null
+     },
+     {
+      "url": "https://www.big.pt/pdf/BIG018b_precario.pdf",
+      "citacao": "Particulares/Sub-18/Particular não residente (mediante comprovação da respectiva qualidade).",
+      "data": "Secção de depósitos em vigor desde 20-mai-2026"
+     },
+     {
+      "url": "https://www.big.pt/pdf/BIG018b_precario.pdf",
+      "citacao": "Emissão de cartão não aplicável a menores de 14 anos de idade.",
+      "data": "Secção de cartões em vigor desde 04-jul-2024"
+     },
+     {
+      "url": "https://www.big.pt/pdf/AbrirConta/Onboarding/FIN_CondicoesGerais_sem_assinatura_mai_2019.pdf",
+      "citacao": "Disponibilização de um cartão de débito [BiG Mastercard] 14 € (1)(3)",
+      "data": "Condições válidas a partir de 01/04/2026"
+     },
+     {
+      "url": "https://www.big.pt/pdf/AbrirConta/Onboarding/FIN_CondicoesGerais_sem_assinatura_mai_2019.pdf",
+      "citacao": "Cartão não obrigatório",
+      "data": "Condições válidas a partir de 01/04/2026"
+     },
+     {
+      "url": "https://www.big.pt/Apoio/ApoioAoCliente",
+      "citacao": "Os clientes BiG estão isentos de qualquer comissão de abertura, manutenção ou encerramento da sua conta.",
+      "data": null
+     },
+     {
+      "url": "https://www.big.pt/Precario/PrecarioInvesteFuturo",
+      "citacao": "Este preçário não se aplica a titulares com idade inferior a 18 anos nem a partir do momento em que completam 30 anos.",
+      "data": null
+     }
+    ],
+    "notas": "custoMes inclui o cartão (14,56€/12); sem cartão é 0€ e no 1.º ano o cartão custa 10,40€ (0,87€ por mês). O preçário refere 'Condições de atribuição especificas para a conta global sub-18' no cartão sem as descrever, e o cartão de um menor exige um termo dos representantes. As fontes não dizem se o menor tem acesso próprio à app nem o que muda aos 18 anos."
+   },
+   "conjunta": {
+    "existe": true,
+    "maxTitulares": null,
+    "condicoes": "Conta individual ou coletiva (solidária, conjunta ou mista). A isenção da anuidade do cartão com ordenado ou mais de 100.000€ é só para o 1.º titular; o cartão de outro titular paga 10€ + IS no 1.º ano e 14€ + IS (14,56€) depois.",
+    "fontes": [
+     {
+      "url": "https://www.big.pt/pdf/abrirconta/CondicoesGerais_AC.pdf",
+      "citacao": "As Contas DO poderão ser Contas Individuais ou Contas Coletivas",
+      "data": "BiG001CONT/DEZ2021"
+     },
+     {
+      "url": "https://www.big.pt/pdf/BIG018b_precario.pdf",
+      "citacao": "Isenção de anuidade para o primeiro titular (no trimestre correspondente ao débito da anuidade)",
+      "data": "Secção de cartões em vigor desde 04-jul-2024"
+     },
+     {
+      "url": "https://www.big.pt/pdf/BIG018b_precario.pdf",
+      "citacao": "10,00 € 14,00 € 10,00 € 14,00 € 6,50 € isenta",
+      "data": "Secção de cartões em vigor desde 04-jul-2024"
+     },
+     {
+      "url": "https://www.big.pt/AbrirConta/AberturaDeContas/IdentificacaoCMD/Particular",
+      "citacao": "Documentação necessária da parte do futuro cliente e de todos os titulares da conta:",
+      "data": null
+     }
+    ],
+    "notas": "Não encontrei o número máximo de titulares nem confirmação de que a abertura online aceita 2 titulares; a página de abertura online pede documentos de todos os titulares da conta. A linha do cartão no preçário vem por colunas (1.º titular e outros titulares, 1.º ano e anos seguintes). Dos 18 aos 29 anos, o #Investe_no_Futuro isenta um cartão por conta."
+   }
+  },
+  {
+   "id": "revolut",
+   "jovem": {
+    "existe": true,
+    "produto": "Conta Standard com Benefícios para Estudantes (promoção)",
+    "idade": "18 a 24 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 0.0,
+    "custoMes": 0.0,
+    "condicoes": "Estudante numa universidade do EEE ou do Reino Unido, com email da universidade verificado pelo menos uma vez por ano. Conta na sucursal em Portugal.",
+    "abertura": "Online, na app (perfil, Benefícios para estudantes). Inscrição até 1/9/2027.",
+    "fontes": [
+     {
+      "url": "https://www.revolut.com/pt-PT/student/",
+      "citacao": "Para estudantes elegíveis com idades entre os 18 e os 24 anos.",
+      "data": null
+     },
+     {
+      "url": "https://www.revolut.com/pt-PT/student/",
+      "citacao": "Utilize o seu e-mail universitário para confirmar que está atualmente a estudar.",
+      "data": null
+     },
+     {
+      "url": "https://www.revolut.com/pt-PT/legal/student-benefits-promotion/",
+      "citacao": "ser estudante ativo numa universidade situada no Reino Unido ou no EEE",
+      "data": null
+     },
+     {
+      "url": "https://www.revolut.com/pt-PT/legal/student-benefits-promotion/",
+      "citacao": "Deve inscrever-se nesta promoção entre 8 de setembro de 2026 e 1 de setembro de 2027",
+      "data": null
+     },
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.2.0_1769070759_pt.pdf",
+      "citacao": "Comissão de manutenção de Conta Standard: 0€",
+      "data": "22/01/2026"
+     },
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/personal_fees_standard_8c859b1b_2.2.4_1791987910_en.pdf",
+      "citacao": "Entrega local Standard (sem rastreio) - 6,99€",
+      "data": "Parte I aplicável a partir de 14/10/2026"
+     }
+    ],
+    "notas": "Não baixa custos, porque a Standard já é grátis. Dá subscrições grátis de parceiros, mais 0,25 p.p. na poupança e RevPoints a dobrar até 31/12/2027. O cartão não tem comissão de disponibilização, mas a entrega Standard custa 6,99€ (uma vez). Idade mínima da conta normal: 18 anos (FIN da Conta Standard)."
+   },
+   "menor": {
+    "existe": true,
+    "produto": "Revolut Jovem (Revolut <18), subconta do pai ou mãe",
+    "idade": "6 a 17 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 0.0,
+    "custoMes": 0.0,
+    "cartao": "Cartão pré-pago Revolut Jovem desde os 6 anos; cartões virtuais só a partir dos 13. Sem comissão de disponibilização, paga entrega (6,99€ na entrega Standard).",
+    "condicoes": "O pai ou mãe tem de ter conta Revolut. No plano Standard inclui 1 subconta grátis; nos planos pagos até 5. O jovem tem app própria (Revolut Jovem).",
+    "abertura": "Online, na app do pai ou mãe. A partir dos 13 anos o jovem pode pedir na app e os pais aprovam.",
+    "fontes": [
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_da_revolut_jovem_29bd48b5_2.1.4_1791970239_pt.pdf",
+      "citacao": "Só pode dar acesso a uma pessoa como Usuário se esta tiver entre 6 e 17 anos e se for o seu progenitor.",
+      "data": "Parte I aplicável a partir de 14/10/2026"
+     },
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_da_revolut_jovem_29bd48b5_2.1.4_1791970239_pt.pdf",
+      "citacao": "A criação de uma subconta Revolut Jovem é gratuita.",
+      "data": "Parte I aplicável a partir de 14/10/2026"
+     },
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_da_revolut_jovem_29bd48b5_2.1.4_1791970239_pt.pdf",
+      "citacao": "Não existe qualquer comissão de disponibilização do cartão pré-pago",
+      "data": "Parte I aplicável a partir de 14/10/2026"
+     },
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_da_revolut_jovem_29bd48b5_2.1.4_1791970239_pt.pdf",
+      "citacao": "Os Usuários de cartões virtuais devem ter idade igual ou superior a 13 anos.",
+      "data": "Parte I aplicável a partir de 14/10/2026"
+     },
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_da_revolut_jovem_29bd48b5_2.1.4_1791970239_pt.pdf",
+      "citacao": "O Progenitor Principal pode criar uma subconta Revolut Jovem a qualquer momento na aplicação Revolut.",
+      "data": "Parte I aplicável a partir de 14/10/2026"
+     },
+     {
+      "url": "https://www.revolut.com/pt-PT/kids-and-teens/kids-bank-account/",
+      "citacao": "É grátis para uma subconta com um plano Standard,",
+      "data": null
+     },
+     {
+      "url": "https://www.revolut.com/pt-PT/kids-and-teens/kids-bank-account/",
+      "citacao": "As contas pacote permitem-lhe abrir até cinco contas e adicionar um tutor",
+      "data": null
+     },
+     {
+      "url": "https://www.revolut.com/pt-PT/revolut-kids-and-teens-parent-and-guardians/",
+      "citacao": "Se tiverem 13 ou mais, iremos enviar-lhe uma notificação para aprovar a subconta",
+      "data": null
+     }
+    ],
+    "notas": "O site chama-lhe cartão de débito; os termos da sucursal em Portugal chamam-lhe cartão pré-pago. Personalização do cartão sem comissão em todos os planos (Parte I dos termos)."
+   },
+   "conjunta": {
+    "existe": true,
+    "maxTitulares": 2,
+    "condicoes": "Os 2 titulares têm de ter conta Revolut pessoal, 18 anos ou mais e viver no mesmo país. Abre-se na app: um convida e o outro aceita. Manutenção 0€.",
+    "fontes": [
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/conta_coletiva_ficha_de_informa_o_normalizada_57e7d2fb_1.1.0_1776248931_pt.pdf",
+      "citacao": "Dois titulares quando ambos:",
+      "data": "15/04/2026"
+     },
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/conta_coletiva_ficha_de_informa_o_normalizada_57e7d2fb_1.1.0_1776248931_pt.pdf",
+      "citacao": "sejam pessoas singulares com idade igual ou superior a 18 anos;",
+      "data": "15/04/2026"
+     },
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/conta_coletiva_ficha_de_informa_o_normalizada_57e7d2fb_1.1.0_1776248931_pt.pdf",
+      "citacao": "Comissão de manutenção de Conta Coletiva: 0€",
+      "data": "15/04/2026"
+     },
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/conta_coletiva_ficha_de_informa_o_normalizada_57e7d2fb_1.1.0_1776248931_pt.pdf",
+      "citacao": "Disponibilização de um cartão de débito para cada titular da conta;",
+      "data": "15/04/2026"
+     },
+     {
+      "url": "https://cdn.revolut.com/terms_and_conditions/pdf/joint_accounts_terms_2ec4e89a_2.1.0_1776248577_en.pdf",
+      "citacao": "Abrir uma Conta Coletiva com mais do que uma pessoa",
+      "data": "Parte I aplicável a partir de 15/04/2026"
+     },
+     {
+      "url": "https://help.revolut.com/pt-PT/help/profile-and-plan/joint-accounts/how-to-set-up-a-joint-account-with-revolut/",
+      "citacao": "Uma conta coletiva é uma conta partilhada entre 2 clientes Revolut.",
+      "data": null
+     },
+     {
+      "url": "https://help.revolut.com/pt-PT/help/profile-and-plan/joint-accounts/joint-account-cards/",
+      "citacao": "Plano Standard: 1 cartão de conta coletiva sem custos",
+      "data": null
+     },
+     {
+      "url": "https://help.revolut.com/pt-PT/help/profile-and-plan/joint-accounts/joint-account-cards/",
+      "citacao": "Será cobrada apenas uma comissão de entrega, a menos que seja um cliente Premium, Metal ou Ultra.",
+      "data": null
+     },
+     {
+      "url": "https://www.revolut.com/pt-PT/open-joint-bank-account/",
+      "citacao": "Selecione Conta conjunta e siga as instruções. O outro requerente tem de aceitar o seu convite.",
+      "data": null
+     }
+    ],
+    "notas": "É uma Conta Coletiva à parte, ligada às contas pessoais dos dois. Os termos proíbem abri-la com mais do que uma pessoa além do próprio. Cada titular pede o seu cartão: no Standard o 1.º cartão da conta coletiva não paga emissão, só entrega (6,99€ na entrega Standard)."
+   }
+  },
+  {
+   "id": "n26",
+   "jovem": {
+    "existe": false,
+    "produto": null,
+    "idade": "18 anos ou mais (conta normal)",
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "condicoes": "",
+    "abertura": "",
+    "fontes": [
+     {
+      "url": "https://n26.com/en-eu/plans",
+      "citacao": "You must be 18 or over to open a bank account with N26.",
+      "data": null
+     },
+     {
+      "url": "https://n26.com/en-eu/student-bank-accounts",
+      "citacao": "The N26 Standard bank account is free and there are no opening or maintenance fees.",
+      "data": null
+     }
+    ],
+    "notas": "Sem oferta para jovens. A página para estudantes promove a conta Standard normal."
+   },
+   "menor": {
+    "existe": false,
+    "produto": null,
+    "idade": null,
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "cartao": null,
+    "condicoes": "",
+    "abertura": "",
+    "fontes": [
+     {
+      "url": "https://n26.com/en-eu/under-18s",
+      "citacao": "Cards for under 18s are currently available in Germany, Belgium, The Netherlands, Slovakia, and Austria.",
+      "data": null
+     },
+     {
+      "url": "https://support.n26.com/en-eu/account-and-personal-details/miscellaneous/open-and-manage-your-childs-n26-for-under-18s-card-and-space",
+      "citacao": "Available in Austria, Belgium, Germany, Netherlands and Slovakia.",
+      "data": null
+     },
+     {
+      "url": "https://n26.com/en-eu/plans",
+      "citacao": "You must be 18 or over to open a bank account with N26.",
+      "data": null
+     }
+    ],
+    "notas": "O N26 for under 18s (7 a 17 anos) não está disponível em Portugal. O PDF dos termos desse produto (docs.n26.com) não abriu."
+   },
+   "conjunta": {
+    "existe": true,
+    "maxTitulares": 2,
+    "condicoes": "Os 2 titulares têm de ter conta pessoal N26 do mesmo país. Abre-se na app, em todos os planos, incluindo o Standard, sem custo extra.",
+    "fontes": [
+     {
+      "url": "https://n26.com/en-eu/joint-bank-account",
+      "citacao": "A joint account is exclusively available for two people.",
+      "data": null
+     },
+     {
+      "url": "https://n26.com/en-eu/joint-bank-account",
+      "citacao": "Your typical N26 plan fees apply, but joint accounts come at no additional fee.",
+      "data": null
+     },
+     {
+      "url": "https://n26.com/en-eu/joint-bank-account",
+      "citacao": "both members of a joint account will first need to have personal N26 accounts from the same country.",
+      "data": null
+     },
+     {
+      "url": "https://n26.com/en-eu/joint-bank-account",
+      "citacao": "Your joint account comes with its own IBAN that can be linked to two virtual cards and two physical cards.",
+      "data": null
+     },
+     {
+      "url": "https://n26.com/en-eu/press/press-release/n26-launches-joint-accounts-in-21-new-markets-to-enable-customers-to-manage-finances-as-a-couple",
+      "citacao": "Poland, Portugal, Slovakia, Slovenia, Spain, Sweden and Switzerland",
+      "data": "09/04/2024"
+     },
+     {
+      "url": "https://n26.com/en-eu/press/press-release/n26-launches-joint-accounts-in-21-new-markets-to-enable-customers-to-manage-finances-as-a-couple",
+      "citacao": "with accounts across all personal membership tiers, including the free N26 Standard,",
+      "data": "09/04/2024"
+     },
+     {
+      "url": "https://n26.com/en-eu/free-bank-account",
+      "citacao": "A €10 fee applies for the issuing of the physical Mastercard debit card.",
+      "data": null
+     }
+    ],
+    "notas": "A conta conjunta tem IBAN próprio e liga até 2 cartões virtuais e 2 físicos. No Standard o cartão virtual é grátis e o físico custa 10€ uma vez. O artigo de ajuda da N26 diz que a conta conjunta é para Standard, Premium e Flex, nomes que não batem com os planos atuais (Standard, Smart, Go, Metal)."
+   }
+  },
+  {
+   "id": "bunq",
+   "jovem": {
+    "existe": true,
+    "produto": "bunq Pro grátis para estudantes",
+    "idade": "18 a 25 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 0.0,
+    "custoMes": 0.0,
+    "condicoes": "Estudante universitário em Portugal (ou noutro dos 8 países da oferta), com cartão de estudante ou comprovativo de matrícula do ano letivo, renovado todos os anos.",
+    "abertura": "Online, na app, enviando o comprovativo em PDF.",
+    "fontes": [
+     {
+      "url": "https://www.bunq.com/pt-pt/personal/use-cases/students",
+      "citacao": "Estudantes na Bélgica, França, Alemanha, Irlanda, Itália, Países Baixos, Portugal e Espanha têm o bunq grátis.",
+      "data": null
+     },
+     {
+      "url": "https://www.bunq.com/pt-pt/personal/use-cases/students",
+      "citacao": "Desde que forneças comprovativo de matrícula, receberás automaticamente 100% de desconto!",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/free-for-students",
+      "citacao": "Are aged 25 and under",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/free-for-students",
+      "citacao": "If you're a university student between the ages of 18 and 26,",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/free-for-students",
+      "citacao": "Once a year, we'll ask you to submit a new proof of enrollment to re-verify your student status.",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/free-for-students",
+      "citacao": "When you either complete your higher education or turn 26,",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/en/articles/what-are-the-benefits-of-the-bunq-pro-plan",
+      "citacao": "First 3 Physical Cards - Free",
+      "data": null
+     },
+     {
+      "url": "https://www.bunq.com/pt-pt/personal/plans",
+      "citacao": "9,99 €",
+      "data": null
+     }
+    ],
+    "notas": "Produto diferente do bunq Free do comparador. O bunq Pro custa 9,99€/mês e inclui 3 cartões físicos grátis. Ao acabar o curso ou fazer 26 anos passa a pagar. A ajuda da bunq diz 'aged 25 and under' e noutro ponto 'between the ages of 18 and 26'. Preços da bunq sem referência a Imposto do Selo."
+   },
+   "menor": {
+    "existe": true,
+    "produto": "Conta para Crianças bunq (no plano Pro, grátis)",
+    "idade": "0 a 17 anos",
+    "manutMes": 0.0,
+    "cartaoAno": 0.0,
+    "custoMes": 0.0,
+    "cartao": "Sim, cartão para a criança (a bunq chama-lhe cartão de crédito sem risco de dívida). Idade mínima não indicada.",
+    "condicoes": "O pai ou mãe tem de ter plano pago: Core (3,99€/mês), Pro ou Elite. Com o bunq Free não dá. Até 4 contas de menores. A criança usa a app bunq.",
+    "abertura": "Online, na app bunq, pelo pai ou mãe (ou pedido do jovem aprovado pelos pais).",
+    "fontes": [
+     {
+      "url": "https://help.bunq.com/articles/how-do-i-open-an-account-for-my-child",
+      "citacao": "You can open an account for your child only if you're subscribed to the bunq Core, bunq Pro, or bunq Elite plan.",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/how-do-i-open-an-account-for-my-child",
+      "citacao": "bunq Core, bunq Pro, or bunq Elite users can open up to 4 child accounts.",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/how-do-i-open-an-account-for-my-child",
+      "citacao": "No minimum age is required.",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/how-do-i-open-an-account-for-my-child",
+      "citacao": "Child accounts are available across all supported countries in which we operate.",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/how-do-i-open-an-account-for-my-child",
+      "citacao": "Your child can now download the bunq app, log into their account.",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/how-do-i-open-an-account-as-a-child",
+      "citacao": "automatically get a bunq Pro account which you can enjoy for free",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/who-can-open-a-bunq-personal-account",
+      "citacao": "🇵🇹 Portugal",
+      "data": null
+     },
+     {
+      "url": "https://www.bunq.com/pt-pt/documents/personal-account-terms-conditions",
+      "citacao": "Legal representatives on a paid subscription plan are eligible to create and manage accounts for up to four (4) minors.",
+      "data": "22/09/2026"
+     },
+     {
+      "url": "https://www.bunq.com/pt-pt/personal/use-cases/parents",
+      "citacao": "Dá ao teu filho o seu Cartão de Crédito personalizável, sem risco de endividamento.",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/en/articles/what-are-the-benefits-of-the-bunq-core-plan",
+      "citacao": "bunq Core Personal is €3.99/month and €7.99/month for Business.",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/en/articles/what-are-the-benefits-of-the-bunq-pro-plan",
+      "citacao": "First 3 Physical Cards - Free",
+      "data": null
+     }
+    ],
+    "notas": "A conta da criança é grátis, mas obriga o pai ou mãe a sair do Free (mínimo Core, 3,99€/mês). Até aos 6 anos só tem conta poupança; dos 7 aos 17 tem conta de pagamentos e poupança. A bunq não indica o custo do cartão da criança: pus 0 porque a conta fica no Pro, que inclui 3 cartões físicos grátis. Aos 18 anos a ligação aos pais acaba."
+   },
+   "conjunta": {
+    "existe": false,
+    "maxTitulares": 1,
+    "condicoes": "No bunq Free não se cria conta conjunta, só se adere a uma. Quem a cria tem de ter plano pago (Core 3,99€/mês, Pro ou Elite). A conta conjunta aceita até 10 pessoas.",
+    "fontes": [
+     {
+      "url": "https://help.bunq.com/articles/whats-a-joint-account-and-how-do-i-create-one",
+      "citacao": "bunq Free users can join unlimited Joint Accounts but can't create them.",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/whats-a-joint-account-and-how-do-i-create-one",
+      "citacao": "This feature is available for Personal bunq Core, Pro, and Elite users.",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/articles/whats-a-joint-account-and-how-do-i-create-one",
+      "citacao": "A Joint Account can have up to 10 people (you + 9 others).",
+      "data": null
+     },
+     {
+      "url": "https://help.bunq.com/en/articles/what-are-the-benefits-of-the-bunq-free-plan",
+      "citacao": "you can share a Joint Account with your partner only if your Joint Account partner is on a bunq Core, Pro, or Elite plan.",
+      "data": null
+     },
+     {
+      "url": "https://www.bunq.com/pt-pt/documents/personal-account-terms-conditions",
+      "citacao": "If you are on a paid subscription plan you are eligible to open a joint account.",
+      "data": "22/09/2026"
+     }
+    ],
+    "notas": "Marcado como false porque com dois titulares no Free não há conta conjunta. Se o comparador quiser mostrar a bunq neste perfil, o custo mínimo é o plano Core de quem cria a conta (3,99€/mês). Abre-se online na app. Custos de cartões para os outros titulares não confirmados (o PDF de preços da bunq está bloqueado a robots)."
+   }
+  },
+  {
+   "id": "wise",
+   "jovem": {
+    "existe": false,
+    "produto": null,
+    "idade": "18 anos ou mais (conta normal)",
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "condicoes": "",
+    "abertura": "",
+    "fontes": [
+     {
+      "url": "https://wise.com/terms-of-use-tw-europe",
+      "citacao": "If you are an individual, you must be a resident of the European Economic Area and at least 18 years old.",
+      "data": "07/08/2026"
+     }
+    ],
+    "notas": "Sem oferta para jovens no EEE. Contrato da Wise Europe SA (Bélgica)."
+   },
+   "menor": {
+    "existe": false,
+    "produto": null,
+    "idade": null,
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "cartao": null,
+    "condicoes": "",
+    "abertura": "",
+    "fontes": [
+     {
+      "url": "https://wise.com/terms-of-use-tw-europe",
+      "citacao": "If you are an individual, you must be a resident of the European Economic Area and at least 18 years old.",
+      "data": "07/08/2026"
+     },
+     {
+      "url": "https://wise.com/pt/help/articles/5C80ujZDqlyryoCgCVvWbq/como-funciona-o-young-explorer",
+      "citacao": "A Mesada é um cartão feito para crianças e adolescentes de 6 a 17 anos, administrado pelos pais ou responsáveis.",
+      "data": null
+     },
+     {
+      "url": "https://wise.com/pt/help/articles/5C80ujZDqlyryoCgCVvWbq/como-funciona-o-young-explorer",
+      "citacao": "que moram na Austrália, no Brasil, no Canadá, na Nova Zelândia, em Singapura, na Suíça e no Reino Unido.",
+      "data": null
+     }
+    ],
+    "notas": "A Mesada (Young Explorer) não existe em Portugal nem no EEE."
+   },
+   "conjunta": {
+    "existe": false,
+    "maxTitulares": 1,
+    "condicoes": "",
+    "fontes": [
+     {
+      "url": "https://wise.com/help/articles/2897226/what-is-a-wise-account",
+      "citacao": "We don't offer joint accounts in Wise, so each user should have their own.",
+      "data": null
+     },
+     {
+      "url": "https://wise.com/help/articles/4nyqakqieuWseODSZAUCzi/how-to-use-spend-with-others",
+      "citacao": "'Spend with others' is different from a joint account",
+      "data": null
+     },
+     {
+      "url": "https://wise.com/help/articles/4nyqakqieuWseODSZAUCzi/how-to-use-spend-with-others",
+      "citacao": "you can only have 2 people in a group",
+      "data": null
+     }
+    ],
+    "notas": "A função Spend with others dá acesso a terceiros (no EEE só 2 pessoas por grupo), mas o dinheiro é só do dono da conta. Não é conta conjunta."
+   }
+  },
+  {
+   "id": "traderepublic",
+   "jovem": {
+    "existe": false,
+    "produto": null,
+    "idade": "18 anos ou mais (conta normal)",
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "condicoes": "",
+    "abertura": "",
+    "fontes": [
+     {
+      "url": "https://support.traderepublic.com/es-es/574",
+      "citacao": "No, en Trade Republic no existe la opción de abrir una cuenta de valores para menores.",
+      "data": null
+     },
+     {
+      "url": "https://support.traderepublic.com/en-lu/1756-Can-I-open-an-account-if-I-am-under-18",
+      "citacao": "Children cannot open an account by themselves.",
+      "data": null
+     }
+    ],
+    "notas": "Sem oferta para jovens. As fontes não dizem 18 anos por extenso: dizem que menores não abrem conta."
+   },
+   "menor": {
+    "existe": false,
+    "produto": null,
+    "idade": null,
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "cartao": null,
+    "condicoes": "",
+    "abertura": "",
+    "fontes": [
+     {
+      "url": "https://support.traderepublic.com/en-lu/1756-Can-I-open-an-account-if-I-am-under-18",
+      "citacao": "A Child Savings Account can be opened by a parent or legal guardian residing in Germany, France or Spain.",
+      "data": null
+     },
+     {
+      "url": "https://support.traderepublic.com/en-fi/1756-Can-I-open-an-account-if-I-am-under-18",
+      "citacao": "A Child Savings Account can be opened by a parent or legal guardian residing in Germany, France or Spain.",
+      "data": null
+     },
+     {
+      "url": "https://support.traderepublic.com/es-es/574",
+      "citacao": "No, en Trade Republic no existe la opción de abrir una cuenta de valores para menores.",
+      "data": null
+     }
+    ],
+    "notas": "A conta para crianças (Child Savings Account) só existe para pais residentes na Alemanha, França ou Espanha. A ajuda em pt-PT não abriu (redireciona), por isso usei as versões en-LU, en-FI e es-ES."
+   },
+   "conjunta": {
+    "existe": false,
+    "maxTitulares": 1,
+    "condicoes": "",
+    "fontes": [
+     {
+      "url": "https://support.traderepublic.com/en-lu/725-Can-I-open-a-joint-account",
+      "citacao": "Trade Republic doesn’t currently offer joint account opening.",
+      "data": null
+     },
+     {
+      "url": "https://support.traderepublic.com/es-es/561",
+      "citacao": "Actualmente Trade Republic no ofrece la posibilidad de abrir una cuenta conjunta.",
+      "data": null
+     }
+    ],
+    "notas": "Cada cliente tem conta em nome próprio. Fonte do centro de ajuda geral (versões en-LU e es-ES); a página em pt-PT não abriu."
+   }
+  },
+  {
+   "id": "openbank",
+   "jovem": {
+    "existe": false,
+    "produto": null,
+    "idade": "18 anos ou mais (conta normal)",
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "condicoes": "",
+    "abertura": "",
+    "fontes": [
+     {
+      "url": "https://www.openbank.pt/inicio-abrir-conta",
+      "citacao": "Ter idade igual ou superior a 18 anos.",
+      "data": null
+     }
+    ],
+    "notas": "Sem oferta para jovens no site português."
+   },
+   "menor": {
+    "existe": false,
+    "produto": null,
+    "idade": null,
+    "manutMes": null,
+    "cartaoAno": null,
+    "custoMes": null,
+    "cartao": null,
+    "condicoes": "",
+    "abertura": "",
+    "fontes": [
+     {
+      "url": "https://www.openbank.pt/conta-a-ordem",
+      "citacao": "Só tem de ser maior de idade, ser residente em Portugal e ter o seu documento de identificação em vigor.",
+      "data": null
+     },
+     {
+      "url": "https://www.openbank.pt/inicio-abrir-conta",
+      "citacao": "Ter idade igual ou superior a 18 anos.",
+      "data": null
+     }
+    ],
+    "notas": "Só abre conta a maiores de idade residentes em Portugal."
+   },
+   "conjunta": {
+    "existe": null,
+    "maxTitulares": null,
+    "condicoes": "",
+    "fontes": [],
+    "notas": "Não confirmado. As páginas e FAQ do openbank.pt não falam de mais de um titular. Os PDF oficiais estão bloqueados a robots: https://www.openbank.pt/assets/static/pt/pdf/Products/Precontratual_ContaOrdem_PT.pdf, https://www.openbank.pt/assets/static/pt/pdf/Products/Precontratual_ContaOrdem_DIC_PT.pdf e https://www.openbank.pt/assets/static/pt/pdf/Products/ContratoPessoasSingulares_PT.pdf. A pesquisa por \"conta conjunta\" no openbank.pt devolve PDF de depósitos, também bloqueados. Confirmar no PDF ou pelo 800 785 170."
+   }
+  }
+ ]
+}
