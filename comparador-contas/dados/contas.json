@@ -60,7 +60,7 @@
     },
     "cartao": {
      "v": "Grátis, envio 6,99€",
-     "s": "Primeiro cartão físico sem custo de emissão. Envio normal 6,99€ mais IS, expresso 19,99€. Cartões virtuais grátis"
+     "s": "Primeiro cartão físico sem custo de emissão. Envio normal 6,99€ ou expresso 19,99€, mais IS. Cartões virtuais grátis"
     },
     "credito": {
      "v": "Não tem",
@@ -68,7 +68,7 @@
     },
     "levant": {
      "v": "Grátis em euros",
-     "s": "Sem limite em euros em todo o EEE. O dono do multibanco pode cobrar uma taxa própria"
+     "s": "Sem limite em euros no EEE, em Andorra, Mónaco, São Marino, Suíça e Vaticano. O dono do multibanco pode cobrar uma taxa própria"
     },
     "levantFora": {
      "v": "5 ou 200€ por mês grátis",
@@ -241,7 +241,7 @@
     },
     "balcoes": {
      "v": "17 Pontos Activo",
-     "s": "Em Lisboa, Porto, Braga, Coimbra, Aveiro, Leiria e arredores, quase todos em centros comerciais"
+     "s": "Em Lisboa, Porto, Braga, Coimbra, Aveiro, Leiria e arredores, a maioria em centros comerciais"
     },
     "apoio": {
      "v": "Telefone todos os dias",
@@ -303,16 +303,16 @@
      "s": "Sem comissão no Multibanco e na zona euro. Ao balcão custa 5€"
     },
     "levantFora": {
-     "v": "Com comissão",
-     "s": "Valores no preçário de cartões do Bankinter (secção 3.4)"
+     "v": "2,50€ + 0,33% + 1,7%",
+     "s": "No EEE noutras moedas e fora do EEE. Fora do EEE noutras moedas, mais 1%. Acresce IS. No EEE em euros, sem comissão"
     },
     "transf": {
      "v": "Grátis online",
      "s": "SEPA+ nacionais e imediatas grátis e ilimitadas online. Internacionais, urgentes e SWIFT pagam"
     },
     "cambio": {
-     "v": "1,7%",
-     "s": "Taxa de processamento internacional nas compras noutras moedas. A página não diz se acresce IS"
+     "v": "1,7% + IS",
+     "s": "Taxa de processamento internacional nas compras noutras moedas. Fora do EEE noutras moedas, mais 1%. Acresce IS de 4%"
     },
     "iban": {
      "v": "Português (PT50)",
@@ -366,10 +366,7 @@
      "v": "Telefone todos os dias",
      "s": "210 548 000, das 8h às 20h. Fora de horas responde a assistente virtual BIA"
     }
-   },
-   "c": [
-    "levantFora"
-   ]
+   }
   },
   {
    "id": "moey",
@@ -421,16 +418,16 @@
      "s": "Na rede Multibanco e na zona euro. Também levantas sem cartão com código MB WAY"
     },
     "levantFora": {
-     "v": "Ver preçário",
-     "s": "Valor para o cartão Moey não confirmado no preçário do Crédito Agrícola"
+     "v": "1,7%",
+     "s": "Por levantamento fora de Portugal e da zona euro. O dono do multibanco pode cobrar uma taxa própria"
     },
     "transf": {
      "v": "Grátis",
      "s": "SEPA normais e imediatas sem custo na app. Transferências fora da SEPA não disponíveis"
     },
     "cambio": {
-     "v": "Câmbio Mastercard",
-     "s": "Comissões fora da zona euro no preçário do Crédito Agrícola. Valor para o cartão Moey não confirmado"
+     "v": "0%",
+     "s": "Pagamentos na UE e no resto do mundo sem comissão, ao câmbio Mastercard"
     },
     "iban": {
      "v": "Português (PT50)",
@@ -483,11 +480,7 @@
      "v": "Telefone, das 9h às 22h",
      "s": "Todos os dias, pelo 210 521 500. Também WhatsApp e e-mail"
     }
-   },
-   "c": [
-    "levantFora",
-    "cambio"
-   ]
+   }
   },
   {
    "id": "openbank",
@@ -530,7 +523,7 @@
     },
     "credito": {
      "v": "Só débito",
-     "s": "O site do Openbank em Portugal só apresenta o cartão de débito Я42"
+     "s": "O Openbank em Portugal só tem cartões de débito (Я42 e Я42 Metal)"
     },
     "levant": {
      "v": "5 grátis por mês",
@@ -538,15 +531,15 @@
     },
     "levantFora": {
      "v": "Grátis no Santander",
-     "s": "Sem limite nos multibancos Santander. Com Travel+ (4,99€/mês), 5 grátis por mês em qualquer multibanco"
+     "s": "Sem limite nos multibancos Santander em qualquer país. Noutros multibancos fora da zona euro: 1,50%. Com Travel+ (4,99€/mês), 5 grátis por mês em qualquer multibanco"
     },
     "transf": {
      "v": "Grátis",
      "s": "Normais e imediatas para bancos portugueses e internacionais, nas moedas disponíveis"
     },
     "cambio": {
-     "v": "Grátis com Travel+",
-     "s": "Com Travel+ (4,99€/mês) pagas ao câmbio Mastercard sem comissões. Sem Travel+, o custo não está no site"
+     "v": "1,50%",
+     "s": "Nas compras noutras moedas sem Travel+. Com Travel+ (4,99€/mês) pagas ao câmbio Mastercard sem comissões"
     },
     "iban": {
      "v": "Espanhol (ES)",
@@ -558,11 +551,11 @@
     },
     "pagamentos": {
      "v": "Débitos diretos",
-     "s": "Domiciliações e débitos diretos. Sem informação sobre referências Multibanco ou pagamentos ao Estado"
+     "s": "Domiciliações e débitos diretos. O banco não indica pagamentos de serviços por referência Multibanco. À AT pagas por transferência para o IBAN do IGCP, com os dados do documento"
     },
     "numerario": {
      "v": "Não",
-     "s": "Sem balcões em Portugal"
+     "s": "Sem balcões em Portugal. O documento de comissões não prevê depósitos em dinheiro"
     },
     "carteiras": {
      "v": "Sim",
@@ -570,7 +563,7 @@
     },
     "jurosConta": {
      "v": "Não",
-     "s": "Os juros estão nas contas poupança"
+     "s": "A conta à ordem não tem taxa de juro. Os juros estão nas contas poupança"
     },
     "poupanca": {
      "v": "2,50% TANB",
@@ -600,15 +593,7 @@
      "v": "Telefone grátis",
      "s": "800 785 168 para clientes e 800 785 170 para quem ainda não é cliente. E-mail contacto@openbank.com"
     }
-   },
-   "c": [
-    "credito",
-    "levantFora",
-    "cambio",
-    "pagamentos",
-    "numerario",
-    "jurosConta"
-   ]
+   }
   },
   {
    "id": "wise",
@@ -639,7 +624,7 @@
     "iban": "BE",
     "mbway": false,
     "cartaoFisico": true,
-    "cartaoGratis": true,
+    "cartaoGratis": false,
     "jurosMax": null,
     "numerario": false,
     "garantia": null,
@@ -686,7 +671,7 @@
     },
     "pagamentos": {
      "v": "Só débitos diretos",
-     "s": "Débitos diretos SEPA em euros, exceto B2B. Sem pagamentos por entidade e referência nem ao Estado"
+     "s": "Débitos diretos SEPA em euros, exceto B2B. O banco não indica pagamentos de serviços por referência Multibanco. À AT pagas por transferência para o IBAN do IGCP, com os dados do documento"
     },
     "numerario": {
      "v": "Não",
@@ -728,12 +713,7 @@
      "v": "Telefone 24 horas",
      "s": "Pela opção de contacto na app ou no site. Centro de ajuda em português"
     }
-   },
-   "c": [
-    "transf",
-    "pagamentos",
-    "apoio"
-   ]
+   }
   },
   {
    "id": "bunq",
@@ -761,7 +741,7 @@
     "mbway": false,
     "cartaoFisico": false,
     "cartaoGratis": false,
-    "jurosMax": 3.01,
+    "jurosMax": 3.11,
     "numerario": false,
     "garantia": "NL",
     "aberturaOnline": true,
@@ -807,7 +787,7 @@
     },
     "pagamentos": {
      "v": "Só débitos diretos",
-     "s": "Débitos diretos SEPA. Sem pagamentos por entidade e referência nem ao Estado"
+     "s": "Débitos diretos SEPA. O banco não indica pagamentos de serviços por referência Multibanco. À AT pagas por transferência para o IBAN do IGCP, com os dados do documento"
     },
     "numerario": {
      "v": "Não",
@@ -822,8 +802,8 @@
      "s": "Os juros são pagos nas contas poupança"
     },
     "poupanca": {
-     "v": "3,01% TANB",
-     "s": "Todo o saldo até ao 1.º recálculo (1/1 ou 1/7). Depois 1,51% até ao teu limiar e 3,01% acima. Juros semanais, até 100.000€"
+     "v": "3,11% TANB",
+     "s": "Todo o saldo até ao 1.º recálculo (1/1 ou 1/7). Depois até 1,61% abaixo do teu limiar e 3,11% acima. Juros semanais, até 100.000€"
     },
     "investir": {
      "v": "Ações, ETFs e cripto",
@@ -849,10 +829,7 @@
      "v": "Chat na app, 24 horas",
      "s": "Assistente Finn e equipa bunq, com respostas traduzidas para a língua do telemóvel. Também por e-mail"
     }
-   },
-   "c": [
-    "pagamentos"
-   ]
+   }
   },
   {
    "id": "n26",
@@ -877,7 +854,7 @@
     "iban": "DE",
     "mbway": false,
     "cartaoFisico": true,
-    "cartaoGratis": true,
+    "cartaoGratis": false,
     "jurosMax": 0.3,
     "numerario": false,
     "garantia": "DE",
@@ -896,7 +873,7 @@
     },
     "credito": {
      "v": "Não tem",
-     "s": "A conta Standard só inclui cartão de débito"
+     "s": "O Standard só tem cartão de débito. O descoberto da N26 só existe na Alemanha e na Áustria"
     },
     "levant": {
      "v": "2 grátis por mês",
@@ -924,7 +901,7 @@
     },
     "pagamentos": {
      "v": "Só débitos diretos",
-     "s": "Débitos diretos SEPA. Sem pagamentos por entidade e referência nem ao Estado"
+     "s": "Débitos diretos SEPA. O banco não indica pagamentos de serviços por referência Multibanco. À AT pagas por transferência para o IBAN do IGCP, com os dados do documento"
     },
     "numerario": {
      "v": "Não",
@@ -963,14 +940,10 @@
      "s": "Tudo pela app"
     },
     "apoio": {
-     "v": "Chat, das 7h às 23h",
-     "s": "Todos os dias, hora da Europa Central. Inglês, alemão, francês, italiano e espanhol. Telefone só nos planos pagos"
+     "v": "Chat na app",
+     "s": "Chatbot 24 horas e especialistas todos os dias das 11h às 19h (hora da Europa Central). Inglês, alemão, francês, italiano e espanhol. Telefone só nos planos pagos"
     }
-   },
-   "c": [
-    "credito",
-    "pagamentos"
-   ]
+   }
   },
   {
    "id": "best",
@@ -1140,7 +1113,7 @@
     },
     "cartao": {
      "v": "10€ + IS no 1.º ano",
-     "s": "BiG Mastercard: depois 14€/ano + IS. Grátis para o 1.º titular com ordenado domiciliado ou mais de 100.000€ no banco"
+     "s": "BiG Mastercard: depois 14€/ano + IS. Grátis para o 1.º titular com ordenado domiciliado, mais de 100.000€ no banco ou dos 18 aos 30 anos"
     },
     "credito": {
      "v": "Sim",
@@ -1156,7 +1129,7 @@
     },
     "transf": {
      "v": "1€ + IS online",
-     "s": "Para outros bancos (10€ ao balcão). Grátis as 10 primeiras por mês com ordenado ou mais de 100.000€ no banco"
+     "s": "Para outros bancos (10€ ao balcão). Grátis as 10 primeiras por mês com ordenado, mais de 100.000€ no banco ou dos 18 aos 30 anos"
     },
     "cambio": {
      "v": "1,7% + 1% + IS",
@@ -1243,7 +1216,7 @@
     "iban": "PT",
     "mbway": false,
     "cartaoFisico": true,
-    "cartaoGratis": true,
+    "cartaoGratis": false,
     "jurosMax": 3.0,
     "numerario": false,
     "garantia": "DE",
@@ -1290,7 +1263,7 @@
     },
     "pagamentos": {
      "v": "Débitos diretos",
-     "s": "Ordenado e débitos diretos. Sem informação oficial sobre referências Multibanco ou pagamentos ao Estado"
+     "s": "Ordenado e débitos diretos. O banco não indica pagamentos de serviços por referência Multibanco. À AT pagas por transferência para o IBAN do IGCP, com os dados do documento"
     },
     "numerario": {
      "v": "Não",
@@ -1332,10 +1305,7 @@
      "v": "Chat e telefone, 24 horas",
      "s": "Na app, por chat ou chamada, com apoio em português"
     }
-   },
-   "c": [
-    "pagamentos"
-   ]
+   }
   },
   {
    "id": "cgd",
@@ -1469,7 +1439,7 @@
    },
    "tags": [
     {
-     "t": "0€ no 1.º ano na app",
+     "t": "0€ 12 meses (novos clientes)",
      "w": 0
     }
    ],
@@ -1491,15 +1461,15 @@
    "t": {
     "manut": {
      "v": "8,32€/mês",
-     "s": "Com IS. Desce até 5,20€ com ordenado, extrato digital e compras a crédito. 0€ no 1.º ano se abrires na app com Chave Móvel Digital. Conta Base: 6,24€"
+     "s": "Com IS. Desce até 5,20€ com ordenado ou pensão de pelo menos 750€, extrato digital e 100€ por mês em compras a crédito. 0€ nos primeiros 12 meses para novos clientes que adiram até 31/12/2026. Conta Base: 6,24€"
     },
     "cartao": {
      "v": "Incluído (2 cartões)",
      "s": "2 cartões Visa Débito sem comissão. Na Conta Millennium sem pacote cada um custa 24,44€/ano"
     },
     "credito": {
-     "v": "Incluído (2 cartões)",
-     "s": "2 cartões Classic sem anuidade (TAEG 15,4%), sujeitos a análise de risco"
+     "v": "2 cartões Classic",
+     "s": "10,40€ por ano cada, com IS (TAEG 15,4%). Sujeitos a análise de risco"
     },
     "levant": {
      "v": "Grátis",
@@ -1662,7 +1632,7 @@
     },
     "poupanca": {
      "v": "Não",
-     "s": "Só depósitos e contas poupança com prazo, que penalizam os juros se levantares antes (até 1,30% TANB)"
+     "s": "Só depósitos e contas poupança com prazo, que penalizam os juros se levantares antes (até 1,00% TANB, 1,30% a partir de 100.000€)"
     },
     "investir": {
      "v": "Fundos, PPR e bolsa",
@@ -1677,7 +1647,7 @@
     },
     "abertura": {
      "v": "Online 24h ou no balcão",
-     "s": "Com Chave Móvel Digital (sem mínimo) ou Cartão de Cidadão e vídeo (50€). No balcão: 150€"
+     "s": "Com Chave Móvel Digital (sem mínimo) ou Cartão de Cidadão e vídeo (50€). No balcão: 150€ recomendados"
     },
     "balcoes": {
      "v": "261 agências",
@@ -1723,7 +1693,7 @@
    "t": {
     "manut": {
      "v": "8,22€/mês",
-     "s": "Conta 100%, com IS. 5,72€ ou 4,68€ com ordenado, extrato digital, 2 débitos diretos e 250€ ou 500€/mês em compras. Conta Base: 6,24€"
+     "s": "Conta 100%, com IS. 5,72€ ou 4,68€ com ordenado (mínimo 670€), extrato digital, 2 débitos diretos e 250€ ou 500€/mês em compras. Conta Base: 6,24€"
     },
     "cartao": {
      "v": "Incluído",
@@ -1739,7 +1709,7 @@
     },
     "levantFora": {
      "v": "4,25€ + 1% + 3,85%",
-     "s": "Fora do EEE ou noutras moedas, mais IS"
+     "s": "Fora do EEE, mais IS. No EEE em coroas suecas ou leu romeno, só 1,35%"
     },
     "transf": {
      "v": "Grátis online",
@@ -1789,7 +1759,7 @@
     },
     "abertura": {
      "v": "Online ou no balcão",
-     "s": "Chave Móvel Digital ou documento, selfie em vídeo e assinatura digital. Só portugueses e brasileiros residentes. Mínimo 250€"
+     "s": "Chave Móvel Digital ou documento, selfie em vídeo e assinatura digital. Só cidadãos portugueses ou brasileiros com autorização de residência. Mínimo 250€"
     },
     "balcoes": {
      "v": "302 balcões",
@@ -1906,7 +1876,7 @@
     },
     "balcoes": {
      "v": "308 unidades",
-     "s": "Balcões e centros de empresas em junho de 2026"
+     "s": "Rede de distribuição em junho de 2026"
     },
     "apoio": {
      "v": "Telefone 24 horas",
@@ -2368,7 +2338,7 @@
    "f": {
     "custoAno": 99.84,
     "iban": "PT",
-    "aberturaOnline": false,
+    "aberturaOnline": true,
     "tpa": true,
     "multimoeda": false,
     "estado": true,
@@ -2387,7 +2357,7 @@
     },
     "manut": {
      "v": "8,32€ por mês (IS incluído)",
-     "s": "8€ + IS. Clientes Caixa TOP ou com conta de fundos PRR pagam metade"
+     "s": "8€ + IS. Clientes Caixa TOP ou com conta de fundos PRR pagam metade. Até 31/12/2026, 0€ durante 12 meses para micro e PME que abram ou reativem conta"
     },
     "outrosPlanos": {
      "v": "Business+ 14,56€, Corporate 41,60€",
@@ -2411,7 +2381,7 @@
     },
     "tpa": {
      "v": "Disponível",
-     "s": "TPA Caixa com custos próprios. O desconto de 50% na mensalidade só existe no Business+ e no Corporate"
+     "s": "TPA Caixa com custos próprios. A Business tem vantagens de preço no TPA, sem valor publicado. O desconto de 50% na mensalidade é do Business+ e do Corporate"
     },
     "cheques": {
      "v": "Pagos à parte",
@@ -2441,7 +2411,7 @@
      "s": "Fundo de Garantia de Depósitos (Portugal)"
     },
     "abertura": {
-     "v": "Ao balcão",
+     "v": "Balcão ou Caixadirecta",
      "s": "Agências, Gabinetes Empresas ou Caixadirecta Empresas, também para quem ainda não é cliente. Mínimo de 500€"
     },
     "balcoes": {
@@ -2535,8 +2505,8 @@
      "s": "A conta é em euros"
     },
     "juros": {
-     "v": "Não indicado",
-     "s": "As condições da Solução M Empresa não preveem remuneração da conta"
+     "v": "Não",
+     "s": "Conta não remunerada"
     },
     "credito": {
      "v": "Sim",
@@ -2558,10 +2528,7 @@
      "v": "211 130 300",
      "s": "Dias úteis, das 8h30 às 17h30. Também gestor e balcões"
     }
-   },
-   "c": [
-    "juros"
-   ]
+   }
   },
   {
    "id": "montepio-empresas",
@@ -2871,8 +2838,8 @@
      "s": "A conta é em euros"
     },
     "juros": {
-     "v": "Não indicado",
-     "s": "A página da conta não refere remuneração"
+     "v": "Não",
+     "s": "Conta sem remuneração"
     },
     "credito": {
      "v": "Sim",
@@ -2883,8 +2850,8 @@
      "s": "Fundo de Garantia de Depósitos (Portugal). Banco português: ABANCA Portugal, S.A"
     },
     "abertura": {
-     "v": "Ao balcão",
-     "s": "Adesão nas agências ou pelo 21 000 13 00"
+     "v": "Agência ou telefone",
+     "s": "Adesão nas agências ou pelo 21 000 13 00. Sem abertura online"
     },
     "balcoes": {
      "v": "Rede nacional",
@@ -2894,11 +2861,7 @@
      "v": "21 000 13 00",
      "s": "Também agências e gestor de conta"
     }
-   },
-   "c": [
-    "abertura",
-    "juros"
-   ]
+   }
   },
   {
    "id": "wise-business",
@@ -2957,8 +2920,8 @@
      "s": "Cartões extra para a equipa: 4€ cada, pagamento único. Substituição: 4€"
     },
     "transf": {
-     "v": "Comissão por envio",
-     "s": "Varia com a moeda, desde 0,2%. Receber euros por SEPA é grátis. Na mesma moeda para outra conta Wise Business: grátis"
+     "v": "Grátis em euros",
+     "s": "Envios na mesma moeda para outras empresas sem custo. Com conversão, desde 0,2%. Receber euros por SEPA é grátis"
     },
     "levant": {
      "v": "250€ por mês grátis",
@@ -3070,7 +3033,7 @@
     },
     "transf": {
      "v": "SEPA grátis",
-     "s": "Transferências imediatas também grátis, até 10.000€ por dia (limite ajustável)"
+     "s": "Transferências imediatas também grátis, até 10.000€ por dia por defeito, ajustável até 100.000€"
     },
     "levant": {
      "v": "2 por mês grátis",
@@ -3122,12 +3085,9 @@
     },
     "apoio": {
      "v": "Chat na app",
-     "s": "Sem balcões nem gestor. Apoio em português não garantido"
+     "s": "Sem balcões nem gestor. Sem apoio em português (inglês, francês, alemão, italiano e espanhol)"
     }
-   },
-   "c": [
-    "apoio"
-   ]
+   }
   }
  ]
 }
