@@ -22,7 +22,7 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb a.cb-author:hover .cb-an{text-decoration:underline}
 
 /* escolhas do topo: rótulo por cima e botões com borda, como "Prazo" nos depósitos */
-#lf-cb .cb-form{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr) minmax(0,2fr);gap:24px;align-items:start}
+#lf-cb .cb-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
 #lf-cb .cb-label{display:block;font-size:14px;font-weight:500;line-height:20px;color:var(--g700);margin-bottom:6px}
 #lf-cb .cb-toggle{display:grid;grid-template-columns:repeat(var(--cb-tabs,2),minmax(0,1fr));gap:8px}
 #lf-cb .cb-tab{border:1px solid var(--g300);background:#fff;border-radius:12px;padding:12px 8px;font-size:14px;font-weight:500;line-height:20px;color:var(--g700);white-space:nowrap;text-align:center;margin:0}
@@ -30,9 +30,9 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb .cb-tab.is-active{background:var(--g700);border-color:var(--g700);color:var(--g50)}
 
 /* filtros, contagem e ordenação numa só linha */
-#lf-cb .cb-bar{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;margin:16px 0 12px;max-width:100%}
+#lf-cb .cb-bar{display:flex;flex-wrap:nowrap;align-items:flex-start;gap:6px;margin:16px 0 12px;max-width:100%}
 #lf-cb .cb-chips{display:flex;flex-wrap:wrap;gap:6px;flex:1 1 auto;min-width:0}
-#lf-cb .cb-chip{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;white-space:nowrap;padding:6px 10px;border-radius:999px;border:1px solid var(--g300);background:#fff;font-size:12.5px;font-weight:500;line-height:18px;color:var(--g700);margin:0}
+#lf-cb .cb-chip{display:inline-flex;align-items:center;justify-content:center;gap:5px;flex:0 0 auto;white-space:nowrap;padding:6px 9px;border-radius:999px;border:1px solid var(--g300);background:#fff;font-size:12.5px;font-weight:500;line-height:18px;color:var(--g700);margin:0}
 #lf-cb .cb-chip:hover{border-color:var(--g700)}
 #lf-cb .cb-chip .cb-i{color:var(--g500)}
 #lf-cb .cb-chip.is-on{background:var(--g900);border-color:var(--g900);color:#fff}
@@ -74,27 +74,29 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb .cb-list{display:flex;flex-direction:column;gap:10px}
 #lf-cb .cb-c{background:#fff;border:1px solid var(--g200);border-radius:16px;overflow:hidden}
 #lf-cb .cb-c.is-sel{border-color:var(--g700)}
-#lf-cb .cb-c-main{display:grid;grid-template-columns:28px 236px minmax(0,1fr) 184px;gap:20px;align-items:center;padding:14px 20px}
+#lf-cb .cb-c-main{display:grid;grid-template-columns:28px 252px minmax(0,1fr) 184px;gap:20px;align-items:center;padding:14px 20px}
 #lf-cb .cb-rank{font-size:14px;font-weight:500;color:var(--g500);text-align:center}
 #lf-cb .cb-ent{display:flex;align-items:center;gap:12px;min-width:0}
 #lf-cb .cb-ent-t{min-width:0}
 #lf-cb .cb-name{font-size:14px;font-weight:500;line-height:20px;color:var(--g900)}
 #lf-cb .cb-prod{font-size:12px;line-height:18px;color:var(--g500)}
-#lf-cb .cb-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+#lf-cb .cb-tags{display:flex;flex-wrap:wrap;align-items:flex-start;align-content:flex-start;gap:4px;margin-top:4px}
 #lf-cb .cb-tag{display:inline-block;max-width:100%;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:500;line-height:16px;background:var(--g100);color:var(--g600);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top}
+/* etiquetas do cartão: ícone + texto. Verde para vantagens e bónus, amarelo para avisos */
+#lf-cb .cb-tags .cb-tag{display:inline-flex;align-items:center;gap:4px;padding:1px 8px 1px 6px}
+#lf-cb .cb-tags .cb-tag>span{min-width:0;overflow:hidden;text-overflow:ellipsis}
+#lf-cb .cb-tag .cb-i{width:12px;height:12px;stroke-width:2.2}
 #lf-cb .cb-tag.is-warn{background:var(--warn50);color:var(--warn700)}
-#lf-cb .cb-tag.is-ok{background:var(--ok50);color:var(--ok700)}
-#lf-cb .cb-tag.is-bonus{background:var(--brand50);color:var(--brand600);font-weight:600}
+#lf-cb .cb-tag.is-ok,#lf-cb .cb-tag.is-bonus{background:var(--ok50);color:var(--ok700)}
+#lf-cb .cb-tag.is-bonus{font-weight:600}
 #lf-cb .cb-tag.is-conf{background:var(--warn50);color:var(--warn700);border:1px solid var(--warn200);margin-top:5px}
 #lf-cb .cb-tag.is-best{background:var(--ok50);color:var(--ok700);border:1px solid var(--ok200);margin-top:5px}
 #lf-cb .cb-cell .cb-tag{display:table;margin:6px auto 0}
 #lf-cb .cb-kv-v .cb-tag{display:table;margin-top:5px}
-#lf-cb .cb-kpis{display:grid;grid-template-columns:minmax(0,1.25fr) repeat(4,minmax(0,1fr));gap:14px}
+#lf-cb .cb-kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
 #lf-cb .cb-kpi{min-width:0}
 #lf-cb .cb-kpi-l{font-size:12px;line-height:16px;color:var(--g500);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#lf-cb .cb-kpi-v{font-size:18px;font-weight:600;line-height:24px;color:var(--g900)}
-#lf-cb .cb-kpi-v.is-plain{font-size:15px;font-weight:500;line-height:20px}
-#lf-cb .cb-kpi-v.is-ok{color:var(--ok700)}
+#lf-cb .cb-kpi-v{font-size:15px;font-weight:600;line-height:20px;color:var(--g900)}
 #lf-cb .cb-kpi-s{font-size:11px;line-height:16px;color:var(--g500);margin-top:2px}
 #lf-cb .cb-yn{display:inline-flex;align-items:center;gap:4px}
 #lf-cb .cb-yn svg{width:13px;height:13px}
@@ -129,8 +131,9 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 
 /* detalhes do cartão */
 #lf-cb .cb-c-detail{padding:16px 24px 24px 68px;border-top:1px solid var(--g200);background:var(--g50)}
-#lf-cb .cb-dgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 32px}
-#lf-cb .cb-h{font-size:12px;font-weight:600;line-height:18px;color:var(--g900);margin:8px 0 4px}
+#lf-cb .cb-dgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+#lf-cb .cb-h{font-size:12px;font-weight:600;line-height:18px;color:var(--g900);margin:8px 0 4px;align-self:end}
+#lf-cb .cb-h.is-next{margin-top:20px}
 #lf-cb .cb-kv{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;padding:7px 0;border-bottom:1px solid var(--g200);font-size:13px;line-height:18px}
 #lf-cb .cb-kv-l{color:var(--g600)}
 #lf-cb .cb-kv-v b{font-weight:500;color:var(--g900)}
@@ -221,10 +224,16 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb .cb-notes b{font-weight:600;color:var(--g700)}
 
 @media (min-width:768px){
+ #lf-cb .cb-dgrid>*{grid-row:var(--r)}
+ #lf-cb .cb-dgrid>.cb-col1{grid-column:1}
+ #lf-cb .cb-dgrid>.cb-col2{grid-column:2}
  #lf-cb .cb-mini{border:1px solid var(--g200);border-top:0;border-radius:0 0 12px 12px;overflow:hidden}
  #lf-cb .cb-mini-in{padding:0}
  #lf-cb .cb-mini-c,#lf-cb .cb-mini-c+.cb-mini-c{padding:10px 14px;border-left:1px solid var(--g200);font-size:14px;line-height:20px}
  #lf-cb .cb-mini-c:first-child{border-left:0}
+}
+@media (min-width:1101px) and (max-width:1365px){
+ #lf-cb .cb-chip{font-size:12px}
 }
 @media (max-width:1100px){
  #lf-cb .cb-bar:not(.is-cmp){flex-wrap:wrap;gap:12px 8px;position:relative}
@@ -245,8 +254,7 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
  #lf-cb .cb-meta{gap:16px 0}
  #lf-cb .cb-author{padding:0 12px}
  #lf-cb .cb-meta .cb-date{flex-basis:100%;justify-content:center;border-left:0}
- #lf-cb .cb-form{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:14px 12px}
- #lf-cb .cb-fg-tipo{grid-column:1/-1;order:3}
+ #lf-cb .cb-form{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 12px}
  #lf-cb .cb-toggle{gap:6px}
  #lf-cb .cb-tab{padding:11px 4px;font-size:13px}
  #lf-cb .cb-c-main{grid-template-columns:minmax(0,1fr);grid-template-areas:"ent" "kpis" "cta";gap:14px;padding:16px}

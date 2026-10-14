@@ -26,10 +26,12 @@ Em cada conta:
 
 - `id`, `seg` (`particular` ou `empresa`), `ordem` (posição em "Recomendados").
 - `name`, `produto`, `tipoTxt`, `entidade`.
-- `tipo`: `digital` ou `balcoes`. É o que usa o filtro "Tipo de banco". ActivoBank, Best e BiG estão em `digital` porque é assim que os artigos do site os classificam.
+- `tipo`: `digital` ou `balcoes`. É o que usa o filtro "100% digital". ActivoBank, Best e BiG estão em `digital` porque é assim que os artigos do site os classificam.
 - `logo` (ficheiro em `logos/`), `logoPad` (`true` para margem normal dentro do quadrado, `"sm"` para margem pequena, usada nos logótipos horizontais como o do Novo Banco), `logoBg` (cor de fundo do quadrado quando o logótipo é claro, como o da Moey) e `ini` (iniciais de reserva).
 - `cta`: botão "Ir para o/a X", como nos outros comparadores. `label` é o texto, `href` o link, `aff` o nome do parceiro (põe `rel="sponsored"` e `data-afiliado` para o `afiliados-tracking.js`) e `nota` a frase pequena por baixo do botão.
-- `bonus` e `tags`: etiquetas por baixo do nome. Em `tags`, `w: 1` é um aviso (amarelo) e `w: 0` uma vantagem (verde).
+- `bonus` e `tags`: etiquetas por baixo do nome, sempre com ícone. O bónus fica verde, com o ícone de presente. Em `tags`, `t` é o texto (até 28 carateres, para caber numa linha), `w: 1` um aviso (amarelo) e `w: 0` uma vantagem (verde), `i` o ícone (`cal` campanhas de meses grátis, `cash` levantamentos, `shx` sem garantia de depósitos, `usr` quem pode abrir, `bld` empresas, `card` cartão; sem `i` usa um aviso ou um visto), `s` a explicação que aparece ao passar o rato e `ate` (AAAA-MM-DD) o último dia da campanha: a partir do dia seguinte a etiqueta deixa de aparecer.
+- `promo`: meses sem custos de uma campanha (`m`) e, se houver, o último dia para aderir (`ate`). Com 6 meses ou mais, a conta entra nos filtros "Sem custos fixos" e "Sem mensalidade". O custo por mês continua a ser o valor normal.
+- `ab`: destaque "Abertura" das contas pessoais. `v` é o mínimo para abrir ("Sem mínimo", "Mín. 250€") e `s` o canal ("Online", "Online ou balcão").
 - `review`: link para a análise completa no site.
 - `src`: preçário ou página oficial (link "Ver preçário").
 - `f`: valores usados nos filtros, na ordenação e nos destaques. `custoMes` é o custo por mês (comissão de manutenção mais a anuidade do cartão de débito a dividir por 12), `custoMesCond` o mesmo com as condições do banco (ordenado, TPA, etc.) e `custoAno` o total de um ano, que aparece nos detalhes. Os custos já incluem o Imposto do Selo quando se aplica. Os outros campos (`jurosMax`, `iban`, `mbway`, etc.) servem os filtros.

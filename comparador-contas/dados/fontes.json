@@ -28,7 +28,8 @@
    "balcoes": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf",
    "apoio": "https://revolut.com/pt-PT/contact-us",
    "suportePt": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_e_condi_es_para_clientes_particulares_dac36970_2.3.3_1790931433_pt.pdf",
-   "custoMes": "https://cdn.revolut.com/terms_and_conditions/pdf/comiss_es_para_clientes_particulares_standard_8c859b1b_2.2.3_1787647528_pt.pdf"
+   "custoMes": "https://cdn.revolut.com/terms_and_conditions/pdf/comiss_es_para_clientes_particulares_standard_8c859b1b_2.2.3_1787647528_pt.pdf",
+   "ab": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf"
   },
   "activobank": {
    "manut": "https://www.activobank.pt/conta-simples",
@@ -53,7 +54,8 @@
    "abertura": "https://www.activobank.pt/conta-simples",
    "balcoes": "https://www.activobank.pt/onde-estamos",
    "apoio": "https://www.activobank.pt/conta-simples",
-   "custoMes": "https://www.activobank.pt/conta-simples"
+   "custoMes": "https://www.activobank.pt/conta-simples",
+   "ab": "https://www.activobank.pt/conta-simples"
   },
   "bankinter": {
    "manut": "https://clientebancario.bportugal.pt/sites/default/files/precario/0269_/0269_PRE_0.pdf",
@@ -78,7 +80,8 @@
    "abertura": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
    "balcoes": "https://www.bankinter.pt/informacao-util-footer",
    "apoio": "https://www.bankinter.pt/contactos1",
-   "custoMes": "https://www.bankinter.pt/documents/20182/497914/DIC+Conta+ONline+-+PT+01.102023.pdf/694ebe83-ac04-4764-8072-26bfd3effda9?version=1.2"
+   "custoMes": "https://www.bankinter.pt/documents/20182/497914/DIC+Conta+ONline+-+PT+01.102023.pdf/694ebe83-ac04-4764-8072-26bfd3effda9?version=1.2",
+   "ab": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online"
   },
   "moey": {
    "manut": "https://moey.pt/hubfs/DIC_MOEY-3.pdf",
@@ -106,7 +109,8 @@
    "balcoes": "https://moey.pt/hubfs/Condicoes_Gerais_Conta_Moey_v41.pdf",
    "apoio": "https://moey.pt/en/contacts",
    "suportePt": "https://moey.pt/en/contacts",
-   "custoMes": "https://moey.pt/hubfs/DIC_MOEY-3.pdf"
+   "custoMes": "https://moey.pt/hubfs/DIC_MOEY-3.pdf",
+   "ab": "https://moey.pt/en/open-account"
   },
   "openbank": {
    "manut": "https://www.openbank.pt/",
@@ -135,7 +139,8 @@
    "apoio": "https://www.openbank.pt/informacao-legal-reclamacoes",
    "suportePt": "https://www.openbank.pt/informacao-legal-reclamacoes",
    "custoMes": "https://www.openbank.pt/",
-   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro"
+   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro",
+   "ab": "https://www.openbank.pt/conta-remunerada-poupanca"
   },
   "wise": {
    "manut": "https://wise.com/pt/pricing/",
@@ -163,7 +168,8 @@
    "apoio": "https://wise.com/pt/help/articles/4ijaGT6BdeHNVjzbRip4gI/como-posso-entrar-em-contato-com-a-wise",
    "suportePt": "https://wise.com/pt/help/articles/4ijaGT6BdeHNVjzbRip4gI/como-posso-entrar-em-contato-com-a-wise",
    "custoMes": "https://wise.com/pt/pricing/",
-   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro"
+   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro",
+   "ab": "https://wise.com/pt/blog/abrir-conta-wise-portugal"
   },
   "bunq": {
    "manut": "https://www.bunq.com/pt-pt/personal/plans",
@@ -192,7 +198,8 @@
    "apoio": "https://help.bunq.com/en/articles/what-kind-of-support-does-bunq-provide",
    "suportePt": "https://help.bunq.com/en/articles/what-kind-of-support-does-bunq-provide",
    "custoMes": "https://www.bunq.com/pt-pt/personal/plans",
-   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro"
+   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro",
+   "ab": "https://help.bunq.com/articles/bunq-free-faq"
   },
   "n26": {
    "manut": "https://n26.com/en-eu/free-bank-account",
@@ -221,7 +228,8 @@
    "apoio": "https://n26.com/en-eu/free-bank-account",
    "suportePt": "https://n26.com/en-eu/free-bank-account",
    "custoMes": "https://n26.com/en-eu/free-bank-account",
-   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro"
+   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro",
+   "ab": "https://n26.com/en-eu/free-bank-account"
   },
   "best": {
    "custoAnoOrdenado": "https://www.bancobest.pt/ptg/best_contas?active=digital",
@@ -247,7 +255,9 @@
    "abertura": "https://www.bancobest.pt/ptg/best_contas?active=digital",
    "balcoes": "https://www.bancobest.pt/ptg/best_contactos",
    "apoio": "https://www.bancobest.pt/ptg/best_contactos",
-   "custoMes": "https://www.bancobest.pt/ptg/best__cartoes?active=visadebit"
+   "custoMes": "https://www.bancobest.pt/ptg/best__cartoes?active=visadebit",
+   "ab": "https://www.bancobest.pt/ptg/best_contas?active=digital",
+   "promo": "https://www.bancobest.pt/ptg/best_contas?active=digital"
   },
   "big": {
    "custoAnoOrdenado": "https://www.big.pt/pdf/BIG018b_precario.pdf",
@@ -273,7 +283,8 @@
    "abertura": "https://www.big.pt/Apoio/ApoioAoCliente",
    "balcoes": "https://www.big.pt/QuemSomos/ApoioAgenciasContactos/Contactos",
    "apoio": "https://www.big.pt/Apoio/ApoioAoCliente",
-   "custoMes": "https://www.big.pt/pdf/BIG018b_precario.pdf"
+   "custoMes": "https://www.big.pt/pdf/BIG018b_precario.pdf",
+   "ab": "https://www.big.pt/Apoio/ApoioAoCliente"
   },
   "traderepublic": {
    "manut": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
@@ -302,7 +313,8 @@
    "apoio": "https://assets.traderepublic.com/assets/files/Press_Release_Portugal_PT_EN.pdf",
    "suportePt": "https://support.traderepublic.com/en-pt/722-Which-languages-are-supported",
    "custoMes": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
-   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro"
+   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro",
+   "ab": "https://support.traderepublic.com/en-pt/687-Warum-muss-ich-Geld-einzahlen"
   },
   "cgd": {
    "custoAnoOrdenado": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx",
@@ -328,7 +340,8 @@
    "abertura": "https://www.cgd.pt/Particulares/Contas/Abertura-conta/Pages/Abertura-conta.aspx",
    "balcoes": "https://www.cgd.pt/Investor-Relations/Informacao-Financeira/CGD/Relatorios-Contas/2026/Documents/Press-Release-PT-1S-2026.pdf",
    "apoio": "https://www.cgd.pt/Ajuda/Contactos/Pages/Contactos.aspx",
-   "custoMes": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx"
+   "custoMes": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx",
+   "ab": "https://www.cgd.pt/Particulares/Contas/Abertura-conta/Pages/Abertura-conta.aspx"
   },
   "millennium": {
    "custoAnoOrdenado": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0708-PT.pdf",
@@ -355,7 +368,9 @@
    "balcoes": "https://ind.millenniumbcp.pt/pt/Institucional/investidores/Documents/ApresentacaoResultados/2026/20260729_Resultados_Millennium_BCP_1S26.pdf",
    "apoio": "https://www.millenniumbcp.pt/contactos",
    "custoMes": "https://investimentos.millenniumbcp.pt/pt/Documents/10901033-PT.pdf",
-   "campanha": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0729-PT.pdf"
+   "campanha": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0729-PT.pdf",
+   "ab": "https://investimentos.millenniumbcp.pt/pt/Documents/10901033-PT.pdf",
+   "promo": "https://clientebancario.bportugal.pt/sites/default/files/precario/0033_/0033_PRE_1.pdf"
   },
   "santander": {
    "custoAnoOrdenado": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
@@ -381,7 +396,9 @@
    "abertura": "https://www.santander.pt/contas/conta-santander-mais",
    "balcoes": "https://www.santander.pt/pdfs/investor-relations/santander-totta-sa/comunicados-resultados/2026/PR_Jun26_VF.pdf",
    "apoio": "https://www.santander.pt/contactos",
-   "custoMes": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf"
+   "custoMes": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
+   "ab": "https://www.santander.pt/contas/conta-santander-mais",
+   "promo": "https://www.santander.pt/contas/conta-santander-mais"
   },
   "novobanco": {
    "custoAnoOrdenado": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
@@ -407,7 +424,8 @@
    "abertura": "https://www.novobanco.pt/en/personal/current-accounts/open-online-bank-account",
    "balcoes": "https://www.novobanco.com/content/dam/novobanco-com/investors/financial-disclosures/2026/1%C2%BAtrimestre/1Q2026%20Resultados.pdf",
    "apoio": "https://www.novobanco.pt/en/personal/help-and-contacts/direct-line",
-   "custoMes": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf"
+   "custoMes": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
+   "ab": "https://www.novobanco.pt/en/personal/current-accounts/open-online-bank-account"
   },
   "bpi": {
    "custoAnoOrdenado": "https://www.bancobpi.pt/content/conn/UCM/uuid/dDocName:PR_WCS01_UCM01063279",
@@ -433,7 +451,8 @@
    "abertura": "https://bancobpi.pt/particulares/contas/abrir-conta-no-bpi",
    "balcoes": "https://bancobpi.pt/contentservice/getContent?documentName=ZGRMZGEZMME3NZUZNDI2",
    "apoio": "https://bancobpi.pt/particulares/contactos-bpi/contactos",
-   "custoMes": "https://www.bancobpi.pt/content/conn/UCM/uuid/dDocName:PR_WCS01_UCM01063279"
+   "custoMes": "https://www.bancobpi.pt/content/conn/UCM/uuid/dDocName:PR_WCS01_UCM01063279",
+   "ab": "https://bancobpi.pt/particulares/contas/abrir-conta-no-bpi"
   },
   "novobanco-empresas": {
    "manut": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2922.pdf.coredownload.inline.pdf",
@@ -451,7 +470,8 @@
    "eni": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2922.pdf.coredownload.inline.pdf",
    "sociedades": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2922.pdf.coredownload.inline.pdf",
    "balcoes": "https://www.novobanco.pt/empresas/tesouraria/contas/solucao-novo-negocio",
-   "custoMes": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/outros-clientes/OC_FCD_contas_deposito.pdf.coredownload.inline.pdf"
+   "custoMes": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/outros-clientes/OC_FCD_contas_deposito.pdf.coredownload.inline.pdf",
+   "promo": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2922.pdf.coredownload.inline.pdf"
   },
   "revolut-business": {
    "manut": "https://cdn.revolut.com/terms_and_conditions/pdf/business_fees_basic_53242b1e_1.5.0_1776182187_en.pdf",
@@ -525,7 +545,8 @@
    "sociedades": "https://www.cgd.pt/Empresas/Gestao_corrente/PublishingImages/Conta-Caixa/ICGDPT0389.pdf",
    "apoio": "https://www.cgd.pt/Empresas/Gestao_corrente/Pages/Conta-Caixa-Business.aspx",
    "custoMes": "https://www.cgd.pt/Precario/Documents/9.pdf",
-   "campanha": "https://www.cgd.pt/Empresas/Gestao_corrente/PublishingImages/Conta-Caixa/ICGDPT0390.pdf"
+   "campanha": "https://www.cgd.pt/Empresas/Gestao_corrente/PublishingImages/Conta-Caixa/ICGDPT0390.pdf",
+   "promo": "https://www.cgd.pt/Empresas/Gestao_corrente/Pages/Conta-Caixa-Business.aspx"
   },
   "millennium-empresas": {
    "manut": "https://www.millenniumbcp.pt/empresas/abrir-conta-empresa-online",
@@ -560,7 +581,8 @@
    "aberturaOnline": "https://www.bancomontepio.pt/empresas/gestao-corrente/contas-e-solucoes",
    "eni": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf",
    "sociedades": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf",
-   "custoMes": "https://www.bancomontepio.pt/content/dam/montepio/pdf/geral/precario/folheto-comissoes-despesas/outros-clientes/9-comissoes-contas-deposito-outros-clientes.pdf"
+   "custoMes": "https://www.bancomontepio.pt/content/dam/montepio/pdf/geral/precario/folheto-comissoes-despesas/outros-clientes/9-comissoes-contas-deposito-outros-clientes.pdf",
+   "promo": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf"
   },
   "santander-empresas": {
    "manut": "https://www.santander.pt/empresas/abrir-conta-empresas-online",
@@ -595,7 +617,8 @@
    "apoio": "https://www.abanca.pt/pt/empresas/",
    "entidade": "https://www.abanca.pt/pt/empresas/",
    "custoMes": "https://www.abanca.pt/pt/empresas/contas/conta-business",
-   "juros": "https://www.abanca.pt/files/documents/fin-conta-business-basic-empresas-254c524b.pdf"
+   "juros": "https://www.abanca.pt/files/documents/fin-conta-business-basic-empresas-254c524b.pdf",
+   "promo": "https://www.abanca.pt/pt/empresas/contas/conta-business"
   },
   "wise-business": {
    "manut": "https://wise.com/pt/pricing/business/",

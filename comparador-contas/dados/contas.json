@@ -38,6 +38,10 @@
     "nota": "Aplicam-se as condições da campanha."
    },
    "bonus": "Bónus de 10€",
+   "ab": {
+    "v": "Sem mínimo",
+    "s": "Online"
+   },
    "review": "https://www.literaciafinanceira.pt/artigos/analise-completa-revolut-portugal",
    "src": "https://www.revolut.com/pt-PT/legal/standard-fees/",
    "f": {
@@ -151,6 +155,10 @@
    "cta": {
     "label": "Ir para o ActivoBank",
     "href": "https://www.activobank.pt/conta-simples"
+   },
+   "ab": {
+    "v": "Sem mínimo",
+    "s": "Online ou Ponto Activo"
    },
    "src": "https://www.activobank.pt/precario",
    "f": {
@@ -268,9 +276,15 @@
    "tags": [
     {
      "t": "Só novos clientes",
-     "w": 1
+     "w": 1,
+     "i": "usr",
+     "s": "A Conta Bankinter Online sem comissões é só para novos clientes"
     }
    ],
+   "ab": {
+    "v": "Sem mínimo",
+    "s": "Online ou agência"
+   },
    "src": "https://www.bankinter.pt/precario",
    "f": {
     "custoAno": 0,
@@ -386,6 +400,10 @@
     "href": "https://moey.pt/campaigns/moeyapp2020?token=moey21384",
     "aff": "moey"
    },
+   "ab": {
+    "v": "Sem mínimo",
+    "s": "Online"
+   },
    "src": "https://moey.pt/hubfs/DIC_MOEY-3.pdf",
    "f": {
     "custoAno": 0,
@@ -497,6 +515,10 @@
    "cta": {
     "label": "Ir para o Openbank",
     "href": "https://www.openbank.pt/"
+   },
+   "ab": {
+    "v": "Online",
+    "s": "Sem custos de abertura"
    },
    "src": "https://www.openbank.pt/informacao-legal-reclamacoes",
    "f": {
@@ -615,9 +637,21 @@
    "tags": [
     {
      "t": "Sem garantia de depósitos",
-     "w": 1
+     "w": 1,
+     "i": "shx",
+     "s": "O dinheiro fica salvaguardado em bancos e fundos, sem fundo de garantia de depósitos"
+    },
+    {
+     "t": "Levantar grátis até 250€/mês",
+     "w": 1,
+     "i": "cash",
+     "s": "Acima de 250€ por mês, 2,69% sobre o valor que excede"
     }
    ],
+   "ab": {
+    "v": "Mín. 20€",
+    "s": "Pode ser pedido para o IBAN"
+   },
    "src": "https://wise.com/pt/pricing/",
    "f": {
     "custoAno": 0,
@@ -732,6 +766,18 @@
     "href": "https://www.literaciafinanceira.pt/visita/bunq",
     "aff": "bunq",
     "nota": "Taxas variáveis, sujeitas a alterações."
+   },
+   "tags": [
+    {
+     "t": "Levantamentos a 2,99€",
+     "w": 1,
+     "i": "cash",
+     "s": "Sem levantamentos grátis no plano Free e só em multibancos com Apple Pay ou Google Pay"
+    }
+   ],
+   "ab": {
+    "v": "Sem mínimo",
+    "s": "Online"
    },
    "review": "https://www.literaciafinanceira.pt/artigos/analise-bunq-portugal",
    "src": "https://www.bunq.com/pt-pt/pricing",
@@ -848,6 +894,18 @@
     "href": "https://www.literaciafinanceira.pt/visita/n26",
     "aff": "n26"
    },
+   "tags": [
+    {
+     "t": "2 levantamentos grátis/mês",
+     "w": 1,
+     "i": "cash",
+     "s": "Em euros. Depois, 2€ por levantamento"
+    }
+   ],
+   "ab": {
+    "v": "Sem mínimo",
+    "s": "Online"
+   },
    "src": "https://n26.com/en-eu/legal-documents/account",
    "f": {
     "custoAno": 0,
@@ -963,14 +1021,19 @@
    },
    "tags": [
     {
-     "t": "Depósito inicial de 100€",
-     "w": 1
-    },
-    {
      "t": "Cartão grátis no 1.º ano",
-     "w": 0
+     "w": 0,
+     "i": "card",
+     "s": "Best Visa Debit grátis no 1.º ano. Depois, 21,84€ por ano"
     }
    ],
+   "promo": {
+    "m": 12
+   },
+   "ab": {
+    "v": "Mín. 100€",
+    "s": "Online"
+   },
    "src": "https://www.bancobest.pt/ptg/best_NS_PRECARIO",
    "f": {
     "custoAno": 21.84,
@@ -1085,12 +1148,10 @@
     "label": "Ir para o BiG",
     "href": "https://www.big.pt/AbrirConta/AberturaDeContas/#/AbrirConta/abertura-de-conta-online"
    },
-   "tags": [
-    {
-     "t": "Mínimo de 2.000€ para abrir",
-     "w": 1
-    }
-   ],
+   "ab": {
+    "v": "Mín. 2.000€",
+    "s": "Online ou agência"
+   },
    "src": "https://www.big.pt/Precario/Precario",
    "f": {
     "custoAno": 14.56,
@@ -1206,6 +1267,10 @@
     "aff": "trade-republic",
     "nota": "Investir envolve risco de perda de capital."
    },
+   "ab": {
+    "v": "Sem mínimo",
+    "s": "Online"
+   },
    "review": "https://www.literaciafinanceira.pt/artigos/analise-trade-republic-portugal",
    "src": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
    "f": {
@@ -1319,6 +1384,10 @@
    "cta": {
     "label": "Ir para a CGD",
     "href": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx"
+   },
+   "ab": {
+    "v": "Mín. 150€",
+    "s": "Online ou agência"
    },
    "src": "https://www.cgd.pt/Precario/Pages/Precario.aspx",
    "f": {
@@ -1437,9 +1506,20 @@
    "tags": [
     {
      "t": "0€ 12 meses (novos clientes)",
-     "w": 0
+     "w": 0,
+     "i": "cal",
+     "s": "0€ nos primeiros 12 meses para novos clientes que adiram até 31/12/2026. Depois, 8,32€ por mês",
+     "ate": "2026-12-31"
     }
    ],
+   "promo": {
+    "m": 12,
+    "ate": "2026-12-31"
+   },
+   "ab": {
+    "v": "Mín. 250€",
+    "s": "50€ dos 18 aos 35 anos"
+   },
    "src": "https://ind.millenniumbcp.pt/pt/info/Pages/precario.aspx",
    "f": {
     "custoAno": 99.84,
@@ -1555,10 +1635,19 @@
    },
    "tags": [
     {
-     "t": "6 meses grátis online",
-     "w": 0
+     "t": "0€ 6 meses (abertura online)",
+     "w": 0,
+     "i": "cal",
+     "s": "Sem comissão de manutenção nos primeiros 6 meses se abrires a conta online. Depois, 8,94€ por mês"
     }
    ],
+   "promo": {
+    "m": 6
+   },
+   "ab": {
+    "v": "Sem mínimo",
+    "s": "Com Chave Móvel Digital"
+   },
    "src": "https://www.santander.pt/precario",
    "f": {
     "custoAno": 107.28,
@@ -1672,6 +1761,10 @@
     "label": "Ir para o Novo Banco",
     "href": "https://www.novobanco.pt/particulares/contas/contas-pacote/conta-100"
    },
+   "ab": {
+    "v": "Mín. 250€",
+    "s": "Online ou balcão"
+   },
    "src": "https://www.novobanco.pt/precario",
    "f": {
     "custoAno": 98.64,
@@ -1783,6 +1876,10 @@
    "cta": {
     "label": "Ir para o BPI",
     "href": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-valor-bpi"
+   },
+   "ab": {
+    "v": "Mín. 100€",
+    "s": "Online ou balcão"
    },
    "src": "https://bancobpi.pt/particulares/precario",
    "f": {
@@ -1897,7 +1994,17 @@
     "label": "Ir para o Novo Banco",
     "href": "https://www.novobanco.pt/empresas/tesouraria/contas/solucao-novo-negocio"
    },
-   "custoNota": "0€ nos primeiros 24 meses",
+   "tags": [
+    {
+     "t": "0€ 24 meses (empresas novas)",
+     "w": 0,
+     "i": "cal",
+     "s": "0€ até 24 meses depois do início de atividade. Depois, 8,32€ por mês"
+    }
+   ],
+   "promo": {
+    "m": 24
+   },
    "src": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/outros-clientes/OC_FCD_contas_deposito.pdf.coredownload.inline.pdf",
    "f": {
     "custoAno": 99.84,
@@ -2009,7 +2116,9 @@
    "tags": [
     {
      "t": "Só sociedades",
-     "w": 1
+     "w": 1,
+     "i": "bld",
+     "s": "Os trabalhadores independentes usam o Revolut Pro"
     }
    ],
    "review": "https://www.literaciafinanceira.pt/artigos/revolut-business-empresas",
@@ -2331,6 +2440,19 @@
     "label": "Ir para a CGD",
     "href": "https://www.cgd.pt/Empresas/Gestao_corrente/Pages/Conta-Caixa-Business.aspx"
    },
+   "tags": [
+    {
+     "t": "0€ 12 meses (micro e PME)",
+     "w": 0,
+     "i": "cal",
+     "s": "Para micro e PME que abram ou reativem conta até 31/12/2026. Depois, 8,32€ por mês",
+     "ate": "2026-12-31"
+    }
+   ],
+   "promo": {
+    "m": 12,
+    "ate": "2026-12-31"
+   },
    "src": "https://www.cgd.pt/Precario/Documents/9.pdf",
    "f": {
     "custoAno": 99.84,
@@ -2546,13 +2668,20 @@
    "tags": [
     {
      "t": "Empresas até 2 anos",
-     "w": 1
+     "w": 1,
+     "i": "bld",
+     "s": "Para empresas e ENI com atividade há menos de 2 anos"
     },
     {
      "t": "1.º mês grátis",
-     "w": 0
+     "w": 0,
+     "i": "cal",
+     "s": "Sem mensalidade no 1.º mês"
     }
    ],
+   "promo": {
+    "m": 1
+   },
    "src": "https://www.bancomontepio.pt/content/dam/montepio/pdf/geral/precario/folheto-comissoes-despesas/outros-clientes/9-comissoes-contas-deposito-outros-clientes.pdf",
    "f": {
     "custoAno": 112.32,
@@ -2662,7 +2791,9 @@
    "tags": [
     {
      "t": "Só ENI ou empresas novas",
-     "w": 1
+     "w": 1,
+     "i": "usr",
+     "s": "ENI, unipessoais e Lda até 3 intervenientes"
     }
    ],
    "src": "https://www.santander.pt/pdfs/precario-banco/folheto-comissoes-despesas/outros-clientes/9-contas-deposito/9_folhetocomissoesdespesas_oc_contasdep.pdf",
@@ -2770,7 +2901,17 @@
     "label": "Ir para o ABANCA",
     "href": "https://www.abanca.pt/pt/empresas/contas/conta-business"
    },
-   "custoNota": "0€ no 1.º ano para novos clientes",
+   "tags": [
+    {
+     "t": "0€ 12 meses (novos clientes)",
+     "w": 0,
+     "i": "cal",
+     "s": "Grátis no 1.º ano para novos clientes. Depois, 8,32€ por mês"
+    }
+   ],
+   "promo": {
+    "m": 12
+   },
    "src": "https://www.abanca.pt/pt/empresas/contas/conta-business",
    "f": {
     "custoAno": 99.84,
@@ -2880,7 +3021,9 @@
    "tags": [
     {
      "t": "Sem garantia de depósitos",
-     "w": 1
+     "w": 1,
+     "i": "shx",
+     "s": "O dinheiro fica salvaguardado em bancos e fundos, sem fundo de garantia de depósitos"
     }
    ],
    "custoNota": "Ativação: 60€, uma vez",
@@ -2993,7 +3136,9 @@
    "tags": [
     {
      "t": "Só para ENI e independentes",
-     "w": 1
+     "w": 1,
+     "i": "usr",
+     "s": "Conta em nome próprio, para quem tem atividade aberta"
     }
    ],
    "src": "https://n26.com/en-eu/free-business-account",
