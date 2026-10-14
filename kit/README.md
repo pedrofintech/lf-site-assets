@@ -11,9 +11,9 @@ Para ver todas as peças: `python3 kit/serve.py` e abrir http://localhost:4321/d
 No custom code da página (ou num embed), com o commit fixo:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@COMMIT/kit/lf-kit.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@cf775123c3351fcd03a655241a186632f0aa6109/kit/lf-kit.css">
 <!-- listas (dropdown igual ao das calculadoras), gráficos, separadores e tabelas; carrega o Chart.js 4.5.1 só se houver gráficos -->
-<script src="https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@COMMIT/kit/lf-kit.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@cf775123c3351fcd03a655241a186632f0aa6109/kit/lf-kit.js"></script>
 ```
 
 E a ferramenta toda dentro de `<div class="lfk">`. Fora desse div o kit não mexe em nada.
