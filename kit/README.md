@@ -13,9 +13,9 @@ Para ver todas as peças: https://htmlpreview.github.io/?https://github.com/pedr
 No custom code da página (ou num embed), com o commit fixo:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@33b0bc8e489402f2bf4a76753639cab89e8d1b31/kit/lf-kit.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@ca8410d4c3949830a98906d03af58cd1efc80bda/kit/lf-kit.css">
 <!-- listas (dropdown igual ao das calculadoras), gráficos, separadores e tabelas; carrega o Chart.js 4.5.1 só se houver gráficos -->
-<script src="https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@33b0bc8e489402f2bf4a76753639cab89e8d1b31/kit/lf-kit.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@ca8410d4c3949830a98906d03af58cd1efc80bda/kit/lf-kit.js"></script>
 ```
 
 E a ferramenta toda dentro de `<div class="lfk">`. Fora desse div o kit não mexe em nada.
