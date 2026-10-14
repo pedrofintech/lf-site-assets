@@ -200,14 +200,22 @@
   function table(el, o) {
     var limit = o.limit || 30, open = false;
     function cell(tag, v, i) { return "<" + tag + (o.num && o.num[i] ? ' class="is-num"' : "") + ">" + v + "</" + tag + ">"; }
+    var ARROW_DOWN = '<span class="lfk-btn-icon"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+    var ARROW_UP = '<span class="lfk-btn-icon"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 12.5L10 7.5L5 12.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
     function draw() {
       var rows = open ? o.rows : o.rows.slice(0, limit);
       var h = '<div class="lfk-table-wrap"><table class="lfk-table"><thead><tr>' + o.head.map(function (v, i) { return cell("th", v, i); }).join("") + "</tr></thead><tbody>" +
         rows.map(function (r) { return "<tr>" + r.map(function (v, i) { return cell("td", v, i); }).join("") + "</tr>"; }).join("") + "</tbody></table></div>";
-      if (o.rows.length > limit) h += '<div class="lfk-table-more"><button type="button" class="lfk-btn is-secondary is-sm">' + (open ? (o.less || "Mostrar menos") : (o.more || "Mostrar mais")) + "</button></div>";
+      if (o.rows.length > limit) h += '<div class="lfk-table-more"><button type="button" class="lfk-btn is-secondary is-sm">' + (open ? (o.less || "Mostrar menos") + ARROW_UP : (o.more || "Mostrar mais") + ARROW_DOWN) + "</button></div>";
       el.innerHTML = h;
       var btn = el.querySelector(".lfk-table-more button");
-      if (btn) btn.onclick = function () { open = !open; draw(); };
+      if (btn) btn.onclick = function () {
+        open = !open; draw();
+        /* como no site: ao fechar, voltar ao inicio da tabela */
+        if (!open) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 100, behavior: "smooth" });
+        /* a altura da pagina mudou: recalcular as animacoes de scroll do site */
+        if (window.ScrollTrigger && window.ScrollTrigger.refresh) window.ScrollTrigger.refresh();
+      };
     }
     draw();
   }
