@@ -221,9 +221,9 @@
   /* Logótipo: as iniciais ficam por baixo até a imagem carregar; depois o quadrado fica branco com borda
      e as iniciais desaparecem (sem isto, apareciam através dos logótipos com fundo transparente). */
   function logo(o, size) {
-    var cls = 'cb-logo' + (size ? ' is-' + size : '') + (o.logoPad ? ' is-pad' : '');
+    var cls = 'cb-logo' + (size ? ' is-' + size : '') + (o.logoPad === 'sm' ? ' is-pad-sm' : (o.logoPad ? ' is-pad' : '')) + (o.logoBg ? ' is-bg' : '');
     var src = o.logo ? (/^https?:/.test(o.logo) ? o.logo : BASE + 'logos/' + o.logo) : '';
-    return '<span class="' + cls + '" aria-hidden="true"><span class="cb-logo-ini">' + esc(o.ini || o.name.slice(0, 2)) + '</span>' +
+    return '<span class="' + cls + '" aria-hidden="true"' + (o.logoBg ? ' style="--cb-logo-bg:' + esc(o.logoBg) + '"' : '') + '><span class="cb-logo-ini">' + esc(o.ini || o.name.slice(0, 2)) + '</span>' +
       (src ? '<img src="' + esc(src) + '" alt="" decoding="async" onload="this.parentNode.className+=\' has-img\'" onerror="this.parentNode.removeChild(this)">' : '') + '</span>';
   }
   function yn(v) {

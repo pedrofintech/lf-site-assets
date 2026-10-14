@@ -10,7 +10,7 @@ Os ficheiros são servidos pelo jsDelivr a partir de um commit fixo deste reposi
 - `dados/contas.json`: tudo o que aparece no comparador. É o único ficheiro a editar quando muda um preço, um link ou a ordem.
 - `dados/fontes.json`: a fonte oficial de cada valor, por conta e por campo. Não é carregado pela página.
 - `verificacao/`: notas de cada verificação. A de 14 de outubro de 2026 (`2026-10-14.md`) é a mais recente: foi feita de raiz e passou o custo para valores por mês.
-- `logos/`: logótipos dos bancos, todos em SVG (os que só havia em PNG estão embutidos num SVG). As contas sem logótipo mostram as iniciais (campo `ini`).
+- `logos/`: logótipos dos bancos, todos em SVG (os que só havia em PNG estão embutidos num SVG). Se um logótipo não carregar, aparecem as iniciais (campo `ini`).
 - `comparador-contas.js` e `comparador-contas.css`: lógica e estilos (namespace `#lf-cb`, tokens iguais aos do comparador de corretoras).
 - `webflow-custom-code.html`: código a colar na página do Webflow.
 
@@ -27,7 +27,7 @@ Em cada conta:
 - `id`, `seg` (`particular` ou `empresa`), `ordem` (posição em "Recomendados").
 - `name`, `produto`, `tipoTxt`, `entidade`.
 - `tipo`: `digital` ou `balcoes`. É o que usa o filtro "Tipo de banco". ActivoBank, Best e BiG estão em `digital` porque é assim que os artigos do site os classificam.
-- `logo` (ficheiro em `logos/`), `logoPad` (`true` se o logótipo precisa de margem dentro do quadrado) e `ini` (iniciais de reserva).
+- `logo` (ficheiro em `logos/`), `logoPad` (`true` para margem normal dentro do quadrado, `"sm"` para margem pequena, usada nos logótipos horizontais como o do Novo Banco), `logoBg` (cor de fundo do quadrado quando o logótipo é claro, como o da Moey) e `ini` (iniciais de reserva).
 - `cta`: botão "Ir para o/a X", como nos outros comparadores. `label` é o texto, `href` o link, `aff` o nome do parceiro (põe `rel="sponsored"` e `data-afiliado` para o `afiliados-tracking.js`) e `nota` a frase pequena por baixo do botão.
 - `bonus` e `tags`: etiquetas por baixo do nome. Em `tags`, `w: 1` é um aviso (amarelo) e `w: 0` uma vantagem (verde).
 - `review`: link para a análise completa no site.

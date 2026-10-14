@@ -58,6 +58,8 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb .cb-logo.has-img .cb-logo-ini{visibility:hidden}
 #lf-cb .cb-logo.has-img img{opacity:1}
 #lf-cb .cb-logo.is-pad img{inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
+#lf-cb .cb-logo.is-pad-sm img{inset:3px;width:calc(100% - 6px);height:calc(100% - 6px)}
+#lf-cb .cb-logo.has-img.is-bg{background:var(--cb-logo-bg);border-color:var(--cb-logo-bg)}
 #lf-cb .cb-logo.is-md{width:36px;height:36px}
 #lf-cb .cb-logo.is-md.is-pad img{inset:5px;width:calc(100% - 10px);height:calc(100% - 10px)}
 #lf-cb .cb-logo.is-sm{width:32px;height:32px;border-radius:9px}
@@ -66,6 +68,7 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb .cb-logo.is-xs{width:24px;height:24px;border-radius:6px}
 #lf-cb .cb-logo.is-xs .cb-logo-ini{font-size:9px}
 #lf-cb .cb-logo.is-xs.is-pad img{inset:3px;width:calc(100% - 6px);height:calc(100% - 6px)}
+#lf-cb .cb-logo.is-xs.is-pad-sm img{inset:2px;width:calc(100% - 4px);height:calc(100% - 4px)}
 
 /* lista (cartões como no comparador de depósitos) */
 #lf-cb .cb-list{display:flex;flex-direction:column;gap:10px}

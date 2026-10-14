@@ -380,6 +380,9 @@
    "tipo": "digital",
    "tipoTxt": "Banco digital",
    "entidade": "Caixa Central de Crédito Agrícola Mútuo, CRL",
+   "logo": "moey.svg",
+   "logoPad": true,
+   "logoBg": "#1d1d1b",
    "ini": "Mo",
    "cta": {
     "label": "Ir para a Moey",
@@ -1695,6 +1698,8 @@
    "tipo": "balcoes",
    "tipoTxt": "Banco tradicional",
    "entidade": "Novo Banco, S.A",
+   "logo": "novobanco.svg",
+   "logoPad": "sm",
    "ini": "NB",
    "cta": {
     "label": "Ir para o Novo Banco",
@@ -1918,6 +1923,8 @@
    "tipo": "balcoes",
    "tipoTxt": "Banco tradicional",
    "entidade": "Novo Banco, S.A",
+   "logo": "novobanco.svg",
+   "logoPad": "sm",
    "ini": "NB",
    "cta": {
     "label": "Ir para o Novo Banco",
@@ -2138,6 +2145,8 @@
    "tipo": "balcoes",
    "tipoTxt": "Banco tradicional",
    "entidade": "Caixa Central de Crédito Agrícola Mútuo, C.R.L. (SICAM)",
+   "logo": "creditoagricola.svg",
+   "logoPad": true,
    "ini": "CA",
    "cta": {
     "label": "Ir para o Crédito Agrícola",
