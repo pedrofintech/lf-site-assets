@@ -25,7 +25,7 @@
   --lfk-bg:var(--colors--bg-white,#fff);
   --lfk-bg-2:var(--colors--bg-secondary,#f9fafb);
   --lfk-bg-3:var(--colors--bg-tertiary,#f2f4f7);
-  --lfk-dark:var(--colors--button-bg-default,#202432);
+  --lfk-dark:var(--colors--text-primary,#202432);              /* nao usar --colors--button-bg-default: na Educacao Financeira e #ebefed (claro) */
   --lfk-dark-hover:var(--colors--grey-700,#3a4454);
   --lfk-tooltip:var(--colors--bg-primary-dark,#121721);
   --lfk-tooltip-text:var(--colors--text-on-color-tertiary,#ced5df);
@@ -113,7 +113,7 @@
 /* Principal = button is-form-submit; escuro = button is-small; secundario = is-small is-secondary; pequeno = is-small */
 .lfk .lfk-btn{display:inline-flex;align-items:center;justify-content:center;gap:.375rem;margin:0;padding:.5rem 1.25rem;border:0;border-radius:var(--lfk-r);background:var(--lfk-brand);color:var(--lfk-on-brand);font-family:var(--lfk-font);font-size:var(--lfk-fs-m);line-height:var(--lfk-lh-m);letter-spacing:var(--lfk-ls-m);font-weight:500;text-align:center;text-decoration:none;white-space:nowrap;cursor:pointer;transition:border-color .3s,background-color .3s,color .3s}
 .lfk .lfk-btn:hover{background:var(--lfk-brand-hover);color:var(--lfk-on-brand)}
-.lfk .lfk-btn.is-dark{background:var(--lfk-dark);color:var(--colors--button-fb-primary-on-color,#fff)}
+.lfk .lfk-btn.is-dark{background:var(--lfk-dark);color:#fff}
 .lfk .lfk-btn.is-dark:hover{background:var(--lfk-dark-hover)}
 .lfk .lfk-btn.is-secondary{border:1px solid var(--lfk-border);background:var(--lfk-bg);color:var(--colors--button-fb-primary,#3a4454)}
 .lfk .lfk-btn.is-secondary:hover{border-color:var(--lfk-border-hover);background:var(--lfk-bg);color:var(--colors--button-fb-primary,#3a4454)}
@@ -175,7 +175,7 @@
 .lfk .lfk-chips{display:flex;flex-wrap:wrap;gap:.375rem}
 .lfk .lfk-chip{display:inline-flex;align-items:center;justify-content:center;gap:.375rem;height:2rem;padding:.375rem .75rem;border:0;border-radius:var(--lfk-r-full);background:var(--lfk-bg-3);color:var(--lfk-text-3);font-size:.875rem;line-height:1.25rem;letter-spacing:-.02em;font-weight:500;white-space:nowrap;cursor:pointer;transition:background-color .3s,color .3s}
 .lfk .lfk-chip:hover{background:var(--lfk-border-2);color:var(--lfk-text)}
-.lfk .lfk-chip.is-on,.lfk .lfk-chip[aria-pressed=true]{background:var(--lfk-dark);color:var(--colors--button-fb-primary-on-color,#fff)}
+.lfk .lfk-chip.is-on,.lfk .lfk-chip[aria-pressed=true]{background:var(--lfk-dark);color:#fff}
 
 /* Caixa de escolha (calculadora de depositos): <label class="lfk-check"><input type="checkbox"> <span>Texto</span></label> */
 .lfk .lfk-check{display:inline-flex;align-items:flex-start;font-size:var(--lfk-fs-m);line-height:var(--lfk-lh-m);letter-spacing:var(--lfk-ls-m);font-weight:400;color:var(--lfk-text);cursor:pointer}
@@ -414,7 +414,7 @@
 .lfk .lfk-tag.is-ok{background:var(--lfk-ok-bg);color:var(--lfk-ok)}
 .lfk .lfk-tag.is-warn{background:var(--lfk-warn-bg);color:var(--lfk-warn)}
 .lfk .lfk-tag.is-err{background:var(--lfk-err-bg);color:var(--lfk-err)}
-.lfk .lfk-tag.is-dark{background:var(--lfk-dark);color:var(--colors--button-fb-primary-on-color,#fff)}
+.lfk .lfk-tag.is-dark{background:var(--lfk-dark);color:#fff}
 .lfk .lfk-tag.is-brand{background:var(--lfk-brand);color:var(--lfk-on-brand)}
 .lfk .lfk-alert{display:block;padding:.75rem;border:1px solid var(--lfk-focus);border-radius:var(--lfk-r);background:var(--lfk-blue-soft);color:var(--lfk-blue);font-size:var(--lfk-fs-s);line-height:var(--lfk-lh-s);letter-spacing:var(--lfk-ls-s)}
 .lfk .lfk-alert.is-ok{border-color:var(--lfk-ok-bg);background:#ecfdf3;color:var(--lfk-ok)}
