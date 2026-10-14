@@ -919,6 +919,39 @@ const taxTables = [
 // e a tabela de escaloes. Os calculos sao os da versao 56a2874, sem
 // alteracoes - mudou apenas a ordem em que o DOM e atualizado.
 
+// Novembro de 2026 (despacho das Financas publicado a 14 de outubro): no continente,
+// a retencao de IRS sobre salarios e pensoes pagos em novembro e metade da que
+// resulta das tabelas do Despacho n.º 233-A/2026, tambem no subsidio de Natal
+// pago nesse mes. Em dezembro volta ao valor normal. A nota aparece por baixo da
+// folha de vencimento e deixa de aparecer a 1 de dezembro de 2026.
+var LF_NOVEMBRO_FIM = new Date(2026, 11, 1);
+function lfSalarioNotaNovembro(continente, retIRS, liquido, duodecimos, fmt) {
+  var bruto = document.querySelector("[valor-bruto-result]");
+  var lista = bruto && bruto.closest(".results-list_wrapper");
+  var nota = document.getElementById("lf-nota-novembro");
+  var ganho = Math.round(retIRS * 50) / 100;
+  if (!lista || !continente || !(ganho > 0) || new Date() >= LF_NOVEMBRO_FIM) {
+    if (nota) nota.style.display = "none";
+    return;
+  }
+  if (!nota) {
+    nota = document.createElement("div");
+    nota.id = "lf-nota-novembro";
+    nota.className = "text-size-small";
+    nota.style.marginTop = "1rem";
+    lista.parentNode.insertBefore(nota, lista.nextSibling);
+  }
+  var natal =
+    duodecimos === "Recebo os dois subsídios a 100% em duodécimos"
+      ? ""
+      : " Se o subsídio de Natal for pago em novembro, também só te retêm metade nele.";
+  nota.innerHTML =
+    "<strong>Em novembro recebes " + fmt(liquido + ganho) + "</strong> (mais " + fmt(ganho) +
+    "). No continente, a retenção de IRS desse mês fica a metade." + natal +
+    " Em dezembro volta ao valor de sempre.";
+  nota.style.display = "";
+}
+
 // Corre fn depois do proximo paint. Um clique novo antes de fn correr cancela
 // o anterior, para nunca desenhar resultados desatualizados.
 var lfSalarioRenderToken = 0;
@@ -1625,6 +1658,13 @@ $(document).ready(function () {
       $("[ss-result]").text(formatEuro(D47_contribuicaoSS));
       $("[salario-liquido-result]").text(formatEuro(T2D50_salario_liquido));
       $("[valor-bruto-result]").text(formatEuro(D100_BrutoAnual));
+      lfSalarioNotaNovembro(
+        D16_morada === "Portugal Continental",
+        T2D43_retIRSrendimentos + T2D44_retIRSextra + T2D45_retIRSduodecimos,
+        T2D50_salario_liquido,
+        D19_subsidiosDuodecimos,
+        formatEuro
+      );
       //Extras
       $("[retribuicao-extra-result]").text(formatEuro(D23_retribuicaoExtra));
       $("[outros-rendimentos-result]").text(formatEuro(D26_outrosRendIsentos));
