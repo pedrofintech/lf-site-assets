@@ -1152,8 +1152,8 @@
      "s": "Ao balcão da sede, das 8h30 às 15h"
     },
     "carteiras": {
-     "v": "Sem informação",
-     "s": "O site do BiG não refere Apple Pay nem Google Pay"
+     "v": "Sim",
+     "s": "O cartão BiG Mastercard funciona em carteiras digitais"
     },
     "jurosConta": {
      "v": "1% TANB na Super Conta",
@@ -1186,10 +1186,7 @@
      "v": "Telefone em dias úteis",
      "s": "213 305 377, das 8h às 21h. Email apoio@big.pt"
     }
-   },
-   "c": [
-    "carteiras"
-   ]
+   }
   },
   {
    "id": "traderepublic",
