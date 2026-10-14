@@ -1,10 +1,9 @@
 {
  "nota": "Fonte oficial de cada valor, por conta e por campo. Não é carregado pela página.",
- "verificado": "2026-10-13",
+ "verificado": "2026-10-14",
  "fontes": {
   "revolut": {
-   "custoAno": "https://cdn.revolut.com/terms_and_conditions/pdf/comiss_es_para_clientes_particulares_standard_8c859b1b_2.2.3_1787647528_pt.pdf",
-   "manut": "https://cdn.revolut.com/terms_and_conditions/pdf/comiss_es_para_clientes_particulares_standard_8c859b1b_2.2.3_1787647528_pt.pdf",
+   "manut": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf",
    "cartao": "https://cdn.revolut.com/terms_and_conditions/pdf/comiss_es_para_clientes_particulares_standard_8c859b1b_2.2.3_1787647528_pt.pdf",
    "cartaoFisico": "https://cdn.revolut.com/terms_and_conditions/pdf/comiss_es_para_clientes_particulares_standard_8c859b1b_2.2.3_1787647528_pt.pdf",
    "cartaoGratis": "https://cdn.revolut.com/terms_and_conditions/pdf/comiss_es_para_clientes_particulares_standard_8c859b1b_2.2.3_1787647528_pt.pdf",
@@ -15,23 +14,23 @@
    "cambio": "https://cdn.revolut.com/terms_and_conditions/pdf/comiss_es_para_clientes_particulares_standard_8c859b1b_2.2.3_1787647528_pt.pdf",
    "iban": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_e_condi_es_para_clientes_particulares_dac36970_2.3.3_1790931433_pt.pdf",
    "mbway": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_e_condi_es_mb_way_d84021e9_1.0.2_1772717297_pt.pdf",
-   "pagamentos": "https://cdn.revolut.com/terms_and_conditions/pdf/pre_rio_18f7b306_1.5.4_1787070717_pt.pdf",
+   "pagamentos": "https://help.revolut.com/pt-PT/help/cards/multibanco/can-i-pay-bills-taxes-and-online-purchases-using-multibanco/",
    "numerario": "https://cdn.revolut.com/terms_and_conditions/pdf/pre_rio_18f7b306_1.5.4_1787070717_pt.pdf",
    "carteiras": "https://www.revolut.com/pt-PT/",
-   "jurosConta": "https://cdn.revolut.com/terms_and_conditions/pdf/standardised_information_sheet_3fab92be_1.2.4_1778142525_en.pdf",
+   "jurosConta": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf",
    "poupanca": "https://revolut.com/pt-PT/instant-access-savings",
    "jurosMax": "https://revolut.com/pt-PT/our-pricing-plans",
    "investir": "https://revolut.com/pt-PT/our-pricing-plans",
    "garantia": "https://cdn.revolut.com/terms_and_conditions/pdf/pre_rio_18f7b306_1.5.4_1787070717_pt.pdf",
    "regulador": "https://cdn.revolut.com/terms_and_conditions/pdf/legal_disclaimer_9ad813f4_1.0.1_1772789574_pt.pdf",
-   "abertura": "https://cdn.revolut.com/terms_and_conditions/pdf/standardised_information_sheet_3fab92be_1.2.4_1778142525_en.pdf",
+   "abertura": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf",
    "aberturaOnline": "https://cdn.revolut.com/terms_and_conditions/pdf/standardised_information_sheet_3fab92be_1.2.4_1778142525_en.pdf",
-   "balcoes": "https://cdn.revolut.com/terms_and_conditions/pdf/standardised_information_sheet_3fab92be_1.2.4_1778142525_en.pdf",
+   "balcoes": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf",
    "apoio": "https://revolut.com/pt-PT/contact-us",
-   "suportePt": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_e_condi_es_para_clientes_particulares_dac36970_2.3.3_1790931433_pt.pdf"
+   "suportePt": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_e_condi_es_para_clientes_particulares_dac36970_2.3.3_1790931433_pt.pdf",
+   "custoMes": "https://cdn.revolut.com/terms_and_conditions/pdf/comiss_es_para_clientes_particulares_standard_8c859b1b_2.2.3_1787647528_pt.pdf"
   },
   "activobank": {
-   "custoAno": "https://www.activobank.pt/conta-simples",
    "manut": "https://www.activobank.pt/conta-simples",
    "cartao": "https://www.activobank.pt/conta-simples",
    "cartaoGratis": "https://www.activobank.pt/conta-simples",
@@ -53,10 +52,10 @@
    "regulador": "https://clientebancario.bportugal.pt/sites/default/files/precario/0023_/0023_PRE.pdf",
    "abertura": "https://www.activobank.pt/conta-simples",
    "balcoes": "https://www.activobank.pt/onde-estamos",
-   "apoio": "https://www.activobank.pt/conta-simples"
+   "apoio": "https://www.activobank.pt/conta-simples",
+   "custoMes": "https://www.activobank.pt/conta-simples"
   },
   "bankinter": {
-   "custoAno": "https://www.bankinter.pt/documents/20182/497914/DIC+Conta+ONline+-+PT+01.102023.pdf/694ebe83-ac04-4764-8072-26bfd3effda9?version=1.2",
    "manut": "https://clientebancario.bportugal.pt/sites/default/files/precario/0269_/0269_PRE_0.pdf",
    "cartao": "https://www.bankinter.pt/documents/20182/497914/DIC+Conta+ONline+-+PT+01.102023.pdf/694ebe83-ac04-4764-8072-26bfd3effda9?version=1.2",
    "cartaoGratis": "https://www.bankinter.pt/documents/20182/497914/FIN+Conta+ONline/9bf9ea97-b9b2-4aef-9aed-0572f45e2542?version=1.21",
@@ -64,7 +63,7 @@
    "levant": "https://www.bankinter.pt/documents/20182/497914/DIC+Conta+ONline+-+PT+01.102023.pdf/694ebe83-ac04-4764-8072-26bfd3effda9?version=1.2",
    "levantFora": "https://www.bankinter.pt/cartoes/cartao-debito-bankinter",
    "transf": "https://www.bankinter.pt/documents/20182/497914/DIC+Conta+ONline+-+PT+01.102023.pdf/694ebe83-ac04-4764-8072-26bfd3effda9?version=1.2",
-   "cambio": "https://www.bankinter.pt/cartoes/cartao-debito-bankinter",
+   "cambio": "https://www.bankinter.pt/cartoes/simulador-de-encargos-de-conversao-cambial",
    "iban": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
    "mbway": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
    "pagamentos": "https://www.bankinter.pt/dia-a-dia/bankinter-mobile-app",
@@ -78,10 +77,10 @@
    "regulador": "https://www.bankinter.pt/informacao-util-footer",
    "abertura": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
    "balcoes": "https://www.bankinter.pt/informacao-util-footer",
-   "apoio": "https://www.bankinter.pt/contactos1"
+   "apoio": "https://www.bankinter.pt/contactos1",
+   "custoMes": "https://www.bankinter.pt/documents/20182/497914/DIC+Conta+ONline+-+PT+01.102023.pdf/694ebe83-ac04-4764-8072-26bfd3effda9?version=1.2"
   },
   "moey": {
-   "custoAno": "https://moey.pt/hubfs/DIC_MOEY-3.pdf",
    "manut": "https://moey.pt/hubfs/DIC_MOEY-3.pdf",
    "cartao": "https://moey.pt/hubfs/DIC_MOEY-3.pdf",
    "cartaoFisico": "https://moey.pt/hubfs/Condicoes_Gerais_Conta_Moey_v41.pdf",
@@ -106,10 +105,10 @@
    "aberturaOnline": "https://moey.pt/en/open-account",
    "balcoes": "https://moey.pt/hubfs/Condicoes_Gerais_Conta_Moey_v41.pdf",
    "apoio": "https://moey.pt/en/contacts",
-   "suportePt": "https://moey.pt/en/contacts"
+   "suportePt": "https://moey.pt/en/contacts",
+   "custoMes": "https://moey.pt/hubfs/DIC_MOEY-3.pdf"
   },
   "openbank": {
-   "custoAno": "https://www.openbank.pt/",
    "manut": "https://www.openbank.pt/",
    "cartao": "https://www.openbank.pt/cartao-debito-r42",
    "cartaoFisico": "https://www.openbank.pt/cartao-debito-r42",
@@ -134,10 +133,10 @@
    "aberturaOnline": "https://www.openbank.pt/conta-remunerada-poupanca",
    "balcoes": "https://www.openbank.pt/cartao-debito-r42",
    "apoio": "https://www.openbank.pt/informacao-legal-reclamacoes",
-   "suportePt": "https://www.openbank.pt/informacao-legal-reclamacoes"
+   "suportePt": "https://www.openbank.pt/informacao-legal-reclamacoes",
+   "custoMes": "https://www.openbank.pt/"
   },
   "wise": {
-   "custoAno": "https://wise.com/pt/pricing/",
    "manut": "https://wise.com/pt/pricing/",
    "cartao": "https://wise.com/pt/pricing/card-fees",
    "cartaoFisico": "https://wise.com/pt/pricing/card-fees",
@@ -145,7 +144,7 @@
    "credito": "https://wise.com/pt/pricing/",
    "levant": "https://wise.com/pt/pricing/card-fees",
    "levantFora": "https://wise.com/pt/pricing/card-fees",
-   "transf": "https://wise.com/help/articles/2827505/how-do-i-receive-money-with-my-eur-account-details",
+   "transf": "https://wise.com/gateway/v1/price?sourceAmount=1000&sourceCurrency=EUR&targetCurrency=EUR&profileType=PERSONAL&profileCountry=PT",
    "cambio": "https://wise.com/pt/pricing/",
    "iban": "https://wise.com/gb/blog/iban-discrimination",
    "mbway": "https://www.mbway.pt/bancos-aderentes/",
@@ -161,15 +160,15 @@
    "aberturaOnline": "https://wise.com/help/articles/2978028/how-do-i-open-account-details-to-receive-money",
    "balcoes": "https://wise.com/pt/pricing/",
    "apoio": "https://wise.com/pt/help/articles/4ijaGT6BdeHNVjzbRip4gI/como-posso-entrar-em-contato-com-a-wise",
-   "suportePt": "https://wise.com/pt/help/articles/4ijaGT6BdeHNVjzbRip4gI/como-posso-entrar-em-contato-com-a-wise"
+   "suportePt": "https://wise.com/pt/help/articles/4ijaGT6BdeHNVjzbRip4gI/como-posso-entrar-em-contato-com-a-wise",
+   "custoMes": "https://wise.com/pt/pricing/"
   },
   "bunq": {
-   "custoAno": "https://www.bunq.com/pt-pt/personal/plans",
    "manut": "https://www.bunq.com/pt-pt/personal/plans",
    "cartao": "https://help.bunq.com/articles/what-are-the-benefits-of-the-bunq-free-plan",
    "cartaoFisico": "https://help.bunq.com/articles/what-are-the-benefits-of-the-bunq-free-plan",
    "cartaoGratis": "https://help.bunq.com/articles/what-are-the-benefits-of-the-bunq-free-plan",
-   "credito": "https://help.bunq.com/articles/bunq-credit-card-faqs",
+   "credito": "https://www.bunq.com/pt-pt/personal/plans/bunq-free",
    "levant": "https://help.bunq.com/articles/what-are-my-atm-fees",
    "levantFora": "https://www.bunq.com/en-es/personal/features/atm-withdrawals-and-deposits",
    "transf": "https://help.bunq.com/articles/does-bunq-support-instant-payments",
@@ -189,10 +188,10 @@
    "aberturaOnline": "https://help.bunq.com/en/articles/wheres-my-tax-identification-number-tin",
    "balcoes": "https://www.bunq.com/documents/personal-account-terms-conditions",
    "apoio": "https://help.bunq.com/en/articles/what-kind-of-support-does-bunq-provide",
-   "suportePt": "https://help.bunq.com/en/articles/what-kind-of-support-does-bunq-provide"
+   "suportePt": "https://help.bunq.com/en/articles/what-kind-of-support-does-bunq-provide",
+   "custoMes": "https://www.bunq.com/pt-pt/personal/plans"
   },
   "n26": {
-   "custoAno": "https://n26.com/en-eu/free-bank-account",
    "manut": "https://n26.com/en-eu/free-bank-account",
    "cartao": "https://n26.com/en-eu/free-bank-account",
    "cartaoFisico": "https://support.n26.com/en-eu/memberships-and-account-types/standard-accounts/what-is-a-n26-standard-account",
@@ -217,11 +216,10 @@
    "aberturaOnline": "https://n26.com/en-eu/free-bank-account",
    "balcoes": "https://n26.com/en-eu/free-bank-account",
    "apoio": "https://support.n26.com/en-eu/app-and-features/app/how-to-contact-n26",
-   "suportePt": "https://n26.com/en-eu/free-bank-account"
+   "suportePt": "https://n26.com/en-eu/free-bank-account",
+   "custoMes": "https://n26.com/en-eu/free-bank-account"
   },
   "best": {
-   "custoAno": "https://www.bancobest.pt/ptg/best__cartoes?active=visadebit",
-   "custoAno1": "https://www.bancobest.pt/ptg/best__cartoes?active=visadebit",
    "custoAnoOrdenado": "https://www.bancobest.pt/ptg/best_contas?active=digital",
    "manut": "https://www.bancobest.pt/ptg/best_contas?active=digital",
    "cartao": "https://www.bancobest.pt/ptg/best__cartoes?active=visadebit",
@@ -244,18 +242,17 @@
    "regulador": "https://clientebancario.bportugal.pt/sites/default/files/precario/0065_/0065_PRE.pdf",
    "abertura": "https://www.bancobest.pt/ptg/best_contas?active=digital",
    "balcoes": "https://www.bancobest.pt/ptg/best_contactos",
-   "apoio": "https://www.bancobest.pt/ptg/best_contactos"
+   "apoio": "https://www.bancobest.pt/ptg/best_contactos",
+   "custoMes": "https://www.bancobest.pt/ptg/best__cartoes?active=visadebit"
   },
   "big": {
-   "custoAno": "https://www.big.pt/pdf/BIG018b_precario.pdf",
-   "custoAno1": "https://www.big.pt/pdf/BIG018b_precario.pdf",
    "custoAnoOrdenado": "https://www.big.pt/pdf/BIG018b_precario.pdf",
    "manut": "https://www.big.pt/Apoio/ApoioAoCliente",
    "cartao": "https://clientebancario.bportugal.pt/sites/default/files/precario/0061_/0061_PRE.pdf",
    "cartaoGratis": "https://clientebancario.bportugal.pt/sites/default/files/precario/0061_/0061_PRE.pdf",
    "credito": "https://www.big.pt/Cartoes/Cartoes",
    "levant": "https://clientebancario.bportugal.pt/sites/default/files/precario/0061_/0061_PRE.pdf",
-   "levantFora": "https://www.big.pt/pdf/BIG018b_precario.pdf",
+   "levantFora": "https://big.pt/pdf/MB/Condicoes_Mastercard.pdf?4F",
    "transf": "https://clientebancario.bportugal.pt/sites/default/files/precario/0061_/0061_PRE.pdf",
    "cambio": "https://www.big.pt/pdf/BIG018b_precario.pdf",
    "iban": "https://www.big.pt/Apoio/ApoioAoCliente",
@@ -271,10 +268,10 @@
    "regulador": "https://clientebancario.bportugal.pt/sites/default/files/precario/0061_/0061_PRE.pdf",
    "abertura": "https://www.big.pt/Apoio/ApoioAoCliente",
    "balcoes": "https://www.big.pt/QuemSomos/ApoioAgenciasContactos/Contactos",
-   "apoio": "https://www.big.pt/Apoio/ApoioAoCliente"
+   "apoio": "https://www.big.pt/Apoio/ApoioAoCliente",
+   "custoMes": "https://www.big.pt/pdf/BIG018b_precario.pdf"
   },
   "traderepublic": {
-   "custoAno": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
    "manut": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
    "cartao": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
    "cartaoFisico": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
@@ -298,17 +295,17 @@
    "abertura": "https://support.traderepublic.com/en-pt/687-Warum-muss-ich-Geld-einzahlen",
    "aberturaOnline": "https://support.traderepublic.com/en-pt/687-Warum-muss-ich-Geld-einzahlen",
    "balcoes": "https://assets.traderepublic.com/assets/files/CA_PT-en.pdf",
-   "apoio": "https://assets.traderepublic.com/assets/files/Press_Release_de_en_CS.pdf",
-   "suportePt": "https://support.traderepublic.com/en-pt/722-Which-languages-are-supported"
+   "apoio": "https://assets.traderepublic.com/assets/files/Press_Release_Portugal_PT_EN.pdf",
+   "suportePt": "https://support.traderepublic.com/en-pt/722-Which-languages-are-supported",
+   "custoMes": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf"
   },
   "cgd": {
-   "custoAno": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx",
    "custoAnoOrdenado": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx",
    "manut": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx",
    "cartao": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx",
    "cartaoGratis": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx",
    "credito": "https://www.cgd.pt/Precario/Documents/3.pdf",
-   "levant": "https://www.cgd.pt/Precario/Documents/3.pdf",
+   "levant": "https://www.cgd.pt/Precario/Documents/Folheto-Completo-Comissoes-Despesas.pdf?v=11",
    "levantFora": "https://www.cgd.pt/Precario/Documents/3.pdf",
    "transf": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx",
    "cambio": "https://www.cgd.pt/Precario/Documents/3.pdf",
@@ -316,7 +313,7 @@
    "mbway": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx",
    "pagamentos": "https://www.cgd.pt/Particulares/Contas/Caixadirecta/Pages/Caixadirecta.aspx",
    "numerario": "https://clientebancario.bportugal.pt/sites/default/files/precario/0035_/0035_PRE.pdf",
-   "carteiras": "https://www.cgd.pt/Particulares/Cartoes/Pages/Apple-Pay.aspx",
+   "carteiras": "https://www.cgd.pt/Particulares/Cartoes/Cartoes-de-Debito/Pages/Cartao-Debito-Caixa-Debito.aspx",
    "jurosConta": "https://www.cgd.pt/Precario/Documents/17.pdf",
    "jurosMax": "https://www.cgd.pt/Particulares/Poupanca-Investimento/Depositos-a-Prazo-e-Poupanca/Pages/conta-poupanca-diaria.aspx",
    "poupanca": "https://www.cgd.pt/Particulares/Poupanca-Investimento/Depositos-a-Prazo-e-Poupanca/Pages/conta-poupanca-diaria.aspx",
@@ -325,11 +322,10 @@
    "regulador": "https://clientebancario.bportugal.pt/sites/default/files/precario/0035_/0035_PRE.pdf",
    "abertura": "https://www.cgd.pt/Particulares/Contas/Abertura-conta/Pages/Abertura-conta.aspx",
    "balcoes": "https://www.cgd.pt/Investor-Relations/Informacao-Financeira/CGD/Relatorios-Contas/2026/Documents/Press-Release-PT-1S-2026.pdf",
-   "apoio": "https://www.cgd.pt/Ajuda/Contactos/Pages/Contactos.aspx"
+   "apoio": "https://www.cgd.pt/Ajuda/Contactos/Pages/Contactos.aspx",
+   "custoMes": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx"
   },
   "millennium": {
-   "custoAno": "https://investimentos.millenniumbcp.pt/pt/Documents/10901033-PT.pdf",
-   "custoAno1": "https://www.millenniumbcp.pt/abrir-conta-online",
    "custoAnoOrdenado": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0708-PT.pdf",
    "manut": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0708-PT.pdf",
    "cartao": "https://www.millenniumbcp.pt/contas/conta-a-ordem/conta-millennium-cliente-frequente",
@@ -350,18 +346,17 @@
    "investir": "https://www.millenniumbcp.pt/investimentos",
    "garantia": "https://clientebancario.bportugal.pt/sites/default/files/precario/0033_/0033_PRE_1.pdf",
    "regulador": "https://clientebancario.bportugal.pt/sites/default/files/precario/0033_/0033_PRE_1.pdf",
-   "abertura": "https://www.millenniumbcp.pt/abrir-conta-online",
+   "abertura": "https://investimentos.millenniumbcp.pt/pt/Documents/10901033-PT.pdf",
    "balcoes": "https://ind.millenniumbcp.pt/pt/Institucional/investidores/Documents/ApresentacaoResultados/2026/20260729_Resultados_Millennium_BCP_1S26.pdf",
-   "apoio": "https://www.millenniumbcp.pt/contactos"
+   "apoio": "https://www.millenniumbcp.pt/contactos",
+   "custoMes": "https://investimentos.millenniumbcp.pt/pt/Documents/10901033-PT.pdf"
   },
   "santander": {
-   "custoAno": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
-   "custoAno1": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
    "custoAnoOrdenado": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
    "manut": "https://www.santander.pt/contas/conta-santander-mais",
    "cartao": "https://www.santander.pt/contas/conta-santander-mais",
    "cartaoGratis": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
-   "credito": "https://www.santander.pt/pdfs/precario-banco/folheto-comissoes-despesas/clientes-particulares/3-cartoes-credito-debito/3_folhetocomissoesdespesas_cp_cartoescreddeb.pdf",
+   "credito": "https://www.santander.pt/pdfs/precario-banco-outros-documentos/contas/em-vigor/BST-IE-50008231.pdf",
    "levant": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
    "levantFora": "https://www.santander.pt/pdfs/precario-banco/folheto-comissoes-despesas/clientes-particulares/3-cartoes-credito-debito/3_folhetocomissoesdespesas_cp_cartoescreddeb.pdf",
    "transf": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
@@ -379,10 +374,10 @@
    "regulador": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008239.pdf",
    "abertura": "https://www.santander.pt/contas/conta-santander-mais",
    "balcoes": "https://www.santander.pt/pdfs/investor-relations/santander-totta-sa/comunicados-resultados/2026/PR_Jun26_VF.pdf",
-   "apoio": "https://www.santander.pt/contactos"
+   "apoio": "https://www.santander.pt/contactos",
+   "custoMes": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf"
   },
   "novobanco": {
-   "custoAno": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
    "custoAnoOrdenado": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
    "manut": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
    "cartao": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
@@ -396,19 +391,19 @@
    "mbway": "https://www.novobanco.pt/en/personal/current-accounts/packaged-accounts/100-account",
    "pagamentos": "https://www.novobanco.pt/en/personal/current-accounts/packaged-accounts/100-account",
    "numerario": "https://clientebancario.bportugal.pt/sites/default/files/precario/0007_/0007_PRE.pdf",
-   "carteiras": "https://www.novobanco.pt/en/personal/digital-channels/online-banking",
+   "carteiras": "https://www.novobanco.pt/en/personal/cards/digital-payments",
    "jurosConta": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/particulares/PRE-FT.pdf.coredownload.inline.pdf",
-   "jurosMax": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/particulares/PRE-FT.pdf.coredownload.inline.pdf",
-   "poupanca": "https://www.novobanco.pt/en/personal/digital-channels/online-banking",
+   "jurosMax": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
+   "poupanca": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
    "investir": "https://www.novobanco.pt/en/personal/digital-channels/online-banking",
    "garantia": "https://clientebancario.bportugal.pt/sites/default/files/precario/0007_/0007_PRE.pdf",
    "regulador": "https://clientebancario.bportugal.pt/sites/default/files/precario/0007_/0007_PRE.pdf",
    "abertura": "https://www.novobanco.pt/en/personal/current-accounts/open-online-bank-account",
    "balcoes": "https://www.novobanco.com/content/dam/novobanco-com/investors/financial-disclosures/2026/1%C2%BAtrimestre/1Q2026%20Resultados.pdf",
-   "apoio": "https://www.novobanco.pt/en/personal/help-and-contacts/direct-line"
+   "apoio": "https://www.novobanco.pt/en/personal/help-and-contacts/direct-line",
+   "custoMes": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf"
   },
   "bpi": {
-   "custoAno": "https://www.bancobpi.pt/content/conn/UCM/uuid/dDocName:PR_WCS01_UCM01063279",
    "custoAnoOrdenado": "https://www.bancobpi.pt/content/conn/UCM/uuid/dDocName:PR_WCS01_UCM01063279",
    "manut": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-valor-bpi",
    "cartao": "https://bancobpi.pt/particulares/cartoes/cartoes-debito/bpi-electron",
@@ -425,17 +420,16 @@
    "carteiras": "https://bancobpi.pt/particulares/cartoes",
    "jurosConta": "https://www.bancobpi.pt/content/conn/UCM/uuid/dDocName:PR_WCS01_UCM01063279",
    "jurosMax": "https://bancobpi.pt/particulares",
-   "poupanca": "https://bancobpi.pt/particulares",
-   "investir": "https://bancobpi.pt/particulares",
+   "poupanca": "https://bancobpi.pt/particulares/precario---folheto-taxas-juro---depositos---particulares",
+   "investir": "https://bancobpi.pt/particulares/precario---informacao-complementar---titulos",
    "garantia": "https://clientebancario.bportugal.pt/sites/default/files/precario/0010_/0010_PRE.pdf",
    "regulador": "https://clientebancario.bportugal.pt/sites/default/files/precario/0010_/0010_PRE.pdf",
    "abertura": "https://bancobpi.pt/particulares/contas/abrir-conta-no-bpi",
    "balcoes": "https://bancobpi.pt/contentservice/getContent?documentName=ZGRMZGEZMME3NZUZNDI2",
-   "apoio": "https://bancobpi.pt/particulares/contactos-bpi/contactos"
+   "apoio": "https://bancobpi.pt/particulares/contactos-bpi/contactos",
+   "custoMes": "https://www.bancobpi.pt/content/conn/UCM/uuid/dDocName:PR_WCS01_UCM01063279"
   },
   "novobanco-empresas": {
-   "custoAno": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/outros-clientes/OC_FCD_contas_deposito.pdf.coredownload.inline.pdf",
-   "custoAno1": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2922.pdf.coredownload.inline.pdf",
    "manut": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2922.pdf.coredownload.inline.pdf",
    "plano": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2922.pdf.coredownload.inline.pdf",
    "outrosPlanos": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/outros-clientes/OC_FCD_contas_deposito.pdf.coredownload.inline.pdf",
@@ -450,10 +444,10 @@
    "abertura": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2922.pdf.coredownload.inline.pdf",
    "eni": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2922.pdf.coredownload.inline.pdf",
    "sociedades": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2922.pdf.coredownload.inline.pdf",
-   "balcoes": "https://www.novobanco.pt/empresas/tesouraria/contas/solucao-novo-negocio"
+   "balcoes": "https://www.novobanco.pt/empresas/tesouraria/contas/solucao-novo-negocio",
+   "custoMes": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/outros-clientes/OC_FCD_contas_deposito.pdf.coredownload.inline.pdf"
   },
   "revolut-business": {
-   "custoAno": "https://www.revolut.com/pt-PT/business/business-account-plans/",
    "manut": "https://cdn.revolut.com/terms_and_conditions/pdf/business_fees_basic_53242b1e_1.5.0_1776182187_en.pdf",
    "plano": "https://www.revolut.com/pt-PT/business/business-account-plans/",
    "outrosPlanos": "https://www.revolut.com/pt-PT/business/business-account-plans/",
@@ -463,7 +457,7 @@
    "cambio": "https://cdn.revolut.com/terms_and_conditions/pdf/business_fees_basic_53242b1e_1.5.0_1776182187_en.pdf",
    "tpa": "https://revolut.com/pt-PT/business/accept-payments-pricing",
    "iban": "https://help.revolut.com/business/help/setting-up-an-account/managing-my-currency-accounts/question-local-ibans-available/",
-   "estado": "https://seg-social.pt/documents/10152/46726489/IInova+N%C2%BA+11_mar%C3%A7o2025.pdf/0cceb4e3-96ba-4c9f-b137-87d833533cc2",
+   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro",
    "multimoeda": "https://www.revolut.com/en-PT/business/",
    "juros": "https://www.revolut.com/pt-PT/business/savings/",
    "jurosMax": "https://www.revolut.com/pt-PT/business/savings/",
@@ -471,10 +465,10 @@
    "abertura": "https://www.revolut.com/pt-PT/business/",
    "eni": "https://www.revolut.com/pro-vs-business/",
    "sociedades": "https://www.revolut.com/pt-PT/business/",
-   "apoio": "https://www.revolut.com/pt-PT/business/"
+   "apoio": "https://www.revolut.com/pt-PT/business/",
+   "custoMes": "https://www.revolut.com/pt-PT/business/business-account-plans/"
   },
   "ca-empresas": {
-   "custoAno": "https://www.creditoagricola.pt/-/media/b475f42d70834ab9b128f44eb7ae3011.pdf",
    "manut": "https://www.creditoagricola.pt/empresas/tesouraria/conta-pacote-ca-empresas-mais",
    "plano": "https://www.creditoagricola.pt/-/media/b475f42d70834ab9b128f44eb7ae3011.pdf",
    "outrosPlanos": "https://www.creditoagricola.pt/empresas/tesouraria/conta-pacote-ca-empresas-mais",
@@ -487,10 +481,11 @@
    "garantia": "https://www.creditoagricola.pt/-/media/0f36e5a4e33b476ababd2487c429d8f1.pdf",
    "abertura": "https://www.creditoagricola.pt/-/media/b475f42d70834ab9b128f44eb7ae3011.pdf",
    "eni": "https://www.creditoagricola.pt/-/media/b475f42d70834ab9b128f44eb7ae3011.pdf",
-   "sociedades": "https://www.creditoagricola.pt/-/media/b475f42d70834ab9b128f44eb7ae3011.pdf"
+   "sociedades": "https://www.creditoagricola.pt/-/media/b475f42d70834ab9b128f44eb7ae3011.pdf",
+   "tpa": "https://www.creditoagricola.pt/empresas/tesouraria/servicos/ca-pay",
+   "custoMes": "https://www.creditoagricola.pt/-/media/b475f42d70834ab9b128f44eb7ae3011.pdf"
   },
   "bpi-empresas": {
-   "custoAno": "https://www.bancobpi.pt/contentservice/getContent?documentName=MZI0NDMXYWM5ODGZNGZJ",
    "manut": "https://www.bancobpi.pt/contentservice/getContent?documentName=MZI0NDMXYWM5ODGZNGZJ",
    "plano": "https://www.bancobpi.pt/contentservice/getContent?documentName=MZI0NDMXYWM5ODGZNGZJ",
    "outrosPlanos": "https://www.bancobpi.pt/contentservice/getContent?documentName=ZTK4ZGFHZJJKMJHKNDU0",
@@ -504,10 +499,10 @@
    "abertura": "https://www.bancobpi.pt/empresas/contas-valor-bpi-negocios",
    "aberturaOnline": "https://www.bancobpi.pt/empresas/contas-valor-bpi-negocios",
    "eni": "https://www.bancobpi.pt/contentservice/getContent?documentName=MZI0NDMXYWM5ODGZNGZJ",
-   "sociedades": "https://www.bancobpi.pt/contentservice/getContent?documentName=MZI0NDMXYWM5ODGZNGZJ"
+   "sociedades": "https://www.bancobpi.pt/contentservice/getContent?documentName=MZI0NDMXYWM5ODGZNGZJ",
+   "custoMes": "https://www.bancobpi.pt/contentservice/getContent?documentName=MZI0NDMXYWM5ODGZNGZJ"
   },
   "cgd-empresas": {
-   "custoAno": "https://www.cgd.pt/Precario/Documents/9.pdf",
    "manut": "https://www.cgd.pt/Empresas/Gestao_corrente/Pages/Conta-Caixa-Business.aspx",
    "plano": "https://www.cgd.pt/Empresas/Gestao_corrente/PublishingImages/Conta-Caixa/ICGDPT0389.pdf",
    "outrosPlanos": "https://www.cgd.pt/Empresas/Gestao_corrente/Pages/Conta-Caixa-Business.aspx",
@@ -518,15 +513,14 @@
    "cheques": "https://www.cgd.pt/Empresas/Gestao_corrente/Pages/Conta-Caixa-Business.aspx",
    "multimoeda": "https://www.cgd.pt/Precario/Documents/9.pdf",
    "juros": "https://www.cgd.pt/Precario/Documents/19.pdf",
-   "abertura": "https://www.cgd.pt/Empresas/Gestao_corrente/Contas-ordem/Documents/Abertura-Conta-Empresas.pdf",
+   "abertura": "https://www.cgd.pt/Empresas/Gestao_corrente/Pages/Conta-Caixa-Business.aspx",
    "aberturaOnline": "https://www.cgd.pt/Empresas/Gestao_corrente/Contas-ordem/Documents/Abertura-Conta-Empresas.pdf",
    "eni": "https://www.cgd.pt/Empresas/Gestao_corrente/PublishingImages/Conta-Caixa/ICGDPT0389.pdf",
    "sociedades": "https://www.cgd.pt/Empresas/Gestao_corrente/PublishingImages/Conta-Caixa/ICGDPT0389.pdf",
-   "apoio": "https://www.cgd.pt/Empresas/Gestao_corrente/Pages/Conta-Caixa-Business.aspx"
+   "apoio": "https://www.cgd.pt/Empresas/Gestao_corrente/Pages/Conta-Caixa-Business.aspx",
+   "custoMes": "https://www.cgd.pt/Precario/Documents/9.pdf"
   },
   "millennium-empresas": {
-   "custoAno": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf",
-   "custoAno1": "https://www.millenniumbcp.pt/empresas/abrir-conta-empresa-online",
    "manut": "https://www.millenniumbcp.pt/empresas/abrir-conta-empresa-online",
    "plano": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf",
    "outrosPlanos": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf",
@@ -541,11 +535,10 @@
    "aberturaOnline": "https://www.millenniumbcp.pt/empresas/abrir-conta-empresa-online",
    "eni": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf",
    "sociedades": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf",
-   "apoio": "https://www.millenniumbcp.pt/empresas"
+   "apoio": "https://www.millenniumbcp.pt/empresas",
+   "custoMes": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf"
   },
   "montepio-empresas": {
-   "custoAno": "https://www.bancomontepio.pt/content/dam/montepio/pdf/geral/precario/folheto-comissoes-despesas/outros-clientes/9-comissoes-contas-deposito-outros-clientes.pdf",
-   "custoAno1": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf",
    "manut": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf",
    "plano": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf",
    "outrosPlanos": "https://www.bancomontepio.pt/content/dam/montepio/pdf/geral/precario/folheto-comissoes-despesas/outros-clientes/9-comissoes-contas-deposito-outros-clientes.pdf",
@@ -554,15 +547,15 @@
    "levant": "https://www.bancomontepio.pt/content/dam/montepio/pdf/geral/precario/folheto-comissoes-despesas/outros-clientes/9-comissoes-contas-deposito-outros-clientes.pdf",
    "tpa": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf",
    "cheques": "https://www.bancomontepio.pt/empresas/gestao-corrente/contas-e-solucoes",
-   "juros": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf",
+   "juros": "https://www.bancomontepio.pt/content/dam/montepio/pdf/geral/precario/folheto-taxas-juro/outros-clientes/19-taxas-contas-deposito-outros-clientes.pdf",
    "credito": "https://www.bancomontepio.pt/empresas/gestao-corrente/contas-e-solucoes",
    "abertura": "https://www.bancomontepio.pt/empresas/gestao-corrente/contas-e-solucoes",
    "aberturaOnline": "https://www.bancomontepio.pt/empresas/gestao-corrente/contas-e-solucoes",
    "eni": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf",
-   "sociedades": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf"
+   "sociedades": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf",
+   "custoMes": "https://www.bancomontepio.pt/content/dam/montepio/pdf/geral/precario/folheto-comissoes-despesas/outros-clientes/9-comissoes-contas-deposito-outros-clientes.pdf"
   },
   "santander-empresas": {
-   "custoAno": "https://www.santander.pt/pdfs/precario-banco/folheto-comissoes-despesas/outros-clientes/9-contas-deposito/9_folhetocomissoesdespesas_oc_contasdep.pdf",
    "manut": "https://www.santander.pt/empresas/abrir-conta-empresas-online",
    "plano": "https://www.santander.pt/pdfs/pdfs-empresas/contas/BST-IE-50008453.pdf",
    "outrosPlanos": "https://www.santander.pt/empresas/abrir-conta-empresas-online",
@@ -577,11 +570,10 @@
    "aberturaOnline": "https://www.santander.pt/empresas/abrir-conta-empresas-online",
    "eni": "https://www.santander.pt/pdfs/pdfs-empresas/contas/BST-IE-50008453.pdf",
    "sociedades": "https://www.santander.pt/pdfs/pdfs-empresas/contas/BST-IE-50008453.pdf",
-   "apoio": "https://www.santander.pt/pdfs/pdfs-empresas/contas/BST-IE-50008453.pdf"
+   "apoio": "https://www.santander.pt/pdfs/pdfs-empresas/contas/BST-IE-50008453.pdf",
+   "custoMes": "https://www.santander.pt/pdfs/precario-banco/folheto-comissoes-despesas/outros-clientes/9-contas-deposito/9_folhetocomissoesdespesas_oc_contasdep.pdf"
   },
   "abanca-empresas": {
-   "custoAno": "https://www.abanca.pt/pt/empresas/contas/conta-business",
-   "custoAno1": "https://www.abanca.pt/pt/empresas/contas/conta-business",
    "manut": "https://www.abanca.pt/pt/empresas/contas/conta-business",
    "plano": "https://www.abanca.pt/pt/empresas/contas/conta-business",
    "outrosPlanos": "https://www.abanca.pt/pt/empresas/contas/conta-business",
@@ -594,11 +586,10 @@
    "abertura": "https://www.abanca.pt/pt/empresas/contas/conta-business",
    "balcoes": "https://comunicacion.abanca.com/es/noticias/abanca-cierra-la-compra-de-eurobic-y-se-convierte-en-la-septima-entidad-de-portugal/",
    "apoio": "https://www.abanca.pt/pt/empresas/",
-   "entidade": "https://www.abanca.pt/pt/empresas/"
+   "entidade": "https://www.abanca.pt/pt/empresas/",
+   "custoMes": "https://www.abanca.pt/pt/empresas/contas/conta-business"
   },
   "wise-business": {
-   "custoAno": "https://wise.com/pt/pricing/business/",
-   "custoAno1": "https://wise.com/pt/pricing/business/",
    "manut": "https://wise.com/pt/pricing/business/",
    "plano": "https://www.wise.com/help/articles/2977974/can-my-business-use-wise",
    "cartoes": "https://wise.com/pt/pricing/business/card-fees",
@@ -607,33 +598,34 @@
    "cambio": "https://wise.com/pt/pricing/business/",
    "tpa": "https://www.wise.com/help/articles/2ns36RddtM1kAb5vbWxGMx/getting-paid-to-your-wise-business-by-card-apple-pay-or-google-pay",
    "iban": "https://wise.com/gb/blog/iban-discrimination",
-   "estado": "https://seg-social.pt/documents/10152/46726489/IInova+N%C2%BA+11_mar%C3%A7o2025.pdf/0cceb4e3-96ba-4c9f-b137-87d833533cc2",
+   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro",
    "multimoeda": "https://wise.com/pt/pricing/business/",
    "juros": "https://wise.com/pt/pricing/business/",
    "garantia": "https://wise.com/help/articles/50VrYRVwHcsYeKzvWbjf3n/how-our-eu-entity-wise-europe-sa-safeguards-customer-funds",
    "abertura": "https://www.wise.com/help/articles/2978028/how-do-i-open-account-details-to-receive-money",
    "eni": "https://www.wise.com/help/articles/2977974/can-my-business-use-wise",
    "sociedades": "https://www.wise.com/help/articles/2977974/can-my-business-use-wise",
-   "apoio": "https://wise.com/pt/business/"
+   "apoio": "https://wise.com/pt/business/",
+   "custoMes": "https://wise.com/pt/pricing/business/"
   },
   "n26-business": {
-   "custoAno": "https://support.n26.com/en-at/memberships-and-account-types/business-accounts/how-does-n26-business-work",
    "manut": "https://support.n26.com/en-es/memberships-and-account-types/business-accounts/what-is-a-n26-business-account",
    "plano": "https://support.n26.com/en-es/memberships-and-account-types/business-accounts/what-is-a-n26-business-account",
-   "outrosPlanos": "https://n26.com/en-eu/business-bank-account",
+   "outrosPlanos": "https://n26.com/en-eu/plans-business",
    "cartoes": "https://n26.com/en-eu/free-business-account",
    "transf": "https://support.n26.com/en-eu/payments-transfers-and-withdrawals/transfers/what-are-instant-transfers",
    "levant": "https://support.n26.com/en-eu/payments-transfers-and-withdrawals/withdrawals/how-often-can-i-withdraw-cash-for-free",
    "cambio": "https://support.n26.com/en-eu/payments-transfers-and-withdrawals/card-and-online-payments/how-to-use-my-card-to-pay-abroad",
    "iban": "https://support.n26.com/en-eu/app-and-features/savings-and-invest/what-is-n26-instant-savings-de-iban-austria",
-   "estado": "https://seg-social.pt/documents/10152/46726489/IInova+N%C2%BA+11_mar%C3%A7o2025.pdf/0cceb4e3-96ba-4c9f-b137-87d833533cc2",
+   "estado": "https://info.portaldasfinancas.gov.pt/pt/apoio_ao_contribuinte/pagamentos_e_reembolsos/pagamentos/Como_pagar_no_Estrangeiro",
    "juros": "https://n26.com/en-eu/savings-account",
    "jurosMax": "https://n26.com/en-eu/savings-account",
    "garantia": "https://n26.com/en-eu/savings-account",
    "abertura": "https://support.n26.com/en-at/memberships-and-account-types/business-accounts/how-does-n26-business-work",
    "eni": "https://support.n26.com/en-at/memberships-and-account-types/business-accounts/how-does-n26-business-work",
    "sociedades": "https://support.n26.com/en-es/memberships-and-account-types/business-accounts/what-is-a-n26-business-account",
-   "entidade": "https://n26.com/en-eu/imprint"
+   "entidade": "https://n26.com/en-eu/imprint",
+   "custoMes": "https://support.n26.com/en-at/memberships-and-account-types/business-accounts/how-does-n26-business-work"
   }
  }
 }

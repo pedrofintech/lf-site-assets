@@ -1,5 +1,5 @@
 {
- "verificado": "13 de outubro de 2026",
+ "verificado": "14 de outubro de 2026",
  "comparar": {
   "particular": [
    "revolut",
@@ -32,7 +32,7 @@
    "logoPad": true,
    "ini": "Re",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para a Revolut",
     "href": "https://www.literaciafinanceira.pt/visita/revolut",
     "aff": "revolut",
     "nota": "Aplicam-se as condições da campanha."
@@ -42,8 +42,6 @@
    "src": "https://www.revolut.com/pt-PT/legal/standard-fees/",
    "f": {
     "custoAno": 0,
-    "custoAno1": null,
-    "custoAnoOrdenado": null,
     "iban": "PT",
     "mbway": true,
     "cartaoFisico": true,
@@ -52,12 +50,13 @@
     "numerario": false,
     "garantia": "LT",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 0
    },
    "t": {
     "manut": {
      "v": "0€",
-     "s": "Plano Standard. Os planos pagos custam de 3,99€ a 55€ por mês"
+     "s": "Plano Standard. Os planos pagos custam de 3,99€ a 55€ por mês, mais IS"
     },
     "cartao": {
      "v": "Grátis, envio 6,99€",
@@ -135,10 +134,7 @@
      "v": "Chat na app, 24 horas",
      "s": "Em mais de 100 línguas, com português. E-mail só sem acesso à app. Linha automática para bloquear o cartão"
     }
-   },
-   "c": [
-    "pagamentos"
-   ]
+   }
   },
   {
    "id": "activobank",
@@ -153,14 +149,12 @@
    "logoPad": false,
    "ini": "Ac",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o ActivoBank",
     "href": "https://www.activobank.pt/conta-simples"
    },
    "src": "https://www.activobank.pt/precario",
    "f": {
     "custoAno": 0,
-    "custoAno1": null,
-    "custoAnoOrdenado": null,
     "iban": "PT",
     "mbway": true,
     "cartaoFisico": true,
@@ -169,7 +163,8 @@
     "numerario": true,
     "garantia": "PT",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 0
    },
    "t": {
     "manut": {
@@ -230,7 +225,7 @@
     },
     "investir": {
      "v": "Fundos, PPR e bolsa",
-     "s": "Na app e no ActivoTrader. Os planos AB Plus e AB Premium incluem ordens de bolsa grátis"
+     "s": "Na app e no ActivoTrader. Ordens de bolsa grátis por mês: 1 sem plano, 2 no AB Plus e 3 no AB Premium. Depois 5€ por ordem"
     },
     "garantia": {
      "v": "100.000€ (Portugal)",
@@ -267,7 +262,7 @@
    "logoPad": false,
    "ini": "Ba",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o Bankinter",
     "href": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online"
    },
    "tags": [
@@ -279,8 +274,6 @@
    "src": "https://www.bankinter.pt/precario",
    "f": {
     "custoAno": 0,
-    "custoAno1": null,
-    "custoAnoOrdenado": null,
     "iban": "PT",
     "mbway": true,
     "cartaoFisico": true,
@@ -289,7 +282,8 @@
     "numerario": true,
     "garantia": "ES",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 0
    },
    "t": {
     "manut": {
@@ -317,8 +311,8 @@
      "s": "SEPA+ nacionais e imediatas grátis e ilimitadas online. Internacionais, urgentes e SWIFT pagam"
     },
     "cambio": {
-     "v": "Com comissão",
-     "s": "Valores no preçário de cartões do Bankinter (secção 3.4)"
+     "v": "1,7%",
+     "s": "Taxa de processamento internacional nas compras noutras moedas. A página não diz se acresce IS"
     },
     "iban": {
      "v": "Português (PT50)",
@@ -374,8 +368,7 @@
     }
    },
    "c": [
-    "levantFora",
-    "cambio"
+    "levantFora"
    ]
   },
   {
@@ -389,15 +382,13 @@
    "entidade": "Caixa Central de Crédito Agrícola Mútuo, CRL",
    "ini": "Mo",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para a Moey",
     "href": "https://moey.pt/campaigns/moeyapp2020?token=moey21384",
     "aff": "moey"
    },
    "src": "https://moey.pt/hubfs/DIC_MOEY-3.pdf",
    "f": {
     "custoAno": 0,
-    "custoAno1": null,
-    "custoAnoOrdenado": null,
     "iban": "PT",
     "mbway": true,
     "cartaoFisico": true,
@@ -406,7 +397,8 @@
     "numerario": false,
     "garantia": "PT",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 0
    },
    "t": {
     "manut": {
@@ -507,14 +499,12 @@
    "logoPad": true,
    "ini": "Op",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o Openbank",
     "href": "https://www.openbank.pt/"
    },
    "src": "https://www.openbank.pt/informacao-legal-reclamacoes",
    "f": {
     "custoAno": 0,
-    "custoAno1": null,
-    "custoAnoOrdenado": null,
     "iban": "ES",
     "mbway": false,
     "cartaoFisico": true,
@@ -523,7 +513,8 @@
     "numerario": false,
     "garantia": "ES",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 0
    },
    "t": {
     "manut": {
@@ -535,8 +526,8 @@
      "s": "Mastercard de débito Я42 com emissão e renovação grátis. Travel+ opcional por 4,99€/mês"
     },
     "credito": {
-     "v": "Sim",
-     "s": "O Openbank comercializa cartão de crédito. Condições não verificadas"
+     "v": "Só débito",
+     "s": "O site do Openbank em Portugal só apresenta o cartão de débito Я42"
     },
     "levant": {
      "v": "5 grátis por mês",
@@ -629,7 +620,7 @@
    "logoPad": true,
    "ini": "Wi",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para a Wise",
     "href": "https://www.literaciafinanceira.pt/visita/wise",
     "aff": "wise"
    },
@@ -642,8 +633,6 @@
    "src": "https://wise.com/pt/pricing/",
    "f": {
     "custoAno": 0,
-    "custoAno1": null,
-    "custoAnoOrdenado": null,
     "iban": "BE",
     "mbway": false,
     "cartaoFisico": true,
@@ -652,7 +641,8 @@
     "numerario": false,
     "garantia": null,
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 0
    },
    "t": {
     "manut": {
@@ -676,8 +666,8 @@
      "s": "O mesmo limite em qualquer país. Se não tiveres a moeda, pagas a tarifa de conversão"
     },
     "transf": {
-     "v": "Grátis entre contas Wise",
-     "s": "Receber euros por SEPA é grátis. Enviar euros para outro banco tem uma pequena tarifa, mostrada antes de confirmar"
+     "v": "Grátis em euros",
+     "s": "Enviar euros do saldo para outro banco não tem tarifa, segundo a calculadora da Wise. Receber euros por SEPA é grátis"
     },
     "cambio": {
      "v": "Desde 0,2%",
@@ -755,7 +745,7 @@
    "logoPad": false,
    "ini": "bu",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para a bunq",
     "href": "https://www.literaciafinanceira.pt/visita/bunq",
     "aff": "bunq",
     "nota": "Taxas variáveis, sujeitas a alterações."
@@ -764,8 +754,6 @@
    "src": "https://www.bunq.com/pt-pt/pricing",
    "f": {
     "custoAno": 0,
-    "custoAno1": null,
-    "custoAnoOrdenado": null,
     "iban": "NL",
     "mbway": false,
     "cartaoFisico": false,
@@ -774,7 +762,8 @@
     "numerario": false,
     "garantia": "NL",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 0
    },
    "t": {
     "manut": {
@@ -786,8 +775,8 @@
      "s": "Cartão digital grátis. O cartão físico só existe a partir do bunq Core (3,99€/mês)"
     },
     "credito": {
-     "v": "Não no Free",
-     "s": "O Mastercard de crédito vem no Core, Pro e Elite. Por defeito usa o saldo da conta"
+     "v": "Virtual, sem anuidade",
+     "s": "No Free é só virtual e usa o saldo da conta"
     },
     "levant": {
      "v": "2,99€ cada",
@@ -875,15 +864,13 @@
    "logoPad": true,
    "ini": "N2",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o N26",
     "href": "https://www.literaciafinanceira.pt/visita/n26",
     "aff": "n26"
    },
    "src": "https://n26.com/en-eu/legal-documents/account",
    "f": {
     "custoAno": 0,
-    "custoAno1": null,
-    "custoAnoOrdenado": null,
     "iban": "DE",
     "mbway": false,
     "cartaoFisico": true,
@@ -892,7 +879,8 @@
     "numerario": false,
     "garantia": "DE",
     "aberturaOnline": true,
-    "suportePt": false
+    "suportePt": false,
+    "custoMes": 0
    },
    "t": {
     "manut": {
@@ -994,20 +982,22 @@
    "logoPad": false,
    "ini": "Ba",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o Best",
     "href": "https://www.bancobest.pt/ptg/best_contas?active=digital"
    },
    "tags": [
     {
      "t": "Depósito inicial de 100€",
      "w": 1
+    },
+    {
+     "t": "Cartão grátis no 1.º ano",
+     "w": 0
     }
    ],
    "src": "https://www.bancobest.pt/ptg/best_NS_PRECARIO",
    "f": {
     "custoAno": 21.84,
-    "custoAno1": 0,
-    "custoAnoOrdenado": 0,
     "iban": "PT",
     "mbway": true,
     "cartaoFisico": true,
@@ -1016,7 +1006,9 @@
     "numerario": true,
     "garantia": "PT",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 1.82,
+    "custoMesCond": 0
    },
    "t": {
     "manut": {
@@ -1114,8 +1106,8 @@
    "logoPad": false,
    "ini": "Ba",
    "cta": {
-    "label": "Abrir conta",
-    "href": "https://www.big.pt/"
+    "label": "Ir para o BiG",
+    "href": "https://www.big.pt/AbrirConta/AberturaDeContas/#/AbrirConta/abertura-de-conta-online"
    },
    "tags": [
     {
@@ -1126,8 +1118,6 @@
    "src": "https://www.big.pt/Precario/Precario",
    "f": {
     "custoAno": 14.56,
-    "custoAno1": 10.4,
-    "custoAnoOrdenado": 0,
     "iban": "PT",
     "mbway": true,
     "cartaoFisico": true,
@@ -1136,7 +1126,9 @@
     "numerario": true,
     "garantia": "PT",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 1.21,
+    "custoMesCond": 0
    },
    "t": {
     "manut": {
@@ -1157,7 +1149,7 @@
     },
     "levantFora": {
      "v": "4,50€",
-     "s": "Por levantamento fora do EEE, mais IS. O dono do ATM pode cobrar uma taxa extra"
+     "s": "Fora do EEE ou no EEE noutras moedas, mais IS. O dono do ATM pode cobrar uma taxa extra"
     },
     "transf": {
      "v": "1€ + IS online",
@@ -1181,7 +1173,7 @@
     },
     "numerario": {
      "v": "Só na sede, em Lisboa",
-     "s": "Ao balcão da sede: grátis até 5.000€, depois 0,10%"
+     "s": "Ao balcão da sede, das 8h30 às 15h"
     },
     "carteiras": {
      "v": "Sem informação",
@@ -1220,8 +1212,6 @@
     }
    },
    "c": [
-    "levantFora",
-    "cambio",
     "carteiras"
    ]
   },
@@ -1238,7 +1228,7 @@
    "logoPad": false,
    "ini": "Tr",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para a Trade Republic",
     "href": "https://www.literaciafinanceira.pt/visita/trade-republic",
     "aff": "trade-republic",
     "nota": "Investir envolve risco de perda de capital."
@@ -1247,8 +1237,6 @@
    "src": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
    "f": {
     "custoAno": 0,
-    "custoAno1": null,
-    "custoAnoOrdenado": null,
     "iban": "PT",
     "mbway": false,
     "cartaoFisico": true,
@@ -1257,7 +1245,8 @@
     "numerario": false,
     "garantia": "DE",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 0
    },
    "t": {
     "manut": {
@@ -1322,7 +1311,7 @@
     },
     "garantia": {
      "v": "Até 100.000€",
-     "s": "Saldo em bancos parceiros, cada um com garantia até 100.000€. Acima do teu limite vai para fundos monetários, sem garantia"
+     "s": "Em contas de bancos parceiros, protegidas até 100.000€ por cliente. Acima do montante de parceiro vai para fundos monetários, sem garantia"
     },
     "regulador": {
      "v": "BaFin, Bundesbank e Banco de Portugal",
@@ -1338,14 +1327,11 @@
     },
     "apoio": {
      "v": "Chat e telefone, 24 horas",
-     "s": "Na app, com pessoas, em 8 línguas. A app está em português"
+     "s": "Na app, por chat ou chamada, com apoio em português"
     }
    },
    "c": [
-    "credito",
-    "pagamentos",
-    "numerario",
-    "apoio"
+    "pagamentos"
    ]
   },
   {
@@ -1361,14 +1347,12 @@
    "logoPad": true,
    "ini": "CG",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para a CGD",
     "href": "https://www.cgd.pt/Particulares/Contas/Contas-a-Ordem/Pages/Conta-Caixa-S.aspx"
    },
    "src": "https://www.cgd.pt/Precario/Pages/Precario.aspx",
    "f": {
     "custoAno": 65.52,
-    "custoAno1": null,
-    "custoAnoOrdenado": 39.94,
     "iban": "PT",
     "mbway": true,
     "cartaoFisico": true,
@@ -1377,7 +1361,9 @@
     "numerario": true,
     "garantia": "PT",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 5.46,
+    "custoMesCond": 3.33
    },
    "t": {
     "manut": {
@@ -1394,7 +1380,7 @@
     },
     "levant": {
      "v": "Grátis",
-     "s": "Sem comissão no Multibanco e nos países do EEE em euros"
+     "s": "Sem comissão no Multibanco e nos países do EEE em euros. Ao balcão: 4,95€ + IS"
     },
     "levantFora": {
      "v": "3,75€ + 0,60% + 3%",
@@ -1425,8 +1411,8 @@
      "s": "Notas sem custo nas agências e nas máquinas da Caixa. Moedas ao balcão: 2% + IS"
     },
     "carteiras": {
-     "v": "Apple Pay",
-     "s": "Associa o cartão na app Caixadirecta"
+     "v": "Apple Pay e Google Pay",
+     "s": "Também Swatch Pay. Associa o cartão na app Caixadirecta"
     },
     "jurosConta": {
      "v": "Não",
@@ -1450,7 +1436,7 @@
     },
     "abertura": {
      "v": "Na app ou na agência",
-     "s": "100% online na app com Cartão de Cidadão português e Chave Móvel Digital. Depósito mínimo de 150€ em 30 dias"
+     "s": "Na app com Cartão de Cidadão português e Chave Móvel Digital ou leitor do cartão. Só 1 titular. Depósito mínimo de 150€ em 30 dias"
     },
     "balcoes": {
      "v": "484 agências",
@@ -1460,11 +1446,7 @@
      "v": "Telefone 24 horas",
      "s": "217 900 790, todos os dias. Assistente digital no site"
     }
-   },
-   "c": [
-    "levantFora",
-    "carteiras"
-   ]
+   }
   },
   {
    "id": "millennium",
@@ -1479,14 +1461,18 @@
    "logoPad": true,
    "ini": "Mi",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o Millennium",
     "href": "https://www.millenniumbcp.pt/contas/conta-a-ordem/conta-millennium-cliente-frequente"
    },
+   "tags": [
+    {
+     "t": "0€ no 1.º ano na app",
+     "w": 0
+    }
+   ],
    "src": "https://ind.millenniumbcp.pt/pt/info/Pages/precario.aspx",
    "f": {
     "custoAno": 99.84,
-    "custoAno1": 0,
-    "custoAnoOrdenado": 62.4,
     "iban": "PT",
     "mbway": true,
     "cartaoFisico": true,
@@ -1495,7 +1481,9 @@
     "numerario": true,
     "garantia": "PT",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 8.32,
+    "custoMesCond": 5.2
    },
    "t": {
     "manut": {
@@ -1567,7 +1555,7 @@
     },
     "abertura": {
      "v": "Na app ou no balcão",
-     "s": "Na app com Chave Móvel Digital e selfie em vídeo, com comprovativos de morada e de profissão. Mínimo de 250€"
+     "s": "Na app com Chave Móvel Digital e selfie em vídeo, com comprovativos de morada e de profissão. Mínimo de 250€ (50€ dos 18 aos 35 anos)"
     },
     "balcoes": {
      "v": "385 sucursais",
@@ -1592,14 +1580,18 @@
    "logoPad": true,
    "ini": "Sa",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o Santander",
     "href": "https://www.santander.pt/contas/conta-santander-mais"
    },
+   "tags": [
+    {
+     "t": "6 meses grátis online",
+     "w": 0
+    }
+   ],
    "src": "https://www.santander.pt/precario",
    "f": {
     "custoAno": 107.28,
-    "custoAno1": 53.64,
-    "custoAnoOrdenado": 94.8,
     "iban": "PT",
     "mbway": true,
     "cartaoFisico": true,
@@ -1608,7 +1600,9 @@
     "numerario": true,
     "garantia": "PT",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 8.94,
+    "custoMesCond": 7.9
    },
    "t": {
     "manut": {
@@ -1621,7 +1615,7 @@
     },
     "credito": {
      "v": "Sim, 3€/mês + IS",
-     "s": "Classic: 1.º mês grátis e 2,25€/mês com 300€ de compras no período. O Serviço Mais paga o 1.º trimestre"
+     "s": "Cartão de Crédito Santander: 1.º mês grátis e 2,25€/mês + IS com 300€ de compras no período anterior"
     },
     "levant": {
      "v": "Grátis",
@@ -1653,7 +1647,7 @@
     },
     "numerario": {
      "v": "Sim, grátis",
-     "s": "Notas sem custo ao balcão e nas máquinas. Moedas ao balcão: 2%"
+     "s": "Notas sem custo ao balcão e nas máquinas. Moedas ao balcão: 2% + IS"
     },
     "carteiras": {
      "v": "Apple Pay e Google Pay",
@@ -1703,23 +1697,23 @@
    "entidade": "Novo Banco, S.A",
    "ini": "NB",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o Novo Banco",
     "href": "https://www.novobanco.pt/particulares/contas/contas-pacote/conta-100"
    },
    "src": "https://www.novobanco.pt/precario",
    "f": {
     "custoAno": 98.64,
-    "custoAno1": null,
-    "custoAnoOrdenado": 56.16,
     "iban": "PT",
     "mbway": true,
     "cartaoFisico": true,
     "cartaoGratis": true,
-    "jurosMax": null,
+    "jurosMax": 0.05,
     "numerario": true,
     "garantia": "PT",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 8.22,
+    "custoMesCond": 4.68
    },
    "t": {
     "manut": {
@@ -1774,8 +1768,8 @@
      "s": "A conta à ordem não é remunerada"
     },
     "poupanca": {
-     "v": "Não",
-     "s": "Só poupanças com prazo, como a Micro Poupança"
+     "v": "0,05% TANB acima de 5.000€",
+     "s": "Vertente poupança incluída na Conta 100%, sem prazo nem penalização. Até 5.000€ rende 0%. Juros pagos todos os meses"
     },
     "investir": {
      "v": "Fundos, ações e PPR",
@@ -1815,14 +1809,12 @@
    "logoPad": false,
    "ini": "BP",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o BPI",
     "href": "https://www.bancobpi.pt/particulares/contas/contas-a-ordem/conta-valor-bpi"
    },
    "src": "https://bancobpi.pt/particulares/precario",
    "f": {
     "custoAno": 99.72,
-    "custoAno1": null,
-    "custoAnoOrdenado": 62.28,
     "iban": "PT",
     "mbway": true,
     "cartaoFisico": true,
@@ -1831,7 +1823,9 @@
     "numerario": true,
     "garantia": "PT",
     "aberturaOnline": true,
-    "suportePt": true
+    "suportePt": true,
+    "custoMes": 8.31,
+    "custoMesCond": 5.19
    },
    "t": {
     "manut": {
@@ -1911,12 +1905,9 @@
     },
     "apoio": {
      "v": "Telefone 24 horas",
-     "s": "BPI Direto 21 720 77 07, todos os dias. Mensagens na app BPI"
+     "s": "BPI Direto 21 720 77 07, 24 horas por dia. Assistente virtual também 24 horas"
     }
-   },
-   "c": [
-    "poupanca"
-   ]
+   }
   },
   {
    "id": "novobanco-empresas",
@@ -1929,19 +1920,13 @@
    "entidade": "Novo Banco, S.A",
    "ini": "NB",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o Novo Banco",
     "href": "https://www.novobanco.pt/empresas/tesouraria/contas/solucao-novo-negocio"
    },
-   "tags": [
-    {
-     "t": "0€ nos primeiros 24 meses",
-     "w": 0
-    }
-   ],
+   "custoNota": "0€ nos primeiros 24 meses",
    "src": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/outros-clientes/OC_FCD_contas_deposito.pdf.coredownload.inline.pdf",
    "f": {
     "custoAno": 99.84,
-    "custoAno1": 0,
     "iban": "PT",
     "aberturaOnline": false,
     "tpa": true,
@@ -1951,12 +1936,13 @@
     "eni": true,
     "sociedades": true,
     "jurosMax": null,
-    "garantia": "PT"
+    "garantia": "PT",
+    "custoMes": 8.32
    },
    "t": {
     "plano": {
      "v": "Solução Novo Negócio",
-     "s": "Para sociedades e ENI com atividade iniciada há menos de 24 meses"
+     "s": "Para sociedades comerciais e ENI. Grátis enquanto a atividade tiver menos de 24 meses"
     },
     "manut": {
      "v": "0€ nos primeiros 24 meses",
@@ -2040,10 +2026,10 @@
    "logoPad": true,
    "ini": "Re",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para a Revolut",
     "href": "https://revolutbusiness.ngih.net/c/2822659/3743144/9943",
     "aff": "revolut-business",
-    "nota": "Aplicam-se as condições da campanha."
+    "nota": "Bónus pago até 10 dias úteis depois de 31/12/2026."
    },
    "bonus": "Bónus de 200€",
    "tags": [
@@ -2056,7 +2042,6 @@
    "src": "https://www.revolut.com/en-PT/legal/business-basic-fees/",
    "f": {
     "custoAno": 120,
-    "custoAno1": null,
     "iban": "LT",
     "aberturaOnline": true,
     "tpa": true,
@@ -2066,7 +2051,8 @@
     "eni": false,
     "sociedades": true,
     "jurosMax": 1.0,
-    "garantia": "LT"
+    "garantia": "LT",
+    "custoMes": 10
    },
    "t": {
     "plano": {
@@ -2111,7 +2097,7 @@
     },
     "estado": {
      "v": "Só por transferência",
-     "s": "Sem referências Multibanco. AT e Segurança Social aceitam transferência para o IBAN indicado no documento de pagamento"
+     "s": "Sem referências Multibanco. AT: transferência para o IBAN do IGCP com NIF e referência. Segurança Social: para o IBAN do documento"
     },
     "multimoeda": {
      "v": "Sim",
@@ -2141,10 +2127,7 @@
      "v": "Chat na app",
      "s": "Também por email (business@revolut.com). Sem atendimento presencial"
     }
-   },
-   "c": [
-    "credito"
-   ]
+   }
   },
   {
    "id": "ca-empresas",
@@ -2157,13 +2140,12 @@
    "entidade": "Caixa Central de Crédito Agrícola Mútuo, C.R.L. (SICAM)",
    "ini": "CA",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o Crédito Agrícola",
     "href": "https://www.creditoagricola.pt/empresas/tesouraria/conta-pacote-ca-empresas-mais"
    },
    "src": "https://www.creditoagricola.pt/-/media/b475f42d70834ab9b128f44eb7ae3011.pdf",
    "f": {
     "custoAno": 124.8,
-    "custoAno1": null,
     "iban": "PT",
     "aberturaOnline": false,
     "tpa": true,
@@ -2173,7 +2155,9 @@
     "eni": true,
     "sociedades": true,
     "jurosMax": null,
-    "garantia": "PT"
+    "garantia": "PT",
+    "custoMes": 10.4,
+    "custoMesCond": 7.8
    },
    "t": {
     "plano": {
@@ -2194,7 +2178,7 @@
     },
     "transf": {
      "v": "50 SEPA+ por mês",
-     "s": "Grátis no CA Online e CA Mobile, incluindo imediatas. Depois, 1€ cada"
+     "s": "Grátis no CA Online e CA Mobile, incluindo imediatas. Depois, 1€ + IS cada"
     },
     "levant": {
      "v": "Grátis no Multibanco",
@@ -2205,8 +2189,8 @@
      "s": "Pagamentos com cartão e transferências noutras moedas pagam as comissões e o câmbio do preçário do banco"
     },
     "tpa": {
-     "v": "Sob consulta",
-     "s": "A Conta Pacote não refere TPA. Pede as condições no balcão"
+     "v": "CA Pay",
+     "s": "TPA e pagamentos online com cartões e MB WAY. A Conta Pacote não inclui TPA e a página não indica preço"
     },
     "cheques": {
      "v": "20 por ano",
@@ -2247,10 +2231,7 @@
      "v": "Balcão e CA Online",
      "s": "Também na app CA Empresas"
     }
-   },
-   "c": [
-    "tpa"
-   ]
+   }
   },
   {
    "id": "bpi-empresas",
@@ -2265,13 +2246,12 @@
    "logoPad": false,
    "ini": "BP",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o BPI",
     "href": "https://www.bancobpi.pt/empresas/contas-valor-bpi-negocios"
    },
    "src": "https://bancobpi.pt/particulares/precario---folheto-comissoes-despesas---depositos---outros-clientes",
    "f": {
     "custoAno": 99.72,
-    "custoAno1": null,
     "iban": "PT",
     "aberturaOnline": false,
     "tpa": true,
@@ -2281,7 +2261,9 @@
     "eni": true,
     "sociedades": true,
     "jurosMax": null,
-    "garantia": "PT"
+    "garantia": "PT",
+    "custoMes": 8.31,
+    "custoMesCond": 5.19
    },
    "t": {
     "plano": {
@@ -2370,13 +2352,12 @@
    "logoPad": true,
    "ini": "CG",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para a CGD",
     "href": "https://www.cgd.pt/Empresas/Gestao_corrente/Pages/Conta-Caixa-Business.aspx"
    },
    "src": "https://www.cgd.pt/Precario/Documents/9.pdf",
    "f": {
     "custoAno": 99.84,
-    "custoAno1": null,
     "iban": "PT",
     "aberturaOnline": false,
     "tpa": true,
@@ -2386,7 +2367,9 @@
     "eni": true,
     "sociedades": true,
     "jurosMax": null,
-    "garantia": "PT"
+    "garantia": "PT",
+    "custoMes": 8.32,
+    "custoMesCond": 4.16
    },
    "t": {
     "plano": {
@@ -2450,7 +2433,7 @@
     },
     "abertura": {
      "v": "Ao balcão",
-     "s": "Agências ou Gabinetes Empresas. Quem já é cliente adere no Caixadirecta Empresas. Mínimo de 500€"
+     "s": "Agências, Gabinetes Empresas ou Caixadirecta Empresas, também para quem ainda não é cliente. Mínimo de 500€"
     },
     "balcoes": {
      "v": "Rede nacional",
@@ -2475,13 +2458,12 @@
    "logoPad": true,
    "ini": "Mi",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o Millennium",
     "href": "https://www.millenniumbcp.pt/empresas/abrir-conta-empresa-online"
    },
    "src": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf",
    "f": {
     "custoAno": 187.2,
-    "custoAno1": 140.4,
     "iban": "PT",
     "aberturaOnline": true,
     "tpa": true,
@@ -2491,7 +2473,9 @@
     "eni": true,
     "sociedades": true,
     "jurosMax": null,
-    "garantia": "PT"
+    "garantia": "PT",
+    "custoMes": 15.6,
+    "custoMesCond": 7.8
    },
    "t": {
     "plano": {
@@ -2524,7 +2508,7 @@
     },
     "tpa": {
      "v": "Disponível",
-     "s": "TPA Avançar ou Smart Moove: 50% na mensalidade de 1 TPA. A solução fica a metade se o TPA faturar 3.500€ ou 5.000€ por mês"
+     "s": "50% na mensalidade de 1 TPA Avançar ou Smart Moove. Solução a metade se o TPA faturar mais de 3.500€ ou 5.000€ por mês, respetivamente"
     },
     "cheques": {
      "v": "1 módulo de 5 por mês",
@@ -2567,7 +2551,6 @@
     }
    },
    "c": [
-    "custoAno",
     "juros"
    ]
   },
@@ -2584,19 +2567,22 @@
    "logoPad": false,
    "ini": "Ba",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o Montepio",
     "href": "https://www.bancomontepio.pt/empresas/gestao-corrente/contas-e-solucoes"
    },
    "tags": [
     {
-     "t": "Empresas com menos de 2 anos",
+     "t": "Empresas até 2 anos",
      "w": 1
+    },
+    {
+     "t": "1.º mês grátis",
+     "w": 0
     }
    ],
    "src": "https://www.bancomontepio.pt/content/dam/montepio/pdf/geral/precario/folheto-comissoes-despesas/outros-clientes/9-comissoes-contas-deposito-outros-clientes.pdf",
    "f": {
     "custoAno": 112.32,
-    "custoAno1": 102.96,
     "iban": "PT",
     "aberturaOnline": false,
     "tpa": true,
@@ -2606,7 +2592,9 @@
     "eni": true,
     "sociedades": true,
     "jurosMax": null,
-    "garantia": "PT"
+    "garantia": "PT",
+    "custoMes": 9.36,
+    "custoMesCond": 4.16
    },
    "t": {
     "plano": {
@@ -2657,8 +2645,8 @@
      "s": "A conta é em euros"
     },
     "juros": {
-     "v": "Não indicado",
-     "s": "As condições da E.mpreendedor não preveem remuneração"
+     "v": "Não",
+     "s": "O preçário dá 0% TANB a todas as contas à ordem de empresas"
     },
     "credito": {
      "v": "Sim",
@@ -2680,10 +2668,7 @@
      "v": "Balcão e Montepio24 Empresas",
      "s": "Web, app e telefone"
     }
-   },
-   "c": [
-    "juros"
-   ]
+   }
   },
   {
    "id": "santander-empresas",
@@ -2698,19 +2683,18 @@
    "logoPad": true,
    "ini": "Sa",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o Santander",
     "href": "https://www.santander.pt/empresas/abrir-conta-empresas-online"
    },
    "tags": [
     {
-     "t": "Só ENI ou empresas até 6 meses",
+     "t": "Só ENI ou empresas novas",
      "w": 1
     }
    ],
    "src": "https://www.santander.pt/pdfs/precario-banco/folheto-comissoes-despesas/outros-clientes/9-contas-deposito/9_folhetocomissoesdespesas_oc_contasdep.pdf",
    "f": {
     "custoAno": 48.67,
-    "custoAno1": null,
     "iban": "PT",
     "aberturaOnline": true,
     "tpa": true,
@@ -2720,7 +2704,8 @@
     "eni": true,
     "sociedades": true,
     "jurosMax": null,
-    "garantia": "PT"
+    "garantia": "PT",
+    "custoMes": 4.06
    },
    "t": {
     "plano": {
@@ -2809,19 +2794,13 @@
    "logoPad": false,
    "ini": "AB",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o ABANCA",
     "href": "https://www.abanca.pt/pt/empresas/contas/conta-business"
    },
-   "tags": [
-    {
-     "t": "1.º ano grátis para novos clientes",
-     "w": 0
-    }
-   ],
+   "custoNota": "0€ no 1.º ano para novos clientes",
    "src": "https://www.abanca.pt/pt/empresas/contas/conta-business",
    "f": {
     "custoAno": 99.84,
-    "custoAno1": 0,
     "iban": "PT",
     "aberturaOnline": false,
     "tpa": true,
@@ -2831,7 +2810,8 @@
     "eni": true,
     "sociedades": true,
     "jurosMax": null,
-    "garantia": "PT"
+    "garantia": "PT",
+    "custoMes": 8.32
    },
    "t": {
     "plano": {
@@ -2868,7 +2848,7 @@
     },
     "cheques": {
      "v": "20 por ano",
-     "s": "1 módulo de 20 cheques por ano"
+     "s": "1 módulo de 20 cheques não cruzados por ano"
     },
     "iban": {
      "v": "Português (PT50)"
@@ -2924,7 +2904,7 @@
    "logoPad": true,
    "ini": "Wi",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para a Wise",
     "href": "https://www.literaciafinanceira.pt/visita/wise-business",
     "aff": "wise-business"
    },
@@ -2934,10 +2914,10 @@
      "w": 1
     }
    ],
+   "custoNota": "Ativação: 60€, uma vez",
    "src": "https://wise.com/pt/pricing/business/",
    "f": {
     "custoAno": 0,
-    "custoAno1": 60,
     "iban": "BE",
     "aberturaOnline": true,
     "tpa": false,
@@ -2947,7 +2927,8 @@
     "eni": true,
     "sociedades": true,
     "jurosMax": null,
-    "garantia": null
+    "garantia": null,
+    "custoMes": 0
    },
    "t": {
     "plano": {
@@ -2992,7 +2973,7 @@
     },
     "estado": {
      "v": "Só por transferência",
-     "s": "Sem referências Multibanco. AT e Segurança Social aceitam transferência para o IBAN indicado no documento de pagamento"
+     "s": "Sem referências Multibanco. AT: transferência para o IBAN do IGCP com NIF e referência. Segurança Social: para o IBAN do documento"
     },
     "multimoeda": {
      "v": "Sim",
@@ -3022,10 +3003,7 @@
      "v": "Chat, email e telefone",
      "s": "Apoio 24/7, segundo a Wise. Site e app em português"
     }
-   },
-   "c": [
-    "estado"
-   ]
+   }
   },
   {
    "id": "n26-business",
@@ -3040,7 +3018,7 @@
    "logoPad": true,
    "ini": "N2",
    "cta": {
-    "label": "Abrir conta",
+    "label": "Ir para o N26",
     "href": "https://n26.com/en-eu/free-business-account"
    },
    "tags": [
@@ -3052,7 +3030,6 @@
    "src": "https://n26.com/en-eu/free-business-account",
    "f": {
     "custoAno": 0,
-    "custoAno1": null,
     "iban": "DE",
     "aberturaOnline": true,
     "tpa": false,
@@ -3062,7 +3039,8 @@
     "eni": true,
     "sociedades": false,
     "jurosMax": 0.3,
-    "garantia": "DE"
+    "garantia": "DE",
+    "custoMes": 0
    },
    "t": {
     "plano": {
@@ -3075,7 +3053,7 @@
     },
     "outrosPlanos": {
      "v": "Business Smart 4,90€/mês",
-     "s": "Inclui cartão físico, 3 levantamentos grátis por mês e 10 subcontas. Há ainda Business Go e Business Metal"
+     "s": "Smart inclui cartão físico, 3 levantamentos grátis por mês e 10 subcontas. Business Go 9,90€ e Business Metal 16,90€ por mês"
     },
     "cartoes": {
      "v": "Virtual grátis, físico 10€",
@@ -3107,7 +3085,7 @@
     },
     "estado": {
      "v": "Só por transferência",
-     "s": "Sem referências Multibanco. AT e Segurança Social aceitam transferência para o IBAN indicado no documento de pagamento"
+     "s": "Sem referências Multibanco. AT: transferência para o IBAN do IGCP com NIF e referência. Segurança Social: para o IBAN do documento"
     },
     "multimoeda": {
      "v": "Não",
@@ -3139,9 +3117,6 @@
     }
    },
    "c": [
-    "estado",
-    "tpa",
-    "credito",
     "apoio"
    ]
   }

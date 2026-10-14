@@ -1,13 +1,15 @@
 /* Comparador de contas bancárias - LiteraciaFinanceira.pt
    Dados em dados/contas.json (valores, ordem, links e etiquetas). Logótipos em logos/.
    A página do Webflow tem um div com o ID lf-cb e carrega este ficheiro e o CSS pelo jsDelivr,
-   presos a um commit (ver webflow-custom-code.html e README.md). */
+   presos a um commit (ver webflow-custom-code.html e README.md).
+   A lista segue o comparador de depósitos (#lf-dp) e a vista lado a lado o de corretoras (#lf-cc). */
 (function () {
   'use strict';
   var scriptEl = document.currentScript;
   var BASE = scriptEl && scriptEl.src ? scriptEl.src.replace(/[^/]*$/, '') : 'https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@main/comparador-contas/';
   var LF = 'https://www.literaciafinanceira.pt';
   var CONF = 'A confirmar';
+  var LIMITE = 10; /* contas visíveis antes de "Mostrar mais" */
   var D, ALL, root, S;
 
   function boot() {
@@ -36,7 +38,7 @@
 
   var CHIPS = {
     particular: [
-      { k: 'gratis', l: 'Sem custos fixos', i: 'wal', f: function (o) { return o.f.custoAno === 0; } },
+      { k: 'gratis', l: 'Sem custos fixos', i: 'wal', f: function (o) { return o.f.custoMes === 0; } },
       { k: 'ibanpt', l: 'IBAN português', i: 'pin', f: function (o) { return o.f.iban === 'PT'; } },
       { k: 'mbway', l: 'MB WAY', i: 'pho', f: function (o) { return !!o.f.mbway; } },
       { k: 'cartao', l: 'Cartão físico grátis', i: 'card', f: function (o) { return !!(o.f.cartaoFisico && o.f.cartaoGratis); } },
@@ -44,7 +46,7 @@
       { k: 'numerario', l: 'Depósitos em numerário', i: 'cash', f: function (o) { return !!o.f.numerario; } }
     ],
     empresa: [
-      { k: 'gratis', l: 'Sem mensalidade', i: 'wal', f: function (o) { return o.f.custoAno === 0; } },
+      { k: 'gratis', l: 'Sem mensalidade', i: 'wal', f: function (o) { return o.f.custoMes === 0; } },
       { k: 'online', l: 'Abertura online', i: 'mon', f: function (o) { return !!o.f.aberturaOnline; } },
       { k: 'ibanpt', l: 'IBAN português', i: 'pin', f: function (o) { return o.f.iban === 'PT'; } },
       { k: 'tpa', l: 'TPA', i: 'card', f: function (o) { return !!o.f.tpa; } },
@@ -53,15 +55,17 @@
       { k: 'sociedades', l: 'Aceita sociedades', i: 'bld', f: function (o) { return !!o.f.sociedades; } }
     ]
   };
+  var SEGS = [['particular', 'Pessoal'], ['empresa', 'Empresa']];
   var TIPOS = [['todos', 'Todos'], ['digital', '100% digitais'], ['balcoes', 'Com balcões']];
+  var VISTAS = [['lista', 'Lista'], ['comparar', 'Lado a lado']];
   var SORTS = {
     particular: [['rec', 'Recomendados'], ['custo', 'Mais baratos'], ['juros', 'Mais juros'], ['nome', 'Nome (A-Z)']],
     empresa: [['rec', 'Recomendados'], ['custo', 'Mais baratos'], ['nome', 'Nome (A-Z)']]
   };
   var SECTIONS = {
     particular: [
-      { id: 'custos', t: 'Quanto pagas', i: 'calc', rows: [
-        { k: 'custoAno', calc: 'custo', l: 'Custo fixo por ano', n: 'Manutenção e cartão de débito, com Imposto do Selo' },
+      { id: 'custos', t: 'Quanto pagas', n: 'Com Imposto do Selo', i: 'calc', rows: [
+        { k: 'custoMes', calc: 'custo', l: 'Custo por mês', n: 'Manutenção e cartão de débito' },
         { k: 'manut', l: 'Comissão de manutenção' },
         { k: 'cartao', l: 'Cartão de débito' },
         { k: 'credito', l: 'Cartão de crédito' },
@@ -95,8 +99,8 @@
       ] }
     ],
     empresa: [
-      { id: 'custos', t: 'Quanto pagas', i: 'calc', rows: [
-        { k: 'custoAno', calc: 'custo', l: 'Custo por ano', n: 'Plano considerado, com Imposto do Selo' },
+      { id: 'custos', t: 'Quanto pagas', n: 'Com Imposto do Selo, quando se aplica', i: 'calc', rows: [
+        { k: 'custoMes', calc: 'custo', l: 'Custo por mês', n: 'Plano considerado' },
         { k: 'plano', l: 'Plano considerado' },
         { k: 'manut', l: 'Mensalidade' },
         { k: 'outrosPlanos', l: 'Outros planos' },
@@ -147,24 +151,17 @@
     shi: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
     out: '<path d="M7 17L17 7M7 7h10v10"/>',
     chev: '<path d="M6 9l6 6 6-6"/>',
-    x: '<path d="M18 6L6 18M6 6l12 12"/>',
     yes: '<circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/>',
     no: '<circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/>',
-    cal: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
-    pers: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
-    brief: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
-    list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
-    cols: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/>'
+    cal: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'
   };
 
   /* ---------- Formatação pt-PT ---------- */
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function milhar(s) { return s.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
-  function fmtEur(n) {
+  function eur2(n) { /* sempre com cêntimos, como nos outros comparadores: 0,00€ e 5,46€ */
     if (n == null) return '-';
-    var r = Math.round(n * 100) / 100;
-    if (Math.abs(r - Math.round(r)) < 0.001) return milhar(String(Math.round(r))) + '€';
-    var p = r.toFixed(2).split('.');
+    var p = (Math.round(n * 100) / 100).toFixed(2).split('.');
     return milhar(p[0]) + ',' + p[1] + '€';
   }
   function fmtPct(n) { return n.toFixed(2).replace('.', ',') + '%'; }
@@ -203,29 +200,31 @@
 
   /* ---------- Lista filtrada ---------- */
   function chipsOn() { var n = 0; for (var k in S.on) { if (S.on.hasOwnProperty(k) && S.on[k]) n++; } return n; }
+  function noSeg() { return ALL.filter(function (o) { return o.seg === S.seg; }); }
+  function doTipo(o) { return S.tipo === 'todos' || o.tipo === S.tipo; }
   function filtered() {
     var chips = CHIPS[S.seg];
-    var list = ALL.filter(function (o) {
-      if (o.seg !== S.seg) return false;
-      if (S.tipo !== 'todos' && o.tipo !== S.tipo) return false;
+    var list = noSeg().filter(function (o) {
+      if (!doTipo(o)) return false;
       for (var i = 0; i < chips.length; i++) { if (S.on[chips[i].k] && !chips[i].f(o)) return false; }
       return true;
     });
     return list.sort(function (a, b) {
-      if (S.sort === 'custo') { if (a.f.custoAno !== b.f.custoAno) return a.f.custoAno - b.f.custoAno; }
+      if (S.sort === 'custo') { if (a.f.custoMes !== b.f.custoMes) return a.f.custoMes - b.f.custoMes; }
       else if (S.sort === 'juros') { var ja = a.f.jurosMax || 0, jb = b.f.jurosMax || 0; if (ja !== jb) return jb - ja; }
       else if (S.sort === 'nome') { return a.name.localeCompare(b.name, 'pt'); }
       return a.ordem - b.ordem;
     });
   }
-  function segTotal() { return ALL.filter(function (o) { return o.seg === S.seg; }).length; }
 
   /* ---------- Peças ---------- */
+  /* Logótipo: as iniciais ficam por baixo até a imagem carregar; depois o quadrado fica branco com borda
+     e as iniciais desaparecem (sem isto, apareciam através dos logótipos com fundo transparente). */
   function logo(o, size) {
     var cls = 'cb-logo' + (size ? ' is-' + size : '') + (o.logoPad ? ' is-pad' : '');
     var src = o.logo ? (/^https?:/.test(o.logo) ? o.logo : BASE + 'logos/' + o.logo) : '';
     return '<span class="' + cls + '" aria-hidden="true"><span class="cb-logo-ini">' + esc(o.ini || o.name.slice(0, 2)) + '</span>' +
-      (src ? '<img src="' + esc(src) + '" alt="" loading="lazy" decoding="async" onload="this.classList.add(\'is-on\')" onerror="this.parentNode.removeChild(this)">' : '') + '</span>';
+      (src ? '<img src="' + esc(src) + '" alt="" decoding="async" onload="this.parentNode.className+=\' has-img\'" onerror="this.parentNode.removeChild(this)">' : '') + '</span>';
   }
   function yn(v) {
     var t = String(v || '');
@@ -235,12 +234,8 @@
   }
   function isConf(o, k) { return o.c && o.c.indexOf(k) > -1; }
   function txt(o, k) { return (o.t && o.t[k]) || { v: '-' }; }
-  function custoSub(o) {
-    var f = o.f;
-    if (f.custoAnoOrdenado != null && f.custoAnoOrdenado !== f.custoAno) return 'Com condições: ' + fmtEur(f.custoAnoOrdenado);
-    if (f.custoAno1 != null && f.custoAno1 !== f.custoAno) return '1.º ano: ' + fmtEur(f.custoAno1);
-    return '';
-  }
+  function hasCond(o) { return o.f.custoMesCond != null && o.f.custoMesCond !== o.f.custoMes; }
+  function custoSub(o) { return hasCond(o) ? 'Com condições: ' + eur2(o.f.custoMesCond) : (o.custoNota || ''); }
   function jurosNaConta(o) {
     var m = String(txt(o, 'jurosConta').v).match(/(\d+(?:,\d+)?)\s*%/);
     return !!(m && parseFloat(m[1].replace(',', '.')) > 0);
@@ -251,26 +246,26 @@
     return '<div class="cb-kpi"><div class="cb-kpi-l">' + esc(l) + '</div><div class="cb-kpi-v' + (cls ? ' ' + cls : '') + '">' + v + '</div>' + (s ? '<div class="cb-kpi-s">' + s + '</div>' : '') + '</div>';
   }
   function kpis(o) {
-    var f = o.f, custo = kpi(o.seg === 'empresa' ? 'Custo por ano' : 'Custo fixo por ano', esc(fmtEur(f.custoAno)), esc(custoSub(o)), 'is-big' + (f.custoAno === 0 ? ' is-ok' : ''));
+    var f = o.f, custo = kpi('Custo por mês', esc(eur2(f.custoMes)), esc(custoSub(o)), f.custoMes === 0 ? 'is-ok' : '');
     if (o.seg === 'particular') {
       return custo +
-        kpi('Cartão de débito', esc(txt(o, 'cartao').v)) +
-        kpi('Levantamentos', esc(txt(o, 'levant').v)) +
-        kpi('IBAN', esc(IBANS[f.iban] || f.iban), (f.mbway ? '<span class="cb-yn is-yes">' + ico(IC.yes) + 'Com MB WAY</span>' : '<span class="cb-yn is-no">' + ico(IC.no) + 'Sem MB WAY</span>')) +
-        kpi('Juros', f.jurosMax > 0 ? 'Até ' + fmtPct(f.jurosMax) : 'Não paga', f.jurosMax > 0 ? (jurosNaConta(o) ? 'Na conta à ordem' : 'Na conta poupança') : '');
+        kpi('Cartão de débito', esc(txt(o, 'cartao').v), '', 'is-plain') +
+        kpi('Levantamentos', esc(txt(o, 'levant').v), '', 'is-plain') +
+        kpi('IBAN', esc(IBANS[f.iban] || f.iban), (f.mbway ? '<span class="cb-yn is-yes">' + ico(IC.yes) + 'Com MB WAY</span>' : '<span class="cb-yn is-no">' + ico(IC.no) + 'Sem MB WAY</span>'), 'is-plain') +
+        kpi('Juros', f.jurosMax > 0 ? 'Até ' + fmtPct(f.jurosMax) : 'Não paga', f.jurosMax > 0 ? (jurosNaConta(o) ? 'Na conta à ordem' : 'Na conta poupança') : '', f.jurosMax > 0 ? '' : 'is-plain');
     }
     return custo +
-      kpi('Cartões', esc(txt(o, 'cartoes').v)) +
-      kpi('Transferências', esc(txt(o, 'transf').v)) +
-      kpi('IBAN', esc(IBANS[f.iban] || f.iban), f.multimoeda ? 'Várias moedas' : 'Só euros') +
-      kpi('Abertura', f.aberturaOnline ? 'Online' : 'No balcão', esc(quem(o)));
+      kpi('Cartões', esc(txt(o, 'cartoes').v), '', 'is-plain') +
+      kpi('Transferências', esc(txt(o, 'transf').v), '', 'is-plain') +
+      kpi('IBAN', esc(IBANS[f.iban] || f.iban), f.multimoeda ? 'Várias moedas' : 'Só euros', 'is-plain') +
+      kpi('Abertura', f.aberturaOnline ? 'Online' : 'No balcão', esc(quem(o)), 'is-plain');
   }
   /* modo: '' (cartão da lista), 'head' (cabeçalho da comparação) ou 'mini' (barra fixa, só o botão) */
   function ctaHtml(o, modo) {
-    var c = o.cta || {}, aff = c.aff;
-    var a = '<a class="cb-btn" href="' + esc(c.href) + '" target="_blank" rel="noopener' + (aff ? ' sponsored' : '') + '"' +
+    var c = o.cta || {}, aff = c.aff, label = c.label || 'Abrir conta';
+    var a = '<a class="cb-btn' + (label.length > 22 ? ' is-long' : '') + '" href="' + esc(c.href) + '" target="_blank" rel="noopener' + (aff ? ' sponsored' : '') + '"' +
       (aff ? ' data-afiliado="' + esc(aff) + '" data-afiliado-local="comparador-contas"' : '') +
-      ' aria-label="' + esc((c.label || 'Abrir conta') + ' no site de ' + o.name) + '"><span>' + esc(c.label || 'Abrir conta') + '</span>' + ico(IC.out) + '</a>';
+      ' aria-label="' + esc(label + ' (abre o site de ' + o.name + ')') + '"><span>' + esc(label) + '</span>' + ico(IC.out) + '</a>';
     if (modo === 'mini') return a;
     var extra = (c.nota ? '<span class="cb-note">' + esc(c.nota) + '</span>' : '') +
       (o.review ? '<a class="cb-review" href="' + esc(o.review) + '" target="_blank" rel="noopener">Ler análise completa</a>' : '');
@@ -283,14 +278,14 @@
     return h || keep ? '<div class="cb-tags">' + h + '</div>' : '';
   }
 
-  /* Valor de uma linha para uma conta: {v, s, c} já em HTML */
+  /* Valor de uma linha para uma conta: {v, s, conf, num, big, yn} */
   function rowVal(o, row) {
     var f = o.f;
     if (row.calc === 'custo') {
-      var s = [];
-      if (f.custoAno1 != null && f.custoAno1 !== f.custoAno) s.push('1.º ano: ' + fmtEur(f.custoAno1));
-      if (f.custoAnoOrdenado != null && f.custoAnoOrdenado !== f.custoAno) s.push('Com condições: ' + fmtEur(f.custoAnoOrdenado));
-      return { v: fmtEur(f.custoAno), s: s.join(' · '), conf: isConf(o, 'custoAno'), num: f.custoAno, big: true };
+      var s = f.custoMes > 0 ? ['Por ano: ' + eur2(f.custoAno)] : [];
+      if (hasCond(o)) s.push('Com condições: ' + eur2(f.custoMesCond) + ' por mês');
+      if (o.custoNota) s.push(o.custoNota);
+      return { v: eur2(f.custoMes), s: s.join('. '), conf: isConf(o, 'custoMes'), num: f.custoMes, big: true };
     }
     if (row.calc === 'juros') {
       return { v: f.jurosMax > 0 ? fmtPct(f.jurosMax) : 'Não paga', s: '', num: f.jurosMax || 0, big: true };
@@ -308,95 +303,92 @@
         '<a class="cb-author" href="' + LF + '/autores/franklin-silva"><span class="cb-av"><img src="https://cdn.prod.website-files.com/67922c46c9da6bf5d9bfdf20/683ee0ae5bc67fe0ef48466e_franklin-silva.avif" alt="" onerror="this.parentNode.textContent=\'FS\'"></span><span><span class="cb-al">Revisor</span><span class="cb-an">Franklin Silva</span></span></a>' +
         '<span class="cb-author cb-date"><span class="cb-av">' + ico(IC.cal, '') + '</span><span><span class="cb-al">Última verificação</span><span class="cb-an">' + esc(D.verificado) + '</span></span></span>' +
       '</div>' +
-      '<div class="cb-panel" id="cb-controls"></div>' +
+      '<div class="cb-form" id="cb-form"></div>' +
       '<div id="cb-view"></div>' +
       '<div class="cb-notes" id="cb-notes"></div>' +
       '<div class="cb-tray" id="cb-tray"></div>' +
       '<div class="cb-mini" id="cb-mini"></div>';
   }
 
-  function segBtn(attr, val, on, label) {
-    return '<button type="button" ' + attr + '="' + val + '" class="' + (on ? 'is-on' : '') + '" aria-pressed="' + on + '">' + label + '</button>';
+  function tabs(attr, opts, cur, id, label) {
+    return '<div class="cb-fg cb-fg-' + attr.replace('data-', '') + '"><span class="cb-label" id="' + id + '">' + label + '</span>' +
+      '<div class="cb-toggle" role="group" aria-labelledby="' + id + '" style="--cb-tabs:' + opts.length + '">' +
+      opts.map(function (t) {
+        var on = cur === t[0];
+        return '<button type="button" class="cb-tab' + (on ? ' is-active' : '') + '" ' + attr + '="' + t[0] + '" aria-pressed="' + on + '">' + esc(t[1]) + '</button>';
+      }).join('') + '</div></div>';
   }
-  function renderControls() {
-    var lista = S.view === 'lista';
-    var h = '<div class="cb-row cb-top">' +
-      '<div class="cb-seg is-big" role="group" aria-label="Tipo de conta">' +
-        segBtn('data-seg', 'particular', S.seg === 'particular', ico(IC.pers) + 'Conta pessoal') +
-        segBtn('data-seg', 'empresa', S.seg === 'empresa', ico(IC.brief) + 'Conta empresa') +
-      '</div>' +
-      '<div class="cb-seg cb-views" role="group" aria-label="Como ver as contas">' +
-        segBtn('data-go', 'lista', lista, ico(IC.list) + 'Lista') +
-        segBtn('data-go', 'comparar', !lista, ico(IC.cols) + 'Lado a lado') +
-      '</div></div>';
-    if (lista) {
-      h += '<div class="cb-row"><span class="cb-label">Tipo de banco</span><div class="cb-seg" role="group" aria-label="Tipo de banco">' +
-        TIPOS.map(function (t) { return segBtn('data-tipo', t[0], S.tipo === t[0], esc(t[1])); }).join('') +
-        '</div></div>' +
-        '<div class="cb-row"><span class="cb-label">Filtrar</span><div class="cb-chips">' +
-        CHIPS[S.seg].map(function (c) { return '<button type="button" class="cb-chip' + (S.on[c.k] ? ' is-on' : '') + '" data-chip="' + c.k + '" aria-pressed="' + !!S.on[c.k] + '">' + ico(IC[c.i]) + esc(c.l) + '</button>'; }).join('') +
-        '</div></div>';
-    } else {
-      var max = maxSel();
-      h += '<div class="cb-pickhead"><p class="cb-step">Escolhe até ' + max + ' contas para comparar</p>' +
-        '<p class="cb-hint">' + (isMobile() ? 'No telemóvel comparas 2 de cada vez. ' : '') + 'Se já tiveres o máximo escolhido, a mais antiga sai.</p></div>' +
-        '<div class="cb-picker">' + ALL.filter(function (o) { return o.seg === S.seg; }).sort(function (a, b) { return a.ordem - b.ordem; }).map(function (o) {
-          var on = sel().indexOf(o.id) > -1;
-          return '<button type="button" class="cb-pick' + (on ? ' is-on' : '') + '" data-pick="' + o.id + '" aria-pressed="' + on + '">' + logo(o, 'sm') + '<span>' + esc(o.name) + '</span></button>';
-        }).join('') + '</div>';
-    }
-    document.getElementById('cb-controls').innerHTML = h;
+  function renderForm() {
+    document.getElementById('cb-form').innerHTML =
+      tabs('data-seg', SEGS, S.seg, 'cb-l-seg', 'Tipo de conta') +
+      tabs('data-tipo', TIPOS, S.tipo, 'cb-l-tipo', 'Tipo de banco') +
+      tabs('data-go', VISTAS, S.view, 'cb-l-ver', 'Ver');
   }
 
-  /* ---------- Render: lista ---------- */
+  /* ---------- Render: lista (como o comparador de depósitos) ---------- */
   function cardHtml(o, i) {
     var on = sel().indexOf(o.id) > -1, open = S.open === o.id;
-    var h = '<div class="cb-card' + (on ? ' is-sel' : '') + (open ? ' is-open' : '') + '" data-id="' + o.id + '">' +
-      '<div class="cb-main">' +
+    var h = '<div class="cb-c' + (on ? ' is-sel' : '') + (open ? ' is-open' : '') + '" data-id="' + o.id + '">' +
+      '<div class="cb-c-main">' +
         '<div class="cb-rank">' + (i + 1) + '</div>' +
-        '<div class="cb-ent">' + logo(o) + '<div><span class="cb-name">' + esc(o.name) + '</span><span class="cb-prod">' + esc(o.produto) + ' · ' + esc(o.tipoTxt) + '</span>' + tagsHtml(o) + '</div></div>' +
+        '<div class="cb-ent">' + logo(o) + '<div class="cb-ent-t"><div class="cb-name">' + esc(o.name) + '</div><div class="cb-prod">' + esc(o.produto) + '</div>' + tagsHtml(o) + '</div></div>' +
         '<div class="cb-kpis">' + kpis(o) + '</div>' +
-        '<div class="cb-cta">' + ctaHtml(o) + '</div>' +
+        '<div class="cb-c-cta">' + ctaHtml(o) + '</div>' +
       '</div>' +
-      '<div class="cb-foot">' +
-        '<label class="cb-cmp"><input type="checkbox" data-cmp="' + o.id + '" aria-label="Comparar ' + esc(o.name) + '"' + (on ? ' checked' : '') + '><span>Comparar</span></label>' +
-        '<button type="button" class="cb-more" data-more="' + o.id + '" aria-expanded="' + open + '" aria-label="' + (open ? 'Fechar detalhes de ' : 'Ver todos os detalhes de ') + esc(o.name) + '">' + (open ? 'Fechar detalhes' : 'Ver todos os detalhes') + ico(IC.chev, 'cb-chev') + '</button>' +
+      '<div class="cb-c-foot">' +
+        '<label class="cb-cmp"><input type="checkbox" data-cmp="' + o.id + '"' + (on ? ' checked' : '') + '><span>Comparar</span></label>' +
+        '<button type="button" class="cb-c-toggle" data-more="' + o.id + '" aria-expanded="' + open + '" aria-label="' + (open ? 'Fechar os detalhes de ' : 'Ver todos os detalhes de ') + esc(o.name) + '">' +
+          '<span>' + (open ? 'Fechar detalhes' : 'Ver <span class="cb-hide-s">todos os </span>detalhes') + '</span>' + ico(IC.chev, 'cb-caret') + '</button>' +
       '</div>';
     if (open) h += detailHtml(o);
     return h + '</div>';
   }
   function detailHtml(o) {
-    var h = '<div class="cb-detail">';
+    var h = '<div class="cb-c-detail"><div class="cb-dgrid">';
     SECTIONS[o.seg].forEach(function (sec) {
-      h += '<div class="cb-dsec"><div class="cb-dsec-t">' + esc(sec.t) + '</div><div class="cb-dgrid">';
+      h += '<div class="cb-dsec"><div class="cb-h">' + esc(sec.t) + '</div>';
       sec.rows.forEach(function (row) {
         var r = rowVal(o, row);
         h += '<div class="cb-kv"><span class="cb-kv-l">' + esc(row.l) + '</span><span class="cb-kv-v"><b>' + (r.yn ? yn(r.v) : esc(r.v)) + '</b>' +
           (r.s ? '<span class="cb-s">' + esc(r.s) + '</span>' : '') + (r.conf ? '<span class="cb-tag is-conf">' + CONF + '</span>' : '') + '</span></div>';
       });
-      h += '</div></div>';
+      h += '</div>';
     });
-    h += '<div class="cb-dfoot"><a class="cb-src" href="' + esc(o.src) + '" target="_blank" rel="noopener">Ver preçário e condições de ' + esc(o.name) + '</a>' +
+    h += '</div><div class="cb-dfoot"><a class="cb-src" href="' + esc(o.src) + '" target="_blank" rel="noopener">Ver preçário e condições de ' + esc(o.name) + '</a>' +
       (o.review ? '<a class="cb-src" href="' + esc(o.review) + '" target="_blank" rel="noopener">Ler análise completa</a>' : '') + '</div>';
     return h + '</div>';
   }
   function renderList() {
-    var list = filtered(), total = segTotal(), n = list.length, filt = chipsOn() > 0 || S.tipo !== 'todos';
-    var h = '<div class="cb-bar"><span class="cb-count">' +
-      (filt ? '<b>' + n + '</b> de ' + total + ' contas' : '<b>' + total + '</b> contas') +
-      (filt ? ' · <button type="button" class="cb-link" data-reset>Limpar filtros</button>' : '') + '</span>' +
-      '<div class="cb-bar-r"><select class="cb-select" id="cb-sort" aria-label="Ordenar">' +
+    var list = filtered(), total = noSeg().length, n = list.length, filt = chipsOn() > 0 || S.tipo !== 'todos';
+    var lim = (S.all || n <= LIMITE + 2) ? n : LIMITE;
+    var h = '<div class="cb-bar"><div class="cb-chips" role="group" aria-label="Filtros">' +
+      CHIPS[S.seg].map(function (c) { return '<button type="button" class="cb-chip' + (S.on[c.k] ? ' is-on' : '') + '" data-chip="' + c.k + '" aria-pressed="' + !!S.on[c.k] + '">' + ico(IC[c.i]) + esc(c.l) + '</button>'; }).join('') +
+      '</div><div class="cb-bar-r"><span class="cb-count" aria-live="polite">' +
+      (filt ? n + ' de ' + total + ' contas' : total + ' contas') + '</span>' +
+      '<select class="cb-select" id="cb-sort" aria-label="Ordenar">' +
       SORTS[S.seg].map(function (s) { return '<option value="' + s[0] + '"' + (S.sort === s[0] ? ' selected' : '') + '>' + esc(s[1]) + '</option>'; }).join('') +
       '</select></div></div>';
     if (!n) h += '<div class="cb-empty">Nenhuma conta cumpre todos estes filtros.<br><button type="button" class="cb-link" data-reset>Limpar filtros</button></div>';
-    else h += '<div class="cb-list">' + list.map(cardHtml).join('') + '</div>';
+    else {
+      h += '<div class="cb-list">' + list.slice(0, lim).map(cardHtml).join('') + '</div>';
+      if (lim < n) h += '<div class="cb-more"><button type="button" class="cb-btn is-secondary" data-all>Mostrar mais ' + (n - lim) + '</button></div>';
+    }
     document.getElementById('cb-view').innerHTML = h;
   }
 
-  /* ---------- Render: comparação ---------- */
+  /* ---------- Render: lado a lado (como o comparador de corretoras) ---------- */
   function renderCompare() {
-    var cur = sel().map(byId).filter(Boolean);
-    var h = '<div class="cb-bar"><span class="cb-count">' + (cur.length ? '<b>' + cur.length + '</b> ' + (cur.length === 1 ? 'conta escolhida' : 'contas lado a lado') : '') + '</span>' +
+    var cur = sel().map(byId).filter(Boolean), max = maxSel();
+    var picks = noSeg().filter(doTipo).sort(function (a, b) { return a.ordem - b.ordem; });
+    var h = '<div class="cb-panel">' +
+      '<p class="cb-step">Escolhe até ' + max + ' contas para comparar</p>' +
+      '<p class="cb-hint">Estão pela ordem dos recomendados. Se já tiveres o máximo escolhido, a mais antiga sai.</p>' +
+      '<div class="cb-picker">' + picks.map(function (o) {
+        var on = sel().indexOf(o.id) > -1;
+        return '<button type="button" class="cb-pick' + (on ? ' is-on' : '') + '" data-pick="' + o.id + '" aria-pressed="' + on + '">' + logo(o, 'md') +
+          '<span class="cb-pick-n">' + esc(o.name) + '</span><span class="cb-pick-t">' + esc(o.tipoTxt) + '</span></button>';
+      }).join('') + '</div></div>' +
+      '<div class="cb-bar is-cmp"><span class="cb-count" aria-live="polite">' + (cur.length ? cur.length + (cur.length === 1 ? ' conta selecionada' : ' contas selecionadas') : '') + '</span>' +
       '<button type="button" class="cb-switch" data-diff aria-pressed="' + S.diff + '"><i></i>Mostrar só diferenças</button></div>' +
       '<div class="cb-table" id="cb-table"></div><div class="cb-pairs" id="cb-pairs"></div>';
     document.getElementById('cb-view').innerHTML = h;
@@ -404,13 +396,13 @@
   }
   function renderTable(cur) {
     var t = document.getElementById('cb-table');
-    if (!cur.length) { t.innerHTML = '<div class="cb-empty" style="border:0">Escolhe pelo menos uma conta na lista acima.</div>'; document.getElementById('cb-pairs').innerHTML = ''; renderMini([]); return; }
-    root.style.setProperty('--cb-cols', 'minmax(170px,1fr) repeat(' + cur.length + ',minmax(0,1.25fr))');
+    if (!cur.length) { t.innerHTML = '<div class="cb-empty is-flat">Escolhe pelo menos uma conta acima.</div>'; document.getElementById('cb-pairs').innerHTML = ''; renderMini([]); return; }
+    root.style.setProperty('--cb-cols', 'minmax(170px,1fr) repeat(' + cur.length + ',minmax(0,1.3fr))');
     root.style.setProperty('--cb-n', cur.length);
     root.classList.toggle('show-all', !S.diff);
     var head = '<div class="cb-tr cb-head"><div class="cb-hcell"></div>' + cur.map(function (o) {
-      return '<div class="cb-hcell"><button type="button" class="cb-hx" data-rm="' + o.id + '" aria-label="Tirar ' + esc(o.name) + ' da comparação">' + ico(IC.x, '') + '</button>' +
-        '<div class="cb-hname">' + logo(o, 'sm') + '<span><b>' + esc(o.name) + '</b><small>' + esc(o.produto) + '</small></span></div>' +
+      return '<div class="cb-hcell">' +
+        '<div class="cb-hname">' + logo(o, 'md') + '<span><b>' + esc(o.name) + '</b><small>' + esc(o.produto) + '</small></span></div>' +
         tagsHtml(o, true) + ctaHtml(o, 'head') + '</div>';
     }).join('') + '</div>';
     var body = SECTIONS[S.seg].map(function (sec) {
@@ -433,9 +425,9 @@
           }).join('') + '</div>';
       }).join('');
       var closed = !!S.secs[sec.id];
-      return '<div class="cb-sec' + (closed ? ' is-closed' : '') + '"><button type="button" class="cb-sec-h" data-sec="' + sec.id + '" aria-expanded="' + !closed + '"><span class="cb-sec-t">' + ico(IC[sec.i], '') + '<span>' + esc(sec.t) + '</span></span>' + ico(IC.chev, 'cb-chev') + '</button><div class="cb-sec-b">' + rows + '</div></div>';
+      return '<div class="cb-sec' + (closed ? ' is-closed' : '') + '"><button type="button" class="cb-sec-h" data-sec="' + sec.id + '" aria-expanded="' + !closed + '"><span class="cb-sec-t">' + ico(IC[sec.i], '') + '<span>' + esc(sec.t) + (sec.n ? '<small>' + esc(sec.n) + '</small>' : '') + '</span></span>' + ico(IC.chev, 'cb-chev') + '</button><div class="cb-sec-b">' + rows + '</div></div>';
     }).join('');
-    var src = '<div class="cb-tr" style="border-top:1px solid var(--g200)"><div class="cb-lab">Fontes<small>Preçários e páginas oficiais</small></div>' +
+    var src = '<div class="cb-tr cb-srcrow"><div class="cb-lab">Fontes<small>Preçários e páginas oficiais</small></div>' +
       cur.map(function (o) { return '<div class="cb-cell"><a class="cb-src" href="' + esc(o.src) + '" target="_blank" rel="noopener">Preçário de ' + esc(o.name) + '</a></div>'; }).join('') + '</div>';
     t.innerHTML = head + body + src;
     renderPairs(cur);
@@ -486,14 +478,14 @@
   function renderNotes() {
     var p = [];
     if (S.seg === 'particular') {
-      p.push('<b>Custo fixo por ano:</b> soma a comissão de manutenção e o cartão de débito, com Imposto do Selo, sem condições especiais. "Com condições" é o preço com ordenado domiciliado ou outras exigências do banco, explicadas na linha da comissão de manutenção. Levantamentos, transferências e câmbio estão em detalhe, mas não entram nesta conta.');
-      p.push('<b>Bancos tradicionais:</b> comparamos a conta pacote de entrada (conta à ordem com cartão de débito). Em qualquer banco podes pedir uma conta de serviços mínimos bancários, que em 2026 custa no máximo 5,37€ por ano, se não tiveres outra conta à ordem.');
+      p.push('<b>Custo por mês:</b> comissão de manutenção mais a anuidade do cartão de débito a dividir por 12, com Imposto do Selo, sem condições especiais. "Com condições" é o custo com ordenado domiciliado ou outras exigências do banco, explicadas em "Comissão de manutenção". Levantamentos, transferências e câmbio estão nos detalhes, mas não entram nesta conta.');
+      p.push('<b>Bancos tradicionais:</b> comparamos a conta pacote de entrada (conta à ordem com cartão de débito). Em qualquer banco podes pedir uma conta de serviços mínimos bancários, que em 2026 custa no máximo 5,37€ por ano (menos de 0,45€ por mês), se não tiveres outra conta à ordem.');
       p.push('<b>Juros:</b> a taxa mais alta que um cliente novo consegue sem ordenado, na conta à ordem ou numa poupança de acesso imediato do próprio banco. Fundos, como o da Wise, não contam. Os juros pagam 28% de IRS.');
-      p.push('<b>Revolut:</b> bónus de 10€ ao abrires conta pelo nosso link e concluíres os passos da oferta. Aplicam-se os termos da campanha.');
+      p.push('<b>Revolut:</b> bónus de 10€ ao abrires conta pelo nosso link e gastares 10€ no primeiro mês, até 31/12/2026. Aplicam-se os termos da campanha.');
     } else {
-      p.push('<b>Custo por ano:</b> mensalidade do plano mais simples de cada banco, com Imposto do Selo. As promoções para novas empresas aparecem como "1.º ano". Os outros planos e o que incluem estão em detalhe.');
+      p.push('<b>Custo por mês:</b> mensalidade do plano mais simples de cada banco, com Imposto do Selo quando se aplica. "Com condições" é o custo com as bonificações do banco, como ter um TPA a faturar. Os outros planos e o que incluem estão nos detalhes.');
       p.push('<b>Pagamentos ao Estado:</b> nas contas sem IBAN português pagas à AT e à Segurança Social por transferência, com os dados do documento de pagamento. Não há pagamento por referência Multibanco.');
-      p.push('<b>Revolut Business:</b> bónus de 200€ para novos clientes que abram conta pelo nosso link, numa campanha válida até 31/12/2026. Aplicam-se os termos da promoção. Em Portugal a conta é só para sociedades: os trabalhadores independentes usam o Revolut Pro.');
+      p.push('<b>Revolut Business:</b> bónus de 200€ para empresas que abram conta pelo nosso link e carreguem a conta até 31/12/2026. A Revolut paga o bónus até 10 dias úteis depois do fim da campanha. Em Portugal a conta é só para sociedades: os trabalhadores independentes usam o Revolut Pro.');
     }
     p.push('<b>Como verificamos:</b> os valores foram confirmados a ' + esc(D.verificado) + ' nos preçários, documentos de informação sobre comissões e páginas oficiais de cada banco. Os que têm a etiqueta "A confirmar" não estão escritos numa fonte oficial. As condições mudam com frequência: confirma no banco antes de abrir conta.');
     p.push('<b>Parceiros:</b> alguns botões levam a parceiros do Literacia Financeira. Se abrires conta através deles, podemos receber uma comissão, sem custo para ti. Os valores do comparador não mudam por isso.');
@@ -501,7 +493,8 @@
   }
 
   function renderView() {
-    renderControls();
+    renderForm();
+    root.classList.toggle('is-cmp', S.view === 'comparar');
     if (S.view === 'comparar') renderCompare(); else { renderList(); renderMini([]); }
     renderTray();
   }
@@ -510,7 +503,7 @@
   /* Ao abrir a vista lado a lado com menos de 2 contas, junta as sugeridas em dados/contas.json (comparar) */
   function fillDefaults() {
     var s = sel(), max = Math.min(maxSel(), 3), def = (D.comparar && D.comparar[S.seg]) || [];
-    def.concat(ALL.filter(function (o) { return o.seg === S.seg; }).sort(function (a, b) { return a.ordem - b.ordem; }).map(function (o) { return o.id; }))
+    def.concat(noSeg().sort(function (a, b) { return a.ordem - b.ordem; }).map(function (o) { return o.id; }))
       .forEach(function (id) { if (s.length < max && s.indexOf(id) < 0 && byId(id) && byId(id).seg === S.seg) s.push(id); });
   }
 
@@ -560,12 +553,17 @@
       var t = e.target, el, key = null;
       if ((el = t.closest('[data-seg]'))) {
         var sg = el.getAttribute('data-seg');
-        if (sg !== S.seg) { S.seg = sg; S.on = {}; S.tipo = 'todos'; S.open = null; if (S.sort === 'juros' && sg === 'empresa') S.sort = 'rec'; key = focusKey(el); renderAll(); refocus(key); }
+        if (sg !== S.seg) { S.seg = sg; S.on = {}; S.open = null; S.all = false; if (S.sort === 'juros' && sg === 'empresa') S.sort = 'rec'; key = focusKey(el); renderAll(); refocus(key); }
         return;
       }
-      if ((el = t.closest('[data-tipo]'))) { S.tipo = el.getAttribute('data-tipo'); key = focusKey(el); renderView(); writeUrl(); refocus(key); return; }
-      if ((el = t.closest('[data-chip]'))) { var k = el.getAttribute('data-chip'); S.on[k] = !S.on[k]; key = focusKey(el); renderView(); refocus(key); return; }
-      if ((el = t.closest('[data-reset]'))) { S.on = {}; S.tipo = 'todos'; renderView(); return; }
+      if ((el = t.closest('[data-tipo]'))) { S.tipo = el.getAttribute('data-tipo'); S.all = false; key = focusKey(el); renderView(); writeUrl(); refocus(key); return; }
+      if ((el = t.closest('[data-chip]'))) { var k = el.getAttribute('data-chip'); S.on[k] = !S.on[k]; S.all = false; key = focusKey(el); renderView(); refocus(key); return; }
+      if ((el = t.closest('[data-reset]'))) { S.on = {}; S.tipo = 'todos'; S.all = false; renderView(); return; }
+      if ((el = t.closest('[data-all]'))) {
+        S.all = true; renderView();
+        var nxt = root.querySelectorAll('.cb-c')[LIMITE]; if (nxt) refocus('[data-more="' + nxt.getAttribute('data-id') + '"]');
+        return;
+      }
       if ((el = t.closest('[data-more]'))) { var id = el.getAttribute('data-more'); S.open = S.open === id ? null : id; key = focusKey(el); renderView(); refocus(key); return; }
       if ((el = t.closest('[data-go]'))) {
         var v = el.getAttribute('data-go');
@@ -575,7 +573,6 @@
       }
       if ((el = t.closest('[data-clear]'))) { S.sel[S.seg] = []; renderView(); writeUrl(); return; }
       if ((el = t.closest('[data-pick]'))) { toggleSel(el.getAttribute('data-pick')); key = focusKey(el); renderView(); writeUrl(); refocus(key); return; }
-      if ((el = t.closest('[data-rm]'))) { var r = sel().indexOf(el.getAttribute('data-rm')); if (r > -1) sel().splice(r, 1); renderView(); writeUrl(); return; }
       if ((el = t.closest('[data-sec]'))) { var sid = el.getAttribute('data-sec'); S.secs[sid] = !S.secs[sid]; key = focusKey(el); renderTable(sel().map(byId).filter(Boolean)); refocus(key); return; }
       if ((el = t.closest('[data-diff]'))) { S.diff = !S.diff; el.setAttribute('aria-pressed', S.diff); renderTable(sel().map(byId).filter(Boolean)); return; }
     });
@@ -601,7 +598,7 @@
   }
 
   function start() {
-    S = { seg: 'particular', tipo: 'todos', on: {}, sort: 'rec', view: 'lista', open: null, diff: false, secs: {}, sel: { particular: [], empresa: [] } };
+    S = { seg: 'particular', tipo: 'todos', on: {}, sort: 'rec', view: 'lista', open: null, all: false, diff: false, secs: {}, sel: { particular: [], empresa: [] } };
     readUrl();
     shell();
     renderAll();
