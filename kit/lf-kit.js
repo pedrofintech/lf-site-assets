@@ -612,6 +612,22 @@
     });
   }
 
+  /* ---------- Hover do botao principal: se sair igual ao botao (EUPF), usa o cinzento do site, como no "Calcular" live ---------- */
+  function theme(root) {
+    (root ? [root] : document.querySelectorAll(".lfk")).forEach(function (el) {
+      el.style.removeProperty("--lfk-brand-hover");
+      var cs = getComputedStyle(el);
+      var probe = document.createElement("span");
+      probe.style.cssText = "position:absolute;visibility:hidden;color:var(--lfk-brand);background:var(--lfk-brand-hover)";
+      el.appendChild(probe);
+      var p = getComputedStyle(probe), same = p.color === p.backgroundColor;
+      el.removeChild(probe);
+      if (same) el.style.setProperty("--lfk-brand-hover", "var(--colors--grey-700, #3a4454)");
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { theme(); });
+  else theme();
+
   /* ---------- Escolha em segmentos: <div class="lfk-segment"> so um botao carregado; evento "change" no grupo ---------- */
   document.addEventListener("click", function (e) {
     var b = e.target && e.target.closest && e.target.closest(".lfk .lfk-segment > button");
@@ -660,5 +676,5 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { tocs(); });
   else tocs();
 
-  window.LFK = Object.assign(window.LFK || {}, { ready: ready, bar: bar, line: line, donut: donut, views: views, table: table, fmt: fmt, num: num, locale: locale, calc: calc, toc: toc, tocs: tocs, short: short, select: select, selects: selects, menu: menu, menus: menus, restore: restore, shareUrl: shareUrl, zones: zones, steps: steps, meter: meter, descs: descs });
+  window.LFK = Object.assign(window.LFK || {}, { ready: ready, bar: bar, line: line, donut: donut, views: views, table: table, fmt: fmt, num: num, locale: locale, calc: calc, toc: toc, tocs: tocs, theme: theme, short: short, select: select, selects: selects, menu: menu, menus: menus, restore: restore, shareUrl: shareUrl, zones: zones, steps: steps, meter: meter, descs: descs });
 })();

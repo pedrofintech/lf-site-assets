@@ -11,8 +11,11 @@
   --lfk-font:var(--font--primary-family,Inter,Arial,sans-serif);
   --lfk-font-display:var(--font--secondary-family,"Tiempos Headline",Georgia,sans-serif);
   /* Cores (variaveis do Webflow; o valor a seguir a virgula e o da Literacia) */
-  --lfk-brand:var(--colors--bg-brand,#ff5a1f);
-  --lfk-brand-hover:var(--colors--brand-600,#f03406);
+  /* Botao principal e hover iguais ao "Calcular" de cada site: BrokerMatch usa o verde dos botoes; Rahatarkus tem
+     --colors--button-bg-hover; Literacia e Educacao Financeira usam --colors--brand-600 (que nos outros sites ficou
+     laranja, herdado do template). Na EUPF o hover e cinzento: o lf-kit.js corrige quando o hover sai igual ao botao. */
+  --lfk-brand:var(--colors--button-primary-green,var(--colors--bg-brand,#ff5a1f));
+  --lfk-brand-hover:var(--colors--button-primary-green-hover,var(--colors--button-bg-hover,var(--colors--brand-600,#f03406)));
   --lfk-on-brand:var(--colors--text-on-color-primary,#f9fafb);
   --lfk-text:var(--colors--text-primary,#202432);
   --lfk-text-2:var(--colors--text-secondary,#3a4454);
