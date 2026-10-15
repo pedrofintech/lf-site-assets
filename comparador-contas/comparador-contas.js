@@ -92,7 +92,7 @@
         { k: 'carteiras', l: 'Apple Pay e Google Pay' }
       ] },
       { id: 'juros', t: 'Juros e poupança', i: 'pig', rows: [
-        { k: 'jurosMax', calc: 'juros', l: 'Taxa mais alta', n: 'TANB que um cliente novo consegue sem ordenado' },
+        { k: 'jurosMax', calc: 'juros', l: 'Taxa nesta conta', n: 'A TANB mais alta para um cliente novo, sem ordenado e sem planos pagos' },
         { k: 'jurosConta', l: 'Juros na conta à ordem' },
         { k: 'poupanca', l: 'Conta poupança' },
         { k: 'investir', l: 'Investir na app' }
@@ -128,7 +128,7 @@
         { k: 'credito', l: 'Crédito e leasing' }
       ] },
       { id: 'juros', t: 'Juros', i: 'pig', rows: [
-        { k: 'jurosMax', calc: 'juros', l: 'Taxa mais alta', n: 'TANB no saldo' },
+        { k: 'jurosMax', calc: 'juros', l: 'Taxa no plano considerado', n: 'TANB no saldo' },
         { k: 'juros', l: 'Juros no saldo' }
       ] },
       { id: 'seg', t: 'Segurança', i: 'shi', rows: [
@@ -284,7 +284,14 @@
   function isConf(o, k) { return o.c && o.c.indexOf(k) > -1; }
   function txt(o, k) { return (o.t && o.t[k]) || { v: '-' }; }
   function hasCond(o) { return o.f.custoMesCond != null && o.f.custoMesCond !== o.f.custoMes; }
-  function custoSub(o) { return hasCond(o) ? 'Com condições: ' + eur2(o.f.custoMesCond) : (o.custoNota || ''); }
+  /* Por baixo do custo: a oferta de meses grátis (enquanto estiver ativa) e o custo com condições (ou uma nota) */
+  function promoTxt(o) { return o.promo && ativo(o.promo) && o.promo.t ? o.promo.t : ''; }
+  function custoSub(o) {
+    var l = [];
+    if (promoTxt(o)) l.push(promoTxt(o));
+    if (hasCond(o)) l.push('Com condições: ' + eur2(o.f.custoMesCond)); else if (o.custoNota) l.push(o.custoNota);
+    return l.map(esc).join('<br>');
+  }
   function jurosNaConta(o) {
     var m = String(txt(o, 'jurosConta').v).match(/(\d+(?:,\d+)?)\s*%/);
     return !!(m && parseFloat(m[1].replace(',', '.')) > 0);
@@ -295,7 +302,7 @@
     return '<div class="cb-kpi"><div class="cb-kpi-l">' + esc(l) + '</div><div class="cb-kpi-v' + (cls ? ' ' + cls : '') + '">' + v + '</div>' + (s ? '<div class="cb-kpi-s">' + s + '</div>' : '') + '</div>';
   }
   function kpis(o) {
-    var f = o.f, custo = kpi('Custo por mês', esc(eur2(f.custoMes)), esc(custoSub(o)));
+    var f = o.f, custo = kpi('Custo por mês', esc(eur2(f.custoMes)), custoSub(o));
     if (o.seg === 'particular') {
       var p = o.perfil, conj = S.perfil === 'conjunta' && p, ab = o.ab || { v: txt(o, 'abertura').v };
       return custo +
@@ -315,7 +322,8 @@
   /* modo: '' (cartão da lista), 'head' (cabeçalho da comparação) ou 'mini' (barra fixa, só o botão) */
   function ctaHtml(o, modo) {
     var c = o.cta || {}, aff = c.aff, label = c.label || 'Abrir conta';
-    var a = '<a class="cb-btn' + (label.length > 22 ? ' is-long' : '') + '" href="' + esc(c.href) + '" target="_blank" rel="noopener' + (aff ? ' sponsored' : '') + '"' +
+    /* nomes compridos com letra mais pequena, para caberem numa linha (ex.: "Ir para o Crédito Agrícola") */
+    var a = '<a class="cb-btn' + (label.length > 22 ? ' is-xlong' : (label.length > 18 ? ' is-long' : '')) + '" href="' + esc(c.href) + '" target="_blank" rel="noopener' + (aff ? ' sponsored' : '') + '"' +
       (aff ? ' data-afiliado="' + esc(aff) + '" data-afiliado-local="comparador-contas"' : '') +
       ' aria-label="' + esc(label + ' (abre o site de ' + o.name + ')') + '"><span>' + esc(label) + '</span>' + ico(IC.out) + '</a>';
     if (modo === 'mini') return a;
@@ -347,7 +355,7 @@
   function rowVal(o, row) {
     var f = o.f;
     if (row.calc === 'custo') {
-      var s = f.custoMes > 0 ? ['Por ano: ' + eur2(f.custoAno)] : [];
+      var s = (promoTxt(o) ? [promoTxt(o)] : []).concat(f.custoMes > 0 ? ['Por ano: ' + eur2(f.custoAno)] : []);
       if (hasCond(o)) s.push('Com condições: ' + eur2(f.custoMesCond) + ' por mês');
       if (o.custoNota) s.push(o.custoNota);
       return { v: eur2(f.custoMes), s: s.join('. '), conf: isConf(o, 'custoMes'), num: f.custoMes, big: true };
@@ -583,7 +591,7 @@
     var p = [];
     if (S.seg === 'particular') {
       p.push('<b>Custo por mês:</b> comissão de manutenção mais a anuidade do cartão de débito a dividir por 12, com Imposto do Selo, sem condições especiais. "Com condições" é o custo com ordenado domiciliado ou outras exigências do banco, explicadas em "Comissão de manutenção". Levantamentos, transferências e câmbio estão nos detalhes, mas não entram nesta conta.');
-      p.push('<b>Meses grátis:</b> as campanhas com pelo menos ' + PROMO_MIN + ' meses sem custos aparecem numa etiqueta verde e contam no filtro "Sem custos fixos". O custo por mês é o valor normal, depois da campanha.');
+      p.push('<b>Meses grátis:</b> quando o banco tem uma oferta de meses sem custos, ela aparece por baixo do custo por mês e a etiqueta verde diz para quem é. As ofertas de ' + PROMO_MIN + ' meses ou mais contam no filtro "Sem custos fixos". O custo por mês é o valor normal, depois da oferta.');
       p.push('<b>Para quem:</b> em "Jovem até 30 anos" e "Menor de 18 anos" mostramos a conta de cada banco para essa idade, com as idades na etiqueta. Nos bancos sem conta própria para jovens fica a conta normal. Os bancos sem conta para menores saem da lista. Em "Conta conjunta" só ficam as contas que aceitam mais de um titular.');
       p.push('<b>Prémio por domiciliar:</b> campanhas para quem leva o ordenado para o banco, confirmadas nos sites dos bancos. Têm regras próprias, como ordenado mínimo e fidelização. Vê as <a href="' + LF + ARTIGO_ORDENADO + '" target="_blank" rel="noopener">melhores campanhas para domiciliar o ordenado</a>.');
       p.push('<b>Bancos tradicionais:</b> comparamos a conta pacote de entrada (conta à ordem com cartão de débito). Em qualquer banco podes pedir uma conta de serviços mínimos bancários, que em 2026 custa no máximo 5,37€ por ano (menos de 0,45€ por mês), se não tiveres outra conta à ordem.');
@@ -591,7 +599,7 @@
       p.push('<b>Revolut:</b> bónus de 10€ ao abrires conta pelo nosso link e gastares 10€ no primeiro mês, até 31/12/2026. Aplicam-se os termos da campanha.');
     } else {
       p.push('<b>Custo por mês:</b> mensalidade do plano mais simples de cada banco, com Imposto do Selo quando se aplica. "Com condições" é o custo com as bonificações do banco, como ter um TPA a faturar. Os outros planos e o que incluem estão nos detalhes.');
-      p.push('<b>Meses grátis:</b> as campanhas com pelo menos ' + PROMO_MIN + ' meses sem mensalidade aparecem numa etiqueta verde e contam no filtro "Sem mensalidade". O custo por mês é o valor normal, depois da campanha.');
+      p.push('<b>Meses grátis:</b> quando o banco tem uma oferta de meses sem mensalidade, ela aparece por baixo do custo por mês e a etiqueta verde diz para quem é. As ofertas de ' + PROMO_MIN + ' meses ou mais contam no filtro "Sem mensalidade". O custo por mês é o valor normal, depois da oferta.');
       p.push('<b>Pagamentos ao Estado:</b> nas contas sem IBAN português pagas à AT e à Segurança Social por transferência, com os dados do documento de pagamento. Não há pagamento por referência Multibanco.');
       p.push('<b>Revolut Business:</b> bónus de 200€ para empresas que abram conta pelo nosso link e carreguem a conta até 31/12/2026. A Revolut paga o bónus até 10 dias úteis depois do fim da campanha. Em Portugal a conta é só para sociedades: os trabalhadores independentes usam o Revolut Pro.');
     }

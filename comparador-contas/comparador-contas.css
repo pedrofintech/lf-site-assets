@@ -79,7 +79,7 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb .cb-list{display:flex;flex-direction:column;gap:10px}
 #lf-cb .cb-c{background:#fff;border:1px solid var(--g200);border-radius:16px;overflow:hidden}
 #lf-cb .cb-c.is-sel{border-color:var(--g700)}
-#lf-cb .cb-c-main{display:grid;grid-template-columns:28px 252px minmax(0,1fr) 184px;gap:20px;align-items:center;padding:14px 20px}
+#lf-cb .cb-c-main{display:grid;grid-template-columns:28px 252px minmax(0,1fr) 188px;gap:20px;align-items:center;padding:14px 20px}
 #lf-cb .cb-rank{font-size:14px;font-weight:500;color:var(--g500);text-align:center}
 #lf-cb .cb-ent{display:flex;align-items:center;gap:12px;min-width:0}
 #lf-cb .cb-ent-t{min-width:0}
@@ -95,12 +95,11 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb .cb-tag.is-ok,#lf-cb .cb-tag.is-bonus{background:var(--ok50);color:var(--ok700)}
 #lf-cb a.cb-tag.is-link{text-decoration:none;box-shadow:inset 0 0 0 1px var(--ok200)}
 #lf-cb a.cb-tag.is-link:hover{background:var(--ok200)}
-#lf-cb .cb-tag.is-bonus{font-weight:600}
 #lf-cb .cb-tag.is-conf{background:var(--warn50);color:var(--warn700);border:1px solid var(--warn200);margin-top:5px}
 #lf-cb .cb-tag.is-best{background:var(--ok50);color:var(--ok700);border:1px solid var(--ok200);margin-top:5px}
 #lf-cb .cb-cell .cb-tag{display:table;margin:6px auto 0}
 #lf-cb .cb-kv-v .cb-tag{display:table;margin-top:5px}
-#lf-cb .cb-kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+#lf-cb .cb-kpis{display:grid;grid-template-columns:minmax(0,1.15fr) repeat(4,minmax(0,1fr));gap:12px}
 #lf-cb .cb-kpi{min-width:0}
 #lf-cb .cb-kpi-l{font-size:12px;line-height:16px;color:var(--g500);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #lf-cb .cb-kpi-v{font-size:15px;font-weight:600;line-height:20px;color:var(--g900)}
@@ -113,8 +112,13 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
 #lf-cb .cb-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border:0;border-radius:8px;background:var(--brand500);color:#fff!important;font-size:15px;font-weight:500;line-height:20px;text-decoration:none;white-space:nowrap;text-align:center}
 #lf-cb .cb-btn:hover{background:var(--brand600)}
 #lf-cb .cb-btn svg{width:15px;height:15px}
-#lf-cb .cb-c-cta .cb-btn{width:100%;padding:10px 8px;gap:6px}
+#lf-cb .cb-c-cta .cb-btn{width:100%;padding:10px 6px;gap:5px}
+#lf-cb .cb-c-cta .cb-btn svg{width:14px;height:14px}
 #lf-cb .cb-c-cta .cb-btn.is-long{font-size:14px}
+#lf-cb .cb-c-cta .cb-btn.is-xlong{font-size:13px}
+/* nomes compridos ("Ir para o Crédito Agrícola") partem em duas linhas em vez de saírem do botão, como no Windows */
+#lf-cb .cb-c-cta .cb-btn{white-space:normal}
+#lf-cb .cb-c-cta .cb-btn>span{min-width:0;text-align:center}
 #lf-cb .cb-btn.is-secondary{background:#fff;color:var(--g700)!important;border:1px solid var(--g300)}
 #lf-cb .cb-btn.is-secondary:hover{border-color:var(--g700);background:#fff}
 #lf-cb .cb-btn[disabled]{opacity:.5;cursor:not-allowed}
@@ -254,7 +258,7 @@ font-family:'Inter',sans-serif;font-size:16px;color:var(--g900);letter-spacing:-
  #lf-cb .cb-bar:not(.is-cmp)::before{content:"";position:absolute;top:7px;right:-12px;width:18px;height:18px;z-index:1;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23697386' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") no-repeat center/18px}
  #lf-cb .cb-chip{font-size:13px}
  #lf-cb .cb-bar-r{margin-left:0;width:100%;justify-content:space-between}
- #lf-cb .cb-c-main{grid-template-columns:28px minmax(0,1fr) 184px;grid-template-areas:"rank ent cta" "kpis kpis kpis";gap:14px 20px}
+ #lf-cb .cb-c-main{grid-template-columns:28px minmax(0,1fr) 188px;grid-template-areas:"rank ent cta" "kpis kpis kpis";gap:14px 20px}
  #lf-cb .cb-rank{grid-area:rank}
  #lf-cb .cb-ent{grid-area:ent}
  #lf-cb .cb-c-cta{grid-area:cta}

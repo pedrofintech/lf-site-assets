@@ -1126,7 +1126,8 @@
     }
    ],
    "promo": {
-    "m": 12
+    "m": 12,
+    "t": "0€ no 1.º ano"
    },
    "ab": {
     "v": "Mín. 100€",
@@ -1555,7 +1556,8 @@
       "s": "Só 1 titular"
      },
      "promo": {
-      "m": 12
+      "m": 12,
+      "t": "0€ no 1.º ano"
      },
      "tags": [
       {
@@ -1705,7 +1707,7 @@
    },
    "tags": [
     {
-     "t": "0€ 12 meses (novos clientes)",
+     "t": "Oferta para novos clientes",
      "w": 0,
      "i": "cal",
      "s": "0€ nos primeiros 12 meses para novos clientes que adiram até 31/12/2026. Depois, 8,32€ por mês",
@@ -1714,7 +1716,8 @@
    ],
    "promo": {
     "m": 12,
-    "ate": "2026-12-31"
+    "ate": "2026-12-31",
+    "t": "0€ nos primeiros 12 meses"
    },
    "premio": {
     "t": "Até 500€ de volta no cartão de crédito",
@@ -1876,14 +1879,15 @@
    },
    "tags": [
     {
-     "t": "0€ 6 meses (abertura online)",
+     "t": "Oferta na abertura online",
      "w": 0,
      "i": "cal",
      "s": "Sem comissão de manutenção nos primeiros 6 meses se abrires a conta online. Depois, 8,94€ por mês"
     }
    ],
    "promo": {
-    "m": 6
+    "m": 6,
+    "t": "0€ nos primeiros 6 meses"
    },
    "premio": {
     "t": "Até 500€ na conta ou 750€ em pontos",
@@ -2349,14 +2353,15 @@
    },
    "tags": [
     {
-     "t": "0€ 24 meses (empresas novas)",
+     "t": "Oferta para empresas novas",
      "w": 0,
      "i": "cal",
      "s": "0€ até 24 meses depois do início de atividade. Depois, 8,32€ por mês"
     }
    ],
    "promo": {
-    "m": 24
+    "m": 24,
+    "t": "0€ nos primeiros 24 meses"
    },
    "src": "https://novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/precario/outros-clientes/OC_FCD_contas_deposito.pdf.coredownload.inline.pdf",
    "f": {
@@ -2795,7 +2800,7 @@
    },
    "tags": [
     {
-     "t": "0€ 12 meses (micro e PME)",
+     "t": "Oferta para micro e PME",
      "w": 0,
      "i": "cal",
      "s": "Para micro e PME que abram ou reativem conta até 31/12/2026. Depois, 8,32€ por mês",
@@ -2804,7 +2809,8 @@
    ],
    "promo": {
     "m": 12,
-    "ate": "2026-12-31"
+    "ate": "2026-12-31",
+    "t": "0€ nos primeiros 12 meses"
    },
    "src": "https://www.cgd.pt/Precario/Documents/9.pdf",
    "f": {
@@ -3024,16 +3030,11 @@
      "w": 1,
      "i": "bld",
      "s": "Para empresas e ENI com atividade há menos de 2 anos"
-    },
-    {
-     "t": "1.º mês grátis",
-     "w": 0,
-     "i": "cal",
-     "s": "Sem mensalidade no 1.º mês"
     }
    ],
    "promo": {
-    "m": 1
+    "m": 1,
+    "t": "0€ no 1.º mês"
    },
    "src": "https://www.bancomontepio.pt/content/dam/montepio/pdf/geral/precario/folheto-comissoes-despesas/outros-clientes/9-comissoes-contas-deposito-outros-clientes.pdf",
    "f": {
@@ -3256,14 +3257,15 @@
    },
    "tags": [
     {
-     "t": "0€ 12 meses (novos clientes)",
+     "t": "Oferta para novos clientes",
      "w": 0,
      "i": "cal",
      "s": "Grátis no 1.º ano para novos clientes. Depois, 8,32€ por mês"
     }
    ],
    "promo": {
-    "m": 12
+    "m": 12,
+    "t": "0€ no 1.º ano"
    },
    "src": "https://www.abanca.pt/pt/empresas/contas/conta-business",
    "f": {
