@@ -21,15 +21,35 @@ Usa sempre um commit fixo (nunca `@main`): o jsDelivr guarda `@main` em cache at
 4. As cores vêm de cada site (o botão principal é laranja na Literacia, escuro na EUPF e BrokerMatch, azul no Rahatarkus, verde na Educação Financeira). Não as fixes.
 5. Listas: `<select class="lfk-input">` normal. O `lf-kit.js` troca-o pelo dropdown das calculadoras e mantém o `<select>` com o valor e o evento `change`.
 6. Gráficos: só com o `lf-kit.js` (`LFK.bar`, `LFK.line`, `LFK.donut`), dentro de um `lfk-card` com separadores Gráfico / Tabela e o menu `lfk-menu`. Não configures o Chart.js à mão.
-7. Números em formato português: `10.000`, `2,5`, `10.182,50€` (`LFK.fmt`). Valores nos campos com `value=""`, não `placeholder=""`.
+7. Números e moeda no formato do país de cada site (tabela abaixo). Escreve sempre com `LFK.fmt(valor)` e lê os campos com `LFK.num(texto)`: o kit sabe o site e a língua da página e escolhe o formato sozinho. Nunca `toFixed`, `toLocaleString` ou separadores escritos à mão. Os textos também vão na língua da página (inglês, holandês, polaco, árabe, estónio, português do Brasil). Valores nos campos com `value=""` no mesmo formato (`10.000` na Literacia, `10,000` na EUPF em inglês), não `placeholder=""`.
 8. Botões são `<button type="button">`; cada campo tem `<label for="...">`.
 9. Links de parceiros (bancos, corretoras) **sempre** pelos `/visita/...` do site, com `rel="sponsored noopener noreferrer"` e `target="_blank"`. Nunca o link direto do parceiro: o tracking de afiliados depende disso.
 10. GSAP e ScrollTrigger já existem nos sites (não os importes). Se alguma animação mudar a altura da página, chama `ScrollTrigger.refresh()` no fim.
 11. Testa a 375 px de largura, num ecrã com 650 px de altura e em desktop.
+12. Calcular: só com `LFK.calc` (secção 3). Os resultados só aparecem ao clicar em "Calcular".
+
+### Formato dos números em cada site
+
+| Site | Exemplo | Formato |
+|---|---|---|
+| Literacia Financeira | `10.182,50€` | `pt-PT` |
+| EUPF em inglês | `€10,182.50` | `en-EU` |
+| EUPF em holandês (`/nl/`) | `€10.182,50` | `nl-NL` |
+| EUPF em polaco (`/pl/`) | `10 182,50 zł` | `pl-PL` |
+| BrokerMatch (inglês e árabe) | `AED 10,182.50` | `en-AE` / `ar-AE` |
+| Rahatarkus | `10 182,50 €` | `et-EE` |
+| Educação Financeira | `R$ 10.182,50` | `pt-BR` |
+
+O kit escolhe o formato pelo domínio e pelo `lang` da página. Só para testar fora do site é que se força com `data-lfk-locale="pl-PL"` no `<div class="lfk">`. Opções úteis: `LFK.fmt(2.5, { currency: false })` dá `2,5` ou `2.5` sem moeda (para percentagens); `{ decimals: 0 }` tira as casas decimais.
 
 ## 3. Estrutura de uma calculadora
 
 Igual às do site: em desktop o formulário fica num cartão e os resultados por baixo, numa coluna de 52,6rem (não lado a lado).
+
+Comportamento (igual às calculadoras atuais, e o `LFK.calc` já faz tudo):
+- Os resultados só aparecem e só mudam ao clicar em "Calcular". Mudar um campo, uma lista ou um botão de opção **nunca** recalcula.
+- Antes do primeiro clique vê-se o placeholder `lfk-empty`. Depois do clique o placeholder desaparece e os resultados aparecem.
+- A seguir ao clique há scroll suave até aos resultados.
 
 ```html
 <section class="lfk lfk-hero">
@@ -55,6 +75,9 @@ Igual às do site: em desktop o formulário fica num cartão e os resultados por
       </form>
     </div></div>
 
+    <div class="lfk-calc-results">
+      <div class="lfk-empty" id="placeholder"><p>Preenche os dados e clica em <b>Calcular</b> para veres os resultados.</p></div>
+    </div>
     <div class="lfk-calc-results" id="resultados" hidden>
       <div class="lfk-card">
         <div class="lfk-card-head"><h2 class="lfk-h-sm">Resultados</h2></div>
@@ -66,9 +89,22 @@ Igual às do site: em desktop o formulário fica num cartão e os resultados por
     </div>
   </div>
 </section>
+
+<script>
+  LFK.calc(document.getElementById("calcular"), {
+    results: "#resultados",
+    empty: "#placeholder",
+    run: function () {
+      var montante = LFK.num(document.getElementById("montante").value);
+      if (!montante) return false;              /* dados inválidos: não mostra nada */
+      document.getElementById("r-final").textContent = LFK.fmt(montante * 1.05);
+      /* ... restantes contas e textos, sempre com LFK.fmt ... */
+    }
+  });
+</script>
 ```
 
-Antes de calcular, em vez de resultados vazios, usa `<div class="lfk-empty">Preenche os campos e carrega em Calcular para veres os resultados.</div>`.
+O texto do placeholder vai na língua da página.
 
 Por baixo da calculadora, as perguntas frequentes vão numa `lfk-faq` (título `lfk-title` "Glossário", cada pergunta em `lfk-faq-item` com `lfk-faq-q` e `lfk-faq-a`).
 
@@ -79,7 +115,7 @@ Por baixo da calculadora, as perguntas frequentes vão numa `lfk-faq` (título `
 | Campo de número com €, %, anos | `lfk-input-wrap` + `lfk-input` + `lfk-unit` |
 | Escolher entre 2 a 4 opções curtas | `lfk-radios` + `lfk-radio` (com `data-lfk-desc` se cada opção tiver explicação) |
 | Escolher numa lista longa | `<select class="lfk-input">` |
-| Ligar / desligar uma opção | `lfk-check` |
+| Marcar uma opção num formulário | `lfk-check` (`is-sm` em listas de filtros) |
 | Trocar entre vistas (Gráfico / Tabela, Mensal / Anual) | `lfk-toggle` + `lfk-tab` |
 | Resultado principal e linhas de valores | `lfk-kv` (`is-total` na principal) dentro de `lfk-card` |
 | Valores com uma explicação por baixo | `lfk-line` + `lfk-line-note` |
@@ -91,9 +127,24 @@ Por baixo da calculadora, as perguntas frequentes vão numa `lfk-faq` (título `
 | Descarregar / partilhar | `lfk-menu` com `data-chart`, `data-table`, `data-form`; `LFK.restore(form)` para abrir um link partilhado já calculado |
 | Anúncio de um parceiro | `lfk-partner` (link pelo `/visita/`) |
 | Aviso ao utilizador | `lfk-alert` (`is-warn`, `is-err`, `is-ok`) |
+| Botão de ação | `lfk-btn` (principal, com a cor do site); `is-dark` ou `is-secondary` para ações secundárias; `is-sm` / `is-lg` para o tamanho |
+| Botão só com ícone | `lfk-btn is-icon` com `<span class="lfk-ico-arrow"></span>` ou um `<svg>`, e `aria-label` |
+| "Saber mais" / "Ver todos" com seta | `lfk-link-btn` + `<span class="lfk-btn is-icon"><span class="lfk-ico-arrow"></span></span>` |
+| Botão em fundo escuro | `lfk-btn is-on-dark` |
+| Lista de artigos, recursos ou pessoas | `lfk-post`, `lfk-resource` / `lfk-resource-row`, `lfk-team` (copia o HTML da secção Cartões do `demo.html`) |
+| Destacar vantagens ou "para quem é" | `lfk-feature` com `lfk-checks` |
+| Link para outra calculadora | `lfk-calc-card` |
+| Preços ou planos | `lfk-price` (o recomendado com `is-highlight`) |
+| Um valor com a variação por baixo | `lfk-datacard` |
+| Ligar / desligar com efeito imediato | `lfk-switch` |
+| Escolher entre 2 ou 3 opções curtas lado a lado (Mensal / Anual) | `lfk-segment` |
+| Mensagem de resultado (sucesso, aviso, erro) | `lfk-toast` (`is-ok`, `is-warn`, `is-err`) |
+| Índice de um artigo | `lfk-toc` com `data-lfk-spy` |
+| Classificar com títulos e descrição (Saudável / Aceitável / Preocupante) | `lfk-tab is-cat` dentro de `lfk-toggle is-fill` |
 
 ## 5. Antes de entregar
 
 - Nenhum `style=""` com cores ou tamanhos de letra, nenhuma cor em hexadecimal.
 - A ferramenta funciona em telemóvel (375 px) sem deslocar para o lado.
-- Os números aparecem em formato português e os links de parceiros passam pelo `/visita/`.
+- Os números saem do `LFK.fmt` no formato do site e da língua, e os links de parceiros passam pelo `/visita/`.
+- Mudar um campo não mexe nos resultados; só o "Calcular" o faz, e a seguir há scroll suave até eles.

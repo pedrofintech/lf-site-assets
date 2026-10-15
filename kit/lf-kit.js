@@ -12,7 +12,11 @@
    - LFK.donut(canvas, opts) donut com valor ao centro (depositos a prazo)
    - LFK.views(card)         separadores "Grafico / Tabela" dentro de um cartao
    - LFK.table(el, opts)     tabela com "Mostrar mais" (30 linhas, como no site)
-   - LFK.fmt(valor)          10.182,50€ (formato das calculadoras PT)
+   - LFK.fmt(valor)          valor no formato do pais da pagina (10.182,50€ na Literacia, 102 806,57 zl na EUPF PL...)
+   - LFK.num(texto)          le um numero escrito no formato do pais ("10.000" -> 10000)
+   - LFK.locale(el)          formato em uso: data-lfk-locale, ou o site e a lingua da pagina
+   - LFK.toc(nav)             indice do artigo: marca a seccao no ecra (corre sozinho em .lfk-toc[data-lfk-spy])
+   - LFK.calc(botao, opts)   comportamento das calculadoras: so calcula no clique, esconde o placeholder, mostra os resultados e faz scroll suave
    Cores e letras vem das variaveis do kit (--lfk-c1..c5, --lfk-font), por isso seguem cada site.
    Se a pagina ainda nao tiver Chart.js, este ficheiro carrega a mesma versao que o site usa. */
 (function () {
@@ -37,19 +41,65 @@
     return [css(el, "--lfk-c1", "#FD8D2B"), css(el, "--lfk-c2", "#2970FF"), css(el, "--lfk-c3", "#31AF89"), css(el, "--lfk-c4", "#FEC84B"), css(el, "--lfk-c5", "#9B8AFB")];
   }
 
-  /* 10182.5 -> "10.182,50€" ; opcoes: {decimals:2, suffix:"€", prefix:""} */
+  /* Formato de cada pais. g = separador de milhares, d = decimal, c = moeda,
+     p = moeda antes do numero. Os espacos sao inseparaveis para nao partirem a linha. */
+  var NBSP = "\u00a0";
+  var LOCALES = {
+    "pt-PT": { g: ".", d: ",", c: "€", p: false, sp: "" },      /* Literacia: 10.182,50€ */
+    "pt-BR": { g: ".", d: ",", c: "R$", p: true, sp: NBSP },    /* Educacao Financeira: R$ 10.182,50 */
+    "en-EU": { g: ",", d: ".", c: "€", p: true, sp: "" },       /* EUPF ingles: €10,182.50 */
+    "nl-NL": { g: ".", d: ",", c: "€", p: true, sp: "" },       /* EUPF holandes: €10.182,50 */
+    "pl-PL": { g: NBSP, d: ",", c: "zł", p: false, sp: NBSP },  /* EUPF polaco: 10 182,50 zł */
+    "et-EE": { g: NBSP, d: ",", c: "€", p: false, sp: NBSP },   /* Rahatarkus: 10 182,50 € */
+    "en-AE": { g: ",", d: ".", c: "AED", p: true, sp: NBSP },   /* BrokerMatch (ingles e arabe): AED 10,182.50 */
+    "ar-AE": { g: ",", d: ".", c: "AED", p: true, sp: NBSP }
+  };
+  function locale(el) {
+    var tagged = el && el.closest && el.closest("[data-lfk-locale]");
+    if (!tagged) tagged = document.querySelector("[data-lfk-locale]");
+    if (tagged && LOCALES[tagged.getAttribute("data-lfk-locale")]) return tagged.getAttribute("data-lfk-locale");
+    var host = location.hostname, lang = (document.documentElement.lang || "").toLowerCase();
+    if (/educacaofinanceira/.test(host)) return "pt-BR";
+    if (/rahatarkus/.test(host)) return "et-EE";
+    if (/brokermatch/.test(host)) return lang.indexOf("ar") === 0 ? "ar-AE" : "en-AE";
+    if (/eupersonalfinance/.test(host)) return lang.indexOf("pl") === 0 ? "pl-PL" : lang.indexOf("nl") === 0 ? "nl-NL" : "en-EU";
+    if (LOCALES[document.documentElement.lang]) return document.documentElement.lang;
+    return "pt-PT";
+  }
+  function group(intPart, g) { return intPart.replace(/\B(?=(\d{3})+(?!\d))/g, g); }
+  /* 10182.5 -> "10.182,50€" (Literacia), "€10,182.50" (EUPF EN)...
+     opcoes: {decimals:2, locale:"pl-PL", currency:false (so o numero), el (elemento para detetar o formato)}
+     Compatibilidade: {suffix, prefix} continuam a funcionar e substituem a moeda. */
   function fmt(v, o) {
     o = o || {};
+    var L = LOCALES[o.locale] || LOCALES[locale(o.el)];
     var d = o.decimals == null ? 2 : o.decimals;
     var n = Number(v) || 0, neg = n < 0;
-    var p = Math.abs(n).toFixed(d).split(".");
-    p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    return (neg ? "-" : "") + (o.prefix || "") + p.join(",") + (o.suffix == null ? "€" : o.suffix);
+    var parts = Math.abs(n).toFixed(d).split(".");
+    var num = group(parts[0], L.g) + (parts[1] ? L.d + parts[1] : "");
+    var out;
+    if (o.suffix != null || o.prefix != null) out = (o.prefix || "") + num + (o.suffix || "");
+    else if (o.currency === false) out = num;
+    else out = L.p ? L.c + L.sp + num : num + L.sp + L.c;
+    return (neg ? "-" : "") + out;
   }
-  /* eixo: 12500 -> "12,5k", 1200000 -> "1,2M" (como nas calculadoras) */
-  function short(v) {
-    if (v >= 1e6) return (v / 1e6).toFixed(1).replace(".0", "").replace(".", ",") + "M";
-    if (v >= 1e3) return (v / 1e3).toFixed(1).replace(".0", "").replace(".", ",") + "k";
+  /* "10.000" -> 10000 ; "2,5" -> 2.5 ; "5,000" na EUPF EN -> 5000 */
+  function num(text, o) {
+    o = o || {};
+    var L = LOCALES[o.locale] || LOCALES[locale(o.el)];
+    var s = String(text == null ? "" : text).replace(/[^\d.,\-]/g, "");
+    s = s.split(L.g === NBSP ? " " : L.g).join("");
+    if (L.d === ",") s = s.replace(/\./g, "").replace(",", ".");
+    else s = s.replace(/,/g, "");
+    var n = parseFloat(s);
+    return isNaN(n) ? 0 : n;
+  }
+  /* eixo: 12500 -> "12,5k", 1200000 -> "1,2M" (decimal do pais) */
+  function short(v, o) {
+    var L = LOCALES[(o && o.locale) || locale(o && o.el)];
+    function f(x) { return x.toFixed(1).replace(".0", "").replace(".", L.d); }
+    if (v >= 1e6) return f(v / 1e6) + "M";
+    if (v >= 1e3) return f(v / 1e3) + "k";
     return String(v);
   }
 
@@ -231,7 +281,7 @@
     if (sel.__lfkDd) return sel.__lfkDd;
     var id = "lfk-dd-" + (++uid);
     var dd = document.createElement("div");
-    dd.className = "lfk-dd";
+    dd.className = "lfk-dd" + (sel.classList.contains("is-sm") ? " is-sm" : "");
     var t = document.createElement("div");
     t.className = "lfk-dd-toggle"; t.tabIndex = sel.disabled ? -1 : 0;
     t.setAttribute("role", "button"); t.setAttribute("aria-haspopup", "listbox"); t.setAttribute("aria-expanded", "false"); t.setAttribute("aria-controls", id);
@@ -531,5 +581,84 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", autoInit);
   else autoInit();
-  window.LFK = Object.assign(window.LFK || {}, { ready: ready, bar: bar, line: line, donut: donut, views: views, table: table, fmt: fmt, short: short, select: select, selects: selects, menu: menu, menus: menus, restore: restore, shareUrl: shareUrl, zones: zones, steps: steps, meter: meter, descs: descs });
+  /* ---------- Calcular: comportamento igual ao das calculadoras do site ----------
+     LFK.calc(document.getElementById("calcular"), {
+       results: "#resultados",      // bloco dos resultados (fica hidden ate ao primeiro calculo)
+       empty: ".lfk-empty",         // placeholder "Preenche os campos..." (some depois do clique)
+       run: function () { ... }     // faz as contas e preenche os resultados; devolve false se os dados forem invalidos
+     });
+     - So calcula ao clicar em Calcular. Mudar um campo ou uma lista NUNCA recalcula.
+     - Depois do clique o placeholder desaparece e os resultados aparecem.
+     - Scroll suave ate aos resultados (100px acima), pelo Lenis em desktop e nativo em telemovel.
+     - No fim chama ScrollTrigger.refresh() porque a altura da pagina mudou. */
+  function calc(button, o) {
+    if (!button) return;
+    o = o || {};
+    function el(x) { return typeof x === "string" ? document.querySelector(x) : x; }
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (o.run && o.run() === false) return;
+      var res = el(o.results), empty = el(o.empty);
+      if (empty) empty.hidden = true;
+      if (res) res.hidden = false;
+      setTimeout(function () {
+        if (window.ScrollTrigger && window.ScrollTrigger.refresh) window.ScrollTrigger.refresh();
+        if (!res || o.scroll === false) return;
+        var top = Math.max(0, res.getBoundingClientRect().top + window.pageYOffset - 100);
+        if (window.lenis && typeof window.lenis.scrollTo === "function") window.lenis.scrollTo(top);
+        else if (document.documentElement.classList.contains("lenis")) window.scrollTo(0, top);
+        else { try { window.scrollTo({ top: top, behavior: "smooth" }); } catch (err) { window.scrollTo(0, top); } }
+      }, 0);
+    });
+  }
+
+  /* ---------- Escolha em segmentos: <div class="lfk-segment"> so um botao carregado; evento "change" no grupo ---------- */
+  document.addEventListener("click", function (e) {
+    var b = e.target && e.target.closest && e.target.closest(".lfk .lfk-segment > button");
+    if (!b) return;
+    var g = b.parentElement;
+    g.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); x.classList.remove("is-on"); });
+    g.dispatchEvent(new CustomEvent("change", { bubbles: true, detail: { value: b.value || b.textContent.trim() } }));
+  });
+
+  /* ---------- Tooltip: nao sair do ecra (a seta continua a apontar para o icone) ---------- */
+  function tipFit(wrap) {
+    var box = wrap.querySelector(".lfk-help-box");
+    if (!box || wrap.matches(".is-left,.is-right")) return;
+    box.style.setProperty("--lfk-tip-dx", "0px");
+    var r = box.getBoundingClientRect(), m = 8, dx = 0;
+    if (r.left < m) dx = m - r.left;
+    else if (r.right > window.innerWidth - m) dx = window.innerWidth - m - r.right;
+    if (dx) box.style.setProperty("--lfk-tip-dx", Math.round(dx) + "px");
+  }
+  ["mouseover", "focusin"].forEach(function (ev) {
+    document.addEventListener(ev, function (e) {
+      var w = e.target && e.target.closest && e.target.closest(".lfk .lfk-help-wrap");
+      if (w) tipFit(w);
+    });
+  });
+
+  /* ---------- Indice do artigo: <nav class="lfk-toc" data-lfk-spy> marca a seccao que esta no ecra ---------- */
+  function toc(nav) {
+    var items = Array.prototype.slice.call(nav.querySelectorAll(".lfk-toc-item[href^='#']"));
+    var secs = items.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute("href").slice(1))); });
+    var offset = parseInt(nav.getAttribute("data-lfk-spy"), 10) || 120, last = -1;
+    function spy() {
+      var cur = 0;
+      secs.forEach(function (sec, i) { if (sec && sec.getBoundingClientRect().top <= offset) cur = i; });
+      if (cur === last) return; last = cur;
+      items.forEach(function (a, i) {
+        a.classList.toggle("is-current", i === cur);
+        if (i === cur) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+      });
+      var list = items[cur] && items[cur].parentElement;
+      if (list && list.scrollWidth > list.clientWidth) list.scrollTo({ left: items[cur].offsetLeft - 16, behavior: "smooth" });
+    }
+    window.addEventListener("scroll", spy, { passive: true }); spy();
+  }
+  function tocs(root) { (root || document).querySelectorAll(".lfk .lfk-toc[data-lfk-spy]").forEach(toc); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { tocs(); });
+  else tocs();
+
+  window.LFK = Object.assign(window.LFK || {}, { ready: ready, bar: bar, line: line, donut: donut, views: views, table: table, fmt: fmt, num: num, locale: locale, calc: calc, toc: toc, tocs: tocs, short: short, select: select, selects: selects, menu: menu, menus: menus, restore: restore, shareUrl: shareUrl, zones: zones, steps: steps, meter: meter, descs: descs });
 })();
