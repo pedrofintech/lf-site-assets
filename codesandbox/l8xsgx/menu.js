@@ -8,60 +8,24 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".nav_background").css("opacity", "1");
   }*/
 
-  ScrollTrigger.create({
-    start: "top top",
-    end: 99999,
-    onUpdate: (self) => {
-      const currentScroll = window.pageYOffset;
-
-      if (currentScroll > 150) {
-        // Animate opacity of .nav_background to 1
-
-        if (hasVariant) {
-          gsap.to(".nav_background", {
-            opacity: 1,
-            duration: 0.5,
-            ease: "power2.out",
-          });
-        }
-
-        /*
-        // Show/hide navbar based on scroll direction
-        if (self.direction === -1) {
-          // Show navbar on scroll up
-          gsap.to(".nav_fixed", {
-            y: "0%", // Fix applied here
-            duration: 0.9,
-            ease: "power2.out",
-          });
-        } else {
-          // Hide navbar on scroll down
-          gsap.to(".nav_fixed", {
-            y: "-100%", // Fix applied here
-            duration: 0.9,
-            ease: "power2.out",
-          });
-        }*/
-      } else {
-        if (hasVariant) {
-          // Animate opacity of .nav_background to 0
-          gsap.to(".nav_background", {
-            opacity: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          });
-        }
-        /*
-        // Always show navbar if less than 100px scrolled
-        gsap.to(".nav_fixed", {
-          y: "0%", // Fix applied here
-          duration: 0.9,
-          ease: "power2.out",
-        });
-        */
-      }
-    },
-  });
+  // Nav bg fade at 150px (passive scroll listener, no GSAP needed)
+  if (hasVariant) {
+    const navBgs = document.querySelectorAll(".nav_background");
+    let navBgOn = null;
+    navBgs.forEach(function (el) {
+      el.style.transition = "opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1)";
+    });
+    const updateNavBg = function () {
+      const on = window.pageYOffset > 150;
+      if (on === navBgOn) return;
+      navBgOn = on;
+      navBgs.forEach(function (el) {
+        el.style.opacity = on ? "1" : "0";
+      });
+    };
+    window.addEventListener("scroll", updateNavBg, { passive: true });
+    updateNavBg();
+  }
 
   //
   /*
