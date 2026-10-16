@@ -15,6 +15,8 @@
    - LFK.fmt(valor)          valor no formato do pais da pagina (10.182,50€ na Literacia, 102 806,57 zl na EUPF PL...)
    - LFK.num(texto)          le um numero escrito no formato do pais ("10.000" -> 10000)
    - LFK.locale(el)          formato em uso: data-lfk-locale, ou o site e a lingua da pagina
+   - .lfk-num                campos de numero com os milhares a aparecer enquanto se escreve (corre sozinho);
+                             data-decimals, data-max; LFK.numInputs(root) volta a formatar os valores atuais
    - LFK.toc(nav)             indice do artigo: marca a seccao no ecra (corre sozinho em .lfk-toc[data-lfk-spy])
    - LFK.calc(botao, opts)   comportamento das calculadoras: so calcula no clique, esconde o placeholder, mostra os resultados e faz scroll suave
    Cores e letras vem das variaveis do kit (--lfk-c1..c5, --lfk-font), por isso seguem cada site.
@@ -94,6 +96,80 @@
     var n = parseFloat(s);
     return isNaN(n) ? 0 : n;
   }
+  /* Campos de numero (<input class="lfk-input lfk-num">): os milhares aparecem enquanto se escreve,
+     como no calculadora-inputs.js das calculadoras live (1600 -> 1.600 na Literacia, 1,600 na EUPF EN).
+     - casas decimais: data-decimals="2"; sem o atributo, 2 com inputmode="decimal" e 0 nos outros
+     - maximo: data-max (ou max-value / max, como nas calculadoras live)
+     - nos sites com virgula decimal, "." e "," escritos pelo utilizador viram a virgula, como no site
+     Corre sozinho em todos os .lfk-num, tambem nos que forem acrescentados depois. */
+  function inputDecimals(el) {
+    var d = el.getAttribute("data-decimals");
+    if (d != null && d !== "") return Math.max(0, parseInt(d, 10) || 0);
+    return el.getAttribute("inputmode") === "decimal" ? 2 : 0;
+  }
+  function inputMax(el) {
+    var m = el.getAttribute("data-max") || el.getAttribute("max-value") || el.getAttribute("max");
+    var n = m == null || m === "" ? NaN : parseFloat(m);
+    return isNaN(n) ? null : n;
+  }
+  /* Formata o texto v do campo el. typed = caracter acabado de escrever, pos = cursor.
+     Devolve o texto formatado e onde fica o cursor. */
+  function formatField(el, v, typed, pos) {
+    var L = LOCALES[locale(el)], dec = inputDecimals(el), mark = -1;
+    var decChars = L.d === "," ? ",." : ".";
+    if (dec > 0) {
+      if (typed && typed.length === 1 && decChars.indexOf(typed) >= 0 && pos > 0 && v.charAt(pos - 1) === typed) mark = pos - 1;
+      else mark = v.indexOf(L.d);
+    }
+    /* posicao do cursor contada em digitos (mais 1 se o separador decimal estiver antes dele) */
+    var key = 0;
+    for (var k = 0; k < pos && k < v.length; k++) if (/\d/.test(v.charAt(k)) || k === mark) key++;
+    var intPart = "", decPart = null;
+    for (k = 0; k < v.length; k++) {
+      var ch = v.charAt(k);
+      if (k === mark) { if (decPart == null) decPart = ""; continue; }
+      if (!/\d/.test(ch)) continue;
+      if (decPart == null) intPart += ch; else if (decPart.length < dec) decPart += ch;
+    }
+    intPart = intPart.replace(/^0+(?=\d)/, "");
+    var max = inputMax(el);
+    if (max != null && intPart !== "" && parseFloat(intPart + (decPart ? "." + decPart : "")) > max) {
+      intPart = String(Math.floor(max)); decPart = null;
+    }
+    if (intPart === "" && decPart != null) intPart = "0";
+    var out = group(intPart, L.g) + (decPart != null ? L.d + decPart : "");
+    var c = 0, at = 0;
+    if (key > 0) for (at = 0; at < out.length; at++) { if (/\d/.test(out.charAt(at)) || out.charAt(at) === L.d) c++; if (c >= key) { at++; break; } }
+    return { text: out, caret: Math.min(at, out.length) };
+  }
+  function onNumInput(e) {
+    var el = e.target;
+    if (!el || !el.matches || !el.matches(".lfk input.lfk-num") || e.isComposing) return;
+    var pos = el.selectionStart == null ? el.value.length : el.selectionStart;
+    var v = el.value, r = formatField(el, v, e.data, pos);
+    /* backspace/delete em cima de um separador de milhares: apaga tambem o digito ao lado */
+    if (/^delete/.test(e.inputType || "") && r.text === el.__lfkPrev) {
+      var back = e.inputType === "deleteContentBackward";
+      var k = back ? pos - 1 : pos;
+      while (k >= 0 && k < v.length && !/\d/.test(v.charAt(k))) k += back ? -1 : 1;
+      if (k >= 0 && k < v.length) { v = v.slice(0, k) + v.slice(k + 1); pos = back ? k : pos; r = formatField(el, v, null, pos); }
+    }
+    el.__lfkPrev = r.text;
+    if (r.text === el.value) return;
+    el.value = r.text;
+    if (document.activeElement === el && el.setSelectionRange) { try { el.setSelectionRange(r.caret, r.caret); } catch (err) {} }
+  }
+  function numInputs(root) {
+    (root || document).querySelectorAll(".lfk input.lfk-num").forEach(function (el) {
+      if (el.value) el.value = formatField(el, el.value, null, el.value.length).text;
+      el.__lfkPrev = el.value;
+    });
+  }
+  document.addEventListener("input", onNumInput, true);
+  document.addEventListener("focusin", function (e) { if (e.target && e.target.matches && e.target.matches(".lfk input.lfk-num")) e.target.__lfkPrev = e.target.value; }, true);
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { numInputs(); });
+  else numInputs();
+
   /* eixo: 12500 -> "12,5k", 1200000 -> "1,2M" (decimal do pais) */
   function short(v, o) {
     var L = LOCALES[(o && o.locale) || locale(o && o.el)];
@@ -676,5 +752,5 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { tocs(); });
   else tocs();
 
-  window.LFK = Object.assign(window.LFK || {}, { ready: ready, bar: bar, line: line, donut: donut, views: views, table: table, fmt: fmt, num: num, locale: locale, calc: calc, toc: toc, tocs: tocs, theme: theme, short: short, select: select, selects: selects, menu: menu, menus: menus, restore: restore, shareUrl: shareUrl, zones: zones, steps: steps, meter: meter, descs: descs });
+  window.LFK = Object.assign(window.LFK || {}, { ready: ready, bar: bar, line: line, donut: donut, views: views, table: table, fmt: fmt, num: num, locale: locale, calc: calc, numInputs: numInputs, toc: toc, tocs: tocs, theme: theme, short: short, select: select, selects: selects, menu: menu, menus: menus, restore: restore, shareUrl: shareUrl, zones: zones, steps: steps, meter: meter, descs: descs });
 })();

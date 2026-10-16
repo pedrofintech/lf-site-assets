@@ -61,6 +61,8 @@ Exemplo de campo com unidade e ajuda:
 </div>
 ```
 
+Nos campos com `lfk-num` os milhares aparecem enquanto se escreve, no formato do site (1600 fica `1.600` na Literacia, `1,600` na EUPF em inglês, `1 600` no Rahatarkus), como nas calculadoras live. Por omissão o campo não aceita decimais; com `inputmode="decimal"` aceita 2, ou o número que puseres em `data-decimals="1"`. Nos sites com vírgula decimal, tanto `.` como `,` escritos pelo utilizador viram vírgula. `data-max="500000"` (ou `max-value`, como no site) limita o valor. O valor lê-se sempre com `LFK.num(campo.value)`.
+
 Gráfico com tabela (igual ao graph_wrapper das calculadoras):
 
 ```html
