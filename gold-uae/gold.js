@@ -60,6 +60,7 @@
 .bmc-gold-table td{ padding:12px 16px; text-align:right; font-variant-numeric:tabular-nums; color:#394455; border-bottom:1px solid #F2F4F7; white-space:nowrap; }
 .bmc-gold-table td.is-left{ text-align:left; padding-left:24px; }
 .bmc-gold-table td.is-last{ padding-right:24px; }
+.bmc-gold-table th small{ display:block; font-size:11px; letter-spacing:0; text-transform:none; color:#98A2B3; font-weight:500; margin-top:2px; }
 .bmc-gold-table td small{ display:block; font-size:12px; color:#98A2B3; font-weight:500; }
 .bmc-gold-table tr.is-hl td{ background:#F2FBF6; font-weight:700; color:#202432; }
 .bmc-gold-table tr:last-child td{ border-bottom:0; }
@@ -114,7 +115,8 @@
   .bmc-gold-table th, .bmc-gold-table td{ padding:11px 10px; }
   .bmc-gold-table th.is-left, .bmc-gold-table td.is-left{ padding-left:14px; }
   .bmc-gold-table th.is-last, .bmc-gold-table td.is-last{ padding-right:14px; }
-  .bmc-gold-stat-v{ font-size:19px; }
+  .bmc-gold-stat-v{ font-size:17px; }
+  .bmc-gold-stat-l{ font-size:11px; }
 }
 @media (max-width:479px){
   .bmc-gold-hero-val{ font-size:38px; }
@@ -144,7 +146,7 @@
     </div>
     <div class="bmc-gold-table-wrap">
       <table class="bmc-gold-table">
-        <thead><tr><th class="is-left">Karat</th><th>Today</th><th id="bmc-gold-prevhead">Yesterday</th><th class="is-last">Change</th></tr></thead>
+        <thead><tr><th class="is-left">Karat</th><th id="bmc-gold-th-today">Today</th><th id="bmc-gold-th-prev">Previous day</th><th class="is-last">Change</th></tr></thead>
         <tbody id="bmc-gold-karat-tbody"></tbody>
       </table>
     </div>
@@ -293,8 +295,10 @@
     function renderKarats(){
       var tb=document.getElementById('bmc-gold-karat-tbody'); if(!tb) return;
       var m=unitMult(unit), c=cur, html='';
-      var ph=document.getElementById('bmc-gold-prevhead');
-      if(ph) ph.textContent = P ? 'Previous day' : 'Previous day';
+      var tag=c+(unit==='tola'?'/tola':unit==='10g'?'/10 g':'/g');
+      var th1=document.getElementById('bmc-gold-th-today'), th2=document.getElementById('bmc-gold-th-prev');
+      if(th1) th1.innerHTML='Today<small>'+tag+'</small>';
+      if(th2) th2.innerHTML='Previous day<small>'+tag+'</small>';
       KARATS.forEach(function(k){
         var t=isNum(R[k])?conv(R[k])*m:null;
         var p=(P&&isNum(P[k]))?conv(P[k])*m:null;
@@ -302,8 +306,8 @@
         var dTxt=d==null?'-':'<span class="'+(d>0.0001?'bmc-gold-up':d<-0.0001?'bmc-gold-down':'')+'">'+(d>0?'+':d<0?'-':'')+fmt(Math.abs(d))+'</span>';
         html+='<tr'+(k==='24'?' class="is-hl"':'')+'>'
           +'<td class="is-left">'+KLABEL[k]+'<small>'+KNOTE[k]+'</small></td>'
-          +'<td>'+money(t,c)+'</td>'
-          +'<td>'+money(p,c)+'</td>'
+          +'<td>'+fmt(t)+'</td>'
+          +'<td>'+fmt(p)+'</td>'
           +'<td class="is-last">'+dTxt+'</td></tr>';
       });
       tb.innerHTML=html;
