@@ -17,7 +17,11 @@
   var KARATS = ["24","22","21","18","14"];
   var PURITY = { "24":0.999, "22":0.916, "21":0.875, "18":0.750, "14":0.585 };
   var KLABEL = { "24":"24K", "22":"22K", "21":"21K", "18":"18K", "14":"14K" };
-  var KNOTE  = { "24":"999 fine gold", "22":"916 gold", "21":"875 gold", "18":"750 gold", "14":"585 gold" };
+  var AR = /^ar/i.test(document.documentElement.getAttribute('lang')||'') || /^\/ar(\/|$)/.test(location.pathname);
+  var KNOTE  = AR
+    ? { "24":"ذهب 999", "22":"ذهب 916", "21":"ذهب 875", "18":"ذهب 750", "14":"ذهب 585" }
+    : { "24":"999 fine gold", "22":"916 gold", "21":"875 gold", "18":"750 gold", "14":"585 gold" };
+  function L(en, ar){ return AR ? ar : en; }
 
   var CSS = `/* ===================== BMC-GOLD - styles ===================== */
 #bmc-gold{ font-family:inherit; color:#202432; -webkit-font-smoothing:antialiased; }
@@ -101,6 +105,12 @@
 .bmc-gold-table tr[data-extra].is-shown{ display:table-row; }
 
 /* FAQ under the tool (native Webflow elements, styled here like the EIBOR page) */
+#bmc-gold[dir="rtl"] .bmc-gold-table th, #bmc-gold[dir="rtl"] .bmc-gold-table td{ text-align:left; }
+#bmc-gold[dir="rtl"] .bmc-gold-table th.is-left, #bmc-gold[dir="rtl"] .bmc-gold-table td.is-left{ text-align:right; padding-left:16px; padding-right:24px; }
+#bmc-gold[dir="rtl"] .bmc-gold-table th.is-last, #bmc-gold[dir="rtl"] .bmc-gold-table td.is-last{ padding-right:16px; padding-left:24px; }
+#bmc-gold[dir="rtl"] .bmc-gold-sim-row span:last-child{ text-align:left; }
+#bmc-gold[dir="rtl"] .bmc-gold-hero-label, #bmc-gold[dir="rtl"] .bmc-gold-eyebrow{ letter-spacing:0; }
+#bmc-gold[dir="rtl"] .bmc-gold-table th{ letter-spacing:0; }
 #bm-gold-faq > div{ margin-bottom:2.25rem; }
 #bm-gold-faq > div:last-child{ margin-bottom:0; }
 #bm-gold-faq h3{ font-size:1.25rem; font-weight:400; line-height:1.4; margin:0 0 .6rem; color:inherit; }
@@ -252,7 +262,125 @@
     <p class="bmc-gold-note">Last rate of each day, in AED per gram, as published by the Dubai Jewellery Group.</p>
   </div>`;
 
-  /* ---------------- Helpers (English, dot decimals) ---------------- */
+
+  var HTML_AR = `<div class="bmc-gold-cardtitle">سعر الذهب اليوم في الإمارات (يُحدَّث عدة مرات يوميًا)</div>
+  <div class="bmc-gold-topdivider"></div>
+
+  <span class="bmc-gold-hero-label">سعر الذهب عيار 24 في دبي اليوم، للغرام</span>
+  <div class="bmc-gold-hero-row">
+    <span class="bmc-gold-hero-val" id="bmc-gold-hero-val">-</span>
+    <span id="bmc-gold-hero-chip"></span>
+  </div>
+  <div class="bmc-gold-hero-usd" id="bmc-gold-hero-usd"></div>
+  <p class="bmc-gold-refline" id="bmc-gold-refline">سعر التجزئة المقترح من مجموعة دبي للذهب والمجوهرات.</p>
+
+  <div class="bmc-gold-block">
+    <div class="bmc-gold-block-head">
+      <div>
+        <span class="bmc-gold-eyebrow">حسب العيار</span>
+        <h2 class="bmc-gold-h2">سعر الذهب في دبي اليوم: عيار 24 و22 و21 و18 و14</h2>
+      </div>
+      <div class="bmc-gold-switches">
+        <div class="bmc-gold-ranges" id="bmc-gold-cur"><button data-v="AED" class="is-active">درهم</button><button data-v="USD">دولار</button></div>
+        <div class="bmc-gold-ranges" id="bmc-gold-unit"><button data-v="g" class="is-active">غرام</button><button data-v="tola">تولة</button><button data-v="10g">10 غرامات</button></div>
+      </div>
+    </div>
+    <div class="bmc-gold-table-wrap">
+      <table class="bmc-gold-table">
+        <thead><tr><th class="is-left">العيار</th><th id="bmc-gold-th-today">اليوم</th><th id="bmc-gold-th-prev">اليوم السابق</th><th class="is-last">التغيّر</th></tr></thead>
+        <tbody id="bmc-gold-karat-tbody"></tbody>
+      </table>
+    </div>
+    <p class="bmc-gold-note" id="bmc-gold-karat-note">أسعار التجزئة المقترحة للغرام التي تحددها مجموعة دبي للذهب والمجوهرات للمشغولات الذهبية في دبي. وتضيف المحلات رسوم المصنعية وضريبة القيمة المضافة بنسبة 5%. والتولة تساوي 11.66 غرامًا. وتُحتسب القيم بالدولار وفق سعر الربط الرسمي البالغ 3.6725 درهم.</p>
+  </div>
+
+  <div class="bmc-gold-block">
+    <div class="bmc-gold-block-head">
+      <div>
+        <span class="bmc-gold-eyebrow">السوق العالمية</span>
+        <h2 class="bmc-gold-h2">السعر الفوري للذهب بالدرهم والدولار</h2>
+      </div>
+    </div>
+    <div class="bmc-gold-stats">
+      <div class="bmc-gold-stat"><span class="bmc-gold-stat-l">للأونصة (دولار)</span><span class="bmc-gold-stat-v" id="bmc-gold-s-oz">-</span></div>
+      <div class="bmc-gold-stat"><span class="bmc-gold-stat-l">للغرام (درهم)</span><span class="bmc-gold-stat-v" id="bmc-gold-s-gaed">-</span></div>
+      <div class="bmc-gold-stat"><span class="bmc-gold-stat-l">للغرام (دولار)</span><span class="bmc-gold-stat-v" id="bmc-gold-s-gusd">-</span></div>
+      <div class="bmc-gold-stat"><span class="bmc-gold-stat-l">للتولة (درهم)</span><span class="bmc-gold-stat-v" id="bmc-gold-s-tola">-</span></div>
+    </div>
+    <p class="bmc-gold-note" id="bmc-gold-spot-note">السعر الفوري للذهب الخالص في السوق العالمية، محوّلًا بسعر ربط الدرهم.</p>
+  </div>
+
+  <div class="bmc-gold-block">
+    <div class="bmc-gold-block-head">
+      <div>
+        <span class="bmc-gold-eyebrow">الرسم البياني</span>
+        <h2 class="bmc-gold-h2">سعر غرام الذهب عيار 24 بالدرهم</h2>
+      </div>
+      <div class="bmc-gold-ranges" id="bmc-gold-ranges">
+        <button data-range="21">شهر</button>
+        <button data-range="63">3 أشهر</button>
+        <button data-range="365" class="is-active">سنة</button>
+      </div>
+    </div>
+    <div class="bmc-gold-chartcard">
+      <div class="bmc-gold-chart-top" id="bmc-gold-chart-top"></div>
+      <div class="bmc-gold-canvas-wrap"><canvas id="bmc-gold-canvas"></canvas></div>
+    </div>
+    <p class="bmc-gold-note">سعر التثبيت اليومي العالمي لغرام الذهب الخالص، محوّلًا إلى الدرهم بسعر الربط. وقد يختلف قليلًا عن السعر الفوري أعلاه، وهو أقل من أسعار التجزئة في دبي التي تشمل علاوة التجارة.</p>
+  </div>
+
+  <div class="bmc-gold-block">
+    <span class="bmc-gold-eyebrow">الحاسبة</span>
+    <h2 class="bmc-gold-h2">كم تساوي قطعتك الذهبية؟</h2>
+    <p class="bmc-gold-sub">اختر العيار وأدخل الوزن لترى القيمة بسعر التجزئة في دبي اليوم وبالسعر الفوري للذهب الذي تحتويه.</p>
+    <div class="bmc-gold-sim-grid" style="margin-top:24px">
+      <div class="bmc-gold-sim-inputs">
+        <div class="bmc-gold-sim-field">
+          <span>العيار</span>
+          <div class="bmc-gold-pills" id="bmc-gold-k"><button data-k="24">24K</button><button data-k="22" class="is-active">22K</button><button data-k="21">21K</button><button data-k="18">18K</button><button data-k="14">14K</button></div>
+        </div>
+        <div class="bmc-gold-sim-field">
+          <label for="bmc-gold-w">الوزن</label>
+          <input id="bmc-gold-w" type="text" inputmode="decimal" value="10" dir="ltr">
+        </div>
+        <div class="bmc-gold-sim-field">
+          <span>الوحدة</span>
+          <div class="bmc-gold-pills" id="bmc-gold-u"><button data-u="g" class="is-active">غرامات</button><button data-u="tola">تولة</button><button data-u="oz">أونصات</button></div>
+        </div>
+      </div>
+      <div class="bmc-gold-sim-result">
+        <div class="bmc-gold-sim-row"><span>الوزن بالغرام</span><span id="bmc-gold-r-grams">-</span></div>
+        <div class="bmc-gold-sim-row"><span>سعر التجزئة في دبي</span><span id="bmc-gold-r-rate">-</span></div>
+        <div class="bmc-gold-sim-main">
+          <span class="bmc-gold-sim-main-label">القيمة بسعر التجزئة اليوم</span>
+          <span class="bmc-gold-sim-main-val" id="bmc-gold-r-retail">-</span>
+        </div>
+        <div class="bmc-gold-sim-row"><span>بالدولار الأمريكي</span><span id="bmc-gold-r-usd">-</span></div>
+        <div class="bmc-gold-sim-row"><span>قيمة الذهب الخالص بالسعر الفوري</span><span id="bmc-gold-r-spot">-</span></div>
+        <div class="bmc-gold-sim-tip">تبيع مجوهرات مستعملة؟ تدفع المحلات عادةً <strong>أقل من سعر التجزئة</strong>، أي أقرب إلى قيمة الذهب الذي تحتويه القطعة. اطلب عرضين أو ثلاثة.</div>
+      </div>
+    </div>
+    <p class="bmc-gold-foot">قيم استرشادية قبل رسوم المصنعية وضريبة القيمة المضافة. ويعتمد السعر النهائي للقطعة على الوزن وفحص النقاوة لدى المحل. هذه الأداة للمعلومات فقط وليست نصيحة مالية.</p>
+  </div>
+
+  <div class="bmc-gold-block" id="bmc-gold-hist-block">
+    <div class="bmc-gold-block-head">
+      <div>
+        <span class="bmc-gold-eyebrow">السجل</span>
+        <h2 class="bmc-gold-h2">أسعار الذهب في دبي خلال الأيام الأخيرة</h2>
+      </div>
+    </div>
+    <div class="bmc-gold-table-wrap">
+      <table class="bmc-gold-table">
+        <thead><tr><th class="is-left">التاريخ</th><th>24K</th><th>22K</th><th>21K</th><th class="is-last">18K</th></tr></thead>
+        <tbody id="bmc-gold-hist-tbody"></tbody>
+      </table>
+    </div>
+    <button type="button" id="bmc-gold-more" class="bmc-gold-morebtn">عرض أيام أكثر</button>
+    <p class="bmc-gold-note">آخر سعر في كل يوم، بالدرهم للغرام، كما تنشره مجموعة دبي للذهب والمجوهرات.</p>
+  </div>`;
+
+  /* ---------------- Helpers (dot decimals; AED/USD codes in EN, words in AR) ---------------- */
   function isNum(v){ return typeof v==='number' && isFinite(v); }
   function group(n){ return n.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   function fmt(v, dec){
@@ -261,13 +389,16 @@
     var s = Math.abs(v).toFixed(dec).split('.');
     return (v<0?'-':'') + group(s[0]) + (s[1] ? '.'+s[1] : '');
   }
-  function money(v, cur, dec){ return isNum(v) ? cur+' '+fmt(v, dec) : '-'; }
+  function money(v, cur, dec){
+    if(!isNum(v)) return '-';
+    return AR ? fmt(v, dec)+' '+(cur==='USD'?'دولار':'درهم') : cur+' '+fmt(v, dec);
+  }
   function parseNum(str){ return parseFloat(String(str==null?'':str).replace(/[,\s]/g,'')) || 0; }
   function dmy(iso){ var p=String(iso||'').split('-'); return p.length===3 ? p[2]+'/'+p[1]+'/'+p[0] : iso; }
   function weekday(iso){
     var p=String(iso||'').split('-'); if(p.length!==3) return '';
     var d=new Date(+p[0], +p[1]-1, +p[2]);
-    return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][d.getDay()];
+    return (AR ? ['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'] : ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'])[d.getDay()];
   }
 
   function run(DATA){
@@ -286,23 +417,31 @@
       var el=document.getElementById('bmc-gold-hero-val');
       if(el) el.textContent = money(R['24'], 'AED');
       var usdEl=document.getElementById('bmc-gold-hero-usd');
-      if(usdEl) usdEl.innerHTML = isNum(R['24']) ? '<strong>'+money(R['24']/PEG,'USD')+'</strong> per gram' : '';
+      if(usdEl) usdEl.innerHTML = isNum(R['24']) ? '<strong>'+money(R['24']/PEG,'USD')+'</strong> '+L('per gram','للغرام') : '';
       var chipEl=document.getElementById('bmc-gold-hero-chip');
       if(chipEl){
         if(P && isNum(R['24']) && isNum(P['24'])){
           var d=R['24']-P['24'], pct=d/P['24']*100;
           var cls=d>0.001?'is-up':d<-0.001?'is-down':'is-flat';
           var arrow=d>0.001?'&#9650;':d<-0.001?'&#9660;':'&#8226;';
-          chipEl.innerHTML='<span class="bmc-gold-chip '+cls+'">'+arrow+' '+(d>0?'+':d<0?'-':'')+'AED '+fmt(Math.abs(d))+' ('+(pct>0?'+':pct<0?'-':'')+fmt(Math.abs(pct))+'%) vs '+dmy(DATA.djgPrev.date)+'</span>';
+          var sg=(d>0?'+':d<0?'-':''), ps=(pct>0?'+':pct<0?'-':'');
+          chipEl.innerHTML='<span class="bmc-gold-chip '+cls+'">'+arrow+' '+(AR
+            ? '<span dir="ltr">'+sg+fmt(Math.abs(d))+'</span> درهم (<span dir="ltr">'+ps+fmt(Math.abs(pct))+'%</span>) مقارنة بـ '+dmy(DATA.djgPrev.date)
+            : sg+'AED '+fmt(Math.abs(d))+' ('+ps+fmt(Math.abs(pct))+'%) vs '+dmy(DATA.djgPrev.date))+'</span>';
         } else { chipEl.innerHTML=''; }
       }
       var ref=document.getElementById('bmc-gold-refline');
       if(ref){
         var when = djg.date ? weekday(djg.date)+', '+dmy(djg.date) : '-';
-        ref.innerHTML = 'Suggested retail rate of the <strong>Dubai Jewellery Group</strong>, the industry body of Dubai\'s gold trade. '
-          + 'Rates for <strong>'+when+'</strong>, last checked at '+(djg.checked||'-')+' UAE time. '
-          + 'Dollar values use the fixed peg of AED 3.6725 per USD.'
-          + (djg.stale ? ' <span class="bmc-gold-down">The latest update could not be confirmed, so these may be the previous rates.</span>' : '');
+        ref.innerHTML = AR
+          ? 'سعر التجزئة المقترح من <strong>مجموعة دبي للذهب والمجوهرات</strong>، الجهة التي تمثل تجارة الذهب في دبي. '
+            + 'أسعار يوم <strong>'+when+'</strong>، وآخر تحقق في الساعة '+(djg.checked||'-')+' بتوقيت الإمارات. '
+            + 'وتُحتسب القيم بالدولار وفق سعر الربط الثابت البالغ 3.6725 درهم للدولار.'
+            + (djg.stale ? ' <span class="bmc-gold-down">تعذّر تأكيد آخر تحديث، لذا قد تكون هذه أسعار اليوم السابق.</span>' : '')
+          : 'Suggested retail rate of the <strong>Dubai Jewellery Group</strong>, the industry body of Dubai\'s gold trade. '
+            + 'Rates for <strong>'+when+'</strong>, last checked at '+(djg.checked||'-')+' UAE time. '
+            + 'Dollar values use the fixed peg of AED 3.6725 per USD.'
+            + (djg.stale ? ' <span class="bmc-gold-down">The latest update could not be confirmed, so these may be the previous rates.</span>' : '');
       }
     }
 
@@ -310,10 +449,10 @@
     function renderKarats(){
       var tb=document.getElementById('bmc-gold-karat-tbody'); if(!tb) return;
       var m=unitMult(unit), c=cur, html='';
-      var tag=c+(unit==='tola'?'/tola':unit==='10g'?'/10 g':'/g');
+      var tag=AR ? (c==='USD'?'دولار':'درهم')+(unit==='tola'?'/تولة':unit==='10g'?'/10 غ':'/غ') : c+(unit==='tola'?'/tola':unit==='10g'?'/10 g':'/g');
       var th1=document.getElementById('bmc-gold-th-today'), th2=document.getElementById('bmc-gold-th-prev');
-      if(th1) th1.innerHTML='Today<small>'+tag+'</small>';
-      if(th2) th2.innerHTML='<span class="bmc-gold-long">Previous day</span><span class="bmc-gold-short">Prev. day</span><small>'+tag+'</small>';
+      if(th1) th1.innerHTML=L('Today','اليوم')+'<small>'+tag+'</small>';
+      if(th2) th2.innerHTML=AR ? 'أمس<small>'+tag+'</small>' : '<span class="bmc-gold-long">Previous day</span><span class="bmc-gold-short">Prev. day</span><small>'+tag+'</small>';
       KARATS.forEach(function(k){
         var t=isNum(R[k])?conv(R[k])*m:null;
         var p=(P&&isNum(P[k]))?conv(P[k])*m:null;
@@ -339,9 +478,12 @@
       var n=document.getElementById('bmc-gold-spot-note');
       if(n){
         var t='';
-        if(spotAt){ var d=new Date(spotAt); if(!isNaN(d)){ var u=new Date(d.getTime()+4*3600e3); t=' Updated at '+('0'+u.getUTCHours()).slice(-2)+':'+('0'+u.getUTCMinutes()).slice(-2)+' UAE time on '+dmy(u.toISOString().slice(0,10))+'.'; } }
-        var prem = (isNum(R['24'])&&isNum(gAed)) ? ' Today the Dubai 24K retail rate is <strong>'+fmt((R['24']/gAed-1)*100,1)+'%</strong> above spot.' : '';
-        n.innerHTML='Spot price of fine gold (999.9) on the international market, converted to dirhams at the official peg of AED 3.6725 per US dollar.'+t+prem+' Retail rates are higher because they include the refining and trading premium.';
+        if(spotAt){ var d=new Date(spotAt); if(!isNaN(d)){ var u=new Date(d.getTime()+4*3600e3); var hm=('0'+u.getUTCHours()).slice(-2)+':'+('0'+u.getUTCMinutes()).slice(-2), dd=dmy(u.toISOString().slice(0,10)); t=AR ? ' آخر تحديث في الساعة '+hm+' بتوقيت الإمارات يوم '+dd+'.' : ' Updated at '+hm+' UAE time on '+dd+'.'; } }
+        var pv=(isNum(R['24'])&&isNum(gAed)) ? fmt((R['24']/gAed-1)*100,1)+'%' : null;
+        var prem = pv ? L(' Today the Dubai 24K retail rate is <strong>'+pv+'</strong> above spot.', ' ويزيد سعر التجزئة لعيار 24 في دبي اليوم بنسبة <strong>'+pv+'</strong> على السعر الفوري.') : '';
+        n.innerHTML=L('Spot price of fine gold (999.9) on the international market, converted to dirhams at the official peg of AED 3.6725 per US dollar.',
+          'السعر الفوري للذهب الخالص (999.9) في السوق العالمية، محوّلًا إلى الدرهم بسعر الربط الرسمي البالغ 3.6725 درهم للدولار الأمريكي.')
+          +t+prem+L(' Retail rates are higher because they include the refining and trading premium.', ' وأسعار التجزئة أعلى لأنها تشمل علاوة التكرير والتجارة.');
       }
       renderSim();
     }
@@ -362,16 +504,19 @@
       var rows=sliceRange(); if(!rows.length) return;
       var first=rows[0].g, lastv=rows[rows.length-1].g, ch=(lastv/first-1)*100;
       var top=document.getElementById('bmc-gold-chart-top');
-      if(top) top.innerHTML='<span>AED '+fmt(lastv)+' per gram on '+dmy(rows[rows.length-1].d)+'</span><span class="'+(ch>=0?'bmc-gold-up':'bmc-gold-down')+'">'+(ch>=0?'+':'-')+fmt(Math.abs(ch),1)+'% in this period</span>';
+      var chTxt=(ch>=0?'+':'-')+fmt(Math.abs(ch),1)+'%';
+      if(top) top.innerHTML=AR
+        ? '<span>'+fmt(lastv)+' درهم للغرام في '+dmy(rows[rows.length-1].d)+'</span><span class="'+(ch>=0?'bmc-gold-up':'bmc-gold-down')+'"><span dir="ltr">'+chTxt+'</span> في هذه الفترة</span>'
+        : '<span>AED '+fmt(lastv)+' per gram on '+dmy(rows[rows.length-1].d)+'</span><span class="'+(ch>=0?'bmc-gold-up':'bmc-gold-down')+'">'+chTxt+' in this period</span>';
       var accent=(getComputedStyle(document.documentElement).getPropertyValue('--colors--accent-blue')||'').trim()||'#2E90FA';
       var cfg={ type:'line',
         data:{ labels:rows.map(function(r){ var p=r.d.split('-'); return p[2]+'/'+p[1]+'/'+p[0].slice(2); }),
           datasets:[{ label:'24K per gram (AED)', data:rows.map(function(r){return r.g;}), borderColor:accent, backgroundColor:accent, borderWidth:2, pointRadius:0, pointHoverRadius:4, tension:0.2, fill:false }] },
         options:{ responsive:true, maintainAspectRatio:false, animation:false, interaction:{ mode:'index', intersect:false },
           plugins:{ legend:{display:false}, tooltip:{ backgroundColor:'#121721', borderRadius:8, padding:10, titleColor:'#fff', bodyColor:'#E9ECF1', displayColors:false,
-            callbacks:{ label:function(c){ return 'AED '+fmt(c.parsed.y)+' per gram'; } } } },
-          scales:{ x:{ grid:{display:false}, ticks:{ color:'#4F5969', font:{family:'Inter',size:11}, maxRotation:0, autoSkip:true, maxTicksLimit:7 } },
-                   y:{ grid:{color:'#E9ECF1'}, ticks:{ color:'#4F5969', font:{family:'Inter',size:11}, callback:function(v){ return fmt(v,0); } } } } } };
+            callbacks:{ label:function(c){ return AR ? fmt(c.parsed.y)+' درهم للغرام' : 'AED '+fmt(c.parsed.y)+' per gram'; } } } },
+          scales:{ x:{ reverse:AR, grid:{display:false}, ticks:{ color:'#4F5969', font:{family:'Inter',size:11}, maxRotation:0, autoSkip:true, maxTicksLimit:7 } },
+                   y:{ position:AR?'right':'left', grid:{color:'#E9ECF1'}, ticks:{ color:'#4F5969', font:{family:'Inter',size:11}, callback:function(v){ return fmt(v,0); } } } } } };
       if(chart){ chart.data=cfg.data; chart.options=cfg.options; chart.update(); }
       else { chart=new Chart(document.getElementById('bmc-gold-canvas').getContext('2d'), cfg); }
     }
@@ -386,8 +531,8 @@
       var spotG=isNum(spotUsdOz)?spotUsdOz/OZ*PEG:null;
       var content=isNum(spotG)?grams*PURITY[simK]*spotG:null;
       var set=function(id,v){ var e=document.getElementById(id); if(e) e.textContent=v; };
-      set('bmc-gold-r-grams', fmt(grams, grams%1?2:0)+' g');
-      set('bmc-gold-r-rate', money(rate,'AED')+' per gram ('+KLABEL[simK]+')');
+      set('bmc-gold-r-grams', fmt(grams, grams%1?2:0)+L(' g',' غ'));
+      set('bmc-gold-r-rate', money(rate,'AED')+L(' per gram (',' للغرام (')+KLABEL[simK]+')');
       set('bmc-gold-r-retail', money(retail,'AED'));
       set('bmc-gold-r-usd', money(isNum(retail)?retail/PEG:null,'USD'));
       set('bmc-gold-r-spot', money(content,'AED'));
@@ -410,7 +555,7 @@
       more.addEventListener('click',function(){
         var open=!!tb.querySelector('tr[data-extra].is-shown');
         extras.forEach(function(t){ t.classList.toggle('is-shown', !open); });
-        more.textContent=open?'Show more days':'Show fewer days';
+        more.textContent=open?L('Show more days','عرض أيام أكثر'):L('Show fewer days','عرض أيام أقل');
       });
     }
 
@@ -440,6 +585,8 @@
     }).catch(function(){});
   }
 
+  var FAQ_AR = `<div><h3>كم سعر الذهب في دبي اليوم؟</h3><p>يعرض الجدول في أعلى هذه الصفحة سعر الذهب في دبي اليوم للغرام لعيارات 24 و22 و21 و18 و14، بالدرهم والدولار، إلى جانب سعر اليوم السابق. وتأتي الأسعار من مجموعة دبي للذهب والمجوهرات، ونتحقق منها عدة مرات يوميًا لأن المجموعة قد تغيّرها صباحًا وظهرًا ومساءً.</p></div><div><h3>من يحدد سعر الذهب في دبي؟</h3><p>تنشر مجموعة دبي للذهب والمجوهرات، وهي الجهة التي تمثل تجارة الذهب والمجوهرات في دبي، سعر تجزئة مقترحًا للغرام لكل عيار. وقد تأسست عام 1996 بتوجيهات من دائرة الاقتصاد والسياحة في دبي. ويستخدم تجار المجوهرات في دبي هذه الأسعار مرجعًا لسعر الذهب في القطعة. وتجد الأسعار الرسمية على موقع المجموعة، <a href="https://dubaicityofgold.com/dubai-gold-rate-today/" rel="noopener" class="blue-link">Dubai City of Gold</a>.</p></div><div><h3>لماذا يزيد سعر الذهب في دبي على السعر الفوري؟</h3><p>السعر الفوري هو سعر الجملة للذهب الخالص في السوق العالمية. ويضيف سعر التجزئة علاوة المصافي وتجار الجملة والصاغة. وفوق سعر التجزئة، تتقاضى المحلات رسوم المصنعية مقابل تصميم كل قطعة وصناعتها، إضافة إلى ضريبة القيمة المضافة بنسبة 5%. ويبيّن قسم السعر الفوري في هذه الصفحة الفرق بين سعر التجزئة لعيار 24 والسعر الفوري اليوم.</p></div><div><h3>ما الفرق بين الذهب عيار 24 و22 و21 و18؟</h3><p>يدل العيار على نسبة الذهب الخالص في المعدن. فعيار 24 يحتوي على 99.9% ذهبًا، وعيار 22 على 91.6%، وعيار 21 على 87.5%، وعيار 18 على 75%، وعيار 14 على 58.5%. والباقي معادن أخرى مثل الفضة أو النحاس تجعل القطعة أصلب. ويُباع عيار 24 غالبًا على شكل سبائك وعملات لأنه أطرى من أن يُستخدم في معظم المجوهرات.</p></div><div><h3>كم غرامًا في التولة؟</h3><p>التولة تساوي 11.6638 غرامًا. وهي وحدة تقليدية من جنوب آسيا لا تزال محلات كثيرة في دبي تسعّر بها. ولحساب سعر التولة، اضرب سعر الغرام في 11.6638. ويمكن للجدول أعلاه عرض الأسعار بالتولة بنقرة واحدة.</p></div><div><h3>هل تُفرض ضريبة القيمة المضافة على الذهب في الإمارات؟</h3><p>نعم، تخضع المجوهرات الذهبية لضريبة القيمة المضافة بنسبة 5% على السعر الكامل، بما في ذلك رسوم المصنعية. أما ذهب الاستثمار، أي السبائك والعملات بنقاوة 99% أو أكثر، فيخضع لنسبة الصفر، فلا تُدفع عليه ضريبة عند الشراء. وتحدد هذه القواعد <a href="https://tax.gov.ae/ar/taxes/vat.aspx" rel="noopener" class="blue-link">الهيئة الاتحادية للضرائب</a>.</p></div><div><h3>لماذا يتغير سعر الذهب كل يوم؟</h3><p>يُتداول الذهب حول العالم بالدولار الأمريكي للأونصة، ويتحرك سعره مع أسعار الفائدة والدولار ومشتريات البنوك المركزية والطلب على الملاذات الآمنة. ولأن الدرهم مربوط بالدولار عند 3.6725، فإن سعر الذهب بالدرهم يتبع سعره بالدولار تقريبًا بالنسبة نفسها.</p></div><div><h3>كم تساوي قطعتي الذهبية إذا بعتها؟</h3><p>استخدم الحاسبة أعلاه: اختر العيار والوزن لترى القيمة بسعر التجزئة اليوم وقيمة الذهب الذي تحتويه بالسعر الفوري. وتدفع المحلات التي تشتري الذهب المستعمل عادةً أقل من سعر التجزئة، أي أقرب إلى قيمة الذهب في القطعة، لأنها تصهره أو تعيد بيعه. اطلب الوزن وفحص النقاوة أمامك، وقارن بين عرضين أو ثلاثة.</p></div><div><h3>هل تجب الزكاة على الذهب؟</h3><p>بالنسبة للمسلمين، يخضع الذهب الذي يُحتفظ به حولًا قمريًا كاملًا وتزيد كميته على النصاب البالغ 85 غرامًا من الذهب الخالص للزكاة بنسبة 2.5%. وتستخدم <a href="/ar/zakat-calculator" class="blue-link">حاسبة الزكاة</a> لدينا سعر الذهب اليوم للتحقق من النصاب وحساب المبلغ المستحق.</p></div><div><h3>هل الذهب استثمار جيد؟</h3><p>قد يحمي الذهب جزءًا من مدخراتك في الأزمات ويساعد على التنويع، لكنه لا يدفع فوائد ولا توزيعات، وقد يمر بفترات طويلة دون تغيّر يُذكر. والمجوهرات طريقة مكلفة للاستثمار، لأن رسوم المصنعية والضريبة تضيع عند البيع. وللاستثمار، قارن بين السبائك والعملات وصناديق الذهب المتداولة وغيرها في دليلنا حول <a href="/ar/articles/best-gold-trading-platform-uae" class="blue-link">أفضل منصات تداول الذهب في الإمارات</a>. والأسعار في هذه الصفحة للمعلومات فقط وليست نصيحة مالية.</p></div>`;
+
   function injectCSS(){
     if(!document.getElementById('bmc-gold-style')){
       var st=document.createElement('style'); st.id='bmc-gold-style'; st.textContent=CSS;
@@ -450,7 +597,12 @@
   function boot(DATA){
     injectCSS();
     var root=document.getElementById('bmc-gold'); if(!root) return;
-    root.innerHTML=HTML;
+    root.innerHTML=AR ? HTML_AR : HTML;
+    if(AR){
+      root.setAttribute('dir','rtl');
+      var fq=document.getElementById('bm-gold-faq');
+      if(fq){ fq.innerHTML=FAQ_AR; fq.setAttribute('dir','rtl'); }
+    }
     run(DATA);
   }
 
@@ -463,7 +615,7 @@
       .catch(function(err){
         console.error('[gold] failed to load data', err);
         var root=document.getElementById('bmc-gold');
-        if(root){ root.innerHTML='<p style="font:inherit;color:#98A2B3;margin:0;">Could not load the gold rates. Please try again in a moment.</p>'; }
+        if(root){ root.innerHTML='<p style="font:inherit;color:#98A2B3;margin:0;">'+L('Could not load the gold rates. Please try again in a moment.','تعذّر تحميل أسعار الذهب. يُرجى المحاولة مرة أخرى بعد قليل.')+'</p>'; }
       });
   }
 
