@@ -127,6 +127,7 @@
   .bmc-gold-table th.is-left, .bmc-gold-table td.is-left{ padding-left:12px; }
   .bmc-gold-table th.is-last, .bmc-gold-table td.is-last{ padding-right:12px; }
   .bmc-gold-table td small{ font-size:11px; }
+  .bmc-gold-table td.is-left{ white-space:normal; min-width:64px; }
   .bmc-gold-stat{ padding:13px; }
 }`;
 
