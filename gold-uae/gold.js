@@ -96,6 +96,12 @@
 .bmc-gold-table tr[data-extra]{ display:none; }
 .bmc-gold-table tr[data-extra].is-shown{ display:table-row; }
 
+/* FAQ under the tool (native Webflow elements, styled here like the EIBOR page) */
+#bm-gold-faq > div{ margin-bottom:2.25rem; }
+#bm-gold-faq > div:last-child{ margin-bottom:0; }
+#bm-gold-faq h3{ font-size:1.25rem; font-weight:400; line-height:1.4; margin:0 0 .6rem; color:inherit; }
+#bm-gold-faq p{ margin:0; color:#6b7280; line-height:1.65; font-size:1rem; }
+
 @media (max-width:991px){
   .bmc-gold-stats{ grid-template-columns:repeat(2,1fr); }
 }
@@ -415,17 +421,22 @@
     }).catch(function(){});
   }
 
-  function boot(DATA){
+  function injectCSS(){
     if(!document.getElementById('bmc-gold-style')){
       var st=document.createElement('style'); st.id='bmc-gold-style'; st.textContent=CSS;
       (document.head||document.documentElement).appendChild(st);
     }
+  }
+
+  function boot(DATA){
+    injectCSS();
     var root=document.getElementById('bmc-gold'); if(!root) return;
     root.innerHTML=HTML;
     run(DATA);
   }
 
   function start(){
+    injectCSS();
     var u=DATA_URL+'?d='+new Date().toISOString().slice(0,13);
     fetch(u,{cache:'no-store'})
       .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
