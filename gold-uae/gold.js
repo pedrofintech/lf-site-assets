@@ -30,6 +30,8 @@
 .bmc-gold-hero-label{ font-weight:700; font-size:13px; letter-spacing:0.05em; text-transform:uppercase; color:#4F5969; }
 .bmc-gold-hero-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:10px; }
 .bmc-gold-hero-val{ font-weight:700; font-size:56px; line-height:1; letter-spacing:-0.02em; color:#202432; font-variant-numeric:tabular-nums; }
+.bmc-gold-hero-usd{ margin-top:8px; font-weight:600; font-size:24px; line-height:1.2; color:#4F5969; font-variant-numeric:tabular-nums; }
+.bmc-gold-hero-usd strong{ color:#202432; font-weight:700; }
 .bmc-gold-refline{ margin:14px 0 0; font-size:14px; line-height:1.55; color:#4F5969; font-weight:500; max-width:820px; }
 .bmc-gold-refline strong{ color:#202432; }
 .bmc-gold-chip{ display:inline-flex; align-items:center; gap:4px; font-size:13px; font-weight:600; padding:5px 11px; border-radius:999px; font-variant-numeric:tabular-nums; white-space:nowrap; }
@@ -109,6 +111,7 @@
 }
 @media (max-width:767px){
   .bmc-gold-hero-val{ font-size:44px; }
+  .bmc-gold-hero-usd{ font-size:20px; }
   .bmc-gold-h2{ font-size:25px; }
   .bmc-gold-sim-grid{ grid-template-columns:1fr; gap:22px; }
   .bmc-gold-sim-main-val{ font-size:34px; }
@@ -121,6 +124,7 @@
 }
 @media (max-width:479px){
   .bmc-gold-hero-val{ font-size:38px; }
+  .bmc-gold-hero-usd{ font-size:18px; }
   .bmc-gold-long{ display:none; } .bmc-gold-short{ display:inline; }
   .bmc-gold-table{ font-size:13px; }
   .bmc-gold-table th, .bmc-gold-table td{ padding:10px 7px; }
@@ -139,6 +143,7 @@
     <span class="bmc-gold-hero-val" id="bmc-gold-hero-val">-</span>
     <span id="bmc-gold-hero-chip"></span>
   </div>
+  <div class="bmc-gold-hero-usd" id="bmc-gold-hero-usd"></div>
   <p class="bmc-gold-refline" id="bmc-gold-refline">Suggested retail rate of the Dubai Jewellery Group.</p>
 
   <div class="bmc-gold-block">
@@ -280,6 +285,8 @@
     function renderHero(){
       var el=document.getElementById('bmc-gold-hero-val');
       if(el) el.textContent = money(R['24'], 'AED');
+      var usdEl=document.getElementById('bmc-gold-hero-usd');
+      if(usdEl) usdEl.innerHTML = isNum(R['24']) ? '<strong>'+money(R['24']/PEG,'USD')+'</strong> per gram in US dollars' : '';
       var chipEl=document.getElementById('bmc-gold-hero-chip');
       if(chipEl){
         if(P && isNum(R['24']) && isNum(P['24'])){
@@ -294,7 +301,7 @@
         var when = djg.date ? weekday(djg.date)+', '+dmy(djg.date) : '-';
         ref.innerHTML = 'Suggested retail rate of the <strong>Dubai Jewellery Group</strong>, the industry body of Dubai\'s gold trade. '
           + 'Rates for <strong>'+when+'</strong>, last checked at '+(djg.checked||'-')+' UAE time. '
-          + 'In US dollars: <strong>'+money(isNum(R['24'])?R['24']/PEG:null,'USD')+'</strong> per gram.'
+          + 'Dollar values use the fixed peg of AED 3.6725 per USD.'
           + (djg.stale ? ' <span class="bmc-gold-down">The latest update could not be confirmed, so these may be the previous rates.</span>' : '');
       }
     }
