@@ -106,6 +106,8 @@
 
 /* FAQ under the tool (native Webflow elements, styled here like the EIBOR page) */
 #bmc-gold[dir="rtl"] .bmc-gold-table th, #bmc-gold[dir="rtl"] .bmc-gold-table td{ text-align:left; }
+#bmc-gold[dir="rtl"] .bmc-gold-table td{ direction:ltr; }
+#bmc-gold[dir="rtl"] .bmc-gold-table td.is-left{ direction:rtl; }
 #bmc-gold[dir="rtl"] .bmc-gold-table th.is-left, #bmc-gold[dir="rtl"] .bmc-gold-table td.is-left{ text-align:right; padding-left:16px; padding-right:24px; }
 #bmc-gold[dir="rtl"] .bmc-gold-table th.is-last, #bmc-gold[dir="rtl"] .bmc-gold-table td.is-last{ padding-right:16px; padding-left:24px; }
 #bmc-gold[dir="rtl"] .bmc-gold-sim-row span:last-child{ text-align:left; }
@@ -426,13 +428,13 @@
           var arrow=d>0.001?'&#9650;':d<-0.001?'&#9660;':'&#8226;';
           var sg=(d>0?'+':d<0?'-':''), ps=(pct>0?'+':pct<0?'-':'');
           chipEl.innerHTML='<span class="bmc-gold-chip '+cls+'">'+arrow+' '+(AR
-            ? '<span dir="ltr">'+sg+fmt(Math.abs(d))+'</span> درهم (<span dir="ltr">'+ps+fmt(Math.abs(pct))+'%</span>) مقارنة بـ '+dmy(DATA.djgPrev.date)
+            ? fmt(Math.abs(d))+' درهم ('+fmt(Math.abs(pct))+'%) '+(d>0.001?'ارتفاعًا':d<-0.001?'انخفاضًا':'دون تغيير')+' مقارنة بـ '+dmy(DATA.djgPrev.date)
             : sg+'AED '+fmt(Math.abs(d))+' ('+ps+fmt(Math.abs(pct))+'%) vs '+dmy(DATA.djgPrev.date))+'</span>';
         } else { chipEl.innerHTML=''; }
       }
       var ref=document.getElementById('bmc-gold-refline');
       if(ref){
-        var when = djg.date ? weekday(djg.date)+', '+dmy(djg.date) : '-';
+        var when = djg.date ? weekday(djg.date)+L(', ','، ')+dmy(djg.date) : '-';
         ref.innerHTML = AR
           ? 'سعر التجزئة المقترح من <strong>مجموعة دبي للذهب والمجوهرات</strong>، الجهة التي تمثل تجارة الذهب في دبي. '
             + 'أسعار يوم <strong>'+when+'</strong>، وآخر تحقق في الساعة '+(djg.checked||'-')+' بتوقيت الإمارات. '
