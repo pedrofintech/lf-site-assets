@@ -61,6 +61,7 @@
 .bmc-gold-table td.is-left{ text-align:left; padding-left:24px; }
 .bmc-gold-table td.is-last{ padding-right:24px; }
 .bmc-gold-table th small{ display:block; font-size:11px; letter-spacing:0; text-transform:none; color:#98A2B3; font-weight:500; margin-top:2px; }
+.bmc-gold-short{ display:none; }
 .bmc-gold-table td small{ display:block; font-size:12px; color:#98A2B3; font-weight:500; }
 .bmc-gold-table tr.is-hl td{ background:#F2FBF6; font-weight:700; color:#202432; }
 .bmc-gold-table tr:last-child td{ border-bottom:0; }
@@ -120,6 +121,12 @@
 }
 @media (max-width:479px){
   .bmc-gold-hero-val{ font-size:38px; }
+  .bmc-gold-long{ display:none; } .bmc-gold-short{ display:inline; }
+  .bmc-gold-table{ font-size:13px; }
+  .bmc-gold-table th, .bmc-gold-table td{ padding:10px 7px; }
+  .bmc-gold-table th.is-left, .bmc-gold-table td.is-left{ padding-left:12px; }
+  .bmc-gold-table th.is-last, .bmc-gold-table td.is-last{ padding-right:12px; }
+  .bmc-gold-table td small{ font-size:11px; }
   .bmc-gold-stat{ padding:13px; }
 }`;
 
@@ -298,7 +305,7 @@
       var tag=c+(unit==='tola'?'/tola':unit==='10g'?'/10 g':'/g');
       var th1=document.getElementById('bmc-gold-th-today'), th2=document.getElementById('bmc-gold-th-prev');
       if(th1) th1.innerHTML='Today<small>'+tag+'</small>';
-      if(th2) th2.innerHTML='Previous day<small>'+tag+'</small>';
+      if(th2) th2.innerHTML='<span class="bmc-gold-long">Previous day</span><span class="bmc-gold-short">Prev. day</span><small>'+tag+'</small>';
       KARATS.forEach(function(k){
         var t=isNum(R[k])?conv(R[k])*m:null;
         var p=(P&&isNum(P[k]))?conv(P[k])*m:null;
