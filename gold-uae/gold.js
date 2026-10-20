@@ -286,7 +286,7 @@
       var el=document.getElementById('bmc-gold-hero-val');
       if(el) el.textContent = money(R['24'], 'AED');
       var usdEl=document.getElementById('bmc-gold-hero-usd');
-      if(usdEl) usdEl.innerHTML = isNum(R['24']) ? '<strong>'+money(R['24']/PEG,'USD')+'</strong> per gram in US dollars' : '';
+      if(usdEl) usdEl.innerHTML = isNum(R['24']) ? '<strong>'+money(R['24']/PEG,'USD')+'</strong> per gram' : '';
       var chipEl=document.getElementById('bmc-gold-hero-chip');
       if(chipEl){
         if(P && isNum(R['24']) && isNum(P['24'])){
