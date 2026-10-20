@@ -394,7 +394,7 @@
       var tb=document.getElementById('bmc-gold-hist-tbody'), html='';
       rows.forEach(function(r,i){
         html+='<tr'+(i===0?' class="is-hl"':'')+(i>=10?' data-extra="1"':'')+'>'
-          +'<td class="is-left">'+dmy(r.d)+'</td><td>'+fmt(r.r24)+'</td><td>'+fmt(r.r22)+'</td><td>'+fmt(r.r21)+'</td><td class="is-last">'+fmt(r.r18)+'</td></tr>';
+          +'<td class="is-left">'+dmy(r.d).replace(/\/(\d{2})(\d{2})$/,'/$2')+'</td><td>'+fmt(r.r24)+'</td><td>'+fmt(r.r22)+'</td><td>'+fmt(r.r21)+'</td><td class="is-last">'+fmt(r.r18)+'</td></tr>';
       });
       tb.innerHTML=html;
       var more=document.getElementById('bmc-gold-more');
