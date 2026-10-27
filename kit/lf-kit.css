@@ -371,9 +371,10 @@
 .lfk .lfk-stat.is-brand .lfk-stat-v{color:var(--lfk-brand)}
 .lfk .lfk-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem}
 /* Linhas nome / valor (resultados_component) */
-.lfk .lfk-kv{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem;padding:.75rem 0;border-bottom:1px solid var(--lfk-border-2);font-size:var(--lfk-fs-m);line-height:var(--lfk-lh-m);letter-spacing:var(--lfk-ls-m)}
-.lfk .lfk-kv > :first-child{display:flex;align-items:center;gap:.3rem;color:var(--lfk-text-2)}
-.lfk .lfk-kv > :last-child{text-align:right;color:var(--lfk-text);font-weight:600;font-variant-numeric:tabular-nums}
+/* Valor sempre na mesma linha do texto, tambem em mobile: o texto passa a duas linhas, o valor fica a direita */
+.lfk .lfk-kv{display:flex;flex-wrap:nowrap;justify-content:space-between;align-items:center;gap:.5rem;padding:.75rem 0;border-bottom:1px solid var(--lfk-border-2);font-size:var(--lfk-fs-m);line-height:var(--lfk-lh-m);letter-spacing:var(--lfk-ls-m)}
+.lfk .lfk-kv > :first-child{display:flex;align-items:center;gap:.3rem;flex:1 1 auto;min-width:0;color:var(--lfk-text-2)}
+.lfk .lfk-kv > :last-child{flex-shrink:0;white-space:nowrap;text-align:right;color:var(--lfk-text);font-weight:600;font-variant-numeric:tabular-nums}
 .lfk .lfk-kv.is-total > :first-child{color:var(--lfk-text);font-weight:600}
 /* Frase de resumo (data-disclaimer: text-size-small text-color-secondary) */
 .lfk .lfk-summary{font-size:var(--lfk-fs-s);line-height:var(--lfk-lh-s);letter-spacing:var(--lfk-ls-s);color:var(--lfk-text-2)}
