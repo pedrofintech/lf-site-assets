@@ -464,6 +464,9 @@
 .lfk .lfk-calc-inner{width:38.875rem;max-width:100%;margin:0 auto}
 .lfk .lfk-calc-title{padding-bottom:2rem;font-size:var(--lfk-fs-l);line-height:var(--lfk-lh-l);letter-spacing:var(--lfk-ls-l);font-weight:500;color:var(--lfk-text)}
 .lfk .lfk-calc-results{display:flex;flex-direction:column;gap:1.5rem;padding-top:1.5rem}
+/* cartoes de resultados: conteudo alinhado com os campos do formulario (mesma largura que .lfk-calc-inner) */
+.lfk .lfk-calc-results .lfk-card{padding-left:0;padding-right:0}
+.lfk .lfk-calc-results .lfk-card > *{width:38.875rem;max-width:100%;margin-left:auto;margin-right:auto}
 
 /* ---------- Barra com zonas (calculadora de taxa de esforco) ----------
    <div class="lfk-zones" data-value="60" data-max="100" data-zones="35:Saudável:ok,45:Aceitável:warn,100:Preocupante:err"></div>
@@ -765,7 +768,7 @@
   .lfk{--lfk-title-fs:2rem}
   .lfk.lfk-hero,.lfk .lfk-hero{padding:4rem 2.5rem}
   .lfk .lfk-calc-form{padding:1.5rem 1rem}
-  .lfk .lfk-card{padding:1.5rem 1rem}
+  .lfk .lfk-card,.lfk .lfk-calc-results .lfk-card{padding:1.5rem 1rem}
 }
 @media screen and (max-width:767px){
   .lfk{--lfk-fs-l:1rem}
