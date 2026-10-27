@@ -919,18 +919,26 @@ const taxTables = [
 // e a tabela de escaloes. Os calculos sao os da versao 56a2874, sem
 // alteracoes - mudou apenas a ordem em que o DOM e atualizado.
 
-// Novembro de 2026 (despacho das Financas publicado a 14 de outubro): no continente,
-// a retencao de IRS sobre salarios e pensoes pagos em novembro e metade da que
-// resulta das tabelas do Despacho n.º 233-A/2026, tambem no subsidio de Natal
-// pago nesse mes. Em dezembro volta ao valor normal. A nota aparece por baixo da
-// folha de vencimento e deixa de aparecer a 1 de dezembro de 2026.
+// Novembro de 2026: a retencao de IRS sobre salarios e pensoes pagos entre 1 e 30
+// de novembro e metade da que resulta das tabelas em vigor, tambem no subsidio de
+// Natal pago nesse mes. Continente: Despacho n.º 12523-A/2026, de 14 de outubro.
+// Acores: Despacho n.º 12610-A/2026, de 15 de outubro. A Madeira nao tem regra
+// equivalente publicada. Ficam de fora os rendimentos mensais acima do limite
+// superior do penultimo escalao da tabela aplicavel. Em dezembro volta tudo ao
+// normal. A nota aparece por baixo da folha de vencimento e deixa de aparecer a
+// 1 de dezembro de 2026.
 var LF_NOVEMBRO_FIM = new Date(2026, 11, 1);
-function lfSalarioNotaNovembro(continente, retIRS, liquido, duodecimos, fmt) {
+var LF_NOVEMBRO_REGIOES = {
+  "Portugal Continental": "No continente",
+  "Região Autónoma dos Açores": "Nos Açores",
+};
+function lfSalarioNotaNovembro(morada, limite, rendimento, retIRS, liquido, duodecimos, fmt) {
   var bruto = document.querySelector("[valor-bruto-result]");
   var lista = bruto && bruto.closest(".results-list_wrapper");
   var nota = document.getElementById("lf-nota-novembro");
+  var regiao = LF_NOVEMBRO_REGIOES[morada];
   var ganho = Math.round(retIRS * 50) / 100;
-  if (!lista || !continente || !(ganho > 0) || new Date() >= LF_NOVEMBRO_FIM) {
+  if (!lista || !regiao || !(ganho > 0) || new Date() >= LF_NOVEMBRO_FIM) {
     if (nota) nota.style.display = "none";
     return;
   }
@@ -941,13 +949,21 @@ function lfSalarioNotaNovembro(continente, retIRS, liquido, duodecimos, fmt) {
     nota.style.marginTop = "1rem";
     lista.parentNode.insertBefore(nota, lista.nextSibling);
   }
+  if (limite && rendimento > limite) {
+    nota.innerHTML =
+      "<strong>Em novembro a tua retenção não muda.</strong> " + regiao +
+      ", a retenção de IRS desse mês fica a metade, mas só para rendimentos até " +
+      fmt(limite) + " por mês.";
+    nota.style.display = "";
+    return;
+  }
   var natal =
     duodecimos === "Recebo os dois subsídios a 100% em duodécimos"
       ? ""
       : " Se o subsídio de Natal for pago em novembro, também só te retêm metade nele.";
   nota.innerHTML =
     "<strong>Em novembro recebes " + fmt(liquido + ganho) + "</strong> (mais " + fmt(ganho) +
-    "). No continente, a retenção de IRS desse mês fica a metade." + natal +
+    "). " + regiao + ", a retenção de IRS desse mês fica a metade." + natal +
     " Em dezembro volta ao valor de sempre.";
   nota.style.display = "";
 }
@@ -1659,7 +1675,9 @@ $(document).ready(function () {
       $("[salario-liquido-result]").text(formatEuro(T2D50_salario_liquido));
       $("[valor-bruto-result]").text(formatEuro(D100_BrutoAnual));
       lfSalarioNotaNovembro(
-        D16_morada === "Portugal Continental",
+        D16_morada,
+        selectedTable.salaryBrackets[selectedTable.salaryBrackets.length - 2].max,
+        D34_real_rendimentoTributavel,
         T2D43_retIRSrendimentos + T2D44_retIRSextra + T2D45_retIRSduodecimos,
         T2D50_salario_liquido,
         D19_subsidiosDuodecimos,
