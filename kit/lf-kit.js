@@ -367,6 +367,8 @@
     t.appendChild(txt); t.appendChild(arrow);
     var list = document.createElement("nav");
     list.className = "lfk-dd-list"; list.id = id; list.setAttribute("role", "listbox");
+    /* O site usa o Lenis (scroll suave), que apanha a roda do rato: sem isto nao da para fazer scroll dentro da lista aberta */
+    list.setAttribute("data-lenis-prevent", "");
     var active = -1;
     function items() { return Array.prototype.slice.call(list.querySelectorAll(".lfk-dd-item")); }
     function render() {
