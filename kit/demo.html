@@ -765,7 +765,7 @@
   /* Aberta pelo htmlpreview (link publico): o CSS e as imagens passam a vir do jsDelivr, com versao fixa,
      para os icones do CSS e as imagens encontrarem os ficheiros */
   if (location.hostname === "htmlpreview.github.io") (function () {
-    var CDN = "https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@8a7f4ff950b61196aba08f954412620abd9b3dab/kit/";
+    var CDN = "https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@dfdac1557c15ffd067c35f1e20ddfe4c93731826/kit/";
     var l = document.createElement("link"); l.rel = "stylesheet"; l.href = CDN + "lf-kit.css"; document.head.appendChild(l);
     document.querySelectorAll("img[src]").forEach(function (i) { var s = i.getAttribute("src"); if (!/^(https?:|data:|\/\/)/.test(s)) i.src = CDN + s; });
   })();
