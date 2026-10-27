@@ -210,7 +210,8 @@
 .lfk select.lfk-input option{color:#222;background:#fff}
 .lfk select.lfk-dd-native{position:absolute;width:1px;height:1px;min-height:0;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;opacity:0;pointer-events:none}
 .lfk .lfk-dd{position:relative;z-index:1;width:100%;text-align:left}
-.lfk .lfk-dd.is-open{z-index:900}
+/* Abaixo da navbar fixa do site (z-index 100), para a lista aberta nao a tapar quando se faz scroll da pagina */
+.lfk .lfk-dd.is-open{z-index:99}
 /* Lista (Figma > dropdowns): o botao e igual a um campo; a lista abre 4px por baixo com sombra */
 .lfk .lfk-dd-toggle{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:.5rem;width:100%;height:2.75rem;padding:.625rem .75rem;border:1px solid var(--lfk-border);border-radius:var(--lfk-r);background:var(--lfk-bg);color:var(--lfk-text);font-size:var(--lfk-fs-m);line-height:1.5rem;letter-spacing:-.2px;cursor:pointer;user-select:none;transition:border-color .2s,box-shadow .2s}
 .lfk .lfk-dd-toggle > div:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
