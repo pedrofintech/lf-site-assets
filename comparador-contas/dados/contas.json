@@ -2338,7 +2338,7 @@
   {
    "id": "novobanco-empresas",
    "seg": "empresa",
-   "ordem": 1,
+   "ordem": 2,
    "name": "Novo Banco",
    "produto": "Solução Novo Negócio",
    "tipo": "balcoes",
@@ -2455,7 +2455,7 @@
   {
    "id": "revolut-business",
    "seg": "empresa",
-   "ordem": 2,
+   "ordem": 1,
    "name": "Revolut Business",
    "produto": "Revolut Business Basic",
    "tipo": "digital",
