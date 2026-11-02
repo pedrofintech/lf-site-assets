@@ -1,7 +1,9 @@
-/* lf-ic-embed.js v1.4.1 - Literacia Financeira
+/* lf-ic-embed.js v1.5.0 - Literacia Financeira
    Início de simulação de crédito habitação a meio dos artigos: só inputs, sem resultados.
    O botão abre o formulário do intermediário com as respostas na URL, para não as pedir outra vez.
-   Parceiro: mesma regra do A/B do site (?ab=, window.LFAB.v, localStorage lf_ab_ch, sorteio 50-50).
+   Parceiro (v1.5.0, 02/11/2026): o teste A/B Balcão vs Credível terminou e o parceiro é sempre o Balcão do Crédito
+   (PARCEIRO_FIXO). A regra antiga (?ab=, window.LFAB.v, localStorage lf_ab_ch, sorteio 50-50) continua no código,
+   mas só volta a correr se PARCEIRO_FIXO ficar vazio. O código do Credível fica para se poder voltar atrás.
    No artigo dos melhores intermediários é sempre o Balcão do Crédito.
    Balcão: usa os parâmetros que o /pedido já lê (objetivo, finalidade), os mesmos dos links da homepage deles;
    pergunta também os valores (valor_imovel, valor_credito, capital_divida), que o /pedido lê desde 28/09/2026;
@@ -13,6 +15,9 @@
   var m = location.pathname.match(/^\/artigos\/([^/]+)\/?$/);
   if (!m) return;
   var slug = m[1];
+
+  /* Parceiro fixo desde 02/11/2026 (fim do teste A/B). Vazio ('' ou null) repõe a regra antiga em parceiro(). */
+  var PARCEIRO_FIXO = 'balcao';
 
   var ARTIGOS = {
     'melhores-intermediarios-credito-portugal': { partner: 'balcao', link: true, h2: 3, cta: true },
@@ -169,6 +174,7 @@
   }
 
   function parceiro(cb) {
+    if (PARCEIRO_FIXO) return cb(PARCEIRO_FIXO);
     if (conf.partner && P[conf.partner]) return cb(conf.partner);
     var f = location.search.match(/[?&]ab=(balcao|credivel)/);
     if (f) return cb(f[1]);
