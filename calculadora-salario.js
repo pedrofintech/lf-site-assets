@@ -1249,8 +1249,12 @@ $(document).ready(function () {
     function calculate_D47_contribuicaoSS(D25, D34, D36, D37) {
       return Math.round(0.11 * (D34 + D36 + D37 - D25) * 100) / 100;
     }
-    function calculate_D48_contribuicaoAdse(D22, D28) {
-      return D28 ? 0.035 * D22 : 0;
+    // ADSE: 3,5% da remuneracao base, 14 vezes por ano (os subsidios de ferias e
+    // de Natal tambem descontam). Em duodecimos, o desconto acompanha a parte do
+    // subsidio paga em cada mes. Nao entra na base da retencao de IRS: a
+    // remuneracao mensal (R) das tabelas e bruta (art. 99.º-C do CIRS).
+    function calculate_D48_contribuicaoAdse(D22, D36, D28) {
+      return D28 ? Math.round(0.035 * (D22 + D36) * 100) / 100 : 0;
     }
     function calculate_D50_SalarioLiquido(D41, D43, D44, T1D45, D47, D48) {
       return D41 - D43 - D44 - T1D45 - D47 - D48;
@@ -1441,6 +1445,7 @@ $(document).ready(function () {
     );
     let D48_contribuicaoAdse = calculate_D48_contribuicaoAdse(
       D22_salarioBruto,
+      D36_duodecimos,
       D28_adse
     );
     let D47_contribuicaoSS = calculate_D47_contribuicaoSS(
@@ -1672,6 +1677,7 @@ $(document).ready(function () {
         formatEuro(Math.abs(T2D45_retIRSduodecimos))
       );
       $("[ss-result]").text(formatEuro(D47_contribuicaoSS));
+      $("[adse-result]").text(formatEuro(D48_contribuicaoAdse));
       $("[salario-liquido-result]").text(formatEuro(T2D50_salario_liquido));
       $("[valor-bruto-result]").text(formatEuro(D100_BrutoAnual));
       lfSalarioNotaNovembro(
@@ -1704,6 +1710,11 @@ $(document).ready(function () {
       $("[outros-rendimentos-result]").text(formatEuro(D26_outrosRendIsentos));
       $("[ret-retribuicao-extra-result]").text(formatEuro(D44_retIRSextra));
       */
+      if (D48_contribuicaoAdse > 0) {
+        $("[adse-row-data]").css("display", "flex");
+      } else {
+        $("[adse-row-data]").css("display", "none");
+      }
       if (D26_outrosRendIsentos <= 0) {
         $("[outros-rendimentos-row-data]").css("display", "none");
       } else {
@@ -1772,8 +1783,9 @@ $(document).ready(function () {
                   D47_contribuicaoSS,
                   T2D43_retIRSrendimentos,
                   T2D45_retIRSduodecimos,
+                  D48_contribuicaoAdse,
                 ],
-                backgroundColor: ["#FD8D2B", "#FEC84B", "#31AF89", "#2970FF"],
+                backgroundColor: ["#FD8D2B", "#FEC84B", "#31AF89", "#2970FF", "#697386"],
                 borderWidth: 0,
                 cutout: "80%",
               },
