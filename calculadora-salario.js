@@ -1677,7 +1677,7 @@ $(document).ready(function () {
         formatEuro(Math.abs(T2D45_retIRSduodecimos))
       );
       $("[ss-result]").text(formatEuro(D47_contribuicaoSS));
-      $("[adse-result]").text(formatEuro(D48_contribuicaoAdse));
+      $("[data-adse-result]").text(formatEuro(D48_contribuicaoAdse));
       $("[salario-liquido-result]").text(formatEuro(T2D50_salario_liquido));
       $("[valor-bruto-result]").text(formatEuro(D100_BrutoAnual));
       lfSalarioNotaNovembro(
@@ -1711,9 +1711,9 @@ $(document).ready(function () {
       $("[ret-retribuicao-extra-result]").text(formatEuro(D44_retIRSextra));
       */
       if (D48_contribuicaoAdse > 0) {
-        $("[adse-row-data]").css("display", "flex");
+        $("[data-adse-row]").css("display", "flex");
       } else {
-        $("[adse-row-data]").css("display", "none");
+        $("[data-adse-row]").css("display", "none");
       }
       if (D26_outrosRendIsentos <= 0) {
         $("[outros-rendimentos-row-data]").css("display", "none");
