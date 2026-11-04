@@ -1290,30 +1290,21 @@ $(document).ready(function () {
 
       return Math.round(Math.max(resultado, 0) * 100) / 100;
     }
+    // IRS Jovem na retribuicao extra: a taxa aplica-se so a parte nao isenta
+    // (art. 99.º-F, n.º 4, do CIRS). A isencao e uma percentagem do rendimento,
+    // com o limite mensal de 55 IAS / 14 (art. 12.º-B, n.º 5), o mesmo criterio
+    // do calculate_T2D43: a parte do limite que o salario ja gastou nao conta.
     function calculate_T2D44irs(D26, T1D44, T2D31, D37, D34, T2D30) {
       let result;
 
-      // If "Sem IRS Jovem", return T1D44 directly
       if (D26 === "Não aplicável") {
         result = T1D44;
+      } else if (D37 > 0) {
+        const isencaoBase = Math.min(T2D30 * D34, T2D31);
+        const isencaoTotal = Math.min(T2D30 * (D34 + D37), T2D31);
+        result = (1 - (isencaoTotal - isencaoBase) / D37) * T1D44;
       } else {
-        if (D37 > 0) {
-          //let regexExtract = String(T2D30).match(/\d+/);
-          //let extractedValue = regexExtract ? parseInt(regexExtract[0]) : 0;
-          if (D34 + D37 > T2D31) {
-            if (D34 > T2D31) {
-              result = T1D44 / D37;
-            } else {
-              result =
-                ((D37 - (T2D31 - D34)) * T1D44) / D37 +
-                (1 - T2D30) * (T2D31 - D34) * (T1D44 / D37);
-            }
-          } else {
-            result = (1 - T2D30) * T1D44;
-          }
-        } else {
-          result = 0;
-        }
+        result = 0;
       }
 
       return Math.floor(result); // Ensure result is never undefined
@@ -1692,7 +1683,8 @@ $(document).ready(function () {
       //Extras
       $("[retribuicao-extra-result]").text(formatEuro(D23_retribuicaoExtra));
       $("[outros-rendimentos-result]").text(formatEuro(D26_outrosRendIsentos));
-      $("[ret-retribuicao-extra-result]").text(formatEuro(D44_retIRSextra));
+      $("[ret-retribuicao-extra-result]").text(formatEuro(T2D44_retIRSextra));
+      $("[data-ret-extra-result]").text(formatEuro(T2D44_retIRSextra));
 
       // Linhas do cartao de resultados (fase 1, ficam no frame do clique).
       //———————————————————————————————————————————————
@@ -1720,10 +1712,12 @@ $(document).ready(function () {
       } else {
         $("[outros-rendimentos-row-data]").css("display", "flex");
       }
-      if (D44_retIRSextra <= 0) {
+      if (T2D44_retIRSextra <= 0) {
         $("[retencao-retribuicao-extra-row-data]").css("display", "none");
+        $("[data-ret-extra-row]").css("display", "none");
       } else {
         $("[retencao-retribuicao-extra-row-data]").css("display", "flex");
+        $("[data-ret-extra-row]").css("display", "flex");
       }
       if (D23_retribuicaoExtra <= 0) {
         $("[retribuicao-extra-row-data]").css("display", "none");
@@ -1783,9 +1777,10 @@ $(document).ready(function () {
                   D47_contribuicaoSS,
                   T2D43_retIRSrendimentos,
                   T2D45_retIRSduodecimos,
+                  T2D44_retIRSextra,
                   D48_contribuicaoAdse,
                 ],
-                backgroundColor: ["#FD8D2B", "#FEC84B", "#31AF89", "#2970FF", "#697386"],
+                backgroundColor: ["#FD8D2B", "#FEC84B", "#31AF89", "#2970FF", "#CED5DF", "#697386"],
                 borderWidth: 0,
                 cutout: "80%",
               },
