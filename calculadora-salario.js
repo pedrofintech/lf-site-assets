@@ -1218,11 +1218,25 @@ $(document).ready(function () {
       return Math.round(Math.max(real_deduction, 0)); //* 100) / 100;
     }
     */
+    // Horas extra: retencao autonoma, a 50% da taxa efetiva mensal do salario do
+    // mes (art. 99.º-C, n.os 5 e 8, do CIRS e n.º 5, alinea f), do despacho das
+    // tabelas). A taxa efetiva e a retencao do mes a dividir pela remuneracao.
     function calculate_D44(D15, D37, D34) {
-      let selectedR = get_selectedRow(D37);
-      let baseCalculation = D37 * selectedR.rate;
-
-      return Math.round(baseCalculation * 100) / 100; //* 100) / 100;
+      if (!(D37 > 0) || !(D34 > 0)) return 0;
+      const selectedR = get_selectedRow(D34);
+      const deduction = String(selectedR.deduction);
+      const parcela =
+        typeof selectedR.deduction === "string"
+          ? 0.01 *
+            parseFloat(deduction.slice(0, 5)) *
+            parseFloat(deduction.slice(7, 11)) *
+            (parseFloat(deduction.slice(12, 20)) - D34)
+          : selectedR.deduction;
+      const retencaoMes = Math.max(
+        D34 * selectedR.rate - parcela - D15 * selectedR.adDep,
+        0
+      );
+      return Math.round(D37 * (retencaoMes / D34) * 0.5 * 100) / 100;
     }
     function calculate_D45(D22, D15, D36, selectedR) {
       let baseCalculation =
@@ -1307,7 +1321,7 @@ $(document).ready(function () {
         result = 0;
       }
 
-      return Math.floor(result); // Ensure result is never undefined
+      return Math.round(result * 100) / 100;
     }
     function calculate_T2D45(
       T2D26,
