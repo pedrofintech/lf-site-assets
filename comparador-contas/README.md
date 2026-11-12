@@ -2,8 +2,10 @@
 
 Lista de contas com filtros, com o aspeto do comparador de depósitos, e comparação lado a lado, com o aspeto do comparador de corretoras. Tem contas para particulares e para empresas.
 
-Os ficheiros são servidos pelo jsDelivr a partir de um commit fixo deste repositório:
-`https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@<commit>/comparador-contas/`
+Os ficheiros são servidos pelo jsDelivr a partir do branch `comparador-contas-bancarias` deste repositório:
+`https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@comparador-contas-bancarias/comparador-contas/`
+
+Desde 12 de novembro de 2026 a página já não está presa a um commit: um merge neste branch chega ao site sem mexer no Webflow.
 
 ## Ficheiros
 
@@ -43,14 +45,16 @@ Em cada conta:
 
 ## Como publicar uma alteração
 
-1. Edita os ficheiros e faz commit e push para o GitHub.
-2. Copia o hash do commit (`git rev-parse HEAD`).
-3. Na página do Webflow, troca o hash nos dois blocos de custom code (head e footer). Estão em `webflow-custom-code.html`.
-4. Publica a página.
+1. Abre um PR para o branch `comparador-contas-bancarias` e faz merge.
+2. O jsDelivr guarda os ficheiros de um branch em cache até 12 horas. Para a alteração aparecer logo, abre estes links depois do merge:
+   - `https://purge.jsdelivr.net/gh/pedrofintech/lf-site-assets@comparador-contas-bancarias/comparador-contas/dados/contas.json`
+   - `https://purge.jsdelivr.net/gh/pedrofintech/lf-site-assets@comparador-contas-bancarias/comparador-contas/comparador-contas.js`
+   - `https://purge.jsdelivr.net/gh/pedrofintech/lf-site-assets@comparador-contas-bancarias/comparador-contas/comparador-contas.css`
+3. Não é preciso publicar o Webflow.
 
-O commit fixo garante que o CSS, o JS e os dados mudam todos ao mesmo tempo e que a cache do jsDelivr não serve uma versão antiga.
+## Verificação quinzenal
 
-Antes de publicar, abre uma vez no browser `https://cdn.jsdelivr.net/gh/pedrofintech/lf-site-assets@<commit>/comparador-contas/dados/contas.json` e espera que carregue. Num commit novo, o jsDelivr pode demorar uns segundos a ir buscar o repositório e, nesse tempo, a página mostra "Não foi possível carregar o comparador".
+Uma tarefa agendada do Claude verifica todas as contas nos dias 1 e 15 de cada mês, nas fontes oficiais de `dados/fontes.json`, e abre um PR com as correções para o Franklin fazer merge. Não altera os dados sem merge, não acrescenta nem remove bancos e deixa a nota da verificação em `verificacao/`.
 
 O seletor "Para quem" também funciona por link: `?perfil=jovem`, `?perfil=menor`, `?perfil=conjunta`, ou `?conta=empresa&perfil=eni` e `?conta=empresa&perfil=sociedade`. Serve para ligar de artigos (por exemplo, um artigo sobre contas para jovens).
 
