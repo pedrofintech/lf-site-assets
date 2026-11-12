@@ -1690,9 +1690,177 @@
    }
   },
   {
-   "id": "millennium",
+   "id": "abanca",
    "seg": "particular",
    "ordem": 13,
+   "name": "ABANCA",
+   "produto": "Conta New Life",
+   "tipo": "balcoes",
+   "tipoTxt": "Banco tradicional",
+   "entidade": "ABANCA Portugal, S.A.",
+   "logo": "abanca.svg",
+   "logoPad": true,
+   "ini": "AB",
+   "cta": {
+    "label": "Ir para o ABANCA",
+    "href": "https://tracking.suebiads.com/B8B25F/39QLQ5X/?sub1=literaciafinanceira.pt",
+    "aff": "abanca"
+   },
+   "premio": {
+    "t": "Até 400€ na conta",
+    "s": "400€ com ordenado ou pensão desde 1.000€ e 250€ de 850€ a 999€. Só novos clientes, com o NIF na transferência do ordenado e fidelização de 24 meses. Até 31/01/2027.",
+    "ate": "2027-01-31",
+    "url": "https://www.abanca.pt/pt/contas/campanha-domiciliacao-ordenado/"
+   },
+   "tags": [
+    {
+     "t": "0€ no 1.º ano com ordenado",
+     "w": 0,
+     "i": "cal",
+     "s": "Novos clientes que domiciliem o ordenado ou a pensão até 31/01/2027 não pagam manutenção no 1.º ano. Depois, 3,12€ por mês",
+     "ate": "2027-01-31"
+    }
+   ],
+   "ab": {
+    "v": "Mín. 50€",
+    "s": "Online (250€ na agência)"
+   },
+   "perfis": {
+    "jovem": {
+     "produto": "Conta Futuro",
+     "idade": "18 a 28 anos",
+     "custoMes": 0,
+     "cartao": "Grátis",
+     "ab": {
+      "v": "Sem mínimo",
+      "s": "Na agência"
+     },
+     "premio": true,
+     "nota": "Sem comissão de manutenção nem mínimo de abertura até aos 28 anos. Inclui 1 cartão de débito e 1 cartão de crédito ABANCA Silver sem anuidade (sujeito a aprovação). Transferências SEPA+ grátis online. A abertura online só existe para a New Life.",
+     "src": "https://www.abanca.pt/files/documents/fin-conta-futuro-2dc3f241.pdf"
+    },
+    "menor": {
+     "produto": "Conta Futuro",
+     "idade": "0 a 17 anos",
+     "custoMes": 0,
+     "cartao": "Grátis, desde os 12 anos",
+     "ab": {
+      "v": "Sem mínimo",
+      "s": "Na agência"
+     },
+     "nota": "Sem comissão de manutenção. Cartão de débito grátis a partir dos 12 anos, pedido pelos pais. Levantamentos ao balcão grátis. O menor é o titular e os pais ficam associados à conta. Homebanking só a partir dos 18 anos.",
+     "src": "https://www.abanca.pt/files/documents/fin-conta-futuro-2dc3f241.pdf"
+    },
+    "conjunta": {
+     "v": "Vários titulares",
+     "s": "Online até 2",
+     "cartao2": "2.º cartão incluído",
+     "nota": "Online abre com até 2 titulares, maiores, residentes e de nacionalidade portuguesa. Na agência podes juntar mais titulares, de qualquer nacionalidade. O pacote inclui 1 cartão de débito e 1 cartão de crédito Silver por titular, até 2. Do 3.º titular em diante, o cartão de débito custa 26€ por ano.",
+     "src": "https://www.abanca.pt/files/documents/fin-conta-new-life-6712f6e1.pdf"
+    }
+   },
+   "src": "https://www.abanca.pt/pt/precario/",
+   "f": {
+    "custoAno": 74.88,
+    "iban": "PT",
+    "mbway": true,
+    "cartaoFisico": true,
+    "cartaoGratis": true,
+    "jurosMax": null,
+    "numerario": true,
+    "garantia": "PT",
+    "aberturaOnline": true,
+    "suportePt": true,
+    "custoMes": 6.24,
+    "custoMesCond": 3.12
+   },
+   "t": {
+    "manut": {
+     "v": "6,24€/mês",
+     "s": "Conta New Life, com IS. 3,12€ com ordenado, pensão ou reforma de pelo menos 850€. Novos clientes que domiciliem o ordenado até 31/01/2027: 0€ no 1.º ano"
+    },
+    "cartao": {
+     "v": "Incluído (2 cartões)",
+     "s": "1 ABANCA Débito por titular, até 2, sem comissão. Fora do pacote, 25€ por ano + IS"
+    },
+    "credito": {
+     "v": "2 cartões Silver incluídos",
+     "s": "ABANCA Silver sem anuidade, 1 por titular (TAEG 15,7%). Sujeitos a aprovação"
+    },
+    "levant": {
+     "v": "Grátis",
+     "s": "Sem comissão no Multibanco e nos países do EEE em euros. Ao balcão sem cheque: 5€ + IS"
+    },
+    "levantFora": {
+     "v": "3€ + 0,33% + 2,7%",
+     "s": "Fora do EEE noutras moedas, mais IS. Em euros fora do EEE, 1,7% em vez de 2,7%"
+    },
+    "transf": {
+     "v": "Grátis online",
+     "s": "SEPA+ e intrabancárias grátis no homebanking e na app. As imediatas não podem custar mais do que as normais (regra europeia). Ao balcão, SEPA+ a 5,72€ com IS"
+    },
+    "cambio": {
+     "v": "2,7% + IS",
+     "s": "Nas compras com o cartão de débito noutras moedas fora do EEE. Em euros fora do EEE, 1,7%"
+    },
+    "iban": {
+     "v": "Português (PT50)",
+     "s": "Ordenado, débitos diretos e pagamentos ao Estado sem limitações"
+    },
+    "mbway": {
+     "v": "Sim, grátis",
+     "s": "Até 750€ por operação, 2.500€ e 50 transferências por mês"
+    },
+    "pagamentos": {
+     "v": "Sim",
+     "s": "Serviços e Estado por referência multibanco e débitos diretos"
+    },
+    "numerario": {
+     "v": "Sim",
+     "s": "Nas agências. Moedas: até 25 grátis, acima disso 2% + IS"
+    },
+    "carteiras": {
+     "v": "Apple Pay e Google Pay",
+     "s": "Pagamentos com o telemóvel nas lojas e online"
+    },
+    "jurosConta": {
+     "v": "Não",
+     "s": "A conta à ordem não é remunerada (0% TANB no preçário)"
+    },
+    "poupanca": {
+     "v": "3% TANB a 12 meses",
+     "s": "Depósito a Prazo Especial: só dinheiro novo, de 15.000€ a 100.000€, subscrito na agência. Levantar antes perde os juros. Sem conta poupança de acesso imediato"
+    },
+    "investir": {
+     "v": "Fundos e PPR",
+     "s": "Fundos de investimento e PPR Futuro Garantido MAPFRE, com um gestor ou um especialista ABANCA Investimentos"
+    },
+    "garantia": {
+     "v": "100.000€ (Portugal)",
+     "s": "Fundo de Garantia de Depósitos, por depositante e por banco"
+    },
+    "regulador": {
+     "v": "Banco de Portugal",
+     "s": "ABANCA Portugal, S.A., registado com o n.º 170. Grupo bancário espanhol ABANCA"
+    },
+    "abertura": {
+     "v": "Online ou na agência",
+     "s": "Online com Chave Móvel Digital ou videochamada, até 2 titulares maiores, residentes e de nacionalidade portuguesa. Ativa-se com uma transferência de 50€ de uma conta tua num banco português. Na agência, mínimo de 250€"
+    },
+    "balcoes": {
+     "v": "230 agências",
+     "s": "Rede em Portugal em novembro de 2026"
+    },
+    "apoio": {
+     "v": "Telefone",
+     "s": "21 000 13 00, de segunda a sexta das 8h30 às 20h00, exceto feriados"
+    }
+   }
+  },
+  {
+   "id": "millennium",
+   "seg": "particular",
+   "ordem": 14,
    "name": "Millennium bcp",
    "produto": "Conta Millennium + Cliente Frequente",
    "tipo": "balcoes",
@@ -1864,7 +2032,7 @@
   {
    "id": "santander",
    "seg": "particular",
-   "ordem": 14,
+   "ordem": 15,
    "name": "Santander",
    "produto": "Conta Santander Mais",
    "tipo": "balcoes",
@@ -2033,7 +2201,7 @@
   {
    "id": "novobanco",
    "seg": "particular",
-   "ordem": 15,
+   "ordem": 16,
    "name": "Novo Banco",
    "produto": "Conta 100%",
    "tipo": "balcoes",
@@ -2182,7 +2350,7 @@
   {
    "id": "bpi",
    "seg": "particular",
-   "ordem": 16,
+   "ordem": 17,
    "name": "BPI",
    "produto": "Conta Valor BPI",
    "tipo": "balcoes",
