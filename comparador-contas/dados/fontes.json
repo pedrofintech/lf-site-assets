@@ -691,6 +691,38 @@
    "entidade": "https://n26.com/en-eu/imprint",
    "custoMes": "https://support.n26.com/en-at/memberships-and-account-types/business-accounts/how-does-n26-business-work",
    "apoio": "https://n26.com/en-eu/free-business-account"
+  },
+  "abanca": {
+   "custoAnoOrdenado": "https://www.abanca.pt/files/documents/dic-conta-new-life-81cf349f.pdf",
+   "manut": "https://www.abanca.pt/files/documents/dic-conta-new-life-81cf349f.pdf",
+   "cartao": "https://www.abanca.pt/files/documents/precario-folheto-comissoes-02a74c0f.pdf",
+   "cartaoGratis": "https://www.abanca.pt/files/documents/dic-conta-new-life-81cf349f.pdf",
+   "credito": "https://www.abanca.pt/files/documents/dic-conta-new-life-81cf349f.pdf",
+   "levant": "https://www.abanca.pt/files/documents/precario-folheto-comissoes-02a74c0f.pdf",
+   "levantFora": "https://www.abanca.pt/files/documents/precario-folheto-comissoes-02a74c0f.pdf",
+   "transf": "https://www.abanca.pt/files/documents/precario-folheto-comissoes-02a74c0f.pdf",
+   "cambio": "https://www.abanca.pt/files/documents/precario-folheto-comissoes-02a74c0f.pdf",
+   "iban": "https://www.abanca.pt/files/documents/fin-conta-new-life-6712f6e1.pdf",
+   "mbway": "https://www.abanca.pt/files/documents/precario-folheto-comissoes-02a74c0f.pdf",
+   "pagamentos": "https://www.abanca.pt/pt/cartoes/",
+   "numerario": "https://www.abanca.pt/files/documents/precario-folheto-comissoes-02a74c0f.pdf",
+   "carteiras": "https://www.abanca.pt/pt/cartoes/",
+   "jurosConta": "https://www.abanca.pt/files/documents/folheto-taxa-juro-precario-5baad9c7.pdf",
+   "jurosMax": "https://www.abanca.pt/files/documents/folheto-taxa-juro-precario-5baad9c7.pdf",
+   "poupanca": "https://www.abanca.pt/pt/poupancas/deposito-prazo-especial/",
+   "investir": "https://www.abanca.pt/pt/poupancas/",
+   "garantia": "https://www.abanca.pt/pt/poupancas/deposito-prazo-especial/",
+   "regulador": "https://www.abanca.pt/files/documents/fin-conta-new-life-6712f6e1.pdf",
+   "abertura": "https://pedidosonline.abanca.pt/WELE401/Contratacion2/PT/conta2/DatosIniciales",
+   "balcoes": "https://www.abanca.pt/pt/balcoes/",
+   "apoio": "https://www.abanca.pt/pt/contacte-nos/",
+   "custoMes": "https://www.abanca.pt/files/documents/dic-conta-new-life-81cf349f.pdf",
+   "ab": "https://www.abanca.pt/files/documents/fin-conta-new-life-6712f6e1.pdf",
+   "premio": "https://www.abanca.pt/pt/contas/campanha-domiciliacao-ordenado/",
+   "tags": "https://www.abanca.pt/pt/contas/campanha-domiciliacao-ordenado/",
+   "perfis.jovem": "https://www.abanca.pt/files/documents/fin-conta-futuro-2dc3f241.pdf",
+   "perfis.menor": "https://www.abanca.pt/files/documents/fin-conta-futuro-2dc3f241.pdf",
+   "perfis.conjunta": "https://www.abanca.pt/files/documents/fin-conta-new-life-6712f6e1.pdf"
   }
  }
 }
