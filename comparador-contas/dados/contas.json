@@ -1434,7 +1434,7 @@
     "mbway": false,
     "cartaoFisico": true,
     "cartaoGratis": false,
-    "jurosMax": 3.0,
+    "jurosMax": 4.0,
     "numerario": false,
     "garantia": "DE",
     "aberturaOnline": true,
@@ -1491,8 +1491,8 @@
      "s": "Apple Pay e Google Pay"
     },
     "jurosConta": {
-     "v": "3,00% TANB até 50.000€",
-     "s": "Novos clientes. Acima disso e para clientes atuais, 2,50% TANB (taxa do BCE). Juros mensais, com retenção de IRS"
+     "v": "4,00% TANB até 20.000€",
+     "s": "Novos clientes, até 1 de março de 2027. Acima disso e para clientes atuais, 2,50% TANB (taxa do BCE). Juros mensais, com retenção de IRS. Verificado a 13 de novembro de 2026"
     },
     "poupanca": {
      "v": "-",
