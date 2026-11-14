@@ -1,4 +1,4 @@
-/* LF secnav v17: barra de seccoes sticky em mobile para artigos LiteraciaFinanceira.pt.
+/* LF secnav v18: barra de seccoes sticky em mobile para artigos LiteraciaFinanceira.pt.
    Config em window.LF_SECNAV (definida no head da pagina). Servido via jsDelivr. */
 (function () {
   var CFG = window.LF_SECNAV || {};
@@ -20,36 +20,71 @@
 
     var GAP = 20;
 
-    /* Versao curta do H2 para a barra. Regras (por ordem):
-       corta em ":", "?", "(", " - " e " vs" (mantem o "vs");
-       tira prefixos tipo "E os", "Afinal,", "Como", "O que e";
-       tira sufixos tipo "da Saxo", "na Trading 212", "em Portugal", "em 2026";
-       trunca aos 24 caracteres na ultima palavra. */
-    var MAX = 30;
+    var MAX = 30, SOFT = 34, MIN = 6, FULL = 38;
     function cap(t) { return t && !/^[a-z][A-Z]/.test(t) ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
-    /* Versao curta do H2 para a barra. Regras PT + EN + ET, sempre ancoradas ao
-       inicio ou ao fim do titulo para nao haver falsos positivos entre linguas. */
+    /* Palavras de ligacao (PT, EN, NL, PL, ET). Um rotulo nunca acaba numa delas e,
+       quando o titulo nao cabe, o corte faz-se antes da ultima, para a frase ficar inteira. */
+    var LINK = {};
+    ('a o as os um uma uns umas de da do das dos em no na nos nas ao aos à às e ou que com por para pela pelo pelas pelos sobre entre até sem se não mais como quando onde ' +
+     'the an and or of in on at to for with without from by vs via not is are your you & ' +
+     'de het een en van voor met op per je moet kun kan bij naar om te ' +
+     'w we z ze i oraz lub do dla na po od przy czy ' +
+     'ja ning või kas kuidas').split(' ').forEach(function (w) { LINK[w] = 1; });
+    function isLink(w) { return LINK[w.toLowerCase().replace(/[.,;:]+$/, '')] === 1; }
+    function trimEnd(words) {
+      while (words.length > 1 && isLink(words[words.length - 1])) words.pop();
+      return words.join(' ').replace(/[.,;:&\s]+$/, '');
+    }
+    /* Encaixa o titulo sem reticencias: corta numa virgula, senao
+       antes da ultima palavra de ligacao, senao na ultima palavra que cabe. */
+    function fit(t) {
+      /* ate SOFT caracteres o titulo entra inteiro: a barra desliza na horizontal */
+      if (t.length <= SOFT) return t;
+      var ci = t.lastIndexOf(',', MAX);
+      if (ci >= MIN) return trimEnd(t.slice(0, ci).split(' '));
+      var words = t.split(' '), kept = [], len = 0;
+      for (var i = 0; i < words.length; i++) {
+        var add = (kept.length ? 1 : 0) + words[i].length;
+        if (len + add > MAX) break;
+        kept.push(words[i]); len += add;
+      }
+      if (!kept.length) return t.slice(0, MAX);
+      for (var j = kept.length - 1; j > 0; j--) {
+        if (!isLink(kept[j])) continue;
+        var c = trimEnd(kept.slice(0, j));
+        if (c.length >= MIN) return c;
+        break;
+      }
+      return t.length <= FULL ? t : trimEnd(kept);
+    }
+    /* Versao curta do H2 para a barra. Regras PT + EN + NL + PL + ET, sempre ancoradas
+       ao inicio ou ao fim do titulo para nao haver falsos positivos entre linguas. */
     function shorten(t) {
-      t = t.replace(/[\u201c\u201d\u201e"']/g, '').replace(/\s+/g, ' ').trim();
-      var c = t.split(/:|\?|\(|\s[-\u2013\u2014]\s/)[0].trim();
+      t = t.replace(/[“”„"']/g, '').replace(/\s+/g, ' ').trim();
+      /* parenteses: corta ai se o que fica chega para rotulo, senao tira so o parentese */
+      var pi = t.indexOf('(');
+      if (pi > -1) t = (pi >= 12 ? t.slice(0, pi) : t.replace(/\s*\([^)]*\)/g, '')).trim() || t;
+      var c = t.split(/:|\?|\s[-–—]\s/)[0].trim();
       if (c.length > 3) t = c;
       /* prefixos PT */
-      t = t.replace(/^(e|mas|afinal|ent\u00e3o|agora)[,\s]+/i, '');
-      t = t.replace(/^(o que \u00e9|o que s\u00e3o|quais s\u00e3o|qual \u00e9|como funciona|como funcionam)(\s+(uns|umas|um|uma|os|as|o|a))?\s+/i, '');
+      t = t.replace(/^(e|mas|afinal|então|agora)[,\s]+/i, '');
+      t = t.replace(/^(o que é|o que são|quais são|qual é|como funciona|como funcionam)(\s+(uns|umas|um|uma|os|as|o|a))?\s+/i, '');
       /* prefixos EN */
       t = t.replace(/^(what is|what are|what's|who is|which are|which is)(\s+(a|an|the))?\s+/i, '');
       t = t.replace(/^(how to|how does|how do|how can|should you|should i|is it|why)(\s+(a|an|the|i|you|we|it))?\s+/i, '');
       t = t.replace(/\s+work$/i, '');
       /* prefixos ET */
       t = t.replace(/^(mis on|millised on|milline on|mida|kes on|kuidas|miks|kas)\s+/i, '');
-      /* artigos iniciais PT/EN */
+      /* artigos iniciais PT/EN (e NL nas paginas em neerlandes) */
       t = t.replace(/^(os|as|o|a|an|the)\s+/i, '');
+      if (/^nl/i.test(document.documentElement.lang || '')) t = t.replace(/^(de|het|een)\s+/i, '');
       /* sufixos: ano e local, primeiro o ano sempre, o local so se ainda for longo */
-      t = t.replace(/\s+(em|in|aastal)\s+20\d\d$/i, '').replace(/\s+20\d\d\.?\s*aastal$/i, '').replace(/\s+20\d\d$/, '');
+      t = t.replace(/\s+(em|in|aastal|w)\s+20\d\d$/i, '').replace(/\s+20\d\d\.?\s*aastal$/i, '').replace(/\s+20\d\d$/, '');
       if (t.length > MAX) {
         t = t.replace(/\s+(em|no|na)\s+portugal$/i, '')
-             .replace(/\s+in\s+(the\s+)?(uae|dubai|abu dhabi|europe|eu|estonia|portugal|brazil|netherlands|poland|uk)$/i, '')
+             .replace(/\s+in\s+(the\s+)?(uae|dubai|abu dhabi|europe|europa|eu|estonia|portugal|brazil|netherlands|nederland|poland|uk)$/i, '')
              .replace(/\s+(eestis|eesti|euroopas)$/i, '')
+             .replace(/\s+w\s+(polsce|europie)$/i, '')
              .replace(/\s+no\s+brasil$/i, '');
       }
       /* conector + marca no fim (PT/EN): tira o conector, e se ainda for longo, a marca */
@@ -59,11 +94,8 @@
         t = t2.length <= MAX ? t2 : t.replace(brand, '');
       }
       t = t.replace(/\s+(vs\.?|and|e|ja)$/i, '').trim().replace(/[.,;]+$/, '');
-      if (t.length > MAX) {
-        var cut = t.slice(0, MAX), sp = cut.lastIndexOf(' ');
-        t = (sp > 10 ? cut.slice(0, sp) : cut).trim() + '\u2026';
-      }
-      return cap(t) || 'Sec\u00e7\u00e3o';
+      t = fit(t);
+      return cap(t) || 'Secção';
     }
 
     /* ---------- navbar (fixa-se ao fazer scroll) ---------- */
@@ -114,6 +146,24 @@
     rt.parentNode.insertBefore(slot, rt);
 
     var manual = (CFG.labels || {})[slug] || [];
+    /* Labels escritas a mao no CMS (campo "Labels menu mobile"), ligadas ao texto do H2
+       e nao a posicao: "Titulo do H2 => Label | Titulo do H2 => Label". O template expoe
+       o campo em <div id="lf-secnav-labels" hidden>...</div>. Um H2 sem label no CMS
+       usa a lista por slug (CFG.labels) e, por fim, a regra automatica. */
+    function key(s) {
+      s = (s || '').toLowerCase();
+      if (s.normalize) s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      return s.replace(/[^a-z0-9]+/g, ' ').trim();
+    }
+    var cms = {}, cmsEl = document.getElementById('lf-secnav-labels');
+    if (cmsEl) {
+      (cmsEl.getAttribute('data-labels') || cmsEl.textContent || '').split(/\s*\|\s*|\r?\n/).forEach(function (p) {
+        var i = p.indexOf('=>');
+        if (i < 1) return;
+        var k = key(p.slice(0, i)), v = p.slice(i + 2).replace(/\s+/g, ' ').trim();
+        if (k && v) cms[k] = v;
+      });
+    }
     h2s.forEach(function (h, i) {
       var text = (h.textContent || '').trim() || 'Secção ' + (i + 1);
       var base = text.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]/g, '') || 'secao';
@@ -125,7 +175,7 @@
       a.className = 'lf-secnav_tab';
       a.setAttribute('role', 'button');
       a.setAttribute('tabindex', '0');
-      a.textContent = manual[i] || shorten(text);
+      a.textContent = cms[key(text)] || manual[i] || shorten(text);
       a.__h = h;
       track.appendChild(a);
     });
