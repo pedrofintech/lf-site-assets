@@ -146,24 +146,29 @@
     rt.parentNode.insertBefore(slot, rt);
 
     var manual = (CFG.labels || {})[slug] || [];
-    /* Labels escritas a mao no CMS (campo "Labels menu mobile"), ligadas ao texto do H2
-       e nao a posicao: "Titulo do H2 => Label | Titulo do H2 => Label". O template expoe
-       o campo em <div id="lf-secnav-labels" hidden>...</div>. Um H2 sem label no CMS
-       usa a lista por slug (CFG.labels) e, por fim, a regra automatica. */
+    /* Labels escritas a mao no CMS (campo "Labels menu mobile"). Dois formatos:
+       - por ordem dos H2: "Label 1 | Label 2 | Label 3" (so vale se o numero de labels
+         for igual ao numero de H2; se alguem acrescentar ou tirar um H2, cai na regra automatica)
+       - por texto do H2: "Titulo do H2 => Label | Titulo do H2 => Label"
+       O template expoe o campo em <div id="lf-secnav-labels" hidden>...</div>.
+       Ordem de prioridade: CMS por texto, CMS por ordem, lista por slug (CFG.labels), regra automatica. */
     function key(s) {
       s = (s || '').toLowerCase();
       if (s.normalize) s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       return s.replace(/[^a-z0-9]+/g, ' ').trim();
     }
-    var cms = {}, cmsEl = document.getElementById('lf-secnav-labels');
+    var cms = {}, pos = [], cmsEl = document.getElementById('lf-secnav-labels');
     if (cmsEl) {
       (cmsEl.getAttribute('data-labels') || cmsEl.textContent || '').split(/\s*\|\s*|\r?\n/).forEach(function (p) {
+        p = p.replace(/\s+/g, ' ').trim();
+        if (!p) return;
         var i = p.indexOf('=>');
-        if (i < 1) return;
-        var k = key(p.slice(0, i)), v = p.slice(i + 2).replace(/\s+/g, ' ').trim();
+        if (i < 1) { pos.push(p); return; }
+        var k = key(p.slice(0, i)), v = p.slice(i + 2).trim();
         if (k && v) cms[k] = v;
       });
     }
+    if (pos.length !== h2s.length) pos = [];
     h2s.forEach(function (h, i) {
       var text = (h.textContent || '').trim() || 'Secção ' + (i + 1);
       var base = text.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]/g, '') || 'secao';
@@ -175,7 +180,7 @@
       a.className = 'lf-secnav_tab';
       a.setAttribute('role', 'button');
       a.setAttribute('tabindex', '0');
-      a.textContent = cms[key(text)] || manual[i] || shorten(text);
+      a.textContent = cms[key(text)] || pos[i] || manual[i] || shorten(text);
       a.__h = h;
       track.appendChild(a);
     });
