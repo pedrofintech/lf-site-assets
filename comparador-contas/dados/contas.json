@@ -1362,8 +1362,8 @@
      "s": "Ao balcão da sede, das 8h30 às 15h"
     },
     "carteiras": {
-     "v": "Sim",
-     "s": "O cartão BiG Mastercard funciona em carteiras digitais"
+     "v": "Só MB WAY",
+     "s": "O BiG não está na lista oficial de bancos do Apple Pay em Portugal e o site não refere Google Pay. O cartão funciona no MB WAY"
     },
     "jurosConta": {
      "v": "1% TANB na Super Conta",
