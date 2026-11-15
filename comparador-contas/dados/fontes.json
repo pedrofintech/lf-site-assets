@@ -1,6 +1,6 @@
 {
  "nota": "Fonte oficial de cada valor, por conta e por campo. Não é carregado pela página.",
- "verificado": "2026-10-14",
+ "verificado": "2026-11-15",
  "fontes": {
   "revolut": {
    "manut": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf",
@@ -15,13 +15,13 @@
    "iban": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_e_condi_es_para_clientes_particulares_dac36970_2.3.3_1790931433_pt.pdf",
    "mbway": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_e_condi_es_mb_way_d84021e9_1.0.2_1772717297_pt.pdf",
    "pagamentos": "https://help.revolut.com/pt-PT/help/cards/multibanco/can-i-pay-bills-taxes-and-online-purchases-using-multibanco/",
-   "numerario": "https://cdn.revolut.com/terms_and_conditions/pdf/pre_rio_18f7b306_1.5.4_1787070717_pt.pdf",
+   "numerario": "https://cdn.revolut.com/terms_and_conditions/pdf/pre_rio_18f7b306_1.5.5_1792685459_pt.pdf",
    "carteiras": "https://www.revolut.com/pt-PT/",
    "jurosConta": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf",
    "poupanca": "https://revolut.com/pt-PT/instant-access-savings",
    "jurosMax": "https://revolut.com/pt-PT/our-pricing-plans",
    "investir": "https://revolut.com/pt-PT/our-pricing-plans",
-   "garantia": "https://cdn.revolut.com/terms_and_conditions/pdf/pre_rio_18f7b306_1.5.4_1787070717_pt.pdf",
+   "garantia": "https://cdn.revolut.com/terms_and_conditions/pdf/pre_rio_18f7b306_1.5.5_1792685459_pt.pdf",
    "regulador": "https://cdn.revolut.com/terms_and_conditions/pdf/legal_disclaimer_9ad813f4_1.0.1_1772789574_pt.pdf",
    "abertura": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf",
    "aberturaOnline": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf",
@@ -59,8 +59,7 @@
    "custoMes": "https://www.activobank.pt/conta-simples",
    "ab": "https://www.activobank.pt/conta-simples",
    "perfis.menor": "https://www.activobank.pt/conta-menores",
-   "perfis.conjunta": "https://www.activobank.pt/abertura-conta",
-   "premio": "https://www.activobank.pt/ordenado-activo"
+   "perfis.conjunta": "https://www.activobank.pt/abertura-conta"
   },
   "bankinter": {
    "manut": "https://clientebancario.bportugal.pt/sites/default/files/precario/0269_/0269_PRE_0.pdf",
@@ -424,12 +423,12 @@
    "perfis.jovem": "https://www.santander.pt/pdfs/particulares/contas/conta-jovem/BST-IE-50008945.pdf",
    "perfis.menor": "https://www.santander.pt/contas/conta-bancaria-para-menores",
    "perfis.conjunta": "https://www.santander.pt/contas/conta-santander-mais",
-   "premio": "https://www.santander.pt/campanhas/vantagens-ordenado"
+   "premio": "https://www.santander.pt/contas/domiciliar-ordenado"
   },
   "novobanco": {
    "custoAnoOrdenado": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
    "manut": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
-   "cartao": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
+   "cartao": "https://www.novobanco.pt/particulares/contas/contas-pacote/conta-100",
    "cartaoGratis": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
    "credito": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",
    "levant": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES2960.pdf.coredownload.inline.pdf",
@@ -597,7 +596,8 @@
    "eni": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf",
    "sociedades": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf",
    "apoio": "https://www.millenniumbcp.pt/empresas",
-   "custoMes": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf"
+   "custoMes": "https://ind.millenniumbcp.pt/pt/negocios/Documents/MEmpresa.pdf",
+   "tags": "https://www.millenniumbcp.pt/empresas/abrir-conta-empresa-online"
   },
   "montepio-empresas": {
    "manut": "https://www.bancomontepio.pt/content/dam/montepio/partilhado/documentos/pt_PT/pdf-pmc/PP5928.pdf",
