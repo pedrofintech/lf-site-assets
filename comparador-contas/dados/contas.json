@@ -1,5 +1,5 @@
 {
- "verificado": "14 de outubro de 2026",
+ "verificado": "15 de novembro de 2026",
  "comparar": {
   "particular": [
    "revolut",
@@ -177,12 +177,6 @@
     "label": "Ir para o ActivoBank",
     "href": "https://www.activobank.pt/conta-simples"
    },
-   "premio": {
-    "t": "200€ em cartão Amazon e 5% TANB",
-    "s": "Cartão Oferta Amazon.es de 200€ e Conta PoupeUp a 5% TANB durante 360 dias, até 5.000€. Ordenado desde 900€. Até 31/10/2026.",
-    "ate": "2026-10-31",
-    "url": "https://www.activobank.pt/ordenado-activo"
-   },
    "ab": {
     "v": "Sem mínimo",
     "s": "Online ou Ponto Activo"
@@ -277,7 +271,7 @@
     },
     "poupanca": {
      "v": "Só com plano pago",
-     "s": "PoupeUp: 0% sem plano, 2% TANB no AB Plus (até 5.000€) e 2,5% no AB Premium (até 20.000€). Planos de 3,99€ e 8,99€/mês + IS"
+     "s": "PoupeUp: 0% sem plano, 2,25% TANB no AB Plus (até 5.000€) e 2,75% no AB Premium (até 20.000€). Planos de 3,99€ e 8,99€/mês + IS"
     },
     "investir": {
      "v": "Fundos, PPR e bolsa",
@@ -1888,9 +1882,9 @@
     "t": "0€ nos primeiros 12 meses"
    },
    "premio": {
-    "t": "Até 500€ de volta no cartão de crédito",
-    "s": "20% do menor dos 2 primeiros ordenados, até 500€. Ordenado desde 1.000€, só novos clientes, fidelização de 24 meses. Contas abertas até 15/10/2026.",
-    "ate": "2026-10-15",
+    "t": "Até 650€ em saldo Pingo Doce",
+    "s": "50€ com o 1.º ordenado e 15% das compras no Pingo Doce com cartões Millennium, até 50€ por mês durante 12 meses, em saldo na app O Meu Pingo Doce. Ordenado desde 1.000€, só novos clientes, fidelização de 24 meses. Contas abertas até 15/01/2027.",
+    "ate": "2027-01-15",
     "url": "https://www.millenniumbcp.pt/campanhas/domiciliacao-ordenado"
    },
    "ab": {
@@ -2058,10 +2052,10 @@
     "t": "0€ nos primeiros 6 meses"
    },
    "premio": {
-    "t": "Até 500€ na conta ou 750€ em pontos",
-    "s": "500€ ou 750€ em pontos com ordenado desde 1.200€; 100€ com ordenado de 850€ a 1.199€. Só novos clientes, fidelização de 25 meses. Contas abertas até 31/10/2026.",
-    "ate": "2026-10-31",
-    "url": "https://www.santander.pt/campanhas/vantagens-ordenado"
+    "t": "Até 1.000€ em pontos ou 500€",
+    "s": "1.000€ em pontos Santander Rewards (750€ com o ordenado e 250€ com 1 débito direto) ou 500€ na conta, com ordenado desde 1.200€. 100€ na conta com ordenados abaixo de 1.200€. Só novos clientes, fidelização de 25 meses. Contas abertas até 02/12/2026.",
+    "ate": "2026-12-02",
+    "url": "https://www.santander.pt/contas/domiciliar-ordenado"
    },
    "ab": {
     "v": "Sem mínimo",
@@ -2088,7 +2082,7 @@
      "cartao": "Grátis, desde os 13 anos",
      "ab": {
       "v": "Mín. 5€",
-      "s": "No balcão"
+      "s": "Na app ou no balcão"
      },
      "nota": "Dos 0 aos 12 anos, 2 cartões pré-pagos grátis. Dos 13 aos 17, cartão de débito grátis e app para menores. Abrem os pais, os avós ou o representante legal.",
      "src": "https://www.santander.pt/contas/conta-bancaria-para-menores"
@@ -2171,7 +2165,7 @@
     },
     "poupanca": {
      "v": "Não",
-     "s": "Só depósitos e contas poupança com prazo, que penalizam os juros se levantares antes (até 1,00% TANB, 1,30% a partir de 100.000€)"
+     "s": "Só depósitos e contas poupança com prazo, que penalizam os juros se levantares antes (1,00% TANB até 15.000€, 1,05% a partir de 15.000€ e 1,30% a partir de 100.000€)"
     },
     "investir": {
      "v": "Fundos, PPR e bolsa",
@@ -2228,7 +2222,7 @@
       "v": "Mín. 50€",
       "s": "Online ou balcão"
      },
-     "nota": "Sem comissão de manutenção. Cartão de débito e cartão pré-pago grátis. Não é preciso ser estudante. Dos 26 aos 31 anos há a Conta 26.31.",
+     "nota": "Sem comissão de manutenção. Cartão de débito grátis (o pré-pago está temporariamente indisponível para novas adesões). Não é preciso ser estudante. Dos 26 aos 31 anos há a Conta 26.31.",
      "src": "https://www.novobanco.pt/en/personal/current-accounts/packaged-accounts/1825-account"
     },
     "menor": {
@@ -2273,7 +2267,7 @@
     },
     "cartao": {
      "v": "Incluído",
-     "s": "Cartão de débito e cartão pré-pago sem comissão na Conta 100%. À parte o débito custa 25€/ano + IS"
+     "s": "Cartão de débito sem comissão na Conta 100%. O cartão pré-pago está temporariamente indisponível para novas adesões. À parte o débito custa 25€/ano + IS"
     },
     "credito": {
      "v": "Incluído",
@@ -2335,7 +2329,7 @@
     },
     "abertura": {
      "v": "Online ou no balcão",
-     "s": "Chave Móvel Digital ou documento, selfie em vídeo e assinatura digital. Só cidadãos portugueses ou brasileiros com autorização de residência. Mínimo 250€"
+     "s": "Chave Móvel Digital ou documento, selfie em vídeo e assinatura digital. Online só para cidadãos portugueses, brasileiros ou com passaporte do Espaço Schengen, com residência em Portugal. Mínimo 250€"
     },
     "balcoes": {
      "v": "302 balcões",
@@ -3109,7 +3103,7 @@
     },
     "manut": {
      "v": "15€ por mês + IS",
-     "s": "15,60€ com IS. Na abertura online, 7,5€ + IS nos primeiros 6 meses. A campanha de 1€/mês acabou a 30/09/2026"
+     "s": "15,60€ com IS. Na abertura online, 7,5€ + IS nos primeiros 6 meses. Campanha novas empresas até 31/12/2026: 1€/mês nos primeiros 6 meses e 9€ + IS até ao 24.º mês após a constituição, só para sociedades"
     },
     "outrosPlanos": {
      "v": "M Empresa Premium 25€ + IS",
@@ -3174,7 +3168,16 @@
      "v": "211 130 300",
      "s": "Dias úteis, das 8h30 às 17h30. Também gestor e balcões"
     }
-   }
+   },
+   "tags": [
+    {
+     "t": "1€/mês nos primeiros 6 meses",
+     "w": 0,
+     "i": "cal",
+     "s": "Campanha para novas empresas que abram conta online e adiram à Solução M Empresa até 31/12/2026. Depois, 9€ + IS até ao 24.º mês e 15€ + IS a seguir",
+     "ate": "2026-12-31"
+    }
+   ]
   },
   {
    "id": "montepio-empresas",
