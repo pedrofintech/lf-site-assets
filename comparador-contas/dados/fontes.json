@@ -16,7 +16,7 @@
    "mbway": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_e_condi_es_mb_way_d84021e9_1.0.2_1772717297_pt.pdf",
    "pagamentos": "https://help.revolut.com/pt-PT/help/cards/multibanco/can-i-pay-bills-taxes-and-online-purchases-using-multibanco/",
    "numerario": "https://cdn.revolut.com/terms_and_conditions/pdf/pre_rio_18f7b306_1.5.5_1792685459_pt.pdf",
-   "carteiras": "https://www.revolut.com/pt-PT/",
+   "carteiras": "https://cdn.revolut.com/terms_and_conditions/pdf/termos_e_condi_es_para_clientes_particulares_dac36970_2.3.3_1790931433_pt.pdf",
    "jurosConta": "https://cdn.revolut.com/terms_and_conditions/pdf/ficha_de_informa_o_normalizada_3fab92be_1.3.0_1791202077_pt.pdf",
    "poupanca": "https://revolut.com/pt-PT/instant-access-savings",
    "jurosMax": "https://revolut.com/pt-PT/our-pricing-plans",
@@ -67,9 +67,9 @@
    "cartaoGratis": "https://www.bankinter.pt/documents/20182/497914/FIN+Conta+ONline/9bf9ea97-b9b2-4aef-9aed-0572f45e2542?version=1.21",
    "credito": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
    "levant": "https://www.bankinter.pt/documents/20182/497914/DIC+Conta+ONline+-+PT+01.102023.pdf/694ebe83-ac04-4764-8072-26bfd3effda9?version=1.2",
-   "levantFora": "https://banco.bankinter.pt/particulares/pdfs/precario/p_fcd_cartoes_credito_debito.pdf",
+   "levantFora": "https://clientebancario.bportugal.pt/sites/default/files/precario/0269_/0269_PRE_0.pdf",
    "transf": "https://www.bankinter.pt/documents/20182/497914/DIC+Conta+ONline+-+PT+01.102023.pdf/694ebe83-ac04-4764-8072-26bfd3effda9?version=1.2",
-   "cambio": "https://banco.bankinter.pt/particulares/pdfs/precario/p_fcd_cartoes_credito_debito.pdf",
+   "cambio": "https://clientebancario.bportugal.pt/sites/default/files/precario/0269_/0269_PRE_0.pdf",
    "iban": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
    "mbway": "https://www.bankinter.pt/dia-a-dia/contas-oferta/abrir-conta-bankinter-online",
    "pagamentos": "https://www.bankinter.pt/dia-a-dia/bankinter-mobile-app",
@@ -128,7 +128,7 @@
    "levant": "https://www.openbank.pt/cartao-debito-r42",
    "levantFora": "https://www.openbank.pt/assets/static/pt/pdf/Products/Precontratual_ContaOrdem_DIC_PT.pdf",
    "transf": "https://www.openbank.pt/enviar-dinheiro",
-   "cambio": "https://www.openbank.pt/cartoes-bancarios",
+   "cambio": "https://www.openbank.pt/assets/static/pt/pdf/Products/Precontratual_CartaoR42_PT.pdf",
    "iban": "https://www.openbank.pt/domiciliar-ordenado",
    "mbway": "https://www.mbway.pt/bancos-aderentes/",
    "pagamentos": "https://www.openbank.pt/domiciliar-ordenado",
@@ -307,7 +307,7 @@
    "cartaoGratis": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
    "credito": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
    "levant": "https://support.traderepublic.com/en-be/1666-What-are-the-withdrawal-fees",
-   "levantFora": "https://support.traderepublic.com/en-be/1666-What-are-the-withdrawal-fees",
+   "levantFora": "https://assets.traderepublic.com/assets/files/FeeInformation_PaymentAccount_en.pdf",
    "transf": "https://assets.traderepublic.com/assets/files/Press_Release_Portugal_PT_EN.pdf",
    "cambio": "https://assets.traderepublic.com/assets/files/Press_Release_Portugal_PT_EN.pdf",
    "iban": "https://assets.traderepublic.com/assets/files/Press_Release_Portugal_PT_EN.pdf",
@@ -369,7 +369,7 @@
    "levant": "https://ind.millenniumbcp.pt/pt/Particulares/Contas/Documents/dic/DIC_ContaMillennium.pdf",
    "levantFora": "https://ind.millenniumbcp.pt/pt/Articles/Documents/precario/SECCAO_03.pdf",
    "transf": "https://investimentos.millenniumbcp.pt/pt/Documents/10901033-PT.pdf",
-   "cambio": "https://ind.millenniumbcp.pt/pt/Articles/Documents/precario/SECCAO_03.pdf",
+   "cambio": "https://www.millenniumbcp.pt/cartoes/m-travel",
    "iban": "https://www.millenniumbcp.pt/contas/conta-a-ordem/conta-millennium-cliente-frequente",
    "mbway": "https://www.millenniumbcp.pt/contas/conta-a-ordem/conta-millennium-cliente-frequente",
    "pagamentos": "https://www.millenniumbcp.pt/contas/conta-a-ordem/conta-millennium-cliente-frequente",
@@ -391,7 +391,7 @@
    "perfis.jovem": "https://investimentos.millenniumbcp.pt/pt/Documents/SC0729-PT.pdf",
    "perfis.menor": "https://www.millenniumbcp.pt/contas/abrir-conta-para-menor/lets-go",
    "perfis.conjunta": "https://www.millenniumbcp.pt/abrir-conta-online",
-   "premio": "https://www.millenniumbcp.pt/campanhas/domiciliacao-ordenado"
+   "premio": "https://www.millenniumbcp.pt/media/hovb5c5p/reg-campanha-pingo-doce-novos.pdf"
   },
   "santander": {
    "custoAnoOrdenado": "https://www.santander.pt/pdfs/particulares/contas/contas-mundo-123/BST-IE-50008240.pdf",
@@ -423,7 +423,7 @@
    "perfis.jovem": "https://www.santander.pt/pdfs/particulares/contas/conta-jovem/BST-IE-50008945.pdf",
    "perfis.menor": "https://www.santander.pt/contas/conta-bancaria-para-menores",
    "perfis.conjunta": "https://www.santander.pt/contas/conta-santander-mais",
-   "premio": "https://www.santander.pt/contas/domiciliar-ordenado"
+   "premio": "https://www.santander.pt/pdfs/particulares/campanhas/BST-IE-50009285.pdf"
   },
   "novobanco": {
    "custoAnoOrdenado": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/contas-produto/GBES0741.pdf.coredownload.inline.pdf",

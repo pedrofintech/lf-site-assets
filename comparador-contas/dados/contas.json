@@ -1883,7 +1883,7 @@
    },
    "premio": {
     "t": "Até 650€ em saldo Pingo Doce",
-    "s": "50€ com o 1.º ordenado e 15% das compras no Pingo Doce com cartões Millennium, até 50€ por mês durante 12 meses, em saldo na app O Meu Pingo Doce. Ordenado desde 1.000€, só novos clientes, fidelização de 24 meses. Contas abertas até 15/01/2027.",
+    "s": "50€ com o 1.º ordenado e 15% das compras no Pingo Doce com cartões Millennium, até 50€ por mês durante 12 meses, em saldo na app O Meu Pingo Doce (valores líquidos de IRS). Ordenado desde 1.000€, só novos clientes, fidelização de 24 meses. Contas abertas até 15/01/2027.",
     "ate": "2027-01-15",
     "url": "https://www.millenniumbcp.pt/campanhas/domiciliacao-ordenado"
    },
@@ -1960,7 +1960,7 @@
     },
     "levantFora": {
      "v": "4€ + 0,50% + 3,85%",
-     "s": "Fora do EEE ou noutras moedas, mais IS. O Millennium Travel isenta a comissão de 3,85%"
+     "s": "Fora do EEE ou noutras moedas, mais IS. O M Travel isenta a comissão de 3,85%"
     },
     "transf": {
      "v": "25 grátis por mês",
@@ -1968,7 +1968,7 @@
     },
     "cambio": {
      "v": "3,85% + IS",
-     "s": "Comissão de serviço internacional nas compras noutras moedas. O Millennium Travel isenta"
+     "s": "Comissão de serviço internacional nas compras noutras moedas. O M Travel isenta"
     },
     "iban": {
      "v": "Português (PT50)",
@@ -2053,7 +2053,7 @@
    },
    "premio": {
     "t": "Até 1.000€ em pontos ou 500€",
-    "s": "1.000€ em pontos Santander Rewards (750€ com o ordenado e 250€ com 1 débito direto) ou 500€ na conta, com ordenado desde 1.200€. 100€ na conta com ordenados abaixo de 1.200€. Só novos clientes, fidelização de 25 meses. Contas abertas até 02/12/2026.",
+    "s": "1.000€ em pontos Santander Rewards (750€ com o ordenado e 250€ com 1 débito direto) ou 500€ na conta, com ordenado desde 1.200€. 100€ na conta com ordenado de 850€ a 1.199€. Só novos clientes, fidelização de 25 meses. Contas abertas até 02/12/2026.",
     "ate": "2026-12-02",
     "url": "https://www.santander.pt/contas/domiciliar-ordenado"
    },
