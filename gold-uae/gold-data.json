@@ -2,7 +2,7 @@
  "djg": {
   "date": "2026-11-22",
   "since": "03:49",
-  "checked": "03:49",
+  "checked": "15:33",
   "rates": {
    "24": 426.5,
    "22": 395.0,
@@ -307,14 +307,10 @@
  "spot": {
   "usdOz": 3539.0,
   "aedG": 417.86,
-  "at": "2026-11-21T23:49:51Z",
+  "at": "2026-11-22T11:33:51Z",
   "stale": false
  },
  "history": [
-  {
-   "d": "2025-11-20",
-   "g": 484.38
-  },
   {
    "d": "2025-11-21",
    "g": 477.69
@@ -1325,7 +1321,7 @@
   }
  ],
  "peg": 3.6725,
- "updatedAt": "2026-11-21T23:49:51Z",
+ "updatedAt": "2026-11-22T11:33:51Z",
  "sources": {
   "retail": "Dubai Jewellery Group (dubaicityofgold.com)",
   "spot": "api.gold-api.com",
