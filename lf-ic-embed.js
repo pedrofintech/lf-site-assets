@@ -1,4 +1,6 @@
-/* lf-ic-embed.js v1.6.0 - Literacia Financeira
+/* lf-ic-embed.js v1.7.0 - Literacia Financeira
+   v1.7.0 (26/11/2026): bloco de publicidade sem a frase "Parceiro do Literacia Financeira" (fica só a etiqueta Anúncio e o registo no BdP);
+   no artigo dos melhores intermediários entra antes do 2.º H2, onde estava a secção do Balcão que saiu do texto.
    v1.6.0 (26/11/2026): bloco também nos artigos Porta 65 Jovem, isenção de IMI e herança indivisa (teste para mais pedidos ao Balcão).
    Início de simulação de crédito habitação a meio dos artigos: só inputs, sem resultados.
    O botão abre o formulário do intermediário com as respostas na URL, para não as pedir outra vez.
@@ -21,7 +23,7 @@
   var PARCEIRO_FIXO = 'balcao';
 
   var ARTIGOS = {
-    'melhores-intermediarios-credito-portugal': { partner: 'balcao', link: true, h2: 3, cta: true },
+    'melhores-intermediarios-credito-portugal': { partner: 'balcao', link: true, h2: 2, cta: true },
     'melhor-banco-para-credito-habitacao': {},
     'melhor-credito-habitacao': {},
     'transferir-credito-habitacao': { tipo: 'transferencia' },
@@ -55,13 +57,13 @@
       nome: 'Balcão do Crédito',
       logo: 'https://cdn.prod.website-files.com/67922c46c9da6bf5d9bfdf09/6ab3dd9f0dcbc1c5129bb44a_logo-balcao-do-credito.svg',
       url: 'https://balcaodocredito.pt/pedido',
-      legal: 'Meridiano Feliz, intermediário de crédito vinculado, registado no Banco de Portugal com o n.º 0006480. Parceiro do Literacia Financeira.'
+      legal: 'Meridiano Feliz, intermediário de crédito vinculado, registado no Banco de Portugal com o n.º 0006480.'
     },
     credivel: {
       nome: 'Credível',
       logo: 'https://cdn.prod.website-files.com/67922c46c9da6bf5d9bfdf09/6ab525960ca382528b0b9ee7_logo-credivel.png',
       url: 'https://forms.gle/vnCS3CgHEBnUadH8A',
-      legal: 'Credível - Intermediação de Crédito, Unipessoal Lda, intermediário de crédito vinculado, registado no Banco de Portugal com o n.º 2663. Parceiro do Literacia Financeira.',
+      legal: 'Credível - Intermediação de Crédito, Unipessoal Lda, intermediário de crédito vinculado, registado no Banco de Portugal com o n.º 2663.',
       /* Pré-preenchimento do Google Form: { url: 'https://docs.google.com/forms/d/e/.../viewform', campos: { tipo: 'entry.1', valor_imovel: 'entry.2', ... }, opcoes: { compra: 'Texto exato da opção', transferencia: '...' } } */
       prefill: null
     }
