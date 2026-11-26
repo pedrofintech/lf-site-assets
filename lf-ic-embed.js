@@ -1,4 +1,5 @@
-/* lf-ic-embed.js v1.7.0 - Literacia Financeira
+/* lf-ic-embed.js v1.8.0 - Literacia Financeira
+   v1.8.0 (26/11/2026): no artigo dos melhores intermediários o bloco sobe para logo a seguir à introdução (antes do 1.º H2).
    v1.7.0 (26/11/2026): bloco de publicidade sem a frase "Parceiro do Literacia Financeira" (fica só a etiqueta Anúncio e o registo no BdP);
    no artigo dos melhores intermediários entra antes do 2.º H2, onde estava a secção do Balcão que saiu do texto.
    v1.6.0 (26/11/2026): bloco também nos artigos Porta 65 Jovem, isenção de IMI e herança indivisa (teste para mais pedidos ao Balcão).
@@ -23,7 +24,7 @@
   var PARCEIRO_FIXO = 'balcao';
 
   var ARTIGOS = {
-    'melhores-intermediarios-credito-portugal': { partner: 'balcao', link: true, h2: 2, cta: true },
+    'melhores-intermediarios-credito-portugal': { partner: 'balcao', link: true, h2: 1, cta: true },
     'melhor-banco-para-credito-habitacao': {},
     'melhor-credito-habitacao': {},
     'transferir-credito-habitacao': { tipo: 'transferencia' },
