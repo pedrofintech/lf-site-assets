@@ -1,4 +1,5 @@
-/* lf-ic-embed.js v1.5.0 - Literacia Financeira
+/* lf-ic-embed.js v1.6.0 - Literacia Financeira
+   v1.6.0 (26/11/2026): bloco também nos artigos Porta 65 Jovem, isenção de IMI e herança indivisa (teste para mais pedidos ao Balcão).
    Início de simulação de crédito habitação a meio dos artigos: só inputs, sem resultados.
    O botão abre o formulário do intermediário com as respostas na URL, para não as pedir outra vez.
    Parceiro (v1.5.0, 02/11/2026): o teste A/B Balcão vs Credível terminou e o parceiro é sempre o Balcão do Crédito
@@ -33,7 +34,10 @@
     'idade-maxima-credito-habitacao': {},
     'quanto-custa-comprar-casa': {},
     'credito-para-obras': {},
-    'comprar-segunda-habitacao': {}
+    'comprar-segunda-habitacao': {},
+    'porta-65-jovem-guia': {},
+    'isencao-imi': {},
+    'heranca-indivisa': {}
   };
   var CFG = window.LF_IC_CFG || {};
   var conf = (CFG.artigos && CFG.artigos[slug]) || ARTIGOS[slug];
